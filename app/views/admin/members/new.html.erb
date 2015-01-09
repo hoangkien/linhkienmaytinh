@@ -1,0 +1,63 @@
+<script>
+	$(document).ready(function(){
+		alert("aaaaaaa");
+	});
+</script>
+<div id="content-header">
+	<div id="title">
+		Thêm Mới Thành Viên
+	</div>
+</div>
+<%= form_for :member , url: admin_members_path do |f| %>
+<div id="main-content">
+	<div id="box">
+		<div id="action">
+			<div class="title">
+				Thông tin thành viên
+			</div>
+			<div class="action">
+				<ul>
+					<li><%= f.submit "Add", :disable_with => 'Adding...' , class:'btn'%></li>
+					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn', type:'reset' %></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<table>
+				<tr>
+					<td class="left"><%= f.label :username, "User Name" %></td>
+					<td><%= f.text_field :username , class:'text_field'%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :password, "Password" %></td>
+					<td><%= f.password_field :password, class:'text_field' %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :fullname, "Fullname" %></td>
+					<td><%= f.text_field :fullname ,class:'text_field'%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :gender, "Gender" %></td>
+					<td><%= select_tag'member[gender]',options_for_select('Male'=>0,'Female'=>1), class:'text_field' %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :indentity_card, "Indentity Card" %></td>
+					<td><%= f.text_field :indentity_card, class:'text_field' %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :birthday, "Birthday" %></td>
+					<td><%= f.text_field :birthday ,class:'text_field'%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :Address, "Address" %></td>
+					<td><%= f.text_field :address ,class:'text_field'%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :email, "Email" %></td>
+					<td><%= f.email_field :email ,class:'text_field'%></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<% end -%>

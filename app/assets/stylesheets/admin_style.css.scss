@@ -1,0 +1,198 @@
+body{
+	margin:0px 4px;
+	padding:0px;
+}
+#wraper{
+}
+/*===============HEADER===================*/
+#header{
+	height: 40px;
+	background: #000;
+	color: #fff;
+	line-height: 40px;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0px 0px 0px 10px;
+	border-bottom: 5px solid blue;
+}
+/*END HEADER*/
+ul,h1{
+	margin:0px;
+	padding:0px;
+}
+/*==========MENU==============*/
+
+
+#menu{
+	overflow:hidden;
+	background:#ccc;
+	border-bottom: 1px solid #A39898;
+}
+#menu .main-menu{
+	overflow:hidden;
+	float:left;
+}
+#menu ul.main-menu{
+	list-style:none;
+	overflow:hidden;
+	width:100%;
+	background:#ccc;
+	float:left;	
+}
+#menu ul.main-menu li.main-menu{
+	float: left;
+	line-height: 35px;
+	font-size: 14px;
+	font-weight: bold;
+	font-family: serif;
+	padding: 0px 15px;
+	border-right: 1px solid #B3B1B1;
+	letter-spacing: 2px;
+}
+#menu ul.main-menu li.main-menu a{
+	text-decoration:none;
+	color:#000;
+}
+#menu ul.main-menu li.main-menu a:hover{
+	color:blue;
+}
+#menu ul.main-menu li.main-menu a.active{
+	color:blue;
+}
+#menu #info{
+	float:right;
+}
+#info ul.info {
+	list-style:none;
+}
+#info ul.info li.info{
+	float: left;
+	line-height: 35px;
+	padding: 0px 9px;
+	border-right: 1px solid #AEACAC;
+}
+
+/*================ END MENU====================*/
+
+/*=================CONTENT======================*/
+
+#content{
+	min-height:500px;
+	clear:both
+}
+#content-header{
+	background: #FAFAFA;
+	margin: 0px 0px 0px 0px;
+	overflow: hidden;
+	border-bottom: 1px solid lightgrey;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 13px;
+	border:1px solid #ccc;
+}
+#content-header #title{
+	float:left;
+	font-size: 18px;
+	font-weight: bold;
+}
+#content-header #content-menu{
+	float: right;
+}
+#content-header #content-menu ul.content-menu{
+	list-style:none;
+}
+#content-header #content-menu ul.content-menu li.content-menu{
+	float:left;
+	padding: 0px 10px;
+	border-right: 1px solid #ccc;
+}
+#content-header #content-menu ul.content-menu li.content-menu:last-child{
+	padding-right:0px;
+	border-right:none;
+}
+#content #main-content{
+	background: #F2F2F2;
+	margin-top: 5px;
+	border-top: 1px solid lightgrey;
+	border-bottom: 1px solid lightgrey;
+	min-height: 500px;
+}
+#main-content #box{
+	height: 100%;
+	background: #fff;
+	margin: 5px 5px;
+	border: 1px solid #ccc;
+}
+#main-content #action{
+	margin-top: 5px;
+	border-bottom: 1px solid #DDD;
+	overflow: hidden;
+	padding-bottom: 5px;
+	padding-left: 13px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 17px;
+}
+#main-content #action #search,.title{
+	float:left;
+}
+#main-content #action .action{
+	float:right;
+	margin-right:10px;
+}
+#main-content #action .text_field{
+	width: 215px;
+	height: 20px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding:0px 0px 0px 10px;
+	height:25px;
+}
+#main-content #action .btn{
+	border: 1px solid #ccc;
+	width: 80px;
+	height: 26px;
+	font-size: 17px;
+}
+#main-content #action ul{
+	list-style:none;
+}
+#main-content #action  ul li{
+	float:left;
+	margin:0px 10px;
+}
+#main{
+	padding:13px;
+}
+#main table tr{
+	height:45px;
+}
+#main table tr td.left{
+	width:175px;
+	font-family: tahoma;
+	font-size: 17px;
+}
+#main table tr td input.text_field,select.text_field{
+	border: 1px solid #ccc;
+	height: 26px;
+	border-radius: 5px;
+	width: 300px;
+}
+#main table.table{
+	width: 100%;
+	border-collapse: collapse;
+}
+#main table.table tr th{
+	border-right: 1px solid #E0E0E0;
+	background: #ccc;
+	font-size: 14px;
+}
+#main table.table tr td{
+	border:1px solid #ccc;
+}
+/*==========Footer============*/
+#footer{
+	height: 40px;
+	line-height: 40px;
+}
+

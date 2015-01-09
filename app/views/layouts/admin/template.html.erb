@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Admin</title>
+	<%= stylesheet_link_tag "admin_style"%>
+	<%= stylesheet_link_tag "jquery.datetimepicker"%>
+	<%= javascript_include_tag "jquery.datetimepicker"%>
+</head>
+<body>
+	<div id="wraper">
+		<div id="header">
+			Administration
+		</div>
+		<div id="menu">
+			<div class="main-menu">
+				<ul class="main-menu">
+					<li class="main-menu"><%= link_to'Home',admin_home_index_path, class:'active' %></li>
+					<li class="main-menu"><%= link_to'Thành Viên',admin_members_path %></li>
+					<li class="main-menu"><%= link_to'Hệ Thống', admin_config_index_path %></li>
+					<li class="main-menu"><%= link_to'Sản Phẩm', admin_products_path%></li>
+					<li class="main-menu"><%= link_to'Bài Viết', admin_news_index_path%></li>
+					<li class="main-menu"><%= link_to'Khách Hàng', admin_customers_path%></li>
+				</ul>
+			</div>
+			<div id="info">
+				<ul class="info">
+					<li class="info">Chào <strong>Admin</strong></li>
+					<li class="info">Thông tin</li>
+					<li class="info">Đăng xuất</li>
+				</ul>
+			</div>
+		</div>
+		<div id="content">
+			<%= yield %>
+		</div>
+		<div id="footer">
+			Copyright &copy by HoangKien
+		</div>
+	</div>
+</body>
+</html>

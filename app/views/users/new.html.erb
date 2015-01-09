@@ -1,0 +1,14 @@
+<h1>Them user </h1>
+<div>
+	<%= form_for :user ,url:users_path do |f| %>
+		<p>
+			<%= f.label :username, "User Name :" %>
+			<%= f.text_field :username %>
+		</p>
+		<p>
+			<%= f.label :password, "Password :" %>
+			<%= f.password_field :password %>
+		</p>
+		<%= f.submit"Add User"%>
+	<% end%>
+</div>
