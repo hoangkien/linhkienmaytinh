@@ -1,0 +1,39 @@
+<script>
+	$(document).ready(function(){
+		alert("aaaaaaa");
+	});
+</script>
+<div id="content-header">
+	<div id="title">
+		Thêm Mới Thành Viên
+	</div>
+</div>
+<%= form_for :category , url: admin_categories_path do |f| %>
+<div id="main-content">
+	<div id="box">
+		<div id="action">
+			<div class="title">
+				Create a new category
+			</div>
+			<div class="action">
+				<ul>
+					<li><%= f.submit "Add", :disable_with => 'Adding...' , class:'btn'%></li>
+					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn', type:'reset' %></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<table>
+				<tr>
+					<td class="left"><%= f.label :id, "Caetgory Id" %></td>
+					<td><%= f.text_field :id , class:'text_field'%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :name, "Category Name" %></td>
+					<td><%= f.text_field :name, class:'text_field' %></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<% end -%>

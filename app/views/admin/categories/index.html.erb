@@ -22,19 +22,29 @@
 			<% end -%>
 		</div>
 		<div class="action">
-			<%= button_to'Add New',new_admin_member_path,class:'btn', method: :get %>
+			<%= button_to'Add New',new_admin_category_path,class:'btn', method: :get %>
 		</div>
 	</div>
 	<div id="main">
 		<table class="table">
 			<tr>
 				<th>ID</th>
-				<th>Product Name</th>
-				<th>Image</th>
-				<th>Category</th>
-				<th>Created_at</th>
-				<th>Action</th>
+				<th>Category Name</th>	
+				<th>Action</th>			
 			</tr>
+			<% @categories.each do |category|%>
+				<tr>
+					<td><%= category.id%></td>
+					<td><%= category.name %></td>
+					<td>
+						<%= link_to'Edit',edit_admin_category_path(category) %> &nbsp; &nbsp;
+						<%= link_to'Delete',admin_category_path(category),
+							method: :delete, 
+							data: { confirm:'Are you ok?'} %>&nbsp; &nbsp;
+						<%= link_to'View',admin_category_path(category) %>
+					</td>
+				</tr>
+			<% end %>
 		</table>
 	</div>
 </div>

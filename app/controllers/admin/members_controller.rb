@@ -35,6 +35,7 @@ class Admin::MembersController < ApplicationController
 	def delete_many
 		
 	end
+
 	private
 		def member_params
 			params.require(:member).permit(:username , :password , :fullname , :gender , :birthday , :email, :indentity_card , :address, :search)
