@@ -106,6 +106,9 @@ ul,h1{
 	padding: 0px 10px;
 	border-right: 1px solid #ccc;
 }
+#content-header #content-menu ul.content-menu li.content-menu a{
+	text-decoration:none;
+}
 #content-header #content-menu ul.content-menu li.content-menu:last-child{
 	padding-right:0px;
 	border-right:none;
@@ -154,6 +157,13 @@ ul,h1{
 	height: 26px;
 	font-size: 17px;
 }
+.btn{
+	border: 1px solid #ccc;
+	width: 80px;
+	height: 26px;
+	font-size: 17px;
+	margin-right:5px;
+}
 #main-content #action ul{
 	list-style:none;
 }
@@ -190,6 +200,33 @@ ul,h1{
 #main table.table tr td{
 	border:1px solid #ccc;
 }
+/*==============Pagination==============*/
+.pagination{
+	float:right;
+	margin-top:5px;
+}
+.pagination a , span , em{
+	display:block;
+	float:left;
+}
+.pagination a{
+	width :20px;
+	margin:0px 3px;
+}
+.pagination .next_page{
+	width:55px;
+}
+.pagination .previous_page{
+	width:87px;
+}
+.pagination em{
+	width: 20px;
+	font-weight: bold;
+}
+.pagination span{
+	width:28px;
+}
+
 /*==========Footer============*/
 #footer{
 	height: 40px;

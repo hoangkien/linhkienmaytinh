@@ -1,3 +1,24 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#checkall").change(function(){
+			check=$("#checkall").is(':checked');
+			if(check== true){
+				$("input[type=checkbox]").prop("checked","checked");
+			}else{
+				$("input[type=checkbox]").removeAttr("checked");
+			}
+		});
+	});
+	// function check(){
+	// 	check=$("#checkall").is(':checked');
+	// 	alert(check)
+	// 		if(check== true){
+	// 			$("input[type=checkbox]").attr("checked","checked");
+	// 		}else{
+	// 			$("input[type=checkbox]").removeAttr("checked");
+	// 	}
+	// }
+</script>
 <div id="content-header">
 	<div id="title">
 		Danh sách thành viên
@@ -19,11 +40,13 @@
 		</div>
 		<div class="action">
 			<%= button_to'Add New',new_admin_member_path,class:'btn', method: :get %>
+			<%= button_to'Delete Manny', url:'members/delete_many' %>
 		</div>
 	</div>
 	<div id="main">
 		<table class="table">
 			<tr>
+				<th><input type="checkbox" id="checkall" name="checkall" onchange="check()"></th>	
 				<th>ID</th>
 				<th>UserName</th>
 				<th>Password</th>
@@ -39,6 +62,7 @@
 			</tr>
 			<% @member.each do |member_info|%>
 				<tr>
+					<td><input type="checkbox" name="check[]" value="<%= member_info.id%>"></td>
 					<td><%= member_info.id%></td>
 					<td><%= member_info.username %></td>
 					<td><%= member_info.password %></td>
@@ -52,11 +76,12 @@
 					<td><%= member_info.updated_at %></td>
 					<td>
 						<%= link_to'Edit',edit_admin_member_path(member_info) %> &nbsp; &nbsp;
-						<%= link_to'Delete',admin_member_path(member_info),method: :delete, data: { confirm:'Are you ok?'} %>&nbsp; &nbsp;
+						<%= link_to'Delete',admin_member_path(member_info), method: :delete, data:{confirm:'Are you ok?'} %>&nbsp; &nbsp;
 						<%= link_to'View',admin_member_path(member_info) %>
 					</td>
 				</tr>
 			<% end -%>
 		</table>
+		<%= will_paginate @member %>
 	</div>
 </div>

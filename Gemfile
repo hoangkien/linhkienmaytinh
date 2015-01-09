@@ -7,6 +7,7 @@ gem 'rails', '3.2.21'
 
 gem 'mysql2'
 gem 'strong_parameters'
+gem 'will_paginate', '~> 3.0'
 
 
 # Gems used only for assets and not required

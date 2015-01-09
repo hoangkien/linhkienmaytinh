@@ -1,11 +1,12 @@
-<script>
-	$(document).ready(function(){
-		alert("aaaaaaa");
-	});
-</script>
+
 <div id="content-header">
 	<div id="title">
 		Thêm Mới Thành Viên
+	</div>
+	<div id="content-menu">
+		<ul class="content-menu">
+			<li class="content-menu"><button class='btn'><%= link_to"Back",admin_members_path %></button></li>
+		</ul>
 	</div>
 </div>
 <%= form_for :member , url: admin_members_path do |f| %>

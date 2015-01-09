@@ -1,9 +1,15 @@
+
 <div id="content-header">
 	<div id="title">
 		Sửa thông tin thành viên
 	</div>
+	<div id="content-menu">
+		<ul class="content-menu">
+			<li class="content-menu"><button class='btn'><%= link_to"Back",admin_members_path %></button></li>
+		</ul>
+	</div>
 </div>
-<%= form_for :member , url: admin_members_path do |f| %>
+<%= form_for :member , url: admin_member_path(@member), method: :put  do |f| %>
 <div id="main-content">
 	<div id="box">
 		<div id="action">
@@ -41,7 +47,7 @@
 				</tr>
 				<tr>
 					<td class="left"><%= f.label :birthday, "Birthday" %></td>
-					<td><%= f.text_field :birthday ,class:'text_field',type:'date'%></td>
+					<td><%= f.text_field :birthday ,class:'text_field'%></td>
 				</tr>
 				<tr>
 					<td class="left"><%= f.label :Address, "Address" %></td>
