@@ -18,6 +18,7 @@ class Admin::MembersController < ApplicationController
 	def edit
 		@member = Member.find(params[:id])
 	end
+
 	private
 		def member_params
 			params.require(:member).permit(:username , :password , :fullname , :gender , :birthday , :email, :indentity_card , :address, :search)

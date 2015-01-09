@@ -1,4 +1,8 @@
 RailsDemo::Application.routes.draw do
+  get "category/index"
+
+  get "product/index"
+
     namespace :admin do
       #Directs /admin/users/* to Admin::ProductsController
       #(app/controllers/admin/products_controller.rb)
@@ -21,6 +25,9 @@ RailsDemo::Application.routes.draw do
     end
     namespace :admin do
       resources :news
+    end
+    namespace :admin do
+      resources :categories
     end
   # The priority is based upon order of creation:
   # first created -> highest priority.
