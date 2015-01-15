@@ -22,12 +22,14 @@ class Admin::MembersController < ApplicationController
 		@member = Member.new(member_params)
 		#md5 mat khau truoc khi luu vao csdl
 		@member[:password] = Digest::MD5.hexdigest(@member[:password])
+		@member[:role] = 1
 		# @member.birthday = params[:birthday].to_s	
 		@member.save
 		redirect_to admin_members_path
 	end
 	def update
 		@member = Member.find(params[:id])
+		@member[:password] = Digest::MD5.hexdigest(@member[:password])
 		@member.update_attributes(member_params)
 		redirect_to admin_members_path
 	end
