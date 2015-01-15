@@ -1,9 +1,11 @@
+
 <div id="content-header">
 	<div id="title">
 		Thông tin thành viên
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
+			<li class="content-menu"><button class="btn"><%= link_to"Edit",edit_admin_member_path(@member.id)%></button></li>
 			<li class="content-menu"><button class='btn'><%= link_to"Back",admin_members_path %></button></li>
 		</ul>
 	</div>
@@ -22,17 +24,17 @@
 					<td class="left"><%= f.label :username, "User Name :" %></td>
 					<td><%= @member.username%></td>
 				</tr>
-				<tr>
+<!-- 				<tr>
 					<td class="left"><%= f.label :password, "Password :" %></td>
 					<td><%= @member.password%></td>
-				</tr>
+				</tr> -->
 				<tr>
 					<td class="left"><%= f.label :fullname, "Fullname :" %></td>
 					<td><%= @member.fullname%></td>
 				</tr>
 				<tr>
 					<td class="left"><%= f.label :gender, "Gender :" %></td>
-					<td><%= @member.gender == 1?'Nam': 'Nữ' %></td>
+					<td><%= @member.gender == 1?'Nữ': 'Nam' %></td>
 				</tr>
 				<tr>
 					<td class="left"><%= f.label :indentity_card, "Indentity Card :" %></td>

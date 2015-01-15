@@ -1,9 +1,11 @@
 class Admin::MembersController < ApplicationController
 	layout 'admin/template'
-	def index
-		@member = Member.paginate(:page => params[:page], :per_page => 5)
+	require'digest/md5'#su dung md5
+	before_filter :login
+	def index 	
+		@member = Member.paginate(:page => params[:page], :per_page => 5, :order=>('ID DESC'))
 		if params[:search]#kiem tra xem co gia tri get duoc truyen di
-			@member= Member.search(params[:search])#tim kiem trong model va truyen lai view
+			@member= Member.search(params[:search],params[:page])#tim kiem trong model va truyen lai view
 		end
 	end
 	def show
@@ -18,6 +20,8 @@ class Admin::MembersController < ApplicationController
 	end
 	def create
 		@member = Member.new(member_params)
+		#md5 mat khau truoc khi luu vao csdl
+		@member[:password] = Digest::MD5.hexdigest(@member[:password])
 		# @member.birthday = params[:birthday].to_s	
 		@member.save
 		redirect_to admin_members_path
@@ -32,9 +36,15 @@ class Admin::MembersController < ApplicationController
 		@member.destroy
 		redirect_to admin_members_path
 	end
-	def delete_many
-		
+	def delete
+		@member = params[:check]
+		@member.each do |member|
+		  @member = Member.find(member)
+		  @member.destroy
+		end
+		redirect_to admin_members_path
 	end
+
 
 	private
 		def member_params

@@ -1,0 +1,45 @@
+// Place all the styles related to the admin/login controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#login{
+	background: url("../bg_login.png")-1px 14px no-repeat;
+	height: 200px;
+	width:400px;
+	margin:auto;
+	margin-top:150px;	
+}
+#login form fieldset{
+	height:100%;
+}
+#login form p{
+	float: right;
+	margin: 6px 1px;
+	padding: 0px;
+}
+#login form p label{
+	display: block;
+	float: left;
+	width: 75px;
+}
+#login .err{
+	color:red;
+}
+#login form p input[type=text], input[type=password]{
+	width: 160px;
+	height: 25px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 0px 0px 0px 10px;
+}
+#login form p input[type=submit]{
+	height: 30px;
+	width: 80px;
+	border: 1px solid green;
+	background: green;
+	color: #fff;
+	border-radius: 10px;
+}
+#login form .login{
+	overflow: hidden;
+	margin-top: 50px;
+}

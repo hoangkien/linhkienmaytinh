@@ -1,9 +1,21 @@
 RailsDemo::Application.routes.draw do
+
+  mount Ckeditor::Engine => '/ckeditor'
+
+  root :to => 'admin/login#index'
+  get "login/new"
+
+  get "login/create"
+
+  get "login/destroy"
+
   get "category/index"
 
   get "product/index"
-
-    namespace :admin do
+  get "admin/signup" => "admin/login#index"
+  get "home" => "home/home#index"
+  
+   namespace :admin do
       #Directs /admin/users/* to Admin::ProductsController
       #(app/controllers/admin/products_controller.rb)
       resources :home
@@ -21,7 +33,11 @@ RailsDemo::Application.routes.draw do
       resources :config
     end
     namespace :admin do
-      resources :members
+      resources :members do
+      collection do
+        post'delete'
+        end
+      end
     end
     namespace :admin do
       resources :news
@@ -29,6 +45,22 @@ RailsDemo::Application.routes.draw do
     namespace :admin do
       resources :categories
     end
+   namespace :admin do
+      resources :login
+    end
+    namespace :admin do
+      namespace :members do
+        resources :del
+      end
+    end
+    namespace :home do
+      resources :home do
+        collection do 
+          post'preview'
+        end
+      end
+    end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -84,5 +116,5 @@ RailsDemo::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  #match ':controller(/:action(/:id))(.:format)'
 end

@@ -1,0 +1,40 @@
+</script>
+<div id="content-header">
+	<div id="title">
+		Thêm Bài Viết 
+	</div>
+	<div id="content-menu">
+		<ul class="content-menu">
+			<li class="content-menu"><button class='btn'><%= link_to"Back",admin_members_path %></button></li>
+		</ul>
+	</div>
+</div>
+<%= form_for :new , url: admin_members_path do |f| %>
+<div id="main-content">
+	<div id="box">
+		<div id="action">
+			<div class="title">
+				Thông tin bài viết
+			</div>
+			<div class="action">
+				<ul>
+					<li><%= f.submit "Add", :disable_with => 'Adding...' , class:'btn'%></li>
+					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn', type:'reset' %></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<table>
+				<tr>
+					<td class="left"><%= f.label :title, "Title" %></td>
+					<td><%= f.text_area :title , class: 'title'%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :content, "Content" %></td>
+					<td> <%= f.cktext_area :content ,:ckeditor => {:uiColor => '#AADC6E',:width => 700}%></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<% end -%>

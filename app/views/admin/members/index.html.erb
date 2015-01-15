@@ -1,23 +1,14 @@
-<script type="text/javascript">
+<script>
 	$(document).ready(function(){
-		$("#checkall").change(function(){
-			check=$("#checkall").is(':checked');
-			if(check== true){
-				$("input[type=checkbox]").prop("checked","checked");
-			}else{
-				$("input[type=checkbox]").removeAttr("checked");
-			}
-		});
-	});
-	// function check(){
-	// 	check=$("#checkall").is(':checked');
-	// 	alert(check)
-	// 		if(check== true){
-	// 			$("input[type=checkbox]").attr("checked","checked");
-	// 		}else{
-	// 			$("input[type=checkbox]").removeAttr("checked");
-	// 	}
-	// }
+    $("#checkall").change(function(){
+      check=$("#checkall").is(':checked');
+      if(check== true){
+        $("input[type=checkbox]").prop("checked","checked");
+      }else{
+        $("input[type=checkbox]").removeAttr("checked");
+      }
+    });
+ });
 </script>
 <div id="content-header">
 	<div id="title">
@@ -25,7 +16,7 @@
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
-			<li class="content-menu">Tất cả thành viên</li>
+			<li class="content-menu"><%= link_to"Tất cả thành viên",admin_members_path%></li>
 			<li class="content-menu">Danh sách quyền</li>
 		</ul>
 	</div>
@@ -35,12 +26,13 @@
 		<div id="search">
 			<%= form_tag(admin_members_path, :method=>"get") do %>
 				<%= text_field_tag :search,params[:search], placeholder:'Nhập tên', class:'text_field' %>
-				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class:'btn'%>
+				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class:'btn search'%>
 			<% end -%>
 		</div>
 		<div class="action">
 			<%= button_to'Add New',new_admin_member_path,class:'btn', method: :get %>
-			<%= button_to'Delete Manny', url:'members/delete_many' %>
+			<%= form_for :check ,url:delete_admin_members_path do |f| %>
+			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...', class:'btn' %>
 		</div>
 	</div>
 	<div id="main">
@@ -49,39 +41,36 @@
 				<th><input type="checkbox" id="checkall" name="checkall" ></th>	
 				<th>ID</th>
 				<th>UserName</th>
-				<th>Password</th>
 				<th>FullName</th>
 				<th>Gender</th>
 				<th>Indentity Card</th>
-				<!-- <th>Birthday</th> -->
-				<!-- <th>Address</th> -->
 				<th>Email</th>
+				<th>Role</th>
 				<th>Create</th>
 				<th>Update</th>
 				<th>Action</th>
 			</tr>
 			<% @member.each do |member_info|%>
 				<tr>
-					<td><input type="checkbox" name="check[]" value="<%= member_info.id%>"></td>
+					<td><%= check_box_tag('check[]',member_info.id)%></td>
 					<td><%= member_info.id%></td>
 					<td><%= member_info.username %></td>
-					<td><%= member_info.password %></td>
 					<td><%= member_info.fullname %></td>
-					<td><%= member_info.gender==1?'Nam': 'Nữ' %></td>
+					<td><%= member_info.gender==1?'Nữ': 'Nam' %></td>
 					<td><%= member_info.indentity_card %></td>
-					<!-- <td><%= member_info.birthday %></td> -->
-					<!-- <td><%= member_info.address %></td> -->
 					<td><%= member_info.email %></td>
+					<td><%= member_info.role ==1?'Admin': 'Customer'%></td>
 					<td><%= member_info.created_at %></td>
 					<td><%= member_info.updated_at %></td>
 					<td>
 						<%= link_to'Edit',edit_admin_member_path(member_info) %> &nbsp; &nbsp;
-						<%= link_to'Delete',admin_member_path(member_info), method: :delete, data:{confirm:'Are you ok?'} %>&nbsp; &nbsp;
+						<%= link_to'Delete',admin_member_path(member_info),method: :delete,data:{confirm:'Are you ok?'} %>&nbsp; &nbsp;
 						<%= link_to'View',admin_member_path(member_info) %>
 					</td>
 				</tr>
 			<% end -%>
 		</table>
+		<% end %>
 		<%= will_paginate @member %>
 	</div>
 </div>

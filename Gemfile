@@ -8,6 +8,11 @@ gem 'rails', '3.2.21'
 gem 'mysql2'
 gem 'strong_parameters'
 gem 'will_paginate', '~> 3.0'
+gem "galetahub-simple_captcha", :require => "simple_captcha"
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'paperclip'
+gem 'responders'
+
 
 
 # Gems used only for assets and not required
