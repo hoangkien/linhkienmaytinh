@@ -60,6 +60,10 @@ RailsDemo::Application.routes.draw do
         end
       end
     end
+    namespace :home do
+      resources :about
+    end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
