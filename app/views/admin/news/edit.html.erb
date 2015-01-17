@@ -1,7 +1,7 @@
-</script>
+
 <div id="content-header">
 	<div id="title">
-		Add news
+		Edit Profile
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
@@ -9,7 +9,7 @@
 		</ul>
 	</div>
 </div>
-<%= form_for :news , url: admin_news_index_path, method: :post do |f| %>
+<%= form_for :news , url: admin_news_path(@news.id), method: :put  do |f| %>
 <div id="main-content">
 	<div id="box">
 		<div id="action">
@@ -18,7 +18,7 @@
 			</div>
 			<div class="action">
 				<ul>
-					<li><%= f.submit "Add", :disable_with => 'Adding...' , class:'btn'%></li>
+					<li><%= f.submit "Update", :disable_with => 'Adding...' , class:'btn'%></li>
 					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn', type:'reset' %></li>
 				</ul>
 			</div>
@@ -27,15 +27,11 @@
 			<table>
 				<tr>
 					<td class="left"><%= f.label :title, "Title" %></td>
-					<td><%= f.text_area :title , class: 'title'%></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :description, "Description" %></td>
-					<td><%= f.text_area :discription, class: 'short_content' %></td>
+					<td><%= f.text_area :title , class:'title'%></td>
 				</tr>
 				<tr>
 					<td class="left"><%= f.label :content, "Content" %></td>
-					<td> <%= f.cktext_area :content ,:ckeditor => {:width => 1000}%></td>
+					<td><%= f.cktext_area :content %></td>
 				</tr>
 			</table>
 		</div>

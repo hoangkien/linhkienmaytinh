@@ -1,0 +1,36 @@
+
+<div id="content-header">
+	<div id="title">
+		Profile
+	</div>
+	<div id="content-menu">
+		<ul class="content-menu">
+			<li class="content-menu"><button class="btn"><%= link_to"Edit",edit_admin_news_path(@news.id)%></button></li>
+			<li class="content-menu"><button class='btn'><%= link_to"Back",admin_news_index_path %></button></li>
+		</ul>
+	</div>
+</div>
+<%= form_for :member , url: admin_members_path do |f| %>
+<div id="main-content">
+	<div id="box">
+		<div id="action">
+			<div class="title">
+				News
+			</div>
+		</div>
+		<div id="main">
+				<div class="title-news">
+					<strong><%= @news.title%></strong>
+				</div>
+				<div class="author">
+					<p>Category: <%= @news.catenews.name%></p>
+					<p>Author: <%= @news.member.fullname %></p>
+					<p>Date: <%= @news.created_at %></p>
+				</div>
+				<div class="content-news">
+					<%= raw(@news.content)%>
+				</div>
+		</div>
+	</div>
+</div>
+<% end -%>

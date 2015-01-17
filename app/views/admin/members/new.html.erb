@@ -1,7 +1,7 @@
 </script>
 <div id="content-header">
 	<div id="title">
-		Thêm Mới Thành Viên
+		Add Member
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
@@ -14,7 +14,7 @@
 	<div id="box">
 		<div id="action">
 			<div class="title">
-				Thông tin thành viên
+				Member Infomation
 			</div>
 			<div class="action">
 				<ul>
@@ -24,6 +24,16 @@
 			</div>
 		</div>
 		<div id="main">
+			  <% if @member.errors.any? %>
+			    <div id="error">
+			      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+			      <ul>
+			      <% @member.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
 			<table>
 				<tr>
 					<td class="left"><%= f.label :username, "User Name" %></td>
@@ -31,7 +41,11 @@
 				</tr>
 				<tr>
 					<td class="left"><%= f.label :password, "Password" %></td>
-					<td><%= f.password_field :password, class:'text_field' %></td>
+					<td><%= password_field :member,:password, class:'text_field' %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :password_confirm, "Password Confirm" %></td>
+					<td><%= password_field :member ,:password_confirmation, class:'text_field' %></td>
 				</tr>
 				<tr>
 					<td class="left"><%= f.label :fullname, "Fullname" %></td>

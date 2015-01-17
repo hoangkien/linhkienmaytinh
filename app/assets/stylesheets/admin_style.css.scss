@@ -1,6 +1,7 @@
 body{
 	margin:0px 4px;
 	padding:0px;
+	font-size: 14px
 }
 #wraper{
 }
@@ -110,7 +111,7 @@ ul,h1{
 	text-decoration:none;
 }
 #content-header #content-menu ul.content-menu li.content-menu:last-child{
-	padding-right:0px;
+	padding-right:13px;
 	border-right:none;
 }
 #content #main-content{
@@ -158,7 +159,7 @@ ul,h1{
 	border: 1px solid #ccc;
 	min-width: 108px;
 	height: 26px;
-	font-size: 17px;
+	font-size: 15px;
 }
 #main-content #action .btn.search{
 	margin-left: 7px;
@@ -185,10 +186,45 @@ ul,h1{
 #main table tr{
 	height:45px;
 }
+#main table tr.head{
+	height:30px;
+}
+#main table tr.search{
+	text-align:center;
+	height:10px;
+}
 #main table tr td.left{
 	width:175px;
 	font-family: tahoma;
 	font-size: 17px;
+	vertical-align: top;
+}
+#main table tr td.col1{
+	width:20px;
+}
+#main table tr td.col1 input[type=text]{
+	width:20px;
+}
+#main table tr td.col-title{
+	width:260px;
+}
+#main table tr td.col-title input[type=text]{
+	width:260px;
+}
+#main table tr td.col2,td.col-date{
+	width:90px;
+}
+#main table tr td.col2 input[type=text]{
+	width:90px;
+}
+#main table tr td.col-des input[type=text]{
+	width:390px;
+}
+#main table tr td.col-date input[type=text]{
+	width:90px;
+}
+#main table tr td.action{
+	width:145px;
 }
 #main table tr td input.text_field,select.text_field{
 	border: 1px solid #ccc;
@@ -210,6 +246,37 @@ ul,h1{
 }
 #main table tr td textarea.title{
 	height:40px;
+}
+#main table tr td textarea.short_content{
+	height: 45px;
+	width: 996px;
+}
+#main .content-news{
+	width:600px;
+}
+#main .author{
+	margin-top:40px;
+	clear:both;
+
+}
+#main .title-news{
+	font-size:24px;
+	color:blue;
+	float:left;
+}
+#main .author p{
+	margin:0px;
+}
+#main #error{
+	margin-bottom:20px;
+}
+#main #error h2{
+	margin:0px;
+	color:red;
+}
+#main #error ul li{
+	list-style:square;
+	margin-left:20px;
 }
 /*==============Pagination==============*/
 .pagination{

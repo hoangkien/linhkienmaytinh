@@ -12,6 +12,7 @@ gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'paperclip'
 gem 'responders'
+gem 'turbolinks'
 
 
 

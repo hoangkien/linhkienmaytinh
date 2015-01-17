@@ -119,6 +119,8 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    turbolinks (2.5.3)
+      coffee-rails
     tzinfo (0.3.42)
     uglifier (2.7.0)
       execjs (>= 0.3.0)
@@ -140,5 +142,6 @@ DEPENDENCIES
   responders
   sass-rails (~> 3.2.3)
   strong_parameters
+  turbolinks
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0)
