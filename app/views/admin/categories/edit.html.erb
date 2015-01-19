@@ -1,6 +1,11 @@
 <div id="content-header">
 	<div id="title">
-		Sửa thông tin thành viên
+		Edit category information
+	</div>
+	<div id="content-menu">
+		<ul class="content-menu">
+			<li class="content-menu"><button class='btn'><%= link_to"Back",admin_categories_path %></button></li>
+		</ul>
 	</div>
 </div>
 <%= form_for :category , url: admin_category_path, method: :put do |f| %>
@@ -8,7 +13,7 @@
 	<div id="box">
 		<div id="action">
 			<div class="title">
-				Thông tin thành viên
+				Category Information
 			</div>
 			<div class="action">
 				<ul>

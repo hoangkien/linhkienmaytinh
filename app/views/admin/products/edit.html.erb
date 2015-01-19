@@ -34,7 +34,7 @@
 				</tr>
 				<tr>
 					<td class="left"><%= f.label :category, "Category :" %></td>
-					<td><%= select_tag"category_id",options_from_collection_for_select(@category,"id","name"),selected: [@product.category_id,@product.category.name]%></td>
+					<td><%= select_tag"product[category_id]",options_from_collection_for_select(@category,"id","name"),selected: [@product.category_id,@product.category.name]%></td>
 				</tr>
 				<tr>
 					<td class="left"><%= f.label :image, "Image :" %></td>

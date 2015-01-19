@@ -31,7 +31,7 @@
 				</tr>
 				<tr>
 					<td class="left"><%= f.label :category_id, "Category ID" %></td>
-					<td><%= f.text_field :category_id , class:'text_field'%></td>
+					<td><%= select_tag"product[category_id]",options_from_collection_for_select(@category,"id","name")%></td>
 				</tr>
 				<tr>
 					<td class="left"><%= f.label :name, "Name" %></td>
