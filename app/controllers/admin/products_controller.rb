@@ -2,6 +2,7 @@ class Admin::ProductsController < ApplicationController
 	layout'admin/template'
 	def index
 		@product = Product.all
+		@product = Product.paginate(:page => params[:page], :per_page => 1)
 	end
 	def new
 		@product = Product.new
