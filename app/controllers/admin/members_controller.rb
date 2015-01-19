@@ -20,10 +20,7 @@ class Admin::MembersController < ApplicationController
 	end
 	def create
 		@member = Member.new(member_params)
-		#md5 mat khau truoc khi luu vao csdl
 		@member[:role] = 1
-		# abort("#{@member[:password]} + #{@member[:password_confirmation]}")
-		# @member.birthday = params[:birthday].to_s	
 	    respond_to do |format|
 	      if @member.save
 	        format.html { redirect_to admin_members_path, notice: 'User was successfully created.' }
@@ -34,7 +31,6 @@ class Admin::MembersController < ApplicationController
 	end
 	def update
 		@member = Member.find(params[:id])
-		@member[:password] = Digest::MD5.hexdigest(@member[:password])
 		@member.update_attributes(member_params)
 		redirect_to admin_members_path
 	end

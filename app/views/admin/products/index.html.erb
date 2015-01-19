@@ -22,19 +22,36 @@
 			<% end -%>
 		</div>
 		<div class="action">
-			<%= button_to'Add New',new_admin_member_path,class:'btn', method: :get %>
+			<%= button_to'Add New',new_admin_product_path,class:'btn', method: :get %>
 		</div>
 	</div>
 	<div id="main">
 		<table class="table">
 			<tr>
 				<th>ID</th>
+				<th>Product ID</th>
 				<th>Product Name</th>
-				<th>Image</th>
 				<th>Category</th>
-				<th>Created_at</th>
+				<th>Image</th>
 				<th>Action</th>
 			</tr>
+			<% if @product.count > 0 %>
+				<% @product.each  do |product_info|%>
+					<tr>
+						<td><%= product_info.id%></td>
+						<td><%= product_info.product_id%></td>
+						<td><%= product_info.name%></td>
+						<td><%= product_info.category.name%></td>
+						<td style="width:150px"><%= image_tag("#{product_info.image}",size:"150x100")%></td>
+						<td style="text-align:center">
+							<%= link_to"Show",admin_product_path(product_info.id)%> &nbsp;&nbsp;
+							<%= link_to"Edit",edit_admin_product_path(product_info.id)%>&nbsp;&nbsp;
+							<%= link_to"Delete",admin_product_path(product_info.id), method: :delete, data:{:confirm=>"Are you Ok?"}%>
+						</td>
+					</tr>
+				<% end -%>
+			<% else%>
+			<% end -%>
 		</table>
 	</div>
 </div>

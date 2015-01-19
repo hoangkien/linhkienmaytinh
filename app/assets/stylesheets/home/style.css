@@ -252,6 +252,9 @@ body {
 	text-transform:uppercase;
 	font-family: 'ambleregular';	
 }
+.categories li{
+	position: relative;
+}
 .categories li a{
 	display:block;
 	font-size:0.8em;
@@ -268,6 +271,29 @@ body {
 }
 .categories li a:hover{
 	color:#B81D22;
+
+}
+.categories li:hover ul{
+	display: block;
+}
+.categories li ul{
+	position: absolute;
+	left: 234px;
+	z-index: 9999;
+	top:0px;
+	display: none;
+}
+.categories li ul li a{
+	display:block;
+	font-size:0.8em;
+	padding:8px 15px;
+    color: #9C9C9C;
+    font-family: 'ambleregular';
+    margin:0 20px;
+    background:url(../images/drop_arrow.png) no-repeat 0;
+    border-bottom: 1px solid #EEE;
+    text-transform:uppercase;	
+}
 }
 .header_bottom_right{
 	float:left;

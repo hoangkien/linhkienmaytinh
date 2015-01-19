@@ -199,6 +199,9 @@ ul,h1{
 	font-size: 17px;
 	vertical-align: top;
 }
+#main table tr td{
+	vertical-align: top;
+}
 #main table tr td.col1{
 	width:20px;
 }
@@ -243,9 +246,14 @@ ul,h1{
 }
 #main table.table tr td{
 	border:1px solid #ccc;
+	vertical-align:middle;
 }
 #main table tr td textarea.title{
 	height:40px;
+}
+#main table tr td select{
+	width: 300px;
+	height: 30px;
 }
 #main table tr td textarea.short_content{
 	height: 45px;

@@ -1,5 +1,4 @@
 RailsDemo::Application.routes.draw do
-
   mount Ckeditor::Engine => '/ckeditor'
 
   root :to => 'admin/login#index'
@@ -12,6 +11,8 @@ RailsDemo::Application.routes.draw do
   get "category/index"
 
   get "product/index"
+  get "products" => "home/products#index"
+  get "products/preview" => "home/products#preview"
   get "admin/signup" => "admin/login#index"
   get "home" => "home/home#index"
   
@@ -53,18 +54,25 @@ RailsDemo::Application.routes.draw do
         resources :del
       end
     end
+ 
     namespace :home do
-      resources :home do
-        collection do 
-          post'preview'
-        end
-      end
+      resources :home
     end
     namespace :home do
       resources :about
     end
-
-
+    namespace :home do
+      resources :contact
+    end
+    namespace :home do
+      resources :news
+    end
+    resources :products do
+        collection do
+          get'preview'
+        end
+      end
+      resources :home
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

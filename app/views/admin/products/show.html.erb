@@ -1,0 +1,62 @@
+<div id="content-header">
+	<div id="title">
+		Profile
+	</div>
+	<div id="content-menu">
+		<ul class="content-menu">
+			<li class="content-menu"><button class="btn"><%= link_to"Edit",edit_admin_product_path(@product.id)%></button></li>
+			<li class="content-menu"><button class='btn'><%= link_to"Back",admin_products_path %></button></li>
+		</ul>
+	</div>
+</div>
+<%= form_for :product , url: admin_products_path do |f| %>
+<div id="main-content">
+	<div id="box">
+		<div id="action">
+			<div class="title">
+				Product Infomation
+			</div>
+		</div>
+		<div id="main">
+			<table>
+				<tr>
+					<td class="left"><%= f.label :product_id, "Product ID:" %></td>
+					<td><%= @product.product_id%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :name, "Name :" %></td>
+					<td><%= @product.name%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :category, "Category :" %></td>
+					<td><%= @product.category.name %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :image, "Image :" %></td>
+					<td><%= image_tag("#{@product.image}",size:"150x100")%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :size, "Size :" %></td>
+					<td><%= @product.size %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :light, "Light :" %></td>
+					<td><%= @product.light %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :capacity, "Capacity :" %></td>
+					<td><%= @product.capacity %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :guarantee, "Guarantee :" %></td>
+					<td><%= @product.guarantee %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :price, "Price :" %></td>
+					<td><%= @product.price 	%></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<% end -%>

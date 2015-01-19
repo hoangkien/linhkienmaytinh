@@ -5,11 +5,11 @@ class Member < ActiveRecord::Base
   after_validation :md5 #set md5 cho password sau khi validate xong
   attr_accessible :username, :password, :fullname ,:gender ,:birthday ,:email,:indentity_card, :address,:search,:password_confirmation
   has_many :news
-  validates :username, uniqueness:true,format:{with:/\A[a-zA-Z]+\z/}, length:{in: 5..20}
-  validates :fullname,length:{ in:5..20}
-  validates :password,confirmation:true,format:{with:/\A[a-zA-Z0-9]+\z/},allow_blank:true
-  validates :password_confirmation, presence:true
-  validates :email, uniqueness:true,presence:true
+  validates :username, uniqueness:true,format:{with:/\A[a-zA-Z]+\z/}, length:{in: 5..20},on: :create
+  validates :fullname,length:{ in:5..20},on: :create
+  validates :password,confirmation:true,format:{with:/\A[a-zA-Z0-9]+\z/},allow_blank:true,on: :create
+  validates :password_confirmation, presence:true,on: :create
+  validates :email, uniqueness:true,presence:true,on: :create
   def self.search(query,page)
   	  paginate  :per_page => 5, :page => page,
           		  :conditions => ["username like ? or fullname like ?","%#{query}%","%#{query}%"]
@@ -20,8 +20,5 @@ class Member < ActiveRecord::Base
   private
   def md5
       self.password = Digest::MD5.hexdigest(password)
-  end
-  def message
-    puts'add success'
   end
 end

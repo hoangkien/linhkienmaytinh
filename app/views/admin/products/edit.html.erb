@@ -1,0 +1,70 @@
+<div id="content-header">
+	<div id="title">
+		Edit Profile
+	</div>
+	<div id="content-menu">
+		<ul class="content-menu">
+			<li class="content-menu"><button class='btn'><%= link_to"Back",admin_products_path %></button></li>
+		</ul>
+	</div>
+</div>
+<%= form_for :product , url: admin_product_path(@product), method: :put  do |f| %>
+<div id="main-content">
+	<div id="box">
+		<div id="action">
+			<div class="title">
+				Product Infomation
+			</div>
+			<div class="action">
+				<ul>
+					<li><%= f.submit "Update", :disable_with => 'Adding...' , class:'btn'%></li>
+					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn', type:'reset' %></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<table>
+				<tr>
+					<td class="left"><%= f.label :product_id, "Product ID:" %></td>
+					<td><%= f.text_field :product_id , class:'text_field'%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :name, "Name :" %></td>
+					<td><%= f.text_field :name , class:'text_field'%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :category, "Category :" %></td>
+					<td><%= select_tag"category_id",options_from_collection_for_select(@category,"id","name"),selected: [@product.category_id,@product.category.name]%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :image, "Image :" %></td>
+					<td>
+						<%= image_tag("#{@product.image}", size:"150x100",name:'product[old_img]') %>
+						<div><%= f.file_field :image %></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :size, "Size :" %></td>
+					<td><%= f.text_field :size , class:'text_field'%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :light, "Light :" %></td>
+					<td><%= f.text_field :light, class:'text_field'%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :capacity, "Capacity :" %></td>
+					<td><%= f.text_field :capacity, class:'text_field' %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :guarantee, "Guarantee :" %></td>
+					<td><%= f.text_field :guarantee , class:'text_field'%></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :price, "Price :" %></td>
+					<td><%= f.text_field :price , class:'text_field'%></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<% end -%>

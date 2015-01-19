@@ -3,7 +3,12 @@
 				<div class="categories">
 				  <ul>
 				  	<h3>Categories</h3>
-				      <li><a href="#">Mobile Phones</a></li>
+				      <li><a href="#">Mobile Phones</a>
+				      	<ul class="sub-menu">
+				      		<li><a href="#">abc</a></li>
+				      		<li><a href="#">abc</a></li>
+				      	</ul>
+				      </li>
 				      <li><a href="#">Desktop</a></li>
 				      <li><a href="#">Laptop</a></li>
 				      <li><a href="#">Accessories</a></li>
@@ -91,7 +96,7 @@
 							<p><span class="rupees">$620.87</span></p>
 					    </div>
 					       		<div class="add-cart">								
-									<h4><%= link_to"Add to Cart", preview_home_home_index_path, method: :post %></a></h4>
+									<h4><%= link_to"Add to Cart", preview_products_path, method: :get %></a></h4>
 							     </div>
 							 <div class="clear"></div>
 					</div>

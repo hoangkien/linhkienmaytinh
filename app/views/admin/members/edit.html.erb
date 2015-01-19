@@ -25,6 +25,16 @@
 		</div>
 		<div id="main">
 			<table>
+				<% if @member.errors.any? %>
+				    <div id="error">
+				      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+				      <ul>
+				      <% @member.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				<% end %>
 				<tr>
 					<td class="left"><%= f.label :username, "User Name" %></td>
 					<td><%= f.text_field :username , class:'text_field'%></td>
