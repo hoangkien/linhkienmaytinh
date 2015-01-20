@@ -1,17 +1,17 @@
 
 <% @category.each do |category|%>
-<div style="width: 1029px;margin: auto;">
 	<div class="content">
-			<div class="content_top">
-				<div class="heading">
-					<h3><%= category.name%></h3>
-				</div>
-				<div class="see">
-    				<p><%= link_to"See all products",home_product_path("#{category.id}")%></p>
-				<div class="clear"></div>
+		<div class="content_top">
+			<div class="heading">
+				<h3><%= category.name%></h3>
 			</div>
+			 <div class="see">
+    			<p><%= link_to"See all products", home_product_path("#{category.id}")%></p>
+    		</div>
+			<div class="clear"></div>
 		</div>
-			<div class="section group">
+		<div class="section group">
+		<% if category.products.count > 0 %>
 			<% category.products.each do |product| %>
 				<div class="grid_1_of_4 images_1_of_4">
 					<a href="preview.html"><%= image_tag("#{product.image}",size:"210x150" )%></a>
@@ -27,7 +27,11 @@
 					</div>				     
 				</div>
 			<% end -%>
-				</div>
+		<% else %>
+			<div class="grid_1_of_4 images_1_of_4">
+				Không có sản phẩm nào
 			</div>
-</div>
+		<% end -%>
+		</div>
+	</div>
 <% end -%>
