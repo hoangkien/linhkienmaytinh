@@ -2,7 +2,10 @@ class Admin::ProductsController < ApplicationController
 	layout'admin/template'
 	def index
 		@product = Product.all
-		@product = Product.paginate(:page => params[:page], :per_page => 1)
+		@product = Product.paginate(:page => params[:page], :per_page => 5)
+		if params[:search]#kiem tra xem co gia tri get duoc truyen di
+			@product=Product.search(params[:search],params[:page])#tim kiem trong model va truyen lai view
+		end
 	end
 	def new
 		@product = Product.new
@@ -42,6 +45,14 @@ class Admin::ProductsController < ApplicationController
 		@product.update_attributes(@pro)
 		redirect_to admin_products_path
 
+	end
+	def delete
+		@product = params[:check]
+		@product.each do |product|
+		  @product = Product.find(product)
+		  @product.destroy
+		end
+		redirect_to admin_products_path
 	end
 	def destroy
 		@product = Product.find(params[:id])

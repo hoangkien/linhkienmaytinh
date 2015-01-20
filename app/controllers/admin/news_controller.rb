@@ -3,6 +3,10 @@ class Admin::NewsController < ApplicationController
 	before_filter :login
 	def index
 		@news = News.all
+		@news = News.paginate(:page => params[:page], :per_page => 5, :order=>('ID DESC'))
+		if params[:search]#kiem tra xem co gia tri get duoc truyen di
+			@news= News.search(params[:search],params[:page])#tim kiem trong model va truyen lai view
+		end
 	end
 	def new
 		

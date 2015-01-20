@@ -17,8 +17,8 @@
 	<div id="action">
 		<div id="search">
 			<%= form_tag(admin_members_path, :method=>"get") do %>
-				<%= text_field_tag :search,params[:search], placeholder:'Nhập tên', class:'text_field' %>
-				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class:'btn'%>
+				<%= text_field_tag :search,params[:search], placeholder:'Search..', class:'text_field' %>
+				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class:'btn search'%>
 			<% end -%>
 		</div>
 		<div class="action">
@@ -27,7 +27,7 @@
 	</div>
 	<div id="main">
 		<table class="table">
-			<tr>
+			<tr class="head">
 				<th>ID</th>
 				<th>Category Name</th>	
 				<th>Action</th>			

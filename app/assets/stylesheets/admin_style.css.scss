@@ -161,6 +161,9 @@ ul,h1{
 	height: 26px;
 	font-size: 15px;
 }
+#main-content #action .btn:hover{
+	cursor:pointer;
+}
 #main-content #action .btn.search{
 	margin-left: 7px;
 	height: 28px;
@@ -184,7 +187,7 @@ ul,h1{
 	padding:13px;
 }
 #main table tr{
-	height:45px;
+	min-height:25px;
 }
 #main table tr.head{
 	height:30px;

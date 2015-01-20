@@ -4,10 +4,36 @@
       check=$("#checkall").is(':checked');
       if(check== true){
         $("input[type=checkbox]").prop("checked","checked");
+        $("#main-content #action .action #delete").removeAttr('disabled');
       }else{
         $("input[type=checkbox]").removeAttr("checked");
+        $("#main-content #action .action #delete").prop('disabled','disabled');
+
       }
     });
+
+    $("#main-content #main table #check_").change(function(){
+
+    	var checked = false;
+    	var checkedAll = true;
+    	 $("#main-content #main table #check_").each(function(i,e){
+    	 	if ($(e).prop('checked')) {
+    	 		checked = true;
+    	 	}else{
+    	 		checkedAll = false;
+    	 	}
+    	 });
+    	 if (checked) {
+    	 	 $("#main-content #action .action #delete").removeAttr('disabled');
+    	 }else{
+    	 	$("#main-content #action .action #delete").prop('disabled','disabled');
+    	 }
+    	 if (checkedAll) {
+    	 	$("#checkall").prop("checked","checked");
+    	 };
+
+    });
+
  });
 </script>
 <div id="content-header">
@@ -32,7 +58,7 @@
 		<div class="action">
 			<%= button_to'Add New',new_admin_member_path,class:'btn', method: :get %>
 			<%= form_for :check ,url:delete_admin_members_path do |f| %>
-			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...', class:'btn' %>
+			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true,data:{:confirm=>"Are you sure ?"}, class:'btn' %>
 		</div>
 	</div>
 	<div id="main">
@@ -50,23 +76,29 @@
 				<th>Update</th>
 				<th>Action</th>
 			</tr>
-			<% @member.each do |member_info|%>
+			<% if @member.count > 0%>
+				<% @member.each do |member_info|%>
+					<tr>
+						<td><%= check_box_tag('check[]',member_info.id)%></td>
+						<td><%= member_info.id%></td>
+						<td><%= member_info.username %></td>
+						<td><%= member_info.fullname %></td>
+						<td><%= member_info.gender== '1' ? 'Nữ': 'Nam' %></td>
+						<td><%= member_info.indentity_card %></td>
+						<td><%= member_info.email %></td>
+						<td><%= member_info.role ==1?'Admin': 'Customer'%></td>
+						<td><%= member_info.created_at %></td>
+						<td><%= member_info.updated_at %></td>
+						<td>
+							<%= link_to'Edit',edit_admin_member_path(member_info) %> &nbsp; &nbsp;
+							<%= link_to'Delete',admin_member_path(member_info),method: :delete,data:{confirm:'Are you ok?'} %>&nbsp; &nbsp;
+							<%= link_to'View',admin_member_path(member_info) %>
+						</td>
+					</tr>
+				<% end -%>
+			<% else %>
 				<tr>
-					<td><%= check_box_tag('check[]',member_info.id)%></td>
-					<td><%= member_info.id%></td>
-					<td><%= member_info.username %></td>
-					<td><%= member_info.fullname %></td>
-					<td><%= member_info.gender==1?'Nữ': 'Nam' %></td>
-					<td><%= member_info.indentity_card %></td>
-					<td><%= member_info.email %></td>
-					<td><%= member_info.role ==1?'Admin': 'Customer'%></td>
-					<td><%= member_info.created_at %></td>
-					<td><%= member_info.updated_at %></td>
-					<td>
-						<%= link_to'Edit',edit_admin_member_path(member_info) %> &nbsp; &nbsp;
-						<%= link_to'Delete',admin_member_path(member_info),method: :delete,data:{confirm:'Are you ok?'} %>&nbsp; &nbsp;
-						<%= link_to'View',admin_member_path(member_info) %>
-					</td>
+					<td colspan="11" style="text-align:center; font-weight:bold;height:30px"> No Data</td>
 				</tr>
 			<% end -%>
 		</table>

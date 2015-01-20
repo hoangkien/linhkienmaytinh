@@ -1,3 +1,41 @@
+<script>
+	$(document).ready(function(){
+    $("#checkall").change(function(){
+      check=$("#checkall").is(':checked');
+      if(check== true){
+        $("input[type=checkbox]").prop("checked","checked");
+        $("#main-content #action .action #delete").removeAttr('disabled');
+      }else{
+        $("input[type=checkbox]").removeAttr("checked");
+        $("#main-content #action .action #delete").prop('disabled','disabled');
+
+      }
+    });
+
+    $("#main-content #main table #check_").change(function(){
+
+    	var checked = false;
+    	var checkedAll = true;
+    	 $("#main-content #main table #check_").each(function(i,e){
+    	 	if ($(e).prop('checked')) {
+    	 		checked = true;
+    	 	}else{
+    	 		checkedAll = false;
+    	 	}
+    	 });
+    	 if (checked) {
+    	 	 $("#main-content #action .action #delete").removeAttr('disabled');
+    	 }else{
+    	 	$("#main-content #action .action #delete").prop('disabled','disabled');
+    	 }
+    	 if (checkedAll) {
+    	 	$("#checkall").prop("checked","checked");
+    	 };
+
+    });
+
+ });
+</script>
 <div id="content-header">
 	<div id="title">
 		Products List
@@ -16,18 +54,21 @@
 <div id="main-content">
 	<div id="action">
 		<div id="search">
-			<%= form_tag(admin_members_path, :method=>"get") do %>
-				<%= text_field_tag :search,params[:search], placeholder:'Nhập tên', class:'text_field' %>
-				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class:'btn'%>
+			<%= form_tag(admin_products_path, :method=>"get") do %>
+				<%= text_field_tag :search,params[:search], placeholder:'Search...', class:'text_field' %>
+				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]' ,class:'btn search'%>
 			<% end -%>
 		</div>
 		<div class="action">
 			<%= button_to'Add New',new_admin_product_path,class:'btn', method: :get %>
+			<%= form_for :check ,url:delete_admin_products_path do |f| %>
+			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true, class:'btn',data:{:confirm => "Are you sure ?"} %>
 		</div>
 	</div>
 	<div id="main">
 		<table class="table">
-			<tr>
+			<tr class="head">
+				<th style="width:10px"><input type="checkbox" id="checkall" name="checkall" ></th>	
 				<th>ID</th>
 				<th>Product ID</th>
 				<th>Product Name</th>
@@ -38,6 +79,7 @@
 			<% if @product.count > 0 %>
 				<% @product.each  do |product_info|%>
 					<tr>
+						<td><%= check_box_tag('check[]',product_info.id)%></td>
 						<td><%= product_info.id%></td>
 						<td><%= product_info.product_id%></td>
 						<td><%= product_info.name%></td>
@@ -51,6 +93,10 @@
 					</tr>
 				<% end -%>
 			<% else%>
+				<tr>
+					<td colspan="6", style="text-align:center; font-weight:bold;height:30px"> No Data</td>
+				</tr>
+			<% end -%>
 			<% end -%>
 		</table>
 		<%= will_paginate @product %>

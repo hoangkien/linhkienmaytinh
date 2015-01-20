@@ -1,8 +1,7 @@
 class Home::HomeController < ApplicationController
 	layout"home/index"
 	def index
-	end
-	def preview
+		@category = Category.all
 	end
 	def about
 	end

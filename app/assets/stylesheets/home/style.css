@@ -1334,6 +1334,14 @@ body {
 	border: 1px solid #C7C7C7;
 	margin-bottom: 15px;
 }
+/**********Skype***************/
+#SkypeButton_Call_hoangkienhy91_1{
+	font-size: none;
+}
+#SkypeButton_Call_hoangkienhy91_1 img{
+	margin: 0px;
+	vertical-align: 0px;
+}
 /**** Responsive Layout ****/
 @media only screen and (max-width: 1024px) {
 	.wrap {

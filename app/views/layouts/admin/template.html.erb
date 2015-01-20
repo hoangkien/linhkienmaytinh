@@ -1,8 +1,9 @@
+<%= provide(:title,controller.controller_name)%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Admin</title>
+	<title><%= yield :title %></title>
 	<%= stylesheet_link_tag "admin_style"%>
 	<%= javascript_include_tag "jquery"%>
 	<%= javascript_include_tag "rails"%>

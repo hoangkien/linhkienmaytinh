@@ -11,11 +11,13 @@ RailsDemo::Application.routes.draw do
   get "category/index"
 
   get "product/index"
-  get "products" => "home/products#index"
+  get "san-pham" => "home/products#index" ,:as => :products
+  get "gioi-thieu" => "home/home#about", :as => :about
   get "products/preview" => "home/products#preview"
   get "admin/signup" => "admin/login#index"
-  get "home" => "home/home#index"
-  
+  get "tin-tuc" => "home/home#news",:as => :news
+  get "trang-chu" => "home/home#index",:as => :home
+  get "lien-he" => "home/home#contact" ,:as => :contact
    namespace :admin do
       #Directs /admin/users/* to Admin::ProductsController
       #(app/controllers/admin/products_controller.rb)
@@ -25,7 +27,11 @@ RailsDemo::Application.routes.draw do
       resources :users
     end
     namespace :admin do
-      resources :products
+      resources :products do
+        collection do
+          post'delete'
+        end
+      end
     end
     namespace :admin do
       resources :customers
@@ -49,30 +55,19 @@ RailsDemo::Application.routes.draw do
    namespace :admin do
       resources :login
     end
-    namespace :admin do
-      namespace :members do
-        resources :del
-      end
-    end
- 
     namespace :home do
-      resources :home
-    end
-    namespace :home do
-      resources :about
-    end
-    namespace :home do
-      resources :contact
-    end
-    namespace :home do
-      resources :news
-    end
-    resources :products do
-        collection do
-          get'preview'
+      resources :home do
+        collection do 
+          get'about'
+          get'news'
+          get'contact'
         end
       end
-      resources :home
+    end
+    namespace :home do
+      resources :products 
+    end
+    resources :home
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,3 +1,43 @@
+<script>
+	$(document).ready(function(){
+    $("#checkall").change(function(){
+      check=$("#checkall").is(':checked');
+      if(check== true){
+        $("input[type=checkbox]").prop("checked","checked");
+        $("#main-content #action .action #delete").removeAttr('disabled');
+      }else{
+        $("input[type=checkbox]").removeAttr("checked");
+        $("#main-content #action .action #delete").prop('disabled','disabled');
+
+      }
+    });
+
+    $("#main-content #main table #check_").change(function(){
+
+    	var checked = false;
+    	var checkedAll = true;
+    	 $("#main-content #main table #check_").each(function(i,e){
+    	 	if ($(e).prop('checked')) {
+    	 		checked = true;
+    	 		
+    	 	}else{
+    	 		checkedAll = false;
+    	 		$("#checkall").removeAttr("checked");
+    	 	}
+    	 });
+    	 if (checked) {
+    	 	 $("#main-content #action .action #delete").removeAttr('disabled');
+    	 }else{
+    	 	$("#main-content #action .action #delete").prop('disabled','disabled');
+    	 }
+    	 if (checkedAll) {
+    	 	$("#checkall").prop("checked","checked");
+    	 };
+
+    });
+
+ });
+</script>
 <div id="content-header">
 	<div id="title">
 		List news
@@ -20,13 +60,13 @@
 		<div class="action">
 			<%= button_to'Add New',new_admin_news_path,class:'btn', method: :get %>
 			<%= form_for :check ,url:delete_admin_members_path do |f| %>
-			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...', class:'btn' %>
+			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true,data:{:confirm => "Are you sure ?"}, class:'btn' %>
 		</div>
 	</div>
 	<div id="main">
 		<table class="table">
 		<tr class="head">
-			<th><input type="checkbox" value="" name="checkall" id="checkall"></th>
+			<th><input type="checkbox" id="checkall" name="checkall" ></th>	
 			<th>ID</th>
 			<th>Title</th>
 			<th>Description</th>
@@ -36,7 +76,7 @@
 			<th>Update</th>
 			<th>Action</th>
 		</tr>
-		<tr class="search">
+<!-- 		<tr class="search">
 			<td>&nbsp;</td>
 			<td class="col1"><%= f.text_field :id %></td>
 			<td class="col-title"><%= f.text_field :id %></td>
@@ -46,22 +86,28 @@
 			<td  class="col-date"><%= f.text_field :id %></td>
 			<td  class="col-date"><%= f.text_field :id %></td>
 			<td>&nbsp;</td>
-		</tr>
-		<% @news.each do |new_info|%>
-			<tr>
-				<td><%= check_box_tag('check[]',new_info.id)%></td>
-				<td class="col1"><%= new_info.id %></td>
-				<td class="col-title"><%= truncate(new_info.title,length: 40, separator: ' ' )%></td>
-				<td class="col-des"><%= truncate(new_info.description, length:150,separator: ' ')%></td>
-				<td class="col2"><%= new_info.catenews.name%></td>
-				<td class="col2"><%= link_to(new_info.member.username,admin_member_path(new_info.member.id), method: :get) %></td>
-				<td class="col-date"><%= truncate(new_info.created_at.to_s, length:20,separator: ' ')%></td>
-				<td class="col-date"><%= truncate(new_info.updated_at.to_s,length:20,separator: ' ')%></td>
-				<td class="action">
-					<%= link_to"show",admin_news_path(new_info.id), method: :get%> &nbsp;&nbsp;
-					<%= link_to"Edit", edit_admin_news_path(new_info.id)%>&nbsp;&nbsp;
-					<%= link_to"Delete", admin_news_path(new_info.id), method: :delete, data:{:confirm => "Are You Ok?"}%>
-				</td>	
+		</tr> -->
+		<% if @news.count > 0%>
+			<% @news.each do |new_info|%>
+				<tr>
+					<td><%= check_box_tag('check[]',new_info.id)%></td>
+					<td class="col1"><%= new_info.id %></td>
+					<td class="col-title"><%= truncate(new_info.title,length: 40, separator: ' ' )%></td>
+					<td class="col-des"><%= truncate(new_info.description, length:150,separator: ' ')%></td>
+					<td class="col2"><%= new_info.catenews.name%></td>
+					<td class="col2"><%= link_to(new_info.member.username,admin_member_path(new_info.member.id), method: :get) %></td>
+					<td class="col-date"><%= truncate(new_info.created_at.to_s, length:20,separator: ' ')%></td>
+					<td class="col-date"><%= truncate(new_info.updated_at.to_s,length:20,separator: ' ')%></td>
+					<td class="action">
+						<%= link_to"show",admin_news_path(new_info.id), method: :get%> &nbsp;&nbsp;
+						<%= link_to"Edit", edit_admin_news_path(new_info.id)%>&nbsp;&nbsp;
+						<%= link_to"Delete", admin_news_path(new_info.id), method: :delete, data:{:confirm => "Are You Ok?"}%>
+					</td>	
+			<% end -%>
+		<%else%>
+				<tr>
+					<td colspan="9" style="text-align:center; font-weight:bold;height:30px"> No Data</td>
+				</tr>
 		<% end -%>
 		</table>
 		<% end %>

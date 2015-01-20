@@ -3,23 +3,22 @@
 				<div class="categories">
 				  <ul>
 				  	<h3>Categories</h3>
-				      <li><a href="#">Mobile Phones</a>
-				      	<ul class="sub-menu">
-				      		<li><a href="#">abc</a></li>
-				      		<li><a href="#">abc</a></li>
-				      	</ul>
-				      </li>
-				      <li><a href="#">Desktop</a></li>
-				      <li><a href="#">Laptop</a></li>
-				      <li><a href="#">Accessories</a></li>
-				      <li><a href="#">Software</a></li>
-				       <li><a href="#">Sports &amp; Fitness</a></li>
-				       <li><a href="#">Footwear</a></li>
-				       <li><a href="#">Jewellery</a></li>
-				       <li><a href="#">Clothing</a></li>
-				       <li><a href="#">Home Decor &amp; Kitchen</a></li>
-				       <li><a href="#">Beauty &amp; Healthcare</a></li>
-				       <li><a href="#">Toys, Kids &amp; Babies</a></li>
+						<% @category.each do |cate|%>
+							<li><%= link_to "#{cate.name}", home_product_path("#{cate.id}") %></li>
+						<% end -%>
+						<li> 
+							<script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+								<div id="SkypeButton_Call_hoangkienhy91_1">
+								  <script type="text/javascript">
+								    Skype.ui({
+								      "name": "call",
+								      "element": "SkypeButton_Call_hoangkienhy91_1",
+								      "participants": ["hoangkienhy91"],
+								      "imageSize": 24
+								    });
+								  </script>
+								</div>
+						</li>
 				  </ul>
 				</div>					
 	  	     </div>
@@ -96,7 +95,7 @@
 							<p><span class="rupees">$620.87</span></p>
 					    </div>
 					       		<div class="add-cart">								
-									<h4><%= link_to"Add to Cart", preview_products_path, method: :get %></a></h4>
+									<h4><%= link_to"Add to Cart"%></a></h4>
 							     </div>
 							 <div class="clear"></div>
 					</div>

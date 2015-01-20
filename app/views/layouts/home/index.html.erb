@@ -1,6 +1,7 @@
+<% provide(:title,controller.controller_name)%>
 <!DOCTYPE HTML>
 <head>
-<title>Trang Chủ</title>
+<title><%= yield :title%></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <%= stylesheet_link_tag "home/style"%>
@@ -71,11 +72,11 @@
 	<div class="header_bottom">
 	     	<div class="menu">
 	     		<ul>
-			    	<li class="active"><%= link_to"Home", home_index_path%></li>
-			    	<li><%= link_to"About", home_about_index_path%></li>
-			    	<li><%= link_to"Product",products_path %></li>
-			    	<li><%= link_to"News",home_news_index_path%></li>
-			    	<li><%= link_to"Contact", home_contact_index_path%></li>
+			    	<li class="active"><%= link_to"Home", home_path%></li>
+			    	<li><%= link_to"About", about_path%></li>
+			    	<li><%= link_to"Product",home_products_path %></li>
+			    	<li><%= link_to"News",news_path%></li>
+			    	<li><%= link_to"Contact", contact_path%></li>
 			    	<div class="clear"></div>
      			</ul>
 	     	</div>
