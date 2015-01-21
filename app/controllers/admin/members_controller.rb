@@ -20,7 +20,7 @@ class Admin::MembersController < ApplicationController
 	end
 	def create
 		@member = Member.new(member_params)
-		@member[:role] = 1
+		@member[:role] = 12112
 	    respond_to do |format|
 	      if @member.save
 	        format.html { redirect_to admin_members_path, notice: 'User was successfully created.' }
