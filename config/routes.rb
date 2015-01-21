@@ -18,6 +18,9 @@ RailsDemo::Application.routes.draw do
   get "tin-tuc" => "home/home#news",:as => :news
   get "trang-chu" => "home/home#index",:as => :home
   get "lien-he" => "home/home#contact" ,:as => :contact
+  get "san-pham/danh-muc-san-pham/:id" => "home/products#category" ,:as =>:category
+  get "san-pham/preview" => "home/products#preview", :as => :preview
+  get "san-pham/:id" =>"home/products#show",:as => :products_view
    namespace :admin do
       #Directs /admin/users/* to Admin::ProductsController
       #(app/controllers/admin/products_controller.rb)

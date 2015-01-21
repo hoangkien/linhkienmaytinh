@@ -4,7 +4,7 @@
 				  <ul>
 				  	<h3>Categories</h3>
 						<% @category.each do |cate|%>
-							<li><%= link_to "#{cate.name}", home_product_path("#{cate.id}") %></li>
+							<li><%= link_to "#{cate.name}", category_path("#{cate.id}") %></li>
 						<% end -%>
 						<li> 
 							<script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>

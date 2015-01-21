@@ -7,7 +7,12 @@ class Home::ProductsController < ApplicationController
 		
 	end
 	def show
-		@category =Category.find(params[:id])
+		@category_all = Category.all
+		@product = Product.find(params[:id])
+		@category = Category.find(@product.category.id)
+	end
+	def preview
+
 	end
 	def category
 		@category = Category.find(params[:id])
