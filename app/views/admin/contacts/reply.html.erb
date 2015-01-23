@@ -1,0 +1,48 @@
+
+<div id="content-header">
+	<div id="title">
+		Mail Reply
+	</div>
+	<div id="content-menu">
+		<ul class="content-menu">
+			<li class="content-menu"><button class='btn'><%= link_to"Back",admin_contacts_path %></button></li>
+		</ul>
+	</div>
+</div>
+<%= form_for :mail ,url:sendmail_admin_contacts_path  do |f| %>
+<div id="main-content">
+	<div id="box">
+		<div id="action">
+			<div class="title">
+				Mail Info
+			</div>
+			<div class="action">
+				<ul>
+					<li><%= f.submit "Send", :disable_with => 'Sending...' , class:'btn'%></li>
+					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn', type:'reset' %></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<table>
+				<tr>
+					<td><%= f.label :From, "From" %></td>
+					<td><%= f.text_field :mail_from %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :To, "To" %></td>
+					<td><%= f.text_field :email,value:"#{@contact.email}" %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :subject, "Subject" %></td>
+					<td><%= f.text_area :subject ,rows:3,cols:50%></td>
+				</tr>
+				<tr>
+					<td><%= f.label :content,"Content"%></td>
+					<td><%= f.cktext_area :content,:ckeditor => {:width => 1000} %></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<% end -%>

@@ -1,4 +1,4 @@
-<div id="content-header">
+	<div id="content-header">
 	<div id="title">
 		Categories List
 	</div>
@@ -41,7 +41,7 @@
 						<%= link_to'Delete',admin_category_path(category),
 							method: :delete, 
 							data: { confirm:'Are you ok?'} %>&nbsp; &nbsp;
-						<%= link_to'View',admin_category_path(category) %>
+						<%= link_to'View',cate_show_path(category) %>
 					</td>
 				</tr>
 			<% end %>

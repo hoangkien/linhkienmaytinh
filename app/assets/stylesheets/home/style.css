@@ -448,21 +448,32 @@ body {
 	display: block;
 	float: left;
 	margin:0% 0 1% 3.6%;
+	font-size: 13px;
+	line-height: 24px;
+	color: #5A5454;
+	font-family: sans-serif;
 }
 .col_1_of_4:first-child {
 	margin-left: 0;
+	font-size: 13px;
+	line-height: 24px;
+	color: #5A5454;
+	width: 41.5%;
 }/* all browsers except IE6 and lower */
 .span_1_of_4 {
 	width: 20.5%;
 	padding:1.5% 1.5% 0 0;
 	border-left:1px solid #CECECE;
 }
+.col_1_of_4:last-child{
+	float: right;
+} 
 .span_1_of_4  h4 {
 	color:#4F4F4F;
 	margin-bottom: .5em;
 	font-size: 1.2em;
 	line-height: 1.2;
-	font-family: 'ambleregular';
+	font-family: sans-serif;
 	font-weight: normal;
 	margin-top: 0px;
 	letter-spacing: -1px;
@@ -584,7 +595,24 @@ body {
 }
 .group {
 	zoom: 1;
+
 }
+.group-text
+{
+	line-height: 25px;
+	font-size: 17px;
+	margin-left: 15px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+.title-head{
+	height: 50px;
+	border: 1px solid #ECEAEA;
+	line-height: 50px;
+	text-align: center;
+	margin-bottom: 15px;
+	font-size: 30px;
+	}
 .cont-desc {
 	display: block;
 	float: left;
@@ -1054,6 +1082,18 @@ body {
 }
 .span_1_of_3 .list li a:hover {
 	text-decoration:underline;
+}
+.error{
+	margin-bottom: 20px;
+}
+.error h2{
+	margin: 0px;
+	color: red;
+	font-size: 17px;
+}
+.error ul li{
+	list-style: square;
+	margin-left: 20px;
 }
 /* Delivery  ============================================================================= */
 .section {

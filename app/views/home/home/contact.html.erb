@@ -1,51 +1,85 @@
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&language=vi"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+		$(".header_bottom .menu ul li.contact").css("background","#B81D22")
+	});
+var map;
+function initialize() {
+      var myLatlng = new google.maps.LatLng(21.060072,105.804249);
+      var myOptions = {
+	   	 zoom: 16,
+	   	 center: myLatlng,
+	   	 mapTypeId: google.maps.MapTypeId.ROADMAP
+		}	
+		map = new google.maps.Map(document.getElementById("div_id"), myOptions); 
+		  // Biến text chứa nội dung sẽ được hiển thị
+		var text;
+		text= "<b style='color:#00F' " + 
+		         "style='text-align:center'>Công ty TNHH thương mại và dịch vụ Bích Phong<br />";
+		   var infowindow = new google.maps.InfoWindow(
+		    { content: text,
+		        size: new google.maps.Size(100,50),
+		        position: myLatlng
+		    });
+		       infowindow.open(map);    
+		    var marker = new google.maps.Marker({
+		      position: myLatlng, 
+		      map: map,
+		      title:"Công ty TNHH thương mại và dịch vụ Bích Phong"
+		  });
+}
+</script>
 <div class="main">
     <div class="content">
     	<div class="section group">
 				<div class="col span_2_of_3">
 				  <div class="contact-form">
-				  	<h2>Contact Us</h2>
-					    <form method="post" action="contact-post.html">
-					    	<div>
-						    	<span><label>Name</label></span>
-						    	<span><input name="userName" type="text" class="textbox" ></span>
-						    </div>
-						    <div>
-						    	<span><label>E-mail</label></span>
-						    	<span><input name="userEmail" type="text" class="textbox"></span>
-						    </div>
-						    <div>
-						     	<span><label>Company Name</label></span>
-						    	<span><input name="userPhone" type="text" class="textbox"></span>
-						    </div>
-						    <div>
-						    	<span><label>Subject</label></span>
-						    	<span><textarea name="userMsg"> </textarea></span>
-						    </div>
-						   <div>
-						   		<span><input type="submit" value="Submit"  class="myButton"></span>
-						  </div>
-					    </form>
+					<% if @contact.errors.any? %>
+					 	    <div class="error">
+						    <h2> Có lỗi xảy ra:</h2>
+						 
+						    <ul>
+						   		 <% @contact.errors.full_messages.each do |msg| %>
+						     		 <li><%= msg %></li>
+						   		 <% end %>
+						    </ul>
+					  	</div>
+					<% end %>
+					  <% if flash[:success] %>
+					  		<h3><%= flash[:success]%></h3>
+					  <% else %>
+					  	<h2>Contact Us</h2>
+						<%= form_for :contact, url:contact_home_home_index_path, method: :post do |f|%>
+						    	<div>
+							    	<span><%= f.label :name, "Name" %></span>
+							    	<span><%= f.text_field :name %></span>
+							    </div>
+							    <div>
+							    	<span><%= f.label :email, "Email" %></span>
+							    	<span><%= f.text_field :email %></span>
+							    </div>
+							    <div>
+							     	<span><%= f.label :company, "Company" %></span>
+							    	<span><%= f.text_field :company %></span>
+							    </div>
+							    <div>
+							    	<span><%= f.label :subject, "Subject" %></span>
+							    	<span><%= f.text_area :subject %></span>
+							    </div>
+							   <div>
+							   		<span><%= f.submit "Submit", :disable_with => 'Submiting...' %></span>
+							  </div>
+						    <% end -%>
+					  <% end -%>
 				  </div>
   				</div>
-				<div class="col span_1_of_3">
+  				<div class="col span_2_of_3" style="margin-left:0px">
 					<div class="contact_info">
-    	 				<h3>Find Us Here</h3>
-					    	  <div class="map">
-							   	    <iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">View Larger Map</a></small>
-							  </div>
+    	 				<h2>Find Us Here</h2>
+					    	  <div id="div_id" style="height:325px; width:750px"></div>
       				</div>
-      			<div class="company_address">
-				     	<h3>Company Information :</h3>
-						    	<p>500 Lorem Ipsum Dolor Sit,</p>
-						   		<p>22-56-2-9 Sit Amet, Lorem,</p>
-						   		<p>USA</p>
-				   		<p>Phone:(00) 222 666 444</p>
-				   		<p>Fax: (000) 000 00 00 0</p>
-				 	 	<p>Email: <span>info@mycompany.com</span></p>
-				   		<p>Follow on: <span>Facebook</span>, <span>Twitter</span></p>
-				   </div>
-				 </div>
-			  </div>		
+				 </div>	
+			  </div>	
          </div> 
     </div>
  </div>

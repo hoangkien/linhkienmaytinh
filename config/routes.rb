@@ -1,7 +1,7 @@
 RailsDemo::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  root :to => 'admin/login#index'
+  # root :to => 'admin/login#index'
   get "login/new"
 
   get "login/create"
@@ -15,12 +15,17 @@ RailsDemo::Application.routes.draw do
   get "gioi-thieu" => "home/home#about", :as => :about
   get "products/preview" => "home/products#preview"
   get "admin/signup" => "admin/login#index"
+  get "admin/danh-muc-san-pham" => "admin/categories#index",:as => :cate_index
+  get "admin/danh-muc-san-pham/:id" => "admin/categories#show",:as =>:cate_show
   get "tin-tuc" => "home/home#news",:as => :news
   get "trang-chu" => "home/home#index",:as => :home
   get "lien-he" => "home/home#contact" ,:as => :contact
+  get "dich-vu" => "home/home#service", :as => :service
   get "san-pham/danh-muc-san-pham/:id" => "home/products#category" ,:as =>:category
   get "san-pham/preview" => "home/products#preview", :as => :preview
   get "san-pham/:id" =>"home/products#show",:as => :products_view
+  get "san-pham/search/(.:format)" => "products#search", :as => :products_search
+  get "admin/contacts/reply/:id" =>"admin/contacts#reply", :as =>:reply_contact
    namespace :admin do
       #Directs /admin/users/* to Admin::ProductsController
       #(app/controllers/admin/products_controller.rb)
@@ -37,7 +42,16 @@ RailsDemo::Application.routes.draw do
       end
     end
     namespace :admin do
-      resources :customers
+      resources :customers,:contacts
+    end
+    namespace :admin do
+      resources :contacts do
+        collection do
+          post'delete'
+          post'reply'
+          post'sendmail'
+        end
+      end
     end
     namespace :admin do
       resources :config
@@ -63,12 +77,18 @@ RailsDemo::Application.routes.draw do
         collection do 
           get'about'
           get'news'
-          get'contact'
+          match'contact',via:[:get,:post]
+          get 'service'
+          get 'contact_submit'
         end
       end
     end
     namespace :home do
-      resources :products 
+      resources :products do
+        collection do
+          get'search'
+        end
+      end
     end
     resources :home
   # The priority is based upon order of creation:
@@ -120,7 +140,7 @@ RailsDemo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'home/home#index'
 
   # See how all your routes lay out with "rake routes"
 

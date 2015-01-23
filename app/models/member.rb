@@ -10,6 +10,11 @@ class Member < ActiveRecord::Base
   validates :password,confirmation:true,format:{with:/\A[a-zA-Z0-9]+\z/},allow_blank:true,on: :create
   validates :password_confirmation, presence:true,on: :create
   validates :email, uniqueness:true,presence:true,on: :create
+  extend FriendlyId
+  friendly_id :fullname
+  def to_param
+    "#{id} #{fullname}".parameterize
+  end
   def self.search(query,page)
   	  paginate  :per_page => 5, :page => page,
           		  :conditions => ["username like ? or fullname like ?","%#{query}%","%#{query}%"]

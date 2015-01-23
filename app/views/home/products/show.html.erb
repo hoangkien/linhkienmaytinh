@@ -1,3 +1,8 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".header_bottom .menu ul li.product").css("background","#B81D22")
+	});
+</script>
 <div class="main">
     <div class="content">
     	<div class="content_top">
@@ -54,7 +59,7 @@
 					 <%= image_tag("#{product.image}",size:"143x143")%>					
 					<div class="price" style="border:none">
 					       		<div class="add-cart" style="float:none">
-									<h4><%= link_to"Chi tiết",home_product_path(product.id)%></h4>
+									<h4><%= link_to"Chi tiết",products_view_path(product.id)%></h4>
 							     </div>
 							 <div class="clear"></div>
 					</div>

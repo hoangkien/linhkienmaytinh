@@ -11,11 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150115111656) do
+ActiveRecord::Schema.define(:version => 20150122031333) do
 
   create_table "categories", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+    t.string   "name",       :limit => 45
+    t.string   "name_url",   :limit => 45
+  end
+
+  create_table "catenews", :force => true do |t|
+    t.string "name", :limit => 100, :null => false
   end
 
   create_table "ckeditor_assets", :force => true do |t|
@@ -45,29 +51,36 @@ ActiveRecord::Schema.define(:version => 20150115111656) do
     t.datetime "updated_at",                   :null => false
     t.string   "address"
     t.string   "gender",         :limit => 45
-    t.string   "role",           :limit => 45
+    t.integer  "role",           :limit => 1
   end
 
   create_table "news", :force => true do |t|
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "title"
     t.text     "content"
-    t.integer  "members_id"
-    t.text     "short_content"
+    t.text     "description"
     t.integer  "catenews_id"
+    t.integer  "member_id"
+    t.string   "title_url",   :limit => 45
+    t.string   "slug"
   end
+
+  add_index "news", ["slug"], :name => "index_news_on_slug"
 
   create_table "products", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "password"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "name"
+    t.integer  "category_id"
+    t.string   "product_id",  :limit => 45
+    t.string   "price",       :limit => 45
+    t.string   "size",        :limit => 45
+    t.string   "light",       :limit => 45
+    t.string   "guarantee",   :limit => 45
+    t.string   "capacity",    :limit => 45
+    t.string   "image",       :limit => 45
+    t.string   "name_url",    :limit => 45
   end
 
 end

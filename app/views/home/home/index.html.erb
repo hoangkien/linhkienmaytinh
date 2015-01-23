@@ -1,3 +1,8 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".header_bottom .menu ul li.home").css("background","#B81D22");
+	});
+</script>
  <div class="header_slide">
 			<div class="header_bottom_left">				
 				<div class="categories">
@@ -6,9 +11,17 @@
 						<% @category.each do |cate|%>
 							<li><%= link_to "#{cate.name}", category_path("#{cate.id}") %></li>
 						<% end -%>
-						<li> 
+				  </ul>
+				</div>
+				<div class="categories">
+					<ul>
+						<h3>Support</h3>
+						<li><a>Phone: <font color="red">01679380632</font></a></li>
+						<li><a>Hotline: <font color="red">01679380632</font></a></li>
+						<li></li>
+						<li><a>Skype: <span style="text-transform:none; color:red">Mrs.Nhung</span>
 							<script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
-								<div id="SkypeButton_Call_hoangkienhy91_1">
+								<div id="SkypeButton_Call_hoangkienhy91_1" style="margin-top: -19px;margin-bottom: -23px;margin-left: -20px;" >
 								  <script type="text/javascript">
 								    Skype.ui({
 								      "name": "call",
@@ -18,8 +31,8 @@
 								    });
 								  </script>
 								</div>
-						</li>
-				  </ul>
+						</a></li>
+					</ul>
 				</div>					
 	  	     </div>
 					 <div class="header_bottom_right">					 

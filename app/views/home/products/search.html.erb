@@ -1,0 +1,43 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".header_bottom .menu ul li.product").css("background","#B81D22")
+	});
+</script>
+	<div class="content">
+		<div class="content_top">
+			<div class="heading">
+				<% if @search %>
+					<h3>Kết qua tìm kiếm cho <%= @search %></h3>
+				<% else %>
+					<h3> Tất cả các sản phẩm</h3>
+				<% end -%>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<% if @product.count > 0%>
+			<div class="section group">
+				<% @product.each do |product| %>
+					<div class="grid_1_of_4 images_1_of_4">
+						<a href="preview.html"><%= image_tag("#{product.image}",size:"210x150" )%></a>
+						<h2><%= product.name%></h2>
+						<div class="price-details">
+					       <div class="price-number">
+								<p><span class="rupees">Giá : Liên Hệ</span></p>
+						    </div>
+						       		<div class="add-cart">								
+										<h4><%= link_to"Chi tiết",products_view_path(product.id)%></h4>
+								     </div>
+								 <div class="clear"></div>
+						</div>				     
+					</div>
+				<% end -%>
+			</div>
+		<% else %>
+			<div class="section group">
+				<div class="grid_1_of_4 images_1_of_4">
+					Không có sản phẩm nào
+				</div>
+			</div>
+		<% end -%>
+	</div>
+	</div>
