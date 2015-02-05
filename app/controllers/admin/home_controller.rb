@@ -3,5 +3,6 @@ class Admin::HomeController < ApplicationController
 	before_filter :login
 	def index
 		
+		
 	end
 end

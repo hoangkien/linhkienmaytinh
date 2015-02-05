@@ -11,6 +11,7 @@ RailsDemo::Application.routes.draw do
   get "category/index"
 
   get "product/index"
+  get "admin" => "admin/home#index"
   get "san-pham" => "home/products#index" ,:as => :products
   get "gioi-thieu" => "home/home#about", :as => :about
   get "products/preview" => "home/products#preview"

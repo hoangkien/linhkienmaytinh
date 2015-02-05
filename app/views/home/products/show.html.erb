@@ -7,7 +7,7 @@
     <div class="content">
     	<div class="content_top">
     		<div class="back-links">
-    		<p><a href="index.html">Home</a> >>>> <%= link_to"#{@product.name}",products_view_path(@product.id)%></p>
+    		<p><a href="index.html">Home</a> >>>> <%= link_to"#{@product.name}",products_view_path(@product)%></p>
     	    </div>
     		<div class="clear"></div>
     	</div>
@@ -59,7 +59,7 @@
 					 <%= image_tag("#{product.image}",size:"143x143")%>					
 					<div class="price" style="border:none">
 					       		<div class="add-cart" style="float:none">
-									<h4><%= link_to"Chi tiết",products_view_path(product.id)%></h4>
+									<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
 							     </div>
 							 <div class="clear"></div>
 					</div>
@@ -71,7 +71,7 @@
 					<h2>CATEGORIES</h2>
 					<ul>
 						<% @category_all.each do |category|%>
-							<li><%= link_to"#{category.name}",category_path("#{category.id}") %></li>
+							<li><%= link_to"#{category.name}",category_path(category) %></li>
 						<% end -%>
     				</ul>
     			</div>

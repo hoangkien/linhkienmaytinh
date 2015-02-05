@@ -1,11 +1,11 @@
 class Product < ActiveRecord::Base
   # attr_accessible :title, :body
   attr_accessible :name, :product_id,:size,:light,:guarantee,:price, :category_id,:image
-  belongs_to :category
+  belongs_to :category  
   extend FriendlyId
-  friendly_id :name_url
+  friendly_id :name
   def to_param
-    "#{id} #{name_url}".parameterize 
+    "#{id} #{name}".parameterize
   end
   def self.upload(product)
   	  name = product['image'].original_filename

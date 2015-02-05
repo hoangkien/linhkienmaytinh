@@ -13,9 +13,10 @@ class Admin::ProductsController < ApplicationController
 	end
 	def create
 		@product = Product.new(product_params)
-		@product['image'] = @product['image'].original_filename
-		#upload
-		upload = Product.upload(product_params)
+		if product_params['image']
+			@product['image'] = @product['image'].original_filename
+			upload = Product.upload(product_params)
+		end
 		respond_to do |format|
 	      if @product.save
 	        format.html { redirect_to admin_products_path, notice: 'User was successfully created.' }

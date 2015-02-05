@@ -9,7 +9,7 @@
 				  <ul>
 				  	<h3>Categories</h3>
 						<% @category.each do |cate|%>
-							<li><%= link_to "#{cate.name}", category_path("#{cate.id}") %></li>
+							<li><%= link_to "#{cate.name}", category_path(cate) %></li>
 						<% end -%>
 				  </ul>
 				</div>

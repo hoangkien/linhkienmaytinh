@@ -24,6 +24,11 @@ class Admin::ContactsController < ApplicationController
 	  	end
 	  end
 	end
+	def destroy
+		@contact = Contact.find(params[:id])
+		@contact.destroy
+		redirect_to admin_contacts_path
+	end
 	def delete
 		@member = params[:check]
 		@member.each do |member|

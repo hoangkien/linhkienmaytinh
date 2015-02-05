@@ -74,7 +74,9 @@
 						<td><%= contact_info.company%></td>
 						<td><%= contact_info.subject%></td>
 						<td><%= link_to'View',admin_contact_path(contact_info) %>&nbsp;&nbsp;
-						<%= link_to'Reply',reply_contact_path(contact_info.id)%></td>
+						<%= link_to'Reply',reply_contact_path(contact_info.id)%>&nbsp;&nbsp;
+						<%= link_to'Delete', admin_contact_path(contact_info.id), method: :delete, data:{:confirm =>"Are you ok ?"}%>
+						</td>
 					</tr>
 				<% end -%>
 			<% else %>

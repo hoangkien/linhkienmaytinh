@@ -4,10 +4,13 @@ class Home::HomeController < ApplicationController
 		@category = Category.all
 	end
 	def about
+		@title = "about"
 	end
 	def news
+		@title= "news"
 	end
 	def contact
+		@title = "Contact"
 		@contact = Contact.new
 		if request.post?
 			@contact = Contact.new(params[:contact])
@@ -17,7 +20,7 @@ class Home::HomeController < ApplicationController
 		end
 	end
 	def service
-		
+		@title ="Service"
 	end
 
 end

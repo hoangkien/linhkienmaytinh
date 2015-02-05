@@ -84,10 +84,10 @@
 						<td><%= product_info.product_id%></td>
 						<td><%= product_info.name%></td>
 						<td><%= product_info.category.name%></td>
-						<td style="width:150px"><%= image_tag("#{product_info.image}",size:"150x100")%></td>
+						<td style="width:150px"><%= product_info.image ? image_tag("#{product_info.image}",size:"150x100") : image_tag("no_image.png",size:"150x100")%></td>
 						<td style="text-align:center">
-							<%= link_to"Show",admin_product_path(product_info.id)%> &nbsp;&nbsp;
-							<%= link_to"Edit",edit_admin_product_path(product_info.id)%>&nbsp;&nbsp;
+							<%= link_to"Show",admin_product_path(product_info)%> &nbsp;&nbsp;
+							<%= link_to"Edit",edit_admin_product_path(product_info)%>&nbsp;&nbsp;
 							<%= link_to"Delete",admin_product_path(product_info.id), method: :delete, data:{:confirm=>"Are you Ok?"}%>
 						</td>
 					</tr>
