@@ -14,7 +14,7 @@ development:
   database: railsDemo_development
   pool: 5
   username: root
-  password: 123456
+  password: 1
   socket: /var/run/mysqld/mysqld.sock
   host: localhost
 
@@ -38,3 +38,8 @@ development:
 #   username: root
 #   password:
 #   socket: /var/run/mysqld/mysqld.sock
+production:
+  <<: *default
+  database: railsDemo_development
+#  username: testapp
+#  password: <%= ENV['TESTAPP_DATABASE_PASSWORD'] %>

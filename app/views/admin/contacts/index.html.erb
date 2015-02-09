@@ -50,7 +50,6 @@
 			<% end -%>
 		</div>
 		<div class="action">
-			<%= button_to'Add New',new_admin_contact_path,class:'btn', method: :get %>
 			<%= form_for :check ,url:delete_admin_contacts_path do |f| %>
 			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true,data:{:confirm=>"Are you sure ?"}, class:'btn' %>
 		</div>

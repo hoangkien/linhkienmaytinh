@@ -1,7 +1,13 @@
 body{
 	margin:0px 4px;
 	padding:0px;
-	font-size: 15px
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;	
+}
+
+@font-face {
+    font-family: 'ambleregular';
+    src:url(../font/Amble-Regular-webfont.ttf) format('truetype');
 }
 #wraper{
 }
@@ -45,7 +51,6 @@ ul,h1{
 	line-height: 35px;
 	font-size: 14px;
 	font-weight: bold;
-	font-family: serif;
 	padding: 0px 15px;
 	border-right: 1px solid #B3B1B1;
 	letter-spacing: 2px;
@@ -160,6 +165,7 @@ ul,h1{
 	min-width: 108px;
 	height: 26px;
 	font-size: 15px;
+	background: rgb(213, 213, 213);
 }
 #main-content #action .btn:hover{
 	cursor:pointer;
@@ -170,11 +176,15 @@ ul,h1{
 	padding-top: 3px;
 }
 .btn{
+	background: rgb(213, 213, 213);
 	border: 1px solid #ccc;
 	width: 80px;
 	height: 26px;
 	font-size: 17px;
 	margin-right:5px;
+}
+.btn:hover{
+	cursor:pointer;
 }
 #main-content #action ul{
 	list-style:none;
