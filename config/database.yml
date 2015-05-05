@@ -38,8 +38,21 @@ development:
 #   username: root
 #   password:
 #   socket: /var/run/mysqld/mysqld.sock
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5432
 production:
-  <<: *default
-  database: railsDemo_development
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5432
+  database: des5pho6i5dqm5
+  username: elaxmpfcqlxrpj
+  password: 'UOQjbnsddHXWcRDTZ46vUcQ5qe'
+  host: ec2-184-73-165-195.compute-1.amazonaws.com
 #  username: testapp
 #  password: <%= ENV['TESTAPP_DATABASE_PASSWORD'] %>
