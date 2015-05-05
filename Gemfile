@@ -8,6 +8,7 @@ gem 'will_paginate', '~> 3.0'
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'simple_captcha', :git => 'git://github.com/Azdaroth/simple-captcha.git', :branch => 'rails-4'
 gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'activerecord', :require => "active_record"
 gem 'paperclip'
 gem 'responders'
 gem 'turbolinks'

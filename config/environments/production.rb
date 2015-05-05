@@ -8,6 +8,8 @@ RailsDemo::Application.configure do
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  config.active_record.mass_assignment_sanitizer = :strict
+  config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_files = true

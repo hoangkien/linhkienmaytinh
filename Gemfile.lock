@@ -176,6 +176,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   capistrano
   ckeditor!
   coffee-rails
