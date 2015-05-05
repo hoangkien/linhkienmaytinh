@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/Azdaroth/simple-captcha.git
+  revision: ab5e8aa1e18d735722c1a7d4ae6950ab09c12989
+  branch: rails-4
+  specs:
+    simple_captcha (0.1.6)
+
+GIT
   remote: git://github.com/galetahub/ckeditor.git
   revision: 455c022caca84646ed2d3feddde411277076a2bc
   specs:
@@ -182,6 +189,7 @@ DEPENDENCIES
   rails_12factor
   responders
   sass-rails
+  simple_captcha!
   turbolinks
   uglifier (>= 1.0.3)
   unicorn
