@@ -3,7 +3,7 @@ gem 'rails','4.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'mysql2'
-gem 'strong_parameters'
+# gem 'strong_parameters'
 gem 'will_paginate', '~> 3.0'
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'ckeditor', github: 'galetahub/ckeditor'
