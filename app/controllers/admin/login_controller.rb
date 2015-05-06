@@ -18,7 +18,7 @@ class Admin::LoginController < ApplicationController
        session[:user_data]= @member
         redirect_to admin_home_index_path
       else
-         flash[ :notice] = "Ban khong co quyen vao trang nay !"
+         flash[ :notice] = "Sai thong tin tai khoan hoac mat khau !"
         redirect_to admin_login_index_path
         
       end
