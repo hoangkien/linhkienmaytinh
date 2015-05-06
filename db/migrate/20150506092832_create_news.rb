@@ -8,6 +8,7 @@ class CreateNews < ActiveRecord::Migration
       t.integer :member_id
       t.string :title_url
       t.string :slug
+      t.timestamps null: false
     end
   end
 end
