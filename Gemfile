@@ -16,6 +16,7 @@ gem 'paperclip'
 gem 'responders'
 gem 'turbolinks'
 gem 'friendly_id'
+gem 'pry-rails', '~> 0.3.4'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -39,7 +40,8 @@ gem 'jquery-rails'
 # Deploy with Capistrano
  gem 'capistrano'
 # To use debugger
-#gem 'debugger'
+# gem 'debugger'
+gem 'byebug'
 
 
 

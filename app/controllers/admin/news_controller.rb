@@ -18,6 +18,7 @@ class Admin::NewsController < ApplicationController
 	end
 	def show
 		@news = News.find(params[:id])
+		byebug
 	end
 	def edit
 		@news = News.find(params[:id])

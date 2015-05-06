@@ -8,7 +8,6 @@ class News < ActiveRecord::Base
 		"#{id} #{title}".parameterize
 	end
    def self.search(query,page)
-  	  paginate  :per_page => 5, :page => page,
-          		  :conditions => ["title like ? ","%#{query}%"]
+    where("title like ? ","%#{query}%").paginate(per_page:5,page:page)
  	end
 end

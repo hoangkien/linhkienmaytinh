@@ -5,7 +5,7 @@
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
-			<li class="content-menu"><button class="btn"><%= link_to"Edit",edit_admin_contact_path(@contact.id)%></button></li>
+			<!-- <li class="content-menu"><button class="btn"><%= link_to"Edit"%></button></li> -->
 			<li class="content-menu"><button class='btn'><%= link_to"Back",admin_contacts_path %></button></li>
 		</ul>
 	</div>
@@ -21,44 +21,20 @@
 		<div id="main">
 			<table>
 				<tr>
-					<td class="left"><%= f.label :username, "User Name :" %></td>
-					<td><%= @contact.username%></td>
-				</tr>
-<!-- 				<tr>
-					<td class="left"><%= f.label :password, "Password :" %></td>
-					<td><%= @contact.password%></td>
-				</tr> -->
-				<tr>
-					<td class="left"><%= f.label :fullname, "Fullname :" %></td>
-					<td><%= @contact.fullname%></td>
+					<td class="left"><%= f.label :name, "Name :" %></td>
+					<td><%= @contact.name%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :gender, "Gender :" %></td>
-					<td><%= @contact.gender == 1?'Nữ': 'Nam' %></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :indentity_card, "Indentity Card :" %></td>
-					<td><%= @contact.indentity_card %></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :birthday, "Birthday :" %></td>
-					<td><%= @contact.birthday %></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :Address, "Address :" %></td>
-					<td><%= @contact.address %></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :email, "Email :" %></td>
+					<td class="left"><%= f.label :email,"Email :"%></td>
 					<td><%= @contact.email %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :create, "Created :" %></td>
-					<td><%= @contact.created_at %></td>
+					<td class="left"><%= f.label :company%></td>
+					<td><%= @contact.company %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :upate, "Upate :" %></td>
-					<td><%= @contact.updated_at 	%></td>
+					<td class="left"><%= f.label :subject, "Subject :" %></td>
+					<td><%= @contact.subject%></td>
 				</tr>
 			</table>
 		</div>

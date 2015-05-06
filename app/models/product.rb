@@ -16,8 +16,7 @@ class Product < ActiveRecord::Base
     	File.open(path, "wb") { |f| f.write(product['image'].read) }
   end
   def self.search(query,page)
-    paginate  :per_page => 5, :page => page,
-                :conditions => ["product_id like ? or name like ?","%#{query}%","%#{query}%"]
+    where("product_id like ? or name like ?","%#{query}%","%#{query}%").paginate(per_page: 5, page:page)
   end
   def self.home_search(query)
     if query

@@ -1,11 +1,11 @@
 class Admin::ContactsController < ApplicationController
 	layout 'admin/template'
+	before_action :set_contact, :only =>[:show,:destroy]
 	def index
 		@contact = Contact.all 
 		@contact = Contact.paginate(:page => params[:page], :per_page => 5).order('ID DESC')
 	end
 	def show
-		
 	end
 	def reply
 		@contact = Contact.find(params[:id])
@@ -36,5 +36,15 @@ class Admin::ContactsController < ApplicationController
 		  @member.destroy
 		end
 		redirect_to admin_members_path
+	end
+	private
+	def set_contact
+		begin
+			@contact = Contact.find(params[:id])
+		rescue ActiveRecord::RecordNotFound
+			render "layouts/not_found.html.erb"
+		else
+			@contact = Contact.find(params[:id])
+		end
 	end
 end
