@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #login{
-	background: url("../bg_login.png")-1px 14px no-repeat;
+	background: url(image_path("bg_login.png"))-1px 14px no-repeat;
 	height: 200px;
 	width:400px;
 	margin:auto;
