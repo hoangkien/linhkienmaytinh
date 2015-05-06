@@ -5,6 +5,7 @@ gem 'rails','4.2.1'
 gem 'mysql2'
 # gem 'strong_parameters'
 gem 'will_paginate', '~> 3.0'
+gem 'rails_serve_static_assets'
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'simple_captcha', :git => 'git://github.com/Azdaroth/simple-captcha.git', :branch => 'rails-4'
 gem 'ckeditor', github: 'galetahub/ckeditor'
