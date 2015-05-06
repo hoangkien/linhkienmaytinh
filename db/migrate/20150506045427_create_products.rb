@@ -9,6 +9,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :light
       t.string :guarantee
       t.string :capacity
+      t.string :image
       t.timestamps null: false
     end
   end
