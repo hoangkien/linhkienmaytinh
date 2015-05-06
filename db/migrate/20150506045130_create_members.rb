@@ -10,6 +10,7 @@ class CreateMembers < ActiveRecord::Migration
       t.string :address
       t.string :gender
       t.integer :role
+      t.timestamps null: false
     end
   end
 end
