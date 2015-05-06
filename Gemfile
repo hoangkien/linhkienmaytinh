@@ -4,7 +4,7 @@ gem 'rails','4.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'mysql2'
 # gem 'strong_parameters'
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate'
 gem 'rails_serve_static_assets'
 gem 'rails_stdout_logging'
 gem "galetahub-simple_captcha", :require => "simple_captcha"

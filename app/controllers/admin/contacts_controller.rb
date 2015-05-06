@@ -2,7 +2,7 @@ class Admin::ContactsController < ApplicationController
 	layout 'admin/template'
 	def index
 		@contact = Contact.all 
-		@contact = Contact.paginate(:page => params[:page], :per_page => 5, :order=>('ID DESC'))
+		@contact = Contact.paginate(:page => params[:page], :per_page => 5).order('ID DESC')
 	end
 	def show
 		

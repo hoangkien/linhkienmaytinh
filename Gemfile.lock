@@ -199,4 +199,4 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.0.3)
   unicorn
-  will_paginate (~> 3.0)
+  will_paginate

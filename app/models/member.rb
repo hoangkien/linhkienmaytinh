@@ -3,7 +3,7 @@ class Member < ActiveRecord::Base
   require'digest/md5'#su dung md5
   # before_save :md5 # set md5 cho password truoc khi thuc hien method save
   after_validation :md5 #set md5 cho password sau khi validate xong
-  attr_accessible :username, :password, :fullname ,:gender ,:birthday ,:email,:indentity_card, :address,:search,:password_confirmation
+  # attr_accessible :username, :password, :fullname ,:gender ,:birthday ,:email,:indentity_card, :address,:search,:password_confirmation
   has_many :news
   validates :username, uniqueness:true,format:{with:/\A[a-zA-Z]+\z/}, length:{in: 5..20},on: :create
   validates :fullname,length:{ in:5..20},on: :create
@@ -20,7 +20,7 @@ class Member < ActiveRecord::Base
           		  :conditions => ["username like ? or fullname like ?","%#{query}%","%#{query}%"]
   end
   def login(username, pass)
-  	Member.find(:all,:conditions=>["username like ? and password like ?","#{username}","#{pass}"])
+  	Member.where("username like ? and password like ?","#{username}","#{pass}")
   end
   private
   def md5

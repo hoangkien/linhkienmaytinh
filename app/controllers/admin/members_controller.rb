@@ -3,7 +3,7 @@ class Admin::MembersController < ApplicationController
 	require'digest/md5'#su dung md5
 	before_filter :login
 	def index 	
-		@member = Member.paginate(:page => params[:page], :per_page => 5, :order=>('ID DESC'))
+		@member = Member.paginate(:page => params[:page], :per_page => 5).order('ID DESC')
 		if params[:search]#kiem tra xem co gia tri get duoc truyen di
 			@member= Member.search(params[:search],params[:page])#tim kiem trong model va truyen lai view
 		end

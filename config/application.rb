@@ -61,7 +61,7 @@ module RailsDemo
     config.assets.version = '1.0'
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.precompile += [
-      '*.css','*.js','*.png','*.jpg'
+      '*.css','*.js','*.png','*.jpg','*.json','*.tff'
     ]
   end
 end
