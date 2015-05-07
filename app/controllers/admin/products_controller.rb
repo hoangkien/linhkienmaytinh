@@ -14,7 +14,7 @@ class Admin::ProductsController < ApplicationController
 	def create
 		@product = Product.new(product_params)
 		if product_params['image']
-			@product['image'] = @product['image'].original_filename
+			@product['image'] = product_params['image'].original_filename
 			upload = Product.upload(product_params)
 		end
 		respond_to do |format|
