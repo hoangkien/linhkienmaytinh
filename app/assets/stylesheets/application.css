@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
  */
+ #menu .main-menu ul.main-menu li:active{
+    background: blue;
+ }
+ #menu .main-menu ul li:active a{
+    color: white;
+ }

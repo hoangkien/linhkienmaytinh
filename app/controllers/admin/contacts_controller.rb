@@ -12,16 +12,13 @@ class Admin::ContactsController < ApplicationController
 	end
 	def sendmail
 		if request.post?
-		  recipient = params["mail"]["email"]
-		  subject = params["mail"]["subject"]
-		  message = params["mail"]["content"]
-		   # abort(recipient)
-	      # Emailer.contact(recipient, subject, message)
-	     if Emailer.contact(recipient, subject, message)
-	      render :text => 'Message sent successfully'
-	  	else
-	  		abort("Khong thanh cong")
-	  	end
+			recipient = params["mail"]["email"]
+			subject = params["mail"]["subject"]
+			message = params["mail"]["content"]
+	        Emailer.contact(recipient,subject,message).deliver
+		    return if request.xhr?
+		    flash[:notice] = 'Message sent successfully'
+		    redirect_to admin_contacts_path
 	  end
 	end
 	def destroy

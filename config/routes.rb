@@ -1,4 +1,5 @@
 RailsDemo::Application.routes.draw do
+  root :to => 'home/home#index'
   mount Ckeditor::Engine => '/ckeditor'
 
   # root :to => 'admin/login#index'
@@ -27,10 +28,13 @@ RailsDemo::Application.routes.draw do
   get "san-pham/:id" =>"home/products#show",:as => :products_view
   get "san-pham/search/(.:format)" => "products#search", :as => :products_search
   get "admin/contacts/reply/:id" =>"admin/contacts#reply", :as =>:reply_contact
-   namespace :admin do
+  post "admin/config/ChangeInfo" =>"admin/config#ChangeInfo", :as =>:changeinfo
+  post "admin/config/ChangeIntro" =>"admin/config#ChangeIntro", :as =>:changeintro
+  namespace :admin do
       #Directs /admin/users/* to Admin::ProductsController
       #(app/controllers/admin/products_controller.rb)
       resources :home
+
     end
     namespace :admin do
       resources :users
@@ -43,7 +47,7 @@ RailsDemo::Application.routes.draw do
       end
     end
     namespace :admin do
-      resources :customers,:contacts
+      resources :customers,:contacts,:trademaks
     end
     namespace :admin do
       resources :contacts do
@@ -75,7 +79,7 @@ RailsDemo::Application.routes.draw do
     end
     namespace :home do
       resources :home do
-        collection do 
+        collection do
           get'about'
           get'news'
           match'contact',via:[:get,:post]
@@ -91,7 +95,7 @@ RailsDemo::Application.routes.draw do
         end
       end
     end
-    resources :home
+  get '*unmatched_route', :to => 'application#raise_not_found'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -141,11 +145,12 @@ RailsDemo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'home/home#index'
+
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   #match ':controller(/:action(/:id))(.:format)'
+
 end

@@ -1,15 +1,17 @@
 <% provide(:title,controller.controller_name)%>
 <!DOCTYPE HTML>
 <head>
-<title><%= controller.controller_name+"  "+params[:action]%></title>
+<title>Nước sạch Hà Dũng</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <%= stylesheet_link_tag "home/style"%>
 <%= stylesheet_link_tag "home/slider"%>
 <%= javascript_include_tag "home/jquery-1.7.2.min"%>
+<%= javascript_include_tag "home/home"%>
 <%= javascript_include_tag "home/move-top"%>
 <%= javascript_include_tag "home/easing"%>
 <%= javascript_include_tag "home/startstop-slider"%>
+<%= javascript_include_tag "jquery.elevateZoom-3.0.8.min"%>
 </head>
 <body onLoad="initialize()">
   <div class="wrap">
@@ -17,7 +19,7 @@
 		<!--<div class="headertop_desc">
 			<div class="call">
 				 <p><span>Need help?</span> call us <span class="number">04 6269 1686</span></span></p>
-			</div> 
+			</div>
 			<div class="account_desc">
 				<ul>
 					<li><%= link_to"Register",'#' %></li>
@@ -25,7 +27,7 @@
 					<li><a href="#">Delivery</a></li>
 					<li><a href="#">Checkout</a></li>
 					<li><a href="#">My Account</a></li>
-				</ul> 
+				</ul>
 			</div>
 			<div class="clear"></div>
 		</div>-->
@@ -37,7 +39,7 @@
 					</ul></div></p>
 			</div> -->
 			<div class="logo">
-				<a href="index.html"><%= link_to image_tag("home/header.jpg"),home_path %></a>
+				<a href="index.html"><%= link_to image_tag("/assets/banner_maylocnuoc.jpg",:style =>"width:100%"),home_path %></a>
 			</div>
 			  <script type="text/javascript">
 			function DropDown(el) {
@@ -51,7 +53,7 @@
 					obj.dd.on('click', function(event){
 						$(this).toggleClass('active');
 						event.stopPropagation();
-					});	
+					});
 				}
 			}
 
@@ -72,12 +74,11 @@
 	<div class="header_bottom">
 	     	<div class="menu">
 	     		<ul>
-			    	<li class="home"><%= link_to"Home", home_path%></li>
-			    	<li class="about"><%= link_to"About", about_path%></li>
-			    	<li class="product"><%= link_to"Product",products_path %></li>
-			    	<li class="news"><%= link_to"News",news_path%></li>
-			    	<li class="contact"><%= link_to"Contact", contact_path%></li>
-			    	<li class="service"><%= link_to"Service",service_path %></li>
+			    	<li class= <%= "active" if (controller_name == "home" && action_name == "index")%>><%= link_to"Trang chủ", home_path%></li>
+			    	<li class= <%= "active" if ((controller_name == "products" && action_name == "index") or (controller_name == "products"))%>><%= link_to"Sản phẩm",products_path %></li>
+			    	<li class= <%= "active" if (controller_name == "home" && action_name == "about")%>><%= link_to"Thông tin", about_path%></li>
+			    	<li class= <%= "active" if (controller_name == "home" && action_name == "service")%>><%= link_to"Dịch vụ",service_path %></li>
+			    	<li class= <%= "active" if (controller_name == "home" && action_name == "contact")%>><%= link_to"Liên hệ", contact_path%></li>
 			    	<div class="clear"></div>
      			</ul>
 	     	</div>
@@ -91,15 +92,15 @@
    </div>
    <%= yield %>
    <div class="footer">
-   	  <div class="wrap">	
+   	  <div class="wrap">
 	     <div class="section group">
 				<div class="col_1_of_4 span_1_of_4">
 						<h4>Thông tin công ty</h4>
 						<ul>
-						<li>Công ty TNHH thương mại và dịch vụ Bích Phong</li>
-						<li> VPGD : số 42 ngách 23/12 - Xuân La - Tây Hồ - Hà Nội</li>
-						<li>Hotline : 0938966386 / 01668 721 165</li>
-						<li>Email :manhledtime@gmail.com /  ledtime68@gmail.com</li>
+						<li><%= @info.company_name if !@info.nil?%></li>
+						<li> VPGD : <%= @info.address if !@info.nil? %></li>
+						<li>Hotline :<%= @info.phone if !@info.nil? %>/<%= @info.hotline if !@info.nil?%></li>
+						<li>Email :<%= @info.email if !@info.nil?%></li>
 						<li>Giờ làm việc: 8h30 - 17h30 từ thứ 2 đến thứ 7.</li>
 						</ul>
 					</div>
@@ -111,16 +112,16 @@
 							<li>Website :http://hiworld.com.vn</li>
 						</ul>
 				</div>
-			</div>			
+			</div>
         </div>
         <div class="copy_right">
 				<p>Company Name © All rights Reseverd | Design by  <%= link_to"http://hiworld.com.vn","http://hiworld.com.vn" %> </p>
 		   </div>
     </div>
     <script type="text/javascript">
-		$(document).ready(function() {			
+		$(document).ready(function() {
 			$().UItoTop({ easingType: 'easeOutQuart' });
-			
+
 		});
 	</script>
     <a href="#" id="toTop"><span id="toTopHover"> </span></a>

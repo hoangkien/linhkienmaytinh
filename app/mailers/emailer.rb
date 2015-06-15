@@ -1,9 +1,11 @@
-class Emailer < ActionMailer::Base
+class Emailer < ApplicationMailer
     def contact(recipient, subject, message)
-      @subject = subject
-      @recipients = recipient
       @body= message
-      @headers = {}
-      mail(:to =>  @recipients,:subject => @subject,:body => @body)
+      mail(
+      		to: recipient,
+      		subject: "#{subject}",
+      		template_path: "/home/emailer",
+         	template_name: "contact"
+         )
     end
 end

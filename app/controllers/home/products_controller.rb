@@ -1,14 +1,14 @@
 class Home::ProductsController < ApplicationController
 	layout"home/index"
 	def index
-		@category = Category.all
+		@category = Category.where("parent_id = 0")
 	end
 	def view
 		
 	end
 	def show
-		@category_all = Category.all
-		@product = Product.find(params[:id])
+		@category_all = Category.where("parent_id = 0")
+		@product = Product.friendly.find(params[:id])
 		@category = Category.find(@product.category.id)
 
 	end
@@ -22,6 +22,7 @@ class Home::ProductsController < ApplicationController
 		end
 	end
 	def category
-		@category = Category.find(params[:id])
+		@category = Category.friendly.find(params[:id])
+		@controler_name = "Sản Phẩm"
 	end
 end

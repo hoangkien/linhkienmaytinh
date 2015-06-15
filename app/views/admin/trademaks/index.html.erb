@@ -1,0 +1,63 @@
+	<div id="content-header">
+	<div id="title">
+		Danh sách thương hiệu
+	</div>
+	<div id="content-menu">
+		<ul class="content-menu">
+			<li class="content-menu">
+				<%= link_to "Tất cả SP", admin_products_path %>
+			</li>
+			<li class="content-menu">
+				<%= link_to "Danh mục loại SP", cate_index_path %>
+			</li>
+			<li class="content-menu">
+				<%= link_to "Danh sách thương hiệu",admin_trademaks_path,class: "#{ controller_name == 'trademaks' ? 'active' : ''}"%>
+			</li>
+		</ul>
+	</div>
+</div>
+<div id="main-content">
+
+	<div id="action">
+		<div id="search">
+			<%= form_tag(admin_trademaks_path, :method=>"get") do %>
+				<%= text_field_tag :search,params[:search], placeholder:'Search..', class: 'form-control' %>
+				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class: 'btn btn-primary'%>
+			<% end -%>
+		</div>
+		<div class="action">
+			<%= button_to'Add New',new_admin_trademak_path,class: 'btn btn-primary', method: :get %>
+		</div>
+	</div>
+	<div id="main">
+	<% if flash[:notice]%>
+		<div class="notice"><%= flash[:notice]%></div>
+	<% end -%>
+		<table class="table">
+			<tr class="head">
+				<th>ID</th>
+				<th>Tên thương hiệu</th>
+				<th>Action</th>
+			</tr>
+			<% if @trademaks.count > 0 %>
+				<% @trademaks.each do |trademak|%>
+					<tr>
+						<td><%= trademak.id%></td>
+						<td><%= trademak.name %></td>
+						<td>
+							<%= link_to'Edit',edit_admin_trademak_path(trademak) %> &nbsp; &nbsp;
+							<%= link_to'Delete',admin_trademak_path(trademak),
+								method: :delete,
+								data: { confirm:'Are you ok?'} %>&nbsp; &nbsp;
+							<%= link_to'View',cate_show_path(trademak) %>
+						</td>
+					</tr>
+				<% end %>
+			<% else %>
+				<tr>
+					<td colspan="4", style="text-align:center; font-weight:bold;height:30px"> Không có dữ liệu </td>
+				</tr>
+			<% end -%>
+		</table>
+	</div>
+</div>

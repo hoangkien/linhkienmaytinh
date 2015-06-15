@@ -1,13 +1,13 @@
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(".header_bottom .menu ul li.product").css("background","#B81D22")
+		$(".header_bottom .menu ul li.product").css("background","#2CAF0B");
 	});
 </script>
 	<div class="content">
 		<div class="content_top">
 			<div class="heading">
 				<% if @search %>
-					<h3>Kết qua tìm kiếm cho <%= @search %></h3>
+					<h3>Kết qua tìm kiếm cho : " <%= @search %> "</h3>
 				<% else %>
 					<h3> Tất cả các sản phẩm</h3>
 				<% end -%>
@@ -25,7 +25,7 @@
 								<p><span class="rupees">Giá : Liên Hệ</span></p>
 						    </div>
 						       		<div class="add-cart">								
-										<h4><%= link_to"Chi tiết",products_view_path(product.id)%></h4>
+										<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
 								     </div>
 								 <div class="clear"></div>
 						</div>				     

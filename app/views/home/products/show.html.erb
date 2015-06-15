@@ -1,77 +1,91 @@
-<script type="text/javascript">
-	$(document).ready(function(){
-		$(".header_bottom .menu ul li.product").css("background","#B81D22")
-	});
-</script>
+<style type="text/css">
+	.details h3.title{
+		 height: 40px;
+  		font-size: 20px;
+  		text-decoration: underline;
+	}
+</style>
 <div class="main">
     <div class="content">
     	<div class="content_top">
     		<div class="back-links">
-    		<p><a href="index.html">Home</a> >>>> <%= link_to"#{@product.name}",products_view_path(@product)%></p>
+    		<p><img src="/assets/icon-menu.png" style="width:15px"><a href="#">Sản Phẩm</a><img src="/assets/next_icon.gif" style="width:20px"><%= link_to"#{@product.category.name}"%> <img src="/assets/next_icon.gif" style="width:20px"> <%= link_to"#{@product.name}",products_view_path(@product)%></p>
     	    </div>
     		<div class="clear"></div>
     	</div>
     	<div class="section group">
-				<div class="cont-desc span_1_of_2">
+				<div class="cont-desc span_1_of_2" style="border-right: 1px solid #F6F6F6;padding:10px 0px">
 				  <div class="product-details">				
 					<div class="grid images_3_of_2">
 						<div id="container">
 						   <div id="products_example">
 							   <div id="products">
 								<div class="slides_container">
-									<a href="#" target="_blank"><%= image_tag("#{@product.image}",size:"300x220")%></a>
+									<a href="#" target="_blank"><%= image_tag("#{@product.image}",size:"300x220","data-zoom-image"=>"/assets/#{@product.image}",id:"#{@product.slug}")%></a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="desc span_3_of_2">
-				<p><span>Mã: </span><%= @product.product_id %></p>
-				<p><span>Giá: </span><font color="red">Liên Hệ</font></p>
-				<p><span>Công suất: </span><%= @product.capacity %></p>
-				<p><span>Kích thuớc: </span><%= @product.size%></p>
-				<p><span>Nguồn sáng: </span><%= @product.light%></p>
-				<p><span>Bảo hành: </span><%= @product.guarantee%></p>
+			<div class="desc span_3_of_2">
+				<p><span style ="color:rgb(100, 99, 99)">Tên: </span><span class='info'><%= @product.name %></span></p>
+				<p><span style ="color:rgb(100, 99, 99)">Danh mục sản phẩm: </span><span class='info'><%= @product.category.name %></span></p>
+				<p><span style ="color:rgb(100, 99, 99)">Hãng sản xuất: </span><span class='info'><%= @product.trademak.name %></span></p>
+				<p><span style ="color:rgb(100, 99, 99)">Bảo hành :</span><span class='info'> 12 thang</span></p>
+				<p><span style ="color:rgb(100, 99, 99)">Giá : </span><span class='info'>Vui lòng gọi <%= @info.phone%></span></p>
 			</div>
 			<div class="clear"></div>
+			<br />
+			<div class="details">
+				<h3 class="title">Thông tin sản phẩm</h3>
+				<%= raw @product.details%>
+			</div>
 		  </div>
-	    <script type="text/javascript">
-    $(document).ready(function () {
-        $('#horizontalTab').easyResponsiveTabs({
-            type: 'default', //Types: default, vertical, accordion           
-            width: 'auto', //auto or any width like 600px
-            fit: true   // 100% fit in a container
-        });
-    });
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	   		 var id = "<%= @product.slug %>";
+			$(".header_bottom .menu ul li.product").css("background","#B81D22");
+			$("#"+id).elevateZoom({});
+	    });
    </script>		
    <div class="content_bottom">
     		<div class="heading">
-    		<h3>Related Products</h3>
+    		<h3>Sản phẩm liên quan</h3>
     		</div>
     		<div class="see">
-    			<p><a href="#">See all Products</a></p>
+    			<p><a href="#">Tất cả sản phẩm</a></p>
     		</div>
     		<div class="clear"></div>
     	</div>
    <div class="section group">
    			<% @category.products.each do |product|%>
 				<div class="grid_1_of_4 images_1_of_4">
-					 <%= image_tag("#{product.image}",size:"143x143")%>					
-					<div class="price" style="border:none">
-					       		<div class="add-cart" style="float:none">
-									<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
-							     </div>
-							 <div class="clear"></div>
+						<a href="preview.html"><%= image_tag("#{product.image}",size:"210x150" )%></a>
+						<h2><%= product.name%></h2>
+						<div class="price-details">
+				       		<div class="add-cart">								
+								<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
+						    </div>
+						 <div class="clear"></div>
+						</div>				     
 					</div>
-				</div>
 			<% end -%>
 			</div>
         </div>
 				<div class="rightsidebar span_3_of_1">
-					<h2>CATEGORIES</h2>
+					<h2 style="font-family: sans-serif;">DANH MỤC</h2>
 					<ul>
 						<% @category_all.each do |category|%>
-							<li><%= link_to"#{category.name}",category_path(category) %></li>
+							<li><%= link_to"#{category.name}",category_path(category) %>
+									<% if Category.subcategories(category.id).count > 0%>
+										<ul style="  margin-left: 20px;font-size: 13px;">
+											<% Category.subcategories(category.id).each do |sub|%>
+													<li><%= link_to"#{sub.name}",category_path(sub) %>
+													</li>
+											<% end -%>
+										</ul>
+									<% end -%>
+							</li>
 						<% end -%>
     				</ul>
     			</div>

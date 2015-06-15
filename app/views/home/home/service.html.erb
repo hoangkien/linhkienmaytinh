@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(".header_bottom .menu ul li.service").css("background","#B81D22")
+		$(".header_bottom .menu ul li.service").css("background","#2CAF0B");
 	});
 </script>
 <div class="main">
@@ -9,35 +9,8 @@
 			Khác hàng của <font style="color:red">LEDTIME.COM.VN</font>
 		</div>
     	<div class="section group">
-    		<p style="font-size:14pt;margin-bottom:10px">Chính sách bảo hành sản phẩm Đèn LED của LEDTIME</p>
-			<p><strong><font color="red", font-size="20px",font-weight="bold">* Thời hạn bảo hành sản phẩm:</font></strong></p>
-			<div class="group-text">
-				<p>Tất cả sản phẩm đèn LED LEDTIME đều được bảo hành trọn vẹn 2 năm.</p>
-			</div>
-			<p></p>
-			<p><strong><font color="red", font-size="20px",font-weight="bold">* Điều kiện bảo hành:</font></strong></p>
-			<div class="group-text">
-				<p>- Sản phẩm còn nguyên tem bảo hành có logo LEDTIME</p>
-				<p>- Sản phẩm còn trong thời gian bảo hành ghi trên tem.</p>
-				<p>- Sản phẩm lỗi, hỏng do lỗi nhà sản xuất.</p>
-			</div>
-			<p><strong><font color="red", font-size="20px",font-weight="bold">*  Không được bảo hành:<i></i></font></strong></p>
-			<div class="group-text">
-				<p>- Sản phẩm bị hư hỏng do Quý Khách sử dụng sai mục đích và hướng dẫn của Công Ty.</p>
-				<p>- Sản phẩm đã bị nứt, vỡ do tác động ngoại lực sau thời gian sử dụng.</p>
-				<p>- Sản phẩm hết thời gian bảo hành.</p>
-				<p>- Sản phẩm đã mất tem, rách tem, không có tem.</p>
-			</div>
-			<p><strong><font color="red", font-size="20px",font-weight="bold">*  Chính sách ưu đãi khách hàng thân thiết:<i></i></font></strong></p>
-			<div class="group-text">
-				<p> Sau thời gian bảo hành, nếu sản phẩm gặp lỗi Công ty có thể thay thế linh kiện giúp cho Quý Khách miễn phí tiền công.</p>
-			</div>
-			<p><strong><font color="red", font-size="20px",font-weight="bold">*   Địa chỉ nhận sản phẩm đèn bảo hành:<i></i></font></strong></p>
-			<div class="group-text">
-				<p>Địa chỉ 1: Số 42 ngõ 23/12 – Xuân La – Tây Hồ – Hà Nội  ĐT 0938.966.386
-					Trong trường hợp quý khách ở xa, có thể chuyển hàng xuống  địa chỉ nêu trên để được bảo hành sản phẩm đèn.</p>
-			</div>
-		</div>			
+    		<%= raw @intro.service if @intro %>
+		</div>
     </div>
  </div>
 </div>

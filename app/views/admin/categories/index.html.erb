@@ -5,41 +5,50 @@
 	<div id="content-menu">
 		<ul class="content-menu">
 			<li class="content-menu">
-				<%= link_to "All products", admin_products_path %>
+				<%= link_to "Tất cả SP", admin_products_path %>
 			</li>
 			<li class="content-menu">
-				<%= link_to "Categories list", admin_categories_path %>
+				<%= link_to "Danh mục loại SP", cate_index_path, class: "#{controller_name == 'categories' ? 'active' : ''}" %>
+			</li>
+			<li class="content-menu">
+				<%= link_to "Danh sách thương hiệu",admin_trademaks_path%>
 			</li>
 		</ul>
 	</div>
 </div>
 <div id="main-content">
+
 	<div id="action">
 		<div id="search">
 			<%= form_tag(admin_members_path, :method=>"get") do %>
-				<%= text_field_tag :search,params[:search], placeholder:'Search..', class:'text_field' %>
-				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class:'btn search'%>
+				<%= text_field_tag :search,params[:search], placeholder:'Search..', class: 'form-control' %>
+				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class: 'btn btn-primary'%>
 			<% end -%>
 		</div>
 		<div class="action">
-			<%= button_to'Add New',new_admin_category_path,class:'btn', method: :get %>
+			<%= button_to'Add New',new_admin_category_path,class: 'btn btn-primary', method: :get %>
 		</div>
 	</div>
 	<div id="main">
+	<% if flash[:notice]%>
+		<div class="notice"><%= flash[:notice]%></div>
+	<% end -%>
 		<table class="table">
 			<tr class="head">
 				<th>ID</th>
-				<th>Category Name</th>	
-				<th>Action</th>			
+				<th>Tên danh muc</th>
+				<th>Danh mục cha</th>
+				<th>Action</th>
 			</tr>
 			<% @categories.each do |category|%>
 				<tr>
 					<td><%= category.id%></td>
 					<td><%= category.name %></td>
+					<td><%= category.parent_id == 0 ? "Danh mục gốc" : Category.find(category.parent_id).name %></td>
 					<td>
 						<%= link_to'Edit',edit_admin_category_path(category) %> &nbsp; &nbsp;
 						<%= link_to'Delete',admin_category_path(category),
-							method: :delete, 
+							method: :delete,
 							data: { confirm:'Are you ok?'} %>&nbsp; &nbsp;
 						<%= link_to'View',cate_show_path(category) %>
 					</td>

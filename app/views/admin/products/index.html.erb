@@ -43,10 +43,13 @@
 	<div id="content-menu">
 		<ul class="content-menu">
 			<li class="content-menu">
-				<%= link_to "All products", admin_products_path %>
+				<%= link_to "Tất cả SP", admin_products_path %>
 			</li>
 			<li class="content-menu">
-				<%= link_to "Categories list", cate_index_path %>
+				<%= link_to "Danh mục loại SP", cate_index_path %>
+			</li>
+			<li class="content-menu">
+				<%= link_to "Danh sách thương hiệu",admin_trademaks_path%>
 			</li>
 		</ul>
 	</div>
@@ -55,35 +58,35 @@
 	<div id="action">
 		<div id="search">
 			<%= form_tag(admin_products_path, :method=>"get") do %>
-				<%= text_field_tag :search,params[:search], placeholder:'Search...', class:'text_field' %>
-				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]' ,class:'btn search'%>
+				<%= text_field_tag :search,params[:search], placeholder:'Search...', class:'form-control' %>
+				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]' ,class:'btn btn-primary'%>
 			<% end -%>
 		</div>
 		<div class="action">
-			<%= button_to'Add New',new_admin_product_path,class:'btn', method: :get %>
+			<%= button_to'Add New',new_admin_product_path,class:'btn btn-primary', method: :get %>
 			<%= form_for :check ,url:delete_admin_products_path do |f| %>
-			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true, class:'btn',data:{:confirm => "Are you sure ?"} %>
+			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true, class:'btn btn-danger',data:{:confirm => "Are you sure ?"} %>
 		</div>
 	</div>
 	<div id="main">
 		<table class="table">
 			<tr class="head">
-				<th style="width:10px"><input type="checkbox" id="checkall" name="checkall" ></th>	
-				<th>ID</th>
-				<th>Product ID</th>
-				<th>Product Name</th>
-				<th>Category</th>
-				<th>Image</th>
+				<th style="width:10px"><input type="checkbox" id="checkall" name="checkall" ></th>
+				<th>Tên SP</th>
+				<th>Loại SP</th>
+				<th>Thương hiệu</th>
+				<th>Giá</th>
+				<th>Hình ảnh</th>
 				<th>Action</th>
 			</tr>
 			<% if @product.count > 0 %>
 				<% @product.each  do |product_info|%>
 					<tr>
 						<td><%= check_box_tag('check[]',product_info.id)%></td>
-						<td><%= product_info.id%></td>
-						<td><%= product_info.product_id%></td>
 						<td><%= product_info.name%></td>
 						<td><%= product_info.category.name%></td>
+						<td><%= product_info.trademak.name%></td>
+						<td><%= product_info.price%></td>
 						<td style="width:150px"><%= product_info.image ? image_tag("#{product_info.image}",size:"150x100") : image_tag("no_image.png",size:"150x100")%></td>
 						<td style="text-align:center">
 							<%= link_to"Show",admin_product_path(product_info)%> &nbsp;&nbsp;
@@ -94,7 +97,7 @@
 				<% end -%>
 			<% else%>
 				<tr>
-					<td colspan="7", style="text-align:center; font-weight:bold;height:30px"> No Data</td>
+					<td colspan="8", style="text-align:center; font-weight:bold;height:30px"> Không có dữ liệu </td>
 				</tr>
 			<% end -%>
 			<% end -%>

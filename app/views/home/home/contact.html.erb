@@ -1,29 +1,26 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&language=vi"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-		$(".header_bottom .menu ul li.contact").css("background","#B81D22")
-	});
 var map;
 function initialize() {
-      var myLatlng = new google.maps.LatLng(21.060072,105.804249);
+      var myLatlng = new google.maps.LatLng(20.89288,105.98432);
       var myOptions = {
 	   	 zoom: 16,
 	   	 center: myLatlng,
 	   	 mapTypeId: google.maps.MapTypeId.ROADMAP
-		}	
-		map = new google.maps.Map(document.getElementById("div_id"), myOptions); 
+		}
+		map = new google.maps.Map(document.getElementById("div_id"), myOptions);
 		  // Biến text chứa nội dung sẽ được hiển thị
 		var text;
-		text= "<b style='color:#00F' " + 
-		         "style='text-align:center'>Công ty TNHH thương mại và dịch vụ Bích Phong<br />";
+		text= "<b style='color:#00F' " +
+		         "style='text-align:center'>Công ty TNHH thương mại và dịch vụ Bích Phong<br /> Từ hồ - yên phú - yên mỹ - Hưng yên<br /> SDT : 0975792655";
 		   var infowindow = new google.maps.InfoWindow(
 		    { content: text,
 		        size: new google.maps.Size(100,50),
 		        position: myLatlng
 		    });
-		       infowindow.open(map);    
+		       infowindow.open(map);
 		    var marker = new google.maps.Marker({
-		      position: myLatlng, 
+		      position: myLatlng,
 		      map: map,
 		      title:"Công ty TNHH thương mại và dịch vụ Bích Phong"
 		  });
@@ -36,8 +33,8 @@ function initialize() {
 				  <div class="contact-form">
 					<% if @contact.errors.any? %>
 					 	    <div class="error">
-						    <h2> Có lỗi xảy ra:</h2>
-						 
+						    <h2 style="font-family:sans-serif">Quý khách Vui lòng điền đầy đủ thông tin :</h2>
+
 						    <ul>
 						   		 <% @contact.errors.full_messages.each do |msg| %>
 						     		 <li><%= msg %></li>
@@ -48,11 +45,15 @@ function initialize() {
 					  <% if flash[:success] %>
 					  		<h3><%= flash[:success]%></h3>
 					  <% else %>
-					  	<h2>Contact Us</h2>
+					  	<h2>Vui lòng liên hệ với chúng tôi</h2>
 						<%= form_for :contact, url:contact_home_home_index_path, method: :post do |f|%>
 						    	<div>
 							    	<span><%= f.label :name, "Name" %></span>
 							    	<span><%= f.text_field :name %></span>
+							    </div>
+							    <div>
+							    	<span><%= f.label :sdt, "SĐT" %></span>
+							    	<span><%= f.text_field :phone %></span>
 							    </div>
 							    <div>
 							    	<span><%= f.label :email, "Email" %></span>
@@ -78,8 +79,8 @@ function initialize() {
     	 				<h2>Find Us Here</h2>
 					    	  <div id="div_id" style="height:325px; width:750px"></div>
       				</div>
-				 </div>	
-			  </div>	
-         </div> 
+				 </div>
+			  </div>
+         </div>
     </div>
  </div>

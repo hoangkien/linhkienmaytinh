@@ -20,40 +20,28 @@
 		<div id="main">
 			<table>
 				<tr>
-					<td class="left"><%= f.label :product_id, "Product ID:" %></td>
-					<td><%= @product.product_id%></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :name, "Name :" %></td>
+					<td class="left"><%= f.label :name, "Tên SP " %></td>
 					<td><%= @product.name%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :category, "Category :" %></td>
+					<td class="left"><%= f.label :category, "Danh mục sản phẩm " %></td>
 					<td><%= @product.category.name %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :image, "Image :" %></td>
+					<td class="left"><%= f.label :category, "Thương hiệu :" %></td>
+					<td><%= @product.category.name %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :image, "Hình ảnh " %></td>
 					<td><%= image_tag("#{@product.image}",size:"150x100")%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :size, "Size :" %></td>
-					<td><%= @product.size %></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :light, "Light :" %></td>
-					<td><%= @product.light %></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :capacity, "Capacity :" %></td>
-					<td><%= @product.capacity %></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :guarantee, "Guarantee :" %></td>
-					<td><%= @product.guarantee %></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :price, "Price :" %></td>
+					<td class="left"><%= f.label :price, "Giá " %></td>
 					<td><%= @product.price 	%></td>
+				</tr>
+				<tr>
+					<td class="left"> <%= f.label :details, "Thông tin" %> </td>
+					<td><%= raw @product.details%></td>
 				</tr>
 			</table>
 		</div>

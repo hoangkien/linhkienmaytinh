@@ -5,7 +5,7 @@
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
-			<li class="content-menu"><%= button_to"Back",admin_products_path,method:'get',class:'btn' %></li>
+			<li class="content-menu"><%= button_to"Back",admin_products_path,method:'get',class: 'btn btn-primary' %></li>
 		</ul>
 	</div>
 </div>
@@ -18,44 +18,38 @@
 			</div>
 			<div class="action">
 				<ul>
-					<li><%= f.submit "Add", :disable_with => 'Adding...' , class:'btn'%></li>
-					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn', type:'reset' %></li>
+					<li><%= f.submit "Add", :disable_with => 'Adding...' , class: 'btn btn-primary'%></li>
+					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn btn-info', type:'reset' %></li>
 				</ul>
 			</div>
 		</div>
 		<div id="main">
-			<table>
+			<table class="table">
 				<tr>
-					<td class="left"><%= f.label :product_id, "Product ID" %></td>
-					<td><%= f.text_field :product_id , class:'text_field'%></td>
+					<td class="left tbl-config"><%= f.label :trademak_id, "Thương hiệu" %></td>
+					<td><%= select_tag"product[trademak_id]",options_for_select(@trademak), class: 'form-control'%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :category_id, "Category ID" %></td>
-					<td><%= select_tag"product[category_id]",options_from_collection_for_select(@category,"id","name")%></td>
+					<td class="left tbl-config"><%= f.label :category_id, "Danh mục" %></td>
+					<td><%= select_tag"product[category_id]",options_for_select(@category), class: "form-control"%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :name, "Name" %></td>
-					<td><%= f.text_field :name, class:'text_field' %></td>
+					<td class="left tbl-config"><%= f.label :name, "Tên" %></td>
+					<td><%= f.text_field :name, class: 'form-control', required:true %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :image, "Image" %></td>
+					<td class="left tbl-config"><%= f.label :image, "Hình ảnh" %></td>
 					<td><%= f.file_field :image %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :Price, "Price" %></td>
-					<td><%= f.text_field :price , class:'text_field'%></td>
+					<td class="left tbl-config"><%= f.label :Price, "Gia" %></td>
+					<td><%= f.text_field :price , class: 'form-control'%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :size, "Size" %></td>
-					<td><%= f.text_field :size , class:'text_field'%></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :light, "Light" %></td>
-					<td><%= f.text_field :light , class:'text_field'%></td>
-				</tr>
-				<tr>
-					<td class="left"><%= f.label :guarantee, "Guarantee" %></td>
-					<td><%= f.text_field :guarantee, class:'text_field' %></td>
+					<td class="lef tbl-config">
+						<%= f.label :details, "Thông tin" %>
+					</td>
+					<td> <%= f.cktext_area :details ,:ckeditor => {:width => 1000}%>
 				</tr>
 			</table>
 		</div>

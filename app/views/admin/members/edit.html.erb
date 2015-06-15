@@ -5,7 +5,7 @@
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
-			<li class="content-menu"><%= button_to"Back",admin_members_path, method:'get',class:'btn' %></li>
+			<li class="content-menu"><%= button_to"Back",admin_members_path, method:'get',class: 'btn btn-primary' %></li>
 		</ul>
 	</div>
 </div>
@@ -18,13 +18,13 @@
 			</div>
 			<div class="action">
 				<ul>
-					<li><%= f.submit "Update", :disable_with => 'Adding...' , class:'btn'%></li>
-					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn', type:'reset' %></li>
+					<li><%= f.submit "Update", :disable_with => 'Adding...' , class: 'btn btn-primary'%></li>
+					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn btn-primary', type:'reset' %></li>
 				</ul>
 			</div>
 		</div>
 		<div id="main">
-			<table>
+			<table class="table">
 				<% if @member.errors.any? %>
 				    <div id="error">
 				      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
@@ -36,35 +36,31 @@
 				    </div>
 				<% end %>
 				<tr>
-					<td class="left"><%= f.label :username, "User Name" %></td>
-					<td><%= f.text_field :username , class:'text_field'%></td>
+					<td class="left tbl-config"><%= f.label :username, "User Name" %></td>
+					<td><%= f.text_field :username , class:'text_field',:readonly=>"true"%></td>
 				</tr>
-<!-- 				<tr>
-					<td class="left"><%= f.label :password, "Password" %></td>
-					<td><%= f.password_field :password, class:'text_field' %></td>
-				</tr> -->
 				<tr>
-					<td class="left"><%= f.label :fullname, "Fullname" %></td>
+					<td class="left tbl-config"><%= f.label :fullname, "Fullname" %></td>
 					<td><%= f.text_field :fullname ,class:'text_field'%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :gender, "Gender" %></td>
+					<td class="left tbl-config"><%= f.label :gender, "Gender" %></td>
 					<td><%= select_tag'member[gender]',options_for_select({"Male" => 0, "FeMale" =>1},"#{@member.gender}"),class:'text_field' %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :indentity_card, "Indentity Card" %></td>
+					<td class="left tbl-config"><%= f.label :indentity_card, "Indentity Card" %></td>
 					<td><%= f.text_field :indentity_card, class:'text_field' %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :birthday, "Birthday" %></td>
+					<td class="left tbl-config"><%= f.label :birthday, "Birthday" %></td>
 					<td><%= f.text_field :birthday ,class:'text_field'%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :Address, "Address" %></td>
+					<td class="left tbl-config"><%= f.label :Address, "Address" %></td>
 					<td><%= f.text_field :address ,class:'text_field'%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :email, "Email" %></td>
+					<td class="left tbl-config"><%= f.label :email, "Email" %></td>
 					<td><%= f.email_field :email ,class:'text_field'%></td>
 				</tr>
 			</table>

@@ -1,12 +1,10 @@
 class Product < ActiveRecord::Base
-  # attr_accessible :title, :body
-  attr_accessible :name, :product_id,:size,:light,:guarantee,:price, :category_id,:image
-  belongs_to :category  
+  attr_accessible :name,:name_url, :product_id,:size,:light,:guarantee,:price, :category_id,:image
+  belongs_to :category
+  belongs_to :trademak
+  validates :name,:details, presence:true
   extend FriendlyId
-  friendly_id :name
-  def to_param
-    "#{id} #{name}".parameterize
-  end
+  friendly_id :name_url , use: :slugged
   def self.upload(product)
   	  name = product['image'].original_filename
     	directory = "app/assets/images"
@@ -16,14 +14,16 @@ class Product < ActiveRecord::Base
     	File.open(path, "wb") { |f| f.write(product['image'].read) }
   end
   def self.search(query,page)
-    where("product_id like ? or name like ?","%#{query}%","%#{query}%").paginate(per_page: 5, page:page)
+    where("id = ? or name like ?","%#{query}%","%#{query}%").paginate(per_page: 5, page:page)
   end
   def self.home_search(query)
     if query
-      Product.find(:all,:conditions=>["name like ?","%#{query}%"])
+      where("name like ?","%#{query}%")
     else
       Product.find(:all)
     end
-      
+  end
+  def self.count(id)
+    where("category_id = #{id}").count
   end
 end

@@ -5,8 +5,8 @@
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
-			<li class="content-menu"><%= button_to"Edit",edit_admin_member_path(@member.id),:method =>:get, class:'btn'%></li>
-			<li class="content-menu"><%= button_to "Back", admin_members_path, :class => "btn", :method => :get %></li>
+			<li class="content-menu"><%= button_to"Edit",edit_admin_member_path(@member.id),:method =>:get, class: 'btn btn-primary'%></li>
+			<li class="content-menu"><%= button_to "Back", admin_members_path, class: "btn btn-primary", :method => :get %></li>
 		</ul>
 	</div>
 </div>
@@ -19,9 +19,9 @@
 			</div>
 		</div>
 		<div id="main">
-			<table>
+			<table class="table">
 				<tr>
-					<td class="left"><%= f.label :username, "User Name :" %></td>
+					<td class="left tbl-config"><%= f.label :username, "User Name :" %></td>
 					<td><%= @member.username%></td>
 				</tr>
 <!-- 				<tr>
@@ -29,35 +29,35 @@
 					<td><%= @member.password%></td>
 				</tr> -->
 				<tr>
-					<td class="left"><%= f.label :fullname, "Fullname :" %></td>
+					<td class="left tbl-config"><%= f.label :fullname, "Fullname :" %></td>
 					<td><%= @member.fullname%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :gender, "Gender :" %></td>
+					<td class="left tbl-config"><%= f.label :gender, "Gender :" %></td>
 					<td><%= @member.gender == 1?'Nữ': 'Nam' %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :indentity_card, "Indentity Card :" %></td>
+					<td class="left tbl-config"><%= f.label :indentity_card, "Indentity Card :" %></td>
 					<td><%= @member.indentity_card %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :birthday, "Birthday :" %></td>
+					<td class="left tbl-config"><%= f.label :birthday, "Birthday :" %></td>
 					<td><%= @member.birthday %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :Address, "Address :" %></td>
+					<td class="left tbl-config"><%= f.label :Address, "Address :" %></td>
 					<td><%= @member.address %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :email, "Email :" %></td>
+					<td class="left tbl-config"><%= f.label :email, "Email :" %></td>
 					<td><%= @member.email %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :create, "Created :" %></td>
+					<td class="left tbl-config"><%= f.label :create, "Created :" %></td>
 					<td><%= @member.created_at %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :upate, "Upate :" %></td>
+					<td class="left tbl-config"><%= f.label :upate, "Upate :" %></td>
 					<td><%= @member.updated_at 	%></td>
 				</tr>
 			</table>

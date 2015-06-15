@@ -1,20 +1,13 @@
-body{
-	width:1000px;
-	margin:0px auto;
-}
-#header{
-	background: green;
-	width: 100%;
-	height: 100px;
-	color: rgb(228, 206, 206);
-	font-size: 30px;
-	font-weight: bold;
-	text-align: center;
-	line-height: 100px;
-	text-shadow: 0px 0px 10px red
-}
 #footer{
 	background:#000;
 	color:#fff;
 	height:50px;
+}
+.notice{
+	color: rgb(119, 178, 102);
+	border: 1px solid;
+	height: 25px;
+	line-height: 25px;
+	margin-bottom: 10px;
+	padding-left: 10px;
 }

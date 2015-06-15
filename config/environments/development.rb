@@ -36,11 +36,22 @@ RailsDemo::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = false
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # set delivery method to :smtp, :sendmail or :test
+  config.action_mailer.delivery_method = :smtp
+
+  # these options are only needed if you choose smtp delivery
+  config.action_mailer.smtp_settings = {
+      :address        => 'smtp.gmail.com',
+      :port           => 587,
+      :domain         => 'localhost:3000',
+      :authentication => :plain,
+      :user_name      => 'hoangkien.hy91@gmail.com',
+      :password       => 'hoangvankien',
+      :enable_starttls_auto => true,
+      :openssl_verify_mode  => 'none'
+  }
 
 
 end

@@ -1,0 +1,39 @@
+<div id="content-header">
+	<div id="title">
+		Edit trademak information
+	</div>
+	<div id="content-menu">
+		<ul class="content-menu">
+			<li class="content-menu"><%= button_to"Back",admin_trademaks_path,method:'get',class: 'btn btn-primary' %></li>
+		</ul>
+	</div>
+</div>
+<%= form_for :trademak , url: admin_trademak_path, method: :put do |f| %>
+<div id="main-content">
+	<div id="box">
+		<div id="action">
+			<div class="title">
+				Thông tin thương hiệu
+			</div>
+			<div class="action">
+				<ul>
+					<li><%= f.submit "Update", :disable_with => 'Adding...' , class: 'btn btn-primary'%></li>
+					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn btn-info', type:'reset' %></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<table>
+				<tr>
+					<td class="left"><%= f.label :name, "Tên thương hiệu" %></td>
+					<td><%= f.text_field :name, class: 'form-control' %></td>
+				</tr>
+				<tr>
+					<td class="left"><%= f.label :name_url, "Link url" %></td>
+					<td><%= f.text_field :name_url, class: 'form-control' %></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<% end -%>

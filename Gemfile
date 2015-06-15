@@ -28,7 +28,7 @@ gem 'uglifier', '>= 1.0.3'
 end
 group :production do
 gem 'pg'
-gem 'rails_12factor'	
+gem 'rails_12factor'
 end
 gem 'jquery-rails'
 # To use ActiveModel has_secure_password
@@ -45,4 +45,5 @@ gem 'byebug'
 
 
 
-
+gem 'bootstrap-sass', '~> 2.3.2'
+gem'bcrypt-ruby','~>3.1.2'

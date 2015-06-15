@@ -1,3 +1,68 @@
+<style type="text/css">
+	.notice{
+	color: rgb(119, 178, 102);
+	border: 1px solid;
+	height: 25px;
+	line-height: 25px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+}
+</style>
+<div id="content-header">
+	<div id="title">
+		Contacts List
+	</div>
+</div>
+<div id="main-content">
+	<div id="action">
+		<div id="search">
+			<%= form_tag(admin_contacts_path, :method=>"get") do %>
+				<%= text_field_tag :search,params[:search], placeholder:'Nhập tên', class: 'form-control' %>
+				<%= submit_tag "Search", :disable_with => 'Search...',name: 'contact[search]'  ,class: 'btn btn-primary'%>
+			<% end -%>
+		</div>
+		<div class="action">
+			<%= form_for :check ,url:delete_admin_contacts_path do |f| %>
+			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true,data:{:confirm=>"Are you sure ?"}, class: 'btn btn-danger' %>
+		</div>
+	</div>
+	<div id="main">
+		<% if flash[:notice] %>
+			<div class="notice"><%= flash[:notice] %></div>
+		<% end %>
+		<table class="table">
+			<tr class="head">
+				<th style="width:10px"><input type="checkbox" id="checkall" name="checkall" ></th>
+				<th >ID</th>
+				<th>Email</th>
+				<th>Company</th>
+				<th>Subject</th>
+				<th style="width:150px">Action</th>
+			</tr>
+			<% if @contact.count > 0%>
+				<% @contact.each do |contact_info|%>
+					<tr>
+						<td><%= check_box_tag('check[]',contact_info.id)%></td>
+						<td class="col1"><%= contact_info.id%></td>
+						<td><%= contact_info.email%></td>
+						<td><%= contact_info.company%></td>
+						<td><%= contact_info.subject%></td>
+						<td><%= link_to'View',admin_contact_path(contact_info) %>&nbsp;&nbsp;
+						<%= link_to'Reply',reply_contact_path(contact_info.id)%>&nbsp;&nbsp;
+						<%= link_to'Delete', admin_contact_path(contact_info.id), method: :delete, data:{:confirm =>"Are you ok ?"}%>
+						</td>
+					</tr>
+				<% end -%>
+			<% else %>
+				<tr>
+					<td colspan="11" style="text-align:center; font-weight:bold;height:30px"> Không có  </td>
+				</tr>
+			<% end -%>
+		</table>
+		<% end %>
+		<%= will_paginate @contact %>
+	</div>
+</div>
 <script>
 	$(document).ready(function(){
     $("#checkall").change(function(){
@@ -36,55 +101,3 @@
 
  });
 </script>
-<div id="content-header">
-	<div id="title">
-		Contacts List
-	</div>
-</div>
-<div id="main-content">
-	<div id="action">
-		<div id="search">
-			<%= form_tag(admin_contacts_path, :method=>"get") do %>
-				<%= text_field_tag :search,params[:search], placeholder:'Nhập tên', class:'text_field' %>
-				<%= submit_tag "Search", :disable_with => 'Search...',name: 'contact[search]'  ,class:'btn search'%>
-			<% end -%>
-		</div>
-		<div class="action">
-			<%= form_for :check ,url:delete_admin_contacts_path do |f| %>
-			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true,data:{:confirm=>"Are you sure ?"}, class:'btn' %>
-		</div>
-	</div>
-	<div id="main">
-		<table class="table">
-			<tr class="head">
-				<th style="width:10px"><input type="checkbox" id="checkall" name="checkall" ></th>	
-				<th >ID</th>
-				<th>Email</th>
-				<th>Company</th>
-				<th>Subject</th>
-				<th style="width:150px">Action</th>
-			</tr>
-			<% if @contact.count > 0%>
-				<% @contact.each do |contact_info|%>
-					<tr>
-						<td><%= check_box_tag('check[]',contact_info.id)%></td>
-						<td class="col1"><%= contact_info.id%></td>
-						<td><%= contact_info.email%></td>
-						<td><%= contact_info.company%></td>
-						<td><%= contact_info.subject%></td>
-						<td><%= link_to'View',admin_contact_path(contact_info) %>&nbsp;&nbsp;
-						<%= link_to'Reply',reply_contact_path(contact_info.id)%>&nbsp;&nbsp;
-						<%= link_to'Delete', admin_contact_path(contact_info.id), method: :delete, data:{:confirm =>"Are you ok ?"}%>
-						</td>
-					</tr>
-				<% end -%>
-			<% else %>
-				<tr>
-					<td colspan="11" style="text-align:center; font-weight:bold;height:30px"> No Data</td>
-				</tr>
-			<% end -%>
-		</table>
-		<% end %>
-		<%= will_paginate @contact %>
-	</div>
-</div>

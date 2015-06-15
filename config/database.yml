@@ -11,7 +11,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: railsDemo_development
+  database: nuocsachhadung
   pool: 5
   username: root
   password: 1

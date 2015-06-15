@@ -26,12 +26,8 @@
 		<div id="main">
 			<table>
 				<tr>
-					<td><%= f.label :From, "From" %></td>
-					<td><%= f.text_field :mail_from %></td>
-				</tr>
-				<tr>
 					<td><%= f.label :To, "To" %></td>
-					<td><%= f.text_field :email,value:"#{@contact.email}" %></td>
+					<td><%= f.text_field :email,value:"#{@contact.email}"%></td>
 				</tr>
 				<tr>
 					<td><%= f.label :subject, "Subject" %></td>

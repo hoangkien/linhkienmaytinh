@@ -1,10 +1,11 @@
 class Home::HomeController < ApplicationController
 	layout"home/index"
 	def index
-		@category = Category.all
+		@category = Category.where("parent_id = 0")
 	end
 	def about
 		@title = "about"
+		@intro = Intro.first
 	end
 	def news
 		@title= "news"
@@ -21,6 +22,8 @@ class Home::HomeController < ApplicationController
 	end
 	def service
 		@title ="Service"
+		@intro = Intro.first
+
 	end
 
 end

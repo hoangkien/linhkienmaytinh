@@ -3,16 +3,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title><%= yield :title %></title>
-	<%= stylesheet_link_tag "reset"%>
-	<%= stylesheet_link_tag "admin_style"%>
-	<%= javascript_include_tag "jquery"%>
-	<%= javascript_include_tag "rails"%>
-	
+	<title>Admin</title>
+	<%= stylesheet_link_tag "application"%>
+	<!-- <%= stylesheet_link_tag "admin_style"%> -->
+	<%= javascript_include_tag "application"%>
+	<!-- <%= javascript_include_tag "jquery"%> -->
+<!-- 	<%= javascript_include_tag "rails"%>
+
 	<%= stylesheet_link_tag "jquery.datetimepicker"%>
   	<%= javascript_include_tag 'application'%>
 	<%= javascript_include_tag "jquery.datetimepicker"%>
-	<%= javascript_include_tag "#{controller.controller_name}" %>
+	<%= javascript_include_tag "#{controller.controller_name}" %>-->
 	<%= csrf_meta_tag %>
 </head>
 <body>
@@ -23,12 +24,12 @@
 		<div id="menu">
 			<div class="main-menu">
 				<ul class="main-menu">
-					<li class="main-menu home"><%= link_to'Home',admin_home_index_path %></li>
-					<li class="main-menu member"><%= link_to'Member',admin_members_path %></li>
-					<li class="main-menu product"><%= link_to'Product', admin_products_path%></li>
-					<li class="main-menu news"><%= link_to'News', admin_news_index_path%></li>
-					<li class="main-menu contact"><%= link_to'Contact',admin_contacts_path%></li>
-					<li class="main-menu config"><%= link_to'Setting', admin_config_index_path %></li>
+					<li class='<%= controller_name == "home" ? "main-menu active" : " main-menu " %>'><%= link_to'Home',admin_home_index_path %></li>
+					<li class='<%= controller_name == "members" ? "main-menu active" : " main-menu " %>'><%= link_to'Member',admin_members_path %></li>
+					<li class='<%= ['products','categories','trademaks'].include?(controller_name) ? "main-menu active" : " main-menu " %>'><%= link_to'Product', admin_products_path%></li>
+					<li class='<%= controller_name == "news" ? "main-menu active" : " main-menu " %>'><%= link_to'News', admin_news_index_path%></li>
+					<li class='<%= controller_name == "contacts" ? "main-menu active" : " main-menu " %>'><%= link_to'Contact',admin_contacts_path%></li>
+					<li class='<%= controller_name == "config" ? "main-menu active" : " main-menu " %>'><%= link_to'Setting', admin_config_index_path, data: {"no-turbolink" => true} %></li>
 				</ul>
 			</div>
 			<div id="info">

@@ -1,0 +1,39 @@
+<div id="content-header">
+	<div id="title">
+		Thêm mới thương hiệu
+	</div>
+	<div id="content-menu">
+		<ul class="content-menu">
+			<li class="content-menu"><%= button_to"Back",admin_trademaks_path,method:'get',class: 'btn btn-primary' %></li>
+		</ul>
+	</div>
+</div>
+<%= form_for :trademak , url: admin_trademaks_path do |f| %>
+<div id="main-content">
+	<div id="box">
+		<div id="action">
+			<div class="title">
+				Thêm mới thương hiệu
+			</div>
+			<div class="action">
+				<ul>
+					<li><%= f.submit "Add", :disable_with => 'Adding...' , class: 'btn btn-primary'%></li>
+					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn btn-primary', type:'reset' %></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<table class="table">
+				<tr>
+					<td class="left tbl-config"><%= f.label :name, "Tên thương hiệu" %></td>
+					<td><%= f.text_field :name, class:'text_field' ,required:true%></td>
+				</tr>
+				<tr>
+					<td class="left tbl-config"><%= f.label :name_url, "Link Url" %></td>
+					<td><%= f.text_field :name_url, class:'text_field',required:true %><color red>*là tên thương hiệu là tiếng anh hoặc tiếng việt không dấu*</color></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<% end -%>

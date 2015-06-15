@@ -1,1 +1,53 @@
-<h1>Cấu hình hệ thống</h1>
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice]%></div>
+<% end -%>
+<h1 class="header">Thay đổi thông tin liên hệ </h1>
+<%= form_tag("/admin/config/ChangeInfo",method:"post") do%>
+<div id="main">
+	<table class="table">
+		<tr>
+			<td class="left tbl-config">Phone</td>
+			<td><%= text_field_tag( :phone,!@info.nil? ? @info.phone : "",class:"text_field", required:true) %></td>
+		</tr>
+		<tr>
+			<td class="left tbl-config">Hotline</td>
+			<td><%= text_field_tag( :hotline,!@info.nil? ? @info.hotline : "",class:"text_field",required:true) %></td>
+		</tr>
+		<tr>
+			<td class="left tbl-config">Skype</td>
+			<td><%= text_field_tag( :skype,!@info.nil? ? @info.skype : "",class:"text_field", required:true) %></td>
+		</tr>
+		<tr>
+			<td class="left tbl-config">Tên công ty</td>
+			<td><%= text_field_tag( :company_name,!@info.nil? ? @info.company_name : "",class:"text_field", required:true) %></td>
+		</tr>
+		<tr>
+			<td class="left tbl-config">Địa chỉ</td>
+			<td><%= text_field_tag( :address,!@info.nil? ? @info.address : "",class:"text_field", required:true) %></td>
+		</tr>
+		<tr>
+			<td class="left tbl-config">Email</td>
+			<td><%= text_field_tag( :email,!@info.nil? ? @info.email : "",class:"text_field", required:true) %></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><%= submit_tag("Cập nhật",:id =>"change_info", class: "btn btn-primary")%></td>
+		</tr>
+	</table>
+</div>
+<% end%>
+<h1 class="header">Thông tin giới thiệu về công ty </h1>
+	<%= form_tag("/admin/config/ChangeIntro",method:"post", style: "  margin-left: 120px;") do%>
+		<%= cktext_area_tag :intro ,@intro ? @intro.intro : "",:ckeditor => {}%>
+		<br />
+	<%= submit_tag("Cập nhật",:id =>"change_intro", class: "btn btn-primary")%>
+<% end -%>
+<h1 class="header">Thông tin dịch vụ </h1>
+	<%= form_tag("/admin/config/ChangeIntro",method:"post", style: "  margin-left: 120px;") do%>
+		<%= cktext_area_tag :service ,@intro ? @intro.service : "" ,:ckeditor => {}%>
+		<br />
+		<%= submit_tag("Cập nhật",:id =>"change_service", class: "btn btn-primary")%>
+	<% end -%>
+<br />
+<br />
+<br />

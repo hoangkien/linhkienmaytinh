@@ -43,7 +43,7 @@
 	<div id="content-menu">
 		<ul class="content-menu">
 			<li class="content-menu"><%= link_to"Tất cả thành viên",admin_members_path%></li>
-			<li class="content-menu">Danh sách quyền</li>
+			<!-- <li class="content-menu">Danh sách quyền</li> -->
 		</ul>
 	</div>
 </div>
@@ -51,20 +51,20 @@
 	<div id="action">
 		<div id="search">
 			<%= form_tag(admin_members_path, :method=>"get") do %>
-				<%= text_field_tag :search,params[:search], placeholder:'Nhập tên', class:'text_field' %>
-				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class:'btn search'%>
+				<%= text_field_tag :search,params[:search], placeholder:'Nhập tên', class:'form-control' %>
+				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class:'btn btn-primary'%>
 			<% end -%>
 		</div>
 		<div class="action">
-			<%= button_to'Add New',new_admin_member_path,class:'btn', method: :get %>
+			<%= button_to'Add New',new_admin_member_path,class:'btn btn-primary', method: :get %>
 			<%= form_for :check ,url:delete_admin_members_path do |f| %>
-			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true,data:{:confirm=>"Are you sure ?"}, class:'btn' %>
+			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true,data:{:confirm=>"Are you sure ?"}, class:'btn btn-danger' %>
 		</div>
 	</div>
 	<div id="main">
-		<table class="table">
+		<table class="table table-bordered">
 			<tr class="head">
-				<th><input type="checkbox" id="checkall" name="checkall" ></th>	
+				<th><input type="checkbox" id="checkall" name="checkall" ></th>
 				<th>ID</th>
 				<th>UserName</th>
 				<th>FullName</th>
@@ -87,8 +87,8 @@
 						<td><%= member_info.indentity_card %></td>
 						<td><%= member_info.email %></td>
 						<td><%= member_info.role ==1?'Admin': 'Customer'%></td>
-						<td><%= member_info.created_at %></td>
-						<td><%= member_info.updated_at %></td>
+						<td><%= member_info.created_at.strftime("%d-%m-%Y") %></td>
+						<td><%= member_info.updated_at.strftime("%d-%m-%Y") %></td>
 						<td>
 							<%= link_to'Edit',edit_admin_member_path(member_info) %> &nbsp; &nbsp;
 							<%= link_to'Delete',admin_member_path(member_info),method: :delete,data:{confirm:'Are you ok?'} %>&nbsp; &nbsp;
@@ -98,7 +98,7 @@
 				<% end -%>
 			<% else %>
 				<tr>
-					<td colspan="11" style="text-align:center; font-weight:bold;height:30px"> No Data</td>
+					<td colspan="11" style="text-align:center; font-weight:bold;height:30px">Không có dữ liệu</td>
 				</tr>
 			<% end -%>
 		</table>
