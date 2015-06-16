@@ -8,7 +8,7 @@
 		<% Category.where("parent_id = #{@category.id}").each do |category|%>
 			<div class="content_top">
 				<div class="heading">
-					<h3><span>Sản Phẩm<span><img src="/assets/next_icon.gif" style="width:20px"><%=category.name%></h3>
+					<h3><img src="/assets/icon-menu.png" style="width:16px;float:left;margin:4px 10px 0px 0px;"><span class="cate">Sản Phẩm<img src="/assets/next_icon.gif" style="width:20px"></span><span class="catesub"><%=category.name%></span></h3>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -16,17 +16,17 @@
 				<% if category.products.count > 0 %>
 					<% category.products.each do |product| %>
 						<div class="grid_1_of_4 images_1_of_4">
-							<a href="preview.html"><%= image_tag("#{product.image}",size:"210x150" )%></a>
+							<a href="preview.html"><%= image_tag("#{product.image}",size:"100x200" )%></a>
 							<h2><%= product.name%></h2>
 							<div class="price-details">
 						       <div class="price-number">
 									<p><span class="rupees">Giá : Liên Hệ</span></p>
 							    </div>
-							       		<div class="add-cart">								
+							       		<div class="add-cart">
 											<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
 									     </div>
 									 <div class="clear"></div>
-							</div>				     
+							</div>
 						</div>
 					<% end -%>
 				<% else%>
@@ -49,17 +49,17 @@
 			<% if @category.products.count > 0 %>
 				<% @category.products.each do |product| %>
 					<div class="grid_1_of_4 images_1_of_4">
-						<a href="preview.html"><%= image_tag("#{product.image}",size:"210x150" )%></a>
+						<a href="preview.html"><%= image_tag("#{product.image}",size:"100x200" )%></a>
 						<h2><%= product.name%></h2>
 						<div class="price-details">
 					       <div class="price-number">
 								<p><span class="rupees">Giá : Liên Hệ</span></p>
 						    </div>
-						       		<div class="add-cart">								
+						       		<div class="add-cart">
 										<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
 								     </div>
 								 <div class="clear"></div>
-						</div>				     
+						</div>
 					</div>
 				<% end -%>
 			<% else%>
@@ -72,4 +72,4 @@
 		</div>
 	<% end -%>
 	</div>
- </div>	
+ </div>

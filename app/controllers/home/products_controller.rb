@@ -4,7 +4,7 @@ class Home::ProductsController < ApplicationController
 		@category = Category.where("parent_id = 0")
 	end
 	def view
-		
+
 	end
 	def show
 		@category_all = Category.where("parent_id = 0")

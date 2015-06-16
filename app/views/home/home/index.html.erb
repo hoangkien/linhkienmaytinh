@@ -34,6 +34,8 @@
 						<% end -%>
 				  </ul>
 				</div>
+				<br/>
+				<br/>
 				<div class="categories">
 					<ul>
 						<h3>Hỗ trợ</h3>
@@ -63,7 +65,7 @@
                   <div id="mover">
                   	<div id="slide-1" class="slide">
 									 		<div class="slider-img">
-									     <a href="preview.html"><%= image_tag("slide/may-loc-nuoc.jpg", style: "height: 265px;")%></a>
+									     <a href="preview.html"><%= image_tag("slide/may-loc-nuoc-ro.jpg", style: "height: 265px;")%></a>
 									  	</div>
 			             		<div class="slider-text">
 	                      <h1> May loc nuoc RO</h1>
@@ -85,13 +87,13 @@
 							            <!-- <a href="preview.html" class="button">Shop Now</a> -->
 		                  </div>
 				             	<div class="slider-img">
-								     		<a href="preview.html"><%= image_tag("slide/slide-3-image.jpg", style: "height: 265px;")%></a>
+								     		<a href="preview.html"><%= image_tag("slide/he-thong-loc-nuoc.jpg", style: "height: 265px;")%></a>
 										  </div>
 										  <div class="clear"></div>
 	                  </div>
 	                  <div class="slide">
 		                  <div class="slider-img">
-									    	<a href="preview.html"><%= image_tag("slide/slide-2-image.jpg" , style:"height: 265px;")%></a>
+									    	<a href="preview.html"><%= image_tag("slide/loc-nuoc-moi.jpg" , style:"height: 265px;")%></a>
 									  	</div>
 										  <div class="slider-text">
 	                      <h1>Clearance<br><span>SALE</span></h1>
@@ -125,21 +127,41 @@
 					<div class="clear"></div>
 				</div>
 				<div class="section group">
-				<% if category.products.count > 0 %>
-					<% category.products.each do |product| %>
-						<div class="grid_1_of_4 images_1_of_4">
-							<a href="preview.html"><%= image_tag("#{product.image}",size:"210x150" )%></a>
-							<h2><%= product.name%></h2>
-							<div class="price-details">
-						       <div class="price-number">
-									<p><span class="rupees">Giá : Liên Hệ</span></p>
-							    </div>
-							       		<div class="add-cart">
-											<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
-									     </div>
-									 <div class="clear"></div>
+				<% if Category.count(category.id) > 0 %>
+					<% if Category.subcategories(category.id).count > 0 %>
+						<% Category.where(parent_id: category).each do |subcate| %>
+							<% subcate.products.limit(2).order(id: :desc).each do |product| %>
+								<div class="grid_1_of_4 images_1_of_4">
+									<%= link_to image_tag("#{product.image}",size:"130x220" ), home_product_path(product),title:"#{product.name}"%>
+									<h2 style="height:30px"><%= truncate(product.name, length:40)%></h2>
+									<div class="price-details">
+								       <div class="price-number">
+											<p><span class="rupees">Giá : Liên Hệ</span></p>
+									    </div>
+									       		<div class="add-cart">
+													<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
+											     </div>
+											 <div class="clear"></div>
+									</div>
+								</div>
+							<% end -%>
+						<% end -%>
+					<% else %>
+						<% category.products.each do |product| %>
+							<div class="grid_1_of_4 images_1_of_4">
+								<%= link_to image_tag("#{product.image}",size:"130x220" ), home_product_path(product),title:"#{product.name}"%>
+								<h2 style="height:30px"><%= truncate(product.name, length:40)%></h2>
+								<div class="price-details">
+							       <div class="price-number">
+										<p><span class="rupees">Giá : Liên Hệ</span></p>
+								    </div>
+								       		<div class="add-cart">
+												<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
+										     </div>
+										 <div class="clear"></div>
+								</div>
 							</div>
-						</div>
+						<% end -%>
 					<% end -%>
 				<% else %>
 					<div class="grid_1_of_4 images_1_of_4">

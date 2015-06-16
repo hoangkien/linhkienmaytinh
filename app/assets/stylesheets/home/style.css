@@ -34,11 +34,13 @@ img{max-width:100%;}
 }
 body {
 	font-family: Arial, Helvetica, ambleregular;
-	background: #FFF;
+	background:rgba(191, 228, 226, 0.51);
 }
 .wrap {
 	width:80%;
 	margin: 0 auto;
+	background: #fff;
+	box-shadow: 0px 0px 5px rgba(162, 255, 44, 0.62);
 }
 .header {
 	background: #FFF;
@@ -84,6 +86,7 @@ body {
 	color:#E4292F;
 }
 .header_top {
+	margin-bottom: -3px;
 }
 .logo {
 }
@@ -250,12 +253,14 @@ body {
 	border:1px solid #EEE;
 }
 .categories h3{
-	font-size:15px;
-	color:#FFF;
-	padding:6px;
-	background:#448F30;
-	text-transform:uppercase;
-	font-family: 'ambleregular';
+  font-size: 15px;
+  color: #FFF;
+  padding: 6px;
+  background: #448F30;
+  text-transform: uppercase;
+  font-family: 'ambleregular';
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgb(41, 105, 15);
 }
 .categories ul li {background-color: #76B167 !important; margin-bottom: 1px;margin-top: 1px;}
 .categories li{
@@ -343,6 +348,8 @@ body {
 .heading {
 	float: left;
 }
+.heading h3 span.cate{display: block;float: left;}
+.heading h3	span.catesub{display: block;font-size: 13px;color: green;margin-top: 4px;width: 700px}
 .heading h3 {
 	font-family: 'ambleregular';
 	font-size:20px;
@@ -392,8 +399,8 @@ body {
 	margin-left: 0;
 }
 .images_1_of_4 {
-	width: 20.8%;
-	padding: 1.5%;
+	width: 17.8%;
+	padding: 0.5%;
 	text-align: center;
 	position: relative;
 }
@@ -403,7 +410,7 @@ body {
 .images_1_of_4  h2 {
 	color:#6A82A4;
 	font-family: 'ambleregular';
-	font-size:1.1em;
+	font-size:13px;
 	font-weight: normal;
 }
 .images_1_of_4  p {
@@ -425,7 +432,7 @@ body {
 	padding-top: 5px;
 }
 .price-details p span.rupees{
-	font-size:1.6em;
+	font-size:15px;
 	font-family: 'ambleregular';
 	color:#383838;
 }
@@ -436,7 +443,7 @@ body {
 .add-cart h4 a{
 	font-size:0.9em;
 	display: block;
-	padding:10px 15px;
+	padding:5px 15px;
 	font-family: 'ambleregular';
 	background:#44802D;
 	color: #FFF;
@@ -455,8 +462,7 @@ body {
 .footer {
 	position: relative;
 	background: #FCFCFC;
-    border-top: 1px solid #CECECE;
-    margin:20px auto;
+  border-top: 1px solid #CECECE;
 }
 .section {
 	clear: both;
@@ -472,6 +478,7 @@ body {
 }
 .group {
 	zoom: 1;
+	padding: 0px 5px;
 }
 .col_1_of_4 {
 	display: block;
@@ -624,6 +631,7 @@ body {
 }
 .group {
 	zoom: 1;
+	padding: 0px 5px;
 
 }
 .group-text
@@ -1143,6 +1151,7 @@ body {
 }
 .group {
     zoom:1;
+    padding: 0px 5px
 }
 .grid_1_of_3{
 	display: block;
@@ -1309,6 +1318,7 @@ body {
 }
 .group {
 	zoom: 1;
+	padding: 0px 5px;
 }
 .col {
 	display: block;

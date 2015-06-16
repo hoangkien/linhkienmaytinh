@@ -34,9 +34,11 @@
 			<tr class="head">
 				<th style="width:10px"><input type="checkbox" id="checkall" name="checkall" ></th>
 				<th >ID</th>
+        <th>Tên</th>
+        <th>Số điện Thoại</th>
 				<th>Email</th>
-				<th>Company</th>
-				<th>Subject</th>
+				<th>Công Ty</th>
+				<th>Nội Dung</th>
 				<th style="width:150px">Action</th>
 			</tr>
 			<% if @contact.count > 0%>
@@ -44,6 +46,8 @@
 					<tr>
 						<td><%= check_box_tag('check[]',contact_info.id)%></td>
 						<td class="col1"><%= contact_info.id%></td>
+            <td><%= contact_info.name%></td>
+            <td><%= contact_info.phone%></td>
 						<td><%= contact_info.email%></td>
 						<td><%= contact_info.company%></td>
 						<td><%= contact_info.subject%></td>

@@ -30,10 +30,14 @@ RailsDemo::Application.routes.draw do
   get "admin/contacts/reply/:id" =>"admin/contacts#reply", :as =>:reply_contact
   post "admin/config/ChangeInfo" =>"admin/config#ChangeInfo", :as =>:changeinfo
   post "admin/config/ChangeIntro" =>"admin/config#ChangeIntro", :as =>:changeintro
+
   namespace :admin do
       #Directs /admin/users/* to Admin::ProductsController
       #(app/controllers/admin/products_controller.rb)
       resources :home
+      scope controller: :products do
+        get 'products/get_sub_cate/:id' => :get_sub_cate, as: :get_sub_cate
+      end
 
     end
     namespace :admin do

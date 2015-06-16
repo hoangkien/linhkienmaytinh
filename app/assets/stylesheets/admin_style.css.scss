@@ -1,4 +1,13 @@
-
+@font-face {
+    font-family: 'ambleregular';
+    src:url(../font/Amble-Regular-webfont.ttf);
+    src: local('UTM Neo Sans Intel'),
+    url('fonts/UTM Neo Sans Intel.woff') format('woff'),
+    url('fonts/UTM Neo Sans Intel.ttf') format('truetype'),
+    url('fonts/UTM Neo Sans Intel.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 body{
 	margin:0px 4px;
 	padding:0px;
@@ -6,10 +15,7 @@ body{
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-@font-face {
-    font-family: 'ambleregular';
-    src:url(../font/Amble-Regular-webfont.ttf) format('truetype');
-}
+
 #wraper{
 }
 /*===============HEADER===================*/

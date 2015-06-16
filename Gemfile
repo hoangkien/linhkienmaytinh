@@ -27,8 +27,8 @@ gem 'coffee-rails'
 gem 'uglifier', '>= 1.0.3'
 end
 group :production do
-gem 'pg'
-gem 'rails_12factor'
+  gem 'pg'
+  gem 'rails_12factor', group: :production
 end
 gem 'jquery-rails'
 # To use ActiveModel has_secure_password

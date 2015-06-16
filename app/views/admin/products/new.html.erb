@@ -31,7 +31,10 @@
 				</tr>
 				<tr>
 					<td class="left tbl-config"><%= f.label :category_id, "Danh mục" %></td>
-					<td><%= select_tag"product[category_id]",options_for_select(@category), class: "form-control"%></td>
+					<td id="category">
+						<%= select_tag"product[category_id]",options_for_select(@category), class: "form-control",style: "float:left"%>
+						<div id="sub_cate" style="display:none; float:left"></div>
+					</td>
 				</tr>
 				<tr>
 					<td class="left tbl-config"><%= f.label :name, "Tên" %></td>
@@ -46,6 +49,10 @@
 					<td><%= f.text_field :price , class: 'form-control'%></td>
 				</tr>
 				<tr>
+					<td class="left tbl-config"><%= f.label :Gurantee, "Bảo hành" %></td>
+					<td><%= select_tag"product[gurantee]",options_for_select(["1 Tháng","6 Tháng","12 Tháng"]) ,class: 'form-control'%></td>
+				</tr>
+				<tr>
 					<td class="lef tbl-config">
 						<%= f.label :details, "Thông tin" %>
 					</td>
@@ -56,3 +63,35 @@
 	</div>
 </div>
 <% end -%>
+<script type="text/javascript">
+function get_sub_Category(id){
+	$.ajax({
+		url: '/admin/products/get_sub_cate/'+id,
+		method: 'get',
+		success: function(data){
+			if ( data.length > 0 ){
+				var option = "";
+				for (key in data){
+					// console.log(data[key]);
+					option += "<option value = "+ data[key][1]+">"+data[key][0]+"</option>";
+				}
+				$("#sub_cate").css("display","block");
+				$("#sub_cate").html("<select name='product[sub_catagory_id]' id='sub_category'>"+ option +"</select>");
+			}else{
+				$("#sub_cate").html("");
+				$("#sub_cate").css("display","none");
+			}
+		}
+	});
+}
+	$(document).ready(function(){
+		var cate_id = $("#product_category_id").val();
+		get_sub_Category(cate_id);
+		$("#product_category_id").change(function(){
+			var id = $("#product_category_id").val();
+			get_sub_Category(id);
+		});
+	});
+
+</script>
+<select name='product[sub_catagory_id]' id="sub_category" style="display:none"></select>

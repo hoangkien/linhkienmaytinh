@@ -15,7 +15,7 @@
 					<% if subcate.products.count > 0 %>
 						<% subcate.products.each do |product| %>
 							<div class="grid_1_of_4 images_1_of_4">
-								<a href="preview.html"><%= image_tag("#{product.image}",size:"210x150" )%></a>
+								<a href="preview.html"><%= image_tag("#{product.image}",size:"100x200" )%></a>
 								<h2><%= product.name%></h2>
 								<div class="price-details">
 							       <div class="price-number">
@@ -51,7 +51,7 @@
 				<% if category.products.count > 0 %>
 					<% category.products.each do |product| %>
 						<div class="grid_1_of_4 images_1_of_4">
-							<a href="preview.html"><%= image_tag("#{product.image}",size:"210x150" )%></a>
+							<a href="preview.html"><%= image_tag("#{product.image}",size:"100x200" )%></a>
 							<h2><%= product.name%></h2>
 							<div class="price-details">
 						       <div class="price-number">

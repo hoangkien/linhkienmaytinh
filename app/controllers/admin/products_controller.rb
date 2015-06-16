@@ -10,7 +10,7 @@ class Admin::ProductsController < ApplicationController
 
 	def new
 		@product = Product.new
-		@category = Category.all.pluck(:name,:id)
+		@category = Category.where(parent_id: 0).pluck(:name,:id)
 		@trademak = Trademak.all.pluck(:name,:id)
 		Rails.logger.info"log :#{@trademak}"
 	end
@@ -19,9 +19,14 @@ class Admin::ProductsController < ApplicationController
 		@product = Product.new()
 		@product.name = params[:product][:name]
 		@product.name_url = change_alias(params[:product][:name])+".html"
-		@product.category_id = params[:product][:category_id]
+		if params[:sub_catagory_id]
+			@product.category_id = params[:product][:sub_catagory_id]
+		else
+			@product.category_id = params[:product][:category_id]
+		end
 		@product.trademak_id = params[:product][:trademak_id]
 		@product.price = params[:product][:price]
+		@product.gurantee = params[:product][:gurantee]
 		@product.details = params[:product][:details]
 		if params[:product]['image']
 			@product.image = params[:product]['image'].original_filename
@@ -58,6 +63,7 @@ class Admin::ProductsController < ApplicationController
 		redirect_to admin_products_path
 
 	end
+
 	def delete
 		@product = params[:check]
 		@product.each do |product|
@@ -66,9 +72,18 @@ class Admin::ProductsController < ApplicationController
 		end
 		redirect_to admin_products_path
 	end
+
 	def destroy
 		@product = Product.friendly.find(params[:id])
 		@product.destroy
 		redirect_to admin_products_path
 	end
+
+	def get_sub_cate
+		if request.xhr?
+			@subcate = Category.subcategories(params[:id]).pluck(:name,:id)
+			render :json => @subcate
+		end
+	end
+
 end

@@ -15,25 +15,29 @@
 	<div id="box">
 		<div id="action">
 			<div class="title">
-				contact Infomation
+				Thông tin liên hệ
 			</div>
 		</div>
 		<div id="main">
-			<table>
+			<table class="table">
 				<tr>
-					<td class="left"><%= f.label :name, "Name :" %></td>
+					<td class="left tbl-config"><%= f.label :name, "Name " %></td>
 					<td><%= @contact.name%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :email,"Email :"%></td>
+					<td class="left tbl-config"><%= f.label :phone, "Phone " %></td>
+					<td><%= @contact.phone%></td>
+				</tr>
+				<tr>
+					<td class="left tbl-config"><%= f.label :email,"Email "%></td>
 					<td><%= @contact.email %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :company%></td>
+					<td class="left tbl-config"><%= f.label :company,"Company "%></td>
 					<td><%= @contact.company %></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :subject, "Subject :" %></td>
+					<td class="left tbl-config"><%= f.label :subject, "Subject " %></td>
 					<td><%= @contact.subject%></td>
 				</tr>
 			</table>

@@ -9,14 +9,14 @@
     <div class="content">
     	<div class="content_top">
     		<div class="back-links">
-    		<p><img src="/assets/icon-menu.png" style="width:15px"><a href="#">Sản Phẩm</a><img src="/assets/next_icon.gif" style="width:20px"><%= link_to"#{@product.category.name}"%> <img src="/assets/next_icon.gif" style="width:20px"> <%= link_to"#{@product.name}",products_view_path(@product)%></p>
+    		<p><span><img src="/assets/icon-menu.png" style="width:15px"><a href="#">Sản Phẩm</a></span><span><img src="/assets/next_icon.gif" style="width:16px"><%= link_to"#{@product.category.name}", category_path(@product.category)%></span><span><img src="/assets/next_icon.gif" style="width:16px"> <%= link_to"#{@product.name}",products_view_path(@product)%></span></p>
     	    </div>
     		<div class="clear"></div>
     	</div>
     	<div class="section group">
 				<div class="cont-desc span_1_of_2" style="border-right: 1px solid #F6F6F6;padding:10px 0px">
-				  <div class="product-details">				
-					<div class="grid images_3_of_2">
+				  <div class="product-details">
+					<div class="grid images_3_of_2" style="width:140px;margin-left:12%">
 						<div id="container">
 						   <div id="products_example">
 							   <div id="products">
@@ -27,18 +27,21 @@
 						</div>
 					</div>
 				</div>
-			<div class="desc span_3_of_2">
+			<div class="desc span_3_of_2" style="float: right;margin-top: 10px;">
 				<p><span style ="color:rgb(100, 99, 99)">Tên: </span><span class='info'><%= @product.name %></span></p>
 				<p><span style ="color:rgb(100, 99, 99)">Danh mục sản phẩm: </span><span class='info'><%= @product.category.name %></span></p>
 				<p><span style ="color:rgb(100, 99, 99)">Hãng sản xuất: </span><span class='info'><%= @product.trademak.name %></span></p>
-				<p><span style ="color:rgb(100, 99, 99)">Bảo hành :</span><span class='info'> 12 thang</span></p>
-				<p><span style ="color:rgb(100, 99, 99)">Giá : </span><span class='info'>Vui lòng gọi <%= @info.phone%></span></p>
+        <p><span style ="color:rgb(100, 99, 99)">Bảo hành :</span><span class='info'><%= @product.gurantee %></span></p>
+        <p><span style ="color:rgb(100, 99, 99)">Tình trạng :</span><span class='info'> Còn hàng</span></p>
+				<p><span style ="color:rgb(100, 99, 99)">Giá : </span><span class='info'>Vui lòng liên hệ <%= @info.phone%></span></p>
 			</div>
 			<div class="clear"></div>
 			<br />
 			<div class="details">
 				<h3 class="title">Thông tin sản phẩm</h3>
-				<%= raw @product.details%>
+        <div class="section group">
+          <%= raw @product.details%>
+        </div>
 			</div>
 		  </div>
 	<script type="text/javascript">
@@ -47,7 +50,7 @@
 			$(".header_bottom .menu ul li.product").css("background","#B81D22");
 			$("#"+id).elevateZoom({});
 	    });
-   </script>		
+   </script>
    <div class="content_bottom">
     		<div class="heading">
     		<h3>Sản phẩm liên quan</h3>
@@ -60,14 +63,14 @@
    <div class="section group">
    			<% @category.products.each do |product|%>
 				<div class="grid_1_of_4 images_1_of_4">
-						<a href="preview.html"><%= image_tag("#{product.image}",size:"210x150" )%></a>
-						<h2><%= product.name%></h2>
+						<%= link_to image_tag("#{product.image}",size:"100x150" ), home_product_path(product),title: "#{product.name}"%>
+						<h2 style="font-size:9px;height:30px;"><%= truncate(product.name,length:30)%></h2>
 						<div class="price-details">
-				       		<div class="add-cart">								
+				       		<div class="add-cart">
 								<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
 						    </div>
 						 <div class="clear"></div>
-						</div>				     
+						</div>
 					</div>
 			<% end -%>
 			</div>

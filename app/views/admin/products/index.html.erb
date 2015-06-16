@@ -87,7 +87,7 @@
 						<td><%= product_info.category.name%></td>
 						<td><%= product_info.trademak.name%></td>
 						<td><%= product_info.price%></td>
-						<td style="width:150px"><%= product_info.image ? image_tag("#{product_info.image}",size:"150x100") : image_tag("no_image.png",size:"150x100")%></td>
+						<td style="width:150px"><%= product_info.image ? image_tag("#{product_info.image}",size:"60x50") : image_tag("no_image.png",size:"60x50")%></td>
 						<td style="text-align:center">
 							<%= link_to"Show",admin_product_path(product_info)%> &nbsp;&nbsp;
 							<%= link_to"Edit",edit_admin_product_path(product_info)%>&nbsp;&nbsp;
