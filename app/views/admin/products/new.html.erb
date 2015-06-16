@@ -76,7 +76,7 @@ function get_sub_Category(id){
 					option += "<option value = "+ data[key][1]+">"+data[key][0]+"</option>";
 				}
 				$("#sub_cate").css("display","block");
-				$("#sub_cate").html("<select name='product[sub_catagory_id]' id='sub_category'>"+ option +"</select>");
+				$("#sub_cate").html("<select name='product[sub_category_id]' id='sub_category'>"+ option +"</select>");
 			}else{
 				$("#sub_cate").html("");
 				$("#sub_cate").css("display","none");

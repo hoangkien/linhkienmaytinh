@@ -19,8 +19,8 @@ class Admin::ProductsController < ApplicationController
 		@product = Product.new()
 		@product.name = params[:product][:name]
 		@product.name_url = change_alias(params[:product][:name])+".html"
-		if params[:sub_catagory_id]
-			@product.category_id = params[:product][:sub_catagory_id]
+		if params[:product][:sub_category_id]
+			@product.category_id = params[:product][:sub_category_id]
 		else
 			@product.category_id = params[:product][:category_id]
 		end
