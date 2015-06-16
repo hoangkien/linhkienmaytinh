@@ -166,7 +166,7 @@ body {
 }
    /**** End Cart ****/
 .header_bottom {
-	background: #285B29;
+	background: #448F30;
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
 	-moz-border-rfadius: 6px;
@@ -197,7 +197,7 @@ body {
    transition: all .9s;
 }
 .menu li a:hover,.menu li.active a{
-	background:#267B24 !important;
+	background:#175607 !important;
 }
 .menu ul li.active{
 	background:rgb(91, 132, 80);
@@ -253,35 +253,36 @@ body {
 	font-size:15px;
 	color:#FFF;
 	padding:6px;
-	background:#285B29;
+	background:#448F30;
 	text-transform:uppercase;
 	font-family: 'ambleregular';
 }
+.categories ul li {background-color: #76B167 !important; margin-bottom: 1px;margin-top: 1px;}
 .categories li{
 	position: relative;
 }
 .categories li a{
 	display:block;
 	font-size:0.8em;
-  	padding: 7px 0px 7px 9px;
-    color: #9C9C9C;
-    font-family: 'ambleregular';
-    margin:0 20px;
-    background:url(../drop_arrow.png) no-repeat 0;
-    border-bottom: 1px solid #EEE;
-    text-transform:uppercase;
+	padding: 7px 0px 7px 9px;
+  color: #2C6F2F;
+  font-family: 'ambleregular';
+  margin:0 20px;
+  background:url(../drop_arrow.png) no-repeat 0;
+  border-bottom: 1px solid #EEE;
+  text-transform:uppercase;
 }
 .categories li:last-child a{
 	border:none;
 }
 .categories li a:hover{
 	color:#B81D22;
-	background: #F7F7F7;
+	/*background: #F7F7F7;*/
 }
 .categories li ul.subcate{
-  top: -2px;
+  top: 0px;
   position: absolute;
-  left: 259px;
+  left: 258px;
   z-index: 9999999;
   width: 330px;
   background: rgb(247, 247, 247);
@@ -298,14 +299,14 @@ body {
 }
 .categories li ul li a{
 	display:block;
-	font-size:0.8em;
+	font-size:11px;
 	padding:8px 15px;
-    color: #9C9C9C;
-    font-family: 'ambleregular';
-    margin:0 20px;
-    background:url(../drop_arrow.png) no-repeat 0;
-    border-bottom: 1px solid #EEE;
-    text-transform:uppercase;
+  color: #3A7430;
+  font-family: 'ambleregular';
+  margin:0 20px;
+  background:url(../drop_arrow.png) no-repeat 0;
+  border-bottom: 1px solid #EEE;
+  text-transform:uppercase;
 }
 .header_bottom_right{
 	float:left;
