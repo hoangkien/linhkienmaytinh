@@ -1,16 +1,12 @@
 RailsDemo::Application.routes.draw do
-  root :to => 'home/home#index'
   mount Ckeditor::Engine => '/ckeditor'
 
   # root :to => 'admin/login#index'
-  # get "login/new"
-
-  # post "admin/login/create"
-
-  # delete "admin/login/destroy"
-
-  # get "category/index"
-  # get "admin/signup" => "admin/login#index"
+  scope controller: :login do
+    get "login/new" => :new, :as => :login_new
+    get "login/create" => :create, :as => :login_create
+    get "login/destroy" => :destroy, :as => :login_destroy
+  end
 
   scope module: 'home' do
 
@@ -19,7 +15,6 @@ RailsDemo::Application.routes.draw do
       get "tin-tuc" => :news,:as => :news
       get "trang-chu" => :index,:as => :home
       get "lien-he" => :contact ,:as => :contact
-      post"lien-he" => :contact
       get "dich-vu" =>:service, :as => :service
     end
 
@@ -39,8 +34,6 @@ RailsDemo::Application.routes.draw do
     scope controller: :login do
       get "admin" => :index
       get "admin/signup" => :index
-      post "admin/login/create" => :create
-      delete "admin/login/destroy" => :destroy
     end
 
   end
@@ -53,10 +46,10 @@ RailsDemo::Application.routes.draw do
 
 
   get "admin/contacts/reply/:id" =>"admin/contacts#reply", :as =>:reply_contact
-    namespace :admin do
+   namespace :admin do
       #Directs /admin/users/* to Admin::ProductsController
       #(app/controllers/admin/products_controller.rb)
-      resources :home,:users,:customers,:config,:news,:categories,:trademaks
+      resources :home,:users,:customers,:config,:news,:categories
       resources :products do
         collection do
           post 'delete'
@@ -78,7 +71,6 @@ RailsDemo::Application.routes.draw do
       end
     end
     resources :home
-  get '*unmatched_route', :to => 'application#raise_not_found'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -128,6 +120,7 @@ RailsDemo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+   root :to => 'home/home#index'
 
   # See how all your routes lay out with "rake routes"
 

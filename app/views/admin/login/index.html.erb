@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "admin/login" %>
 <div id="login">
-	<%= form_for :member , url: admin_login_index_path, method: :post do |f|%>
+	<%= form_for :member , url: admin_login_create_path, method: :post do |f|%>
 		<fieldset>
 			<legend>LOGIN</legend>
 			<% if flash[:notice] %>
@@ -9,7 +9,7 @@
 			<div class="login">
 				<p>
 					<%= f.label :Name, "Name" %>
-					<%= f.text_field :username %>	
+					<%= f.text_field :username %>
 				</p>
 				<p>
 					<%= f.label :password, "Password" %>

@@ -13,13 +13,13 @@ class Admin::LoginController < ApplicationController
       session[:user_data]= @member
       redirect_to admin_home_index_path
     else
-        flash[ :notice] = "Sai thong tin tai khoan hoac mat khau !"
-        redirect_to admin_login_index_path
+      flash[ :notice] = "Sai thong tin tai khoan hoac mat khau !"
+      redirect_to admin_signup_path
     end
   end
 
   def destroy
   	session[:user_data] = nil
-  	redirect_to admin_login_index_path
+  	redirect_to admin_signup_path
   end
 end

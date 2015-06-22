@@ -46,7 +46,7 @@ function initialize() {
 					  		<h3><%= flash[:success]%></h3>
 					  <% else %>
 					  	<h2>Vui lòng liên hệ với chúng tôi</h2>
-						<%= form_for :contact, url:contact_home_home_index_path, method: :post do |f|%>
+						<%= form_for :contact, url:contact_path, method: :post do |f|%>
 						    	<div>
 							    	<span><%= f.label :name, "Name" %></span>
 							    	<span><%= f.text_field :name %></span>
