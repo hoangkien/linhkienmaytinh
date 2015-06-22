@@ -4,7 +4,7 @@
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
-			<li class="content-menu"><button class='btn'><%= link_to"Back",admin_products_path %></button></li>
+			<li class="content-menu"><button class='btn btn-primary'><%= link_to"Back",admin_products_path %></button></li>
 		</ul>
 	</div>
 </div>
@@ -17,38 +17,38 @@
 			</div>
 			<div class="action">
 				<ul>
-					<li><%= f.submit "Update", :disable_with => 'Adding...' , class:'btn'%></li>
-					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn', type:'reset' %></li>
+					<li><%= f.submit "Update", :disable_with => 'Adding...' , class: 'btn btn-primary'%></li>
+					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn btn-primary', type:'reset' %></li>
 				</ul>
 			</div>
 		</div>
 		<div id="main">
-			<table>
+			<table class="table">
 				<tr>
-					<td class="left"><%= f.label :name, "Tên SP " %></td>
+					<td class="left tbl-config"><%= f.label :name, "Tên SP " %></td>
 					<td><%= f.text_field :name , class:'text_field'%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :category, "Danh mục SP " %></td>
+					<td class="left tbl-config"><%= f.label :category, "Danh mục SP " %></td>
 					<td><%= select_tag"product[category_id]",options_for_select(@category),selected:@product.category_id%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :category, "Thương hiệu " %></td>
+					<td class="left tbl-config"><%= f.label :category, "Thương hiệu " %></td>
 					<td><%= select_tag"product[trademak_id]",options_for_select(@trademak),selected: @product.trademak_id%></td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :image, "Hình ảnh " %></td>
+					<td class="left tbl-config"><%= f.label :image, "Hình ảnh " %></td>
 					<td>
 						<%= image_tag("#{@product.image}", size:"150x100",name:'product[old_img]') %>
 						<div><%= f.file_field :image %></div>
 					</td>
 				</tr>
 				<tr>
-					<td class="left"><%= f.label :price, "Gia :" %></td>
+					<td class="left tbl-config"><%= f.label :price, "Gia :" %></td>
 					<td><%= f.text_field :price , class:'text_field'%></td>
 				</tr>
 				<tr>
-					<td class="left"> <%= f.label :details, "Thông tin" %> </td>
+					<td class="left tbl-config"> <%= f.label :details, "Thông tin" %> </td>
 					<td><%= f.cktext_area :details %></td>
 				</tr>
 			</table>

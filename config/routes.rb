@@ -60,6 +60,7 @@ RailsDemo::Application.routes.draw do
       resources :products do
         collection do
           post 'delete'
+          get 'get_sub_cate/:id' => :get_sub_cate
         end
       end
 

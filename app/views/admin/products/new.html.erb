@@ -72,7 +72,7 @@ function get_sub_Category(id){
 			if ( data.length > 0 ){
 				var option = "";
 				for (key in data){
-					// console.log(data[key]);
+					console.log(data[key]);
 					option += "<option value = "+ data[key][1]+">"+data[key][0]+"</option>";
 				}
 				$("#sub_cate").css("display","block");
@@ -84,14 +84,15 @@ function get_sub_Category(id){
 		}
 	});
 }
-	$(document).ready(function(){
-		var cate_id = $("#product_category_id").val();
-		get_sub_Category(cate_id);
-		$("#product_category_id").change(function(){
-			var id = $("#product_category_id").val();
-			get_sub_Category(id);
-		});
+
+$(document).ready(function(){
+	var cate_id = $("#product_category_id").val();
+	get_sub_Category(cate_id);
+	$("#product_category_id").change(function(){
+		var id = $("#product_category_id").val();
+		get_sub_Category(id);
 	});
+});
 
 </script>
 <select name='product[sub_catagory_id]' id="sub_category" style="display:none"></select>
