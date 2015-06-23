@@ -9,7 +9,7 @@
     <div class="content">
     	<div class="content_top">
     		<div class="back-links">
-    		<p><span><img src="/assets/icon-menu.png" style="width:15px"><a href="#">Sản Phẩm</a></span><span><img src="/assets/next_icon.gif" style="width:16px"><%= link_to"#{@product.category.name}", category_path(@product.category)%></span><span><img src="/assets/next_icon.gif" style="width:16px"> <%= link_to"#{@product.name}",products_view_path(@product)%></span></p>
+    		<p><span><img src="/assets/icon-menu.png" style="width:15px"/><a href="#">Sản Phẩm</a></span><span><img src="/assets/next_icon.gif" style="width:16px"/><%= link_to"#{@product.category.name}", category_path(@product.category)%></span><span><img src="/assets/next_icon.gif" style="width:16px"/> <%= link_to"#{@product.name}",products_view_path(@product)%></span></p>
     	    </div>
     		<div class="clear"></div>
     	</div>
@@ -19,10 +19,10 @@
 					<div class="grid images_3_of_2" style="width:140px;margin-left:12%">
 						<div id="container">
 						   <div id="products_example">
-							   <div id="products">
-								<div class="slides_container">
-									<a href="#" target="_blank"><%= image_tag("#{@product.image}",size:"300x220","data-zoom-image"=>"/assets/#{@product.image}",id:"#{@product.slug}")%></a>
-								</div>
+							  <div id="products">
+  								<div class="slides_container">
+  									<a href="#" target="_blank"><%= image_tag("#{@product.image}",size:"300x220","data-zoom-image"=>"/assets/#{@product.image}",id:"#{@product.slug}")%></a>
+  								</div>
 							</div>
 						</div>
 					</div>
@@ -63,11 +63,11 @@
    <div class="section group">
    			<% @category.products.each do |product|%>
 				<div class="grid_1_of_4 images_1_of_4">
-						<%= link_to image_tag("#{product.image}",size:"100x150" ), home_product_path(product),title: "#{product.name}"%>
+						<%= link_to image_tag("#{product.image}",size:"100x150" ), products_view_path(product),title: "#{product.name}"%>
 						<h2 style="font-size:9px;height:30px;"><%= truncate(product.name,length:30)%></h2>
 						<div class="price-details">
 				       		<div class="add-cart">
-								<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
+								<h4><%= link_to"Chi tiết",products_view_path(product), method: :get%></h4>
 						    </div>
 						 <div class="clear"></div>
 						</div>

@@ -4,16 +4,11 @@
 <title>Nước sạch Hà Dũng</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<%= stylesheet_link_tag "home/style"%>
-<%= stylesheet_link_tag "home/slider"%>
-<%= javascript_include_tag "home/jquery-1.7.2.min"%>
-<%= javascript_include_tag "home/home"%>
-<%= javascript_include_tag "home/move-top"%>
-<%= javascript_include_tag "home/easing"%>
-<%= javascript_include_tag "home/startstop-slider"%>
-<%= javascript_include_tag "jquery.elevateZoom-3.0.8.min"%>
+<%= stylesheet_link_tag "application"%>
+<%= javascript_include_tag "application"%>
+<%= csrf_meta_tag %>
 </head>
-<body onLoad="initialize()">
+<body onload="initialize()">
   <div class="wrap">
 	<div class="header">
 		<!--<div class="headertop_desc">
@@ -39,7 +34,26 @@
 					</ul></div></p>
 			</div> -->
 			<div class="logo">
-				<a href="index.html"><%= link_to image_tag("/assets/banner_maylocnuoc.jpg",:style =>"width:100%;height:250px"),home_path %></a>
+				<div class="left" style="float:left;padding-left:5px">
+					<a href="index.html"><%= link_to image_tag("/assets/logo1.png",style: 'height:110px;padding-left:20px'),home_path %></a>
+					<h1 style="  margin-top: -29px;margin-bottom: 5px;color:rgb(15, 103, 93);font-weight:bold"> CÔNG TY NƯỚC SẠCH HÀ DŨNG</h1>
+					<h1><img src='/assets/telephone_32.ico' style="float:left;width:30px" /><label style="  line-height: 30px;font-size: 20px;padding: 0px 36px;color:red">01679.380.632</label></h1>
+					<!-- <h1>Địa chỉ: Từ Hồ - Yên Phú - Yên Mỹ - Hưng Yên</h1> -->
+				</div>
+				<div class="right" style="float:left;margin-left:30px">
+					<div class="intro" style="padding-top:23px">
+						<p><span style="  color: rgb(40, 124, 176);font-size: 23px;text-shadow: 1px 1px 2px red;text-decoration: underline;">Chuyên cung cấp: </span><span style="  line-height: 23px;font-size: 19px;padding-left: 10px;color: rgb(19, 152, 152);"> Các thiết bị - Hệ thống - Vật liệu - Linh kiện vật liệu lọc nước</span></p>
+					</div>
+					<div class="img">
+						<img src="/assets/vatlieu.jpg" style="width:240px"/>
+						<img src="/assets/maylocnuoc.jpg" style="width:83px"/>
+						<img src="/assets/hethong.jpg" style="width:143px"/>
+						<img src="/assets/banner.jpg" style="width:240px"/>
+					</div>
+					<div class="add">
+					<!-- <span>Dia chi: </span> -->
+					</div>
+				</div>
 			</div>
 			  <script type="text/javascript">
 			function DropDown(el) {
@@ -69,11 +83,11 @@
 			});
 
 		</script>
-	 <div class="clear"></div>
   </div>
+  <div class="clear"></div>
 	<div class="header_bottom">
-	     	<div class="menu">
-	     		<ul>
+ 	     	<div class="menu">
+	     		<ul class="list-group">
 			    	<li class= <%= "active" if (controller_name == "home" && action_name == "index")%>><%= link_to"Trang chủ", home_path%></li>
 			    	<li class= <%= "active" if ((controller_name == "products" && action_name == "index") or (controller_name == "products"))%>><%= link_to"Sản phẩm",products_path %></li>
 			    	<li class= <%= "active" if (controller_name == "home" && action_name == "about")%>><%= link_to"Thông tin", about_path%></li>
@@ -83,8 +97,8 @@
      			</ul>
 	     	</div>
 	     	<div class="search_box">
-	     		<%= form_tag(products_search_path, :method=>"get") do %>
-					<%= text_field_tag :search,params[:search], placeholder:'Search...', class:'text_field' %>
+	     		<%= form_tag(products_search_path, :method=>"get",style: "height:26px") do %>
+						<%= text_field_tag :search,params[:search], placeholder:'Search...', class:'text_field' %>
 					<% end -%>
 	     	</div>
 	     	<div class="clear"></div>
@@ -97,11 +111,11 @@
 				<div class="col_1_of_4 span_1_of_4">
 						<h4>Thông tin công ty</h4>
 						<ul>
-						<li><%= @info.company_name if !@info.nil?%></li>
-						<li> VPGD : <%= @info.address if !@info.nil? %></li>
-						<li>Hotline :<%= @info.phone if !@info.nil? %>/<%= @info.hotline if !@info.nil?%></li>
-						<li>Email :<%= @info.email if !@info.nil?%></li>
-						<li>Giờ làm việc: 8h30 - 17h30 từ thứ 2 đến thứ 7.</li>
+							<li><%= @info.company_name if !@info.nil?%></li>
+							<li>VPGD : <%= @info.address if !@info.nil? %></li>
+							<li>Hotline :<%= @info.phone if !@info.nil? %>/<%= @info.hotline if !@info.nil?%></li>
+							<li>Email :<%= @info.email if !@info.nil?%></li>
+							<li>Giờ làm việc: 8h30 - 17h30 từ thứ 2 đến thứ 7.</li>
 						</ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">

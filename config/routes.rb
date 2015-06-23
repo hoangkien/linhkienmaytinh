@@ -26,10 +26,10 @@ RailsDemo::Application.routes.draw do
     scope controller: :products do
         get "san-pham/danh-muc-san-pham/:id" => :category ,:as =>:category
         get "products/preview" => :preview
+        get "san-pham/search/(.:format)" => :search, :as => :products_search
         get "san-pham/:id" =>:show,:as => :products_view
         get "san-pham/preview" => :preview, :as => :preview
         get "san-pham" => :index ,:as => :products
-        get "san-pham/search/(.:format)" => :search, :as => :products_search
     end
 
   end

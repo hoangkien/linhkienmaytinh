@@ -14,7 +14,6 @@
 	float:left;
 	position:relative;
 	border:1px solid #dfdfdf;
-	display:none;
 }
 
 /*
@@ -26,8 +25,6 @@
 */
 
 .slides_container a {
-	width:366px;
-	height:274px;
 	display:block;
 }
 

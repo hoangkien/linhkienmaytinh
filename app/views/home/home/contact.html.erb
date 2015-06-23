@@ -48,7 +48,7 @@ function initialize() {
 					  	<h2>Vui lòng liên hệ với chúng tôi</h2>
 						<%= form_for :contact, url:contact_path, method: :post do |f|%>
 						    	<div>
-							    	<span><%= f.label :name, "Name" %></span>
+							    	<span><%= f.label :name, "Tên" %></span>
 							    	<span><%= f.text_field :name %></span>
 							    </div>
 							    <div>
@@ -64,11 +64,11 @@ function initialize() {
 							    	<span><%= f.text_field :company %></span>
 							    </div>
 							    <div>
-							    	<span><%= f.label :subject, "Subject" %></span>
-							    	<span><%= f.text_area :subject %></span>
+							    	<span><%= f.label :subject, "  Nội Dung" %></span>
+							    	<span><%= f.text_area :subject,rows:100,cols:76 %></span>
 							    </div>
 							   <div>
-							   		<span><%= f.submit "Submit", :disable_with => 'Submiting...' %></span>
+							   		<span><%= f.submit "Send", :disable_with => 'Submiting...' , class: 'btn-primary'%></span>
 							  </div>
 						    <% end -%>
 					  <% end -%>

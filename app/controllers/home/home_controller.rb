@@ -1,7 +1,9 @@
 class Home::HomeController < ApplicationController
 	layout"home/index"
+
 	def index
 		@category = Category.where("parent_id = 0")
+		Rails.logger.info "AAAAAAAAAAAa"
 	end
 	def about
 		@title = "about"
