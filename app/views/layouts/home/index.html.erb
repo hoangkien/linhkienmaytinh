@@ -6,9 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <%= stylesheet_link_tag "application"%>
 <%= javascript_include_tag "application"%>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&language=vi"></script>
 <%= csrf_meta_tag %>
 </head>
-<body onload="initialize()">
+<body>
   <div class="wrap">
 	<div class="header">
 		<!--<div class="headertop_desc">
@@ -36,16 +37,16 @@
 			<div class="logo">
 				<div class="left" style="float:left;padding-left:5px">
 					<a href="index.html"><%= link_to image_tag("/assets/logo1.png",style: 'height:110px;padding-left:20px'),home_path %></a>
-					<h1 style="  margin-top: -29px;margin-bottom: 5px;color:rgb(15, 103, 93);font-weight:bold"> CÔNG TY NƯỚC SẠCH HÀ DŨNG</h1>
+					<h1 style="  margin-top: -29px;color:rgb(15, 103, 93);font-weight:bold"> CÔNG TY NƯỚC SẠCH HÀ DŨNG</h1>
 					<h1><img src='/assets/telephone_32.ico' style="float:left;width:30px" /><label style="  line-height: 30px;font-size: 20px;padding: 0px 36px;color:red">01679.380.632</label></h1>
 					<!-- <h1>Địa chỉ: Từ Hồ - Yên Phú - Yên Mỹ - Hưng Yên</h1> -->
 				</div>
-				<div class="right" style="float:left;margin-left:30px">
+				<div class="right" style="float:left;margin-left:20px">
 					<div class="intro" style="padding-top:23px">
-						<p><span style="  color: rgb(40, 124, 176);font-size: 23px;text-shadow: 1px 1px 2px red;text-decoration: underline;">Chuyên cung cấp: </span><span style="  line-height: 23px;font-size: 19px;padding-left: 10px;color: rgb(19, 152, 152);"> Các thiết bị - Hệ thống - Vật liệu - Linh kiện vật liệu lọc nước</span></p>
+						<p><span style="  color: rgb(40, 124, 176);font-size: 23px;text-shadow: 1px 1px 2px red;text-decoration: underline;">Chuyên cung cấp: </span><span style="  line-height: 23px;font-size: 19px;padding-left: 10px;color: rgb(19, 152, 152);"> Các thiết bị - Hệ thống - Linh kiện - Vật liệu lọc nước</span></p>
 					</div>
 					<div class="img">
-						<img src="/assets/vatlieu.jpg" style="width:240px"/>
+						<img src="/assets/vatlieu.jpg" style="  width: 315px;height: 78px"/>
 						<img src="/assets/maylocnuoc.jpg" style="width:83px"/>
 						<img src="/assets/hethong.jpg" style="width:143px"/>
 						<img src="/assets/banner.jpg" style="width:240px"/>
@@ -88,11 +89,12 @@
 	<div class="header_bottom">
  	     	<div class="menu">
 	     		<ul class="list-group">
-			    	<li class= <%= "active" if (controller_name == "home" && action_name == "index")%>><%= link_to"Trang chủ", home_path%></li>
+			    	<li class= <%= "active" if (controller_name == "home" && action_name == "index")%>><%= link_to"Trang chủ", home_path, method: :get%></li>
 			    	<li class= <%= "active" if ((controller_name == "products" && action_name == "index") or (controller_name == "products"))%>><%= link_to"Sản phẩm",products_path %></li>
 			    	<li class= <%= "active" if (controller_name == "home" && action_name == "about")%>><%= link_to"Thông tin", about_path%></li>
 			    	<li class= <%= "active" if (controller_name == "home" && action_name == "service")%>><%= link_to"Dịch vụ",service_path %></li>
 			    	<li class= <%= "active" if (controller_name == "home" && action_name == "contact")%>><%= link_to"Liên hệ", contact_path%></li>
+			    	<li class= <%= "active" if (controller_name == "home" && action_name == "map")%>><%= link_to"Bản Đồ", map_path%></li>
 			    	<div class="clear"></div>
      			</ul>
 	     	</div>

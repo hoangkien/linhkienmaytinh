@@ -1,17 +1,18 @@
-class Home::HomeController < ApplicationController
-	layout"home/index"
+class Home::HomeController < Home::ApplicationController
 
 	def index
 		@category = Category.where("parent_id = 0")
-		Rails.logger.info "AAAAAAAAAAAa"
 	end
+
 	def about
 		@title = "about"
 		@intro = Intro.first
 	end
+
 	def news
 		@title= "news"
 	end
+
 	def contact
 		@title = "Contact"
 		@contact = Contact.new
@@ -22,9 +23,13 @@ class Home::HomeController < ApplicationController
 			 end
 		end
 	end
+
 	def service
 		@title ="Service"
 		@intro = Intro.first
+	end
+
+	def map
 
 	end
 

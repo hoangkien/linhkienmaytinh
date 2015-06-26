@@ -20,15 +20,15 @@ gem 'pry-rails', '~> 0.3.4'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-gem 'sass-rails'
-gem 'coffee-rails'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', :platforms => :ruby
-gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
+  gem 'uglifier', '>= 1.0.3'
 end
 group :production do
   gem 'pg'
-  gem 'rails_12factor', group: :production
+  # gem 'rails_12factor'
 end
 gem 'jquery-rails'
 # To use ActiveModel has_secure_password
@@ -46,4 +46,4 @@ gem 'byebug'
 
 
 gem 'bootstrap-sass', '~> 2.3.2'
-gem'bcrypt-ruby','~>3.1.2'
+gem 'bcrypt-ruby','~>3.1.2'

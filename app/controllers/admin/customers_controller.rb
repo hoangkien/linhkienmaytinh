@@ -1,6 +1,5 @@
-class Admin::CustomersController < ApplicationController
-	layout'admin/template'
+class Admin::CustomersController < Admin::ApplicationController
 	def index
-		
+
 	end
 end

@@ -15,6 +15,28 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require_tree .
-$(document).ready(function(){
-  event.preventDefault();
-});
+var map;
+function initialize() {
+      var myLatlng = new google.maps.LatLng(20.89288,105.98432);
+      var myOptions = {
+       zoom: 16,
+       center: myLatlng,
+       mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("div_id"), myOptions);
+      // Biến text chứa nội dung sẽ được hiển thị
+    var text;
+    text= "<b style='color:#00F' " +
+             "style='text-align:center'>Công ty TNHH Thương mại và Sản xuất nước sạch Hà Dũng<br /> Từ hồ - yên phú - yên mỹ - Hưng yên<br /> SDT : 0975.792.655";
+       var infowindow = new google.maps.InfoWindow(
+        { content: text,
+            size: new google.maps.Size(100,50),
+            position: myLatlng
+        });
+           infowindow.open(map);
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title:"Công ty TNHH Thương mại và Sản xuất nước sạch Hà Dũng"
+      });
+}

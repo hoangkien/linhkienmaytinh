@@ -2,34 +2,24 @@ RailsDemo::Application.routes.draw do
   root :to => 'home/home#index'
   mount Ckeditor::Engine => '/ckeditor'
 
-  # root :to => 'admin/login#index'
-  # get "login/new"
-
-  # post "admin/login/create"
-
-  # delete "admin/login/destroy"
-
-  # get "category/index"
-  # get "admin/signup" => "admin/login#index"
-
   scope module: 'home' do
 
     scope controller: :home do
-      get "gioi-thieu" => :about, :as => :about
-      get "tin-tuc" => :news,:as => :news
-      get "trang-chu" => :index,:as => :home
-      get "lien-he" => :contact ,:as => :contact
+      get "gioi-thieu.html" => :about, :as => :about
+      get "tin-tuc.html" => :news,:as => :news
+      get "trang-chu.html" => :index,:as => :home
+      get "lien-he.html" => :contact ,:as => :contact
       post"lien-he" => :contact
-      get "dich-vu" =>:service, :as => :service
+      get "dich-vu.html" =>:service, :as => :service
+      get "ban-do.html" => :map, :as => :map
     end
 
     scope controller: :products do
-        get "san-pham/danh-muc-san-pham/:id" => :category ,:as =>:category
-        get "products/preview" => :preview
-        get "san-pham/search/(.:format)" => :search, :as => :products_search
-        get "san-pham/:id" =>:show,:as => :products_view
-        get "san-pham/preview" => :preview, :as => :preview
-        get "san-pham" => :index ,:as => :products
+      get "san-pham/danh-muc-san-pham/:id.html" => :category ,:as =>:category
+      get "san-pham/search/(.:format)" => :search, :as => :products_search
+      get "san-pham/:id.html" =>:show,:as => :products_view
+      get "san-pham/preview" => :preview, :as => :preview
+      get "san-pham" => :index ,:as => :products
     end
 
   end
@@ -38,38 +28,41 @@ RailsDemo::Application.routes.draw do
 
     scope controller: :login do
       get "admin" => :index
-      get "admin/signup" => :index
+      # get "admin/signup" => :index
       post "admin/login/create" => :create
       delete "admin/login/destroy" => :destroy
     end
 
+    scope controller: :categories do
+      get "admin/danh-muc-san-pham" => :index,:as => :cate_index
+      get "admin/danh-muc-san-pham/:id" => :show,:as =>:cate_show
+    end
+
+    scope controller: :contacts do
+      get "admin/contacts/reply/:id" => :reply, :as =>:reply_contact
+    end
   end
 
-  get "category/index"
-
-  get "product/index"
-  get "admin/danh-muc-san-pham" => "admin/categories#index",:as => :cate_index
-  get "admin/danh-muc-san-pham/:id" => "admin/categories#show",:as =>:cate_show
 
 
-  get "admin/contacts/reply/:id" =>"admin/contacts#reply", :as =>:reply_contact
     namespace :admin do
       #Directs /admin/users/* to Admin::ProductsController
       #(app/controllers/admin/products_controller.rb)
-      resources :home,:users,:customers,:config,:news,:categories,:trademaks
+      resources :users,:news,:trademaks
+      resources :categories, only: [:new,:create,:destroy,:update]
+      resources :home,:customers, only: [:index]
+
       resources :products do
         collection do
           post 'delete'
           get 'get_sub_cate/:id' => :get_sub_cate
         end
       end
-
-      resources :contacts do
-        collection do
-          post'delete'
-          post'reply'
-          post'sendmail'
-        end
+      resources :contacts,only: [:index,:show,:destroy]
+      scope controller: :contacts do
+          post'contacts/delete' => :delete
+          post'contacts/reply' => :reply
+          post'contacts/sendmail' => :sendmail
       end
 
       resources :members do
@@ -77,8 +70,12 @@ RailsDemo::Application.routes.draw do
           post'delete'
         end
       end
+      resources :config, only: [:index]
+      scope controller: :config do
+        post 'config/change_info' => :change_info
+        post 'config/change_intro' => :change_intro
+      end
     end
-    resources :home
   get '*unmatched_route', :to => 'application#raise_not_found'
   # The priority is based upon order of creation:
   # first created -> highest priority.

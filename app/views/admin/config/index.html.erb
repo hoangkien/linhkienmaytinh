@@ -2,7 +2,7 @@
 	<div class="notice"><%= flash[:notice]%></div>
 <% end -%>
 <h1 class="header">Thay đổi thông tin liên hệ </h1>
-<%= form_tag("/admin/config/ChangeInfo",method:"post") do%>
+<%= form_tag("/admin/config/change_info",method:"post") do%>
 <div id="main">
 	<table class="table">
 		<tr>
@@ -37,13 +37,13 @@
 </div>
 <% end%>
 <h1 class="header">Thông tin giới thiệu về công ty </h1>
-	<%= form_tag("/admin/config/ChangeIntro",method:"post", style: "  margin-left: 120px;") do%>
+	<%= form_tag("/admin/config/change_intro",method:"post", style: "  margin-left: 120px;") do%>
 		<%= cktext_area_tag :intro ,@intro ? @intro.intro : "",:ckeditor => {}%>
 		<br />
 	<%= submit_tag("Cập nhật",:id =>"change_intro", class: "btn btn-primary")%>
 <% end -%>
 <h1 class="header">Thông tin dịch vụ </h1>
-	<%= form_tag("/admin/config/ChangeIntro",method:"post", style: "  margin-left: 120px;") do%>
+	<%= form_tag("/admin/config/change_intro",method:"post", style: "  margin-left: 120px;") do%>
 		<%= cktext_area_tag :service ,@intro ? @intro.service : "" ,:ckeditor => {}%>
 		<br />
 		<%= submit_tag("Cập nhật",:id =>"change_service", class: "btn btn-primary")%>

@@ -1,15 +1,17 @@
-class Admin::TrademaksController < ApplicationController
-		layout 'admin/template'
+class Admin::TrademaksController < Admin::ApplicationController
 	def index
 		@trademaks = Trademak.all
 	end
+
 	def show
 		@trademak = Trademak.find(params[:id])
 	end
+
 	def edit
 		@trademak = Trademak.find(params[:id])
 	end
-	def new 
+
+	def new
 		@trademak = Trademak.new()
 	end
 

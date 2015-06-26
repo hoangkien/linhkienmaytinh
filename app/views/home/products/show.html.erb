@@ -28,12 +28,12 @@
 					</div>
 				</div>
 			<div class="desc span_3_of_2" style="float: right;margin-top: 10px;">
-				<p><span style ="color:rgb(100, 99, 99)">Tên: </span><span class='info'><%= @product.name %></span></p>
-				<p><span style ="color:rgb(100, 99, 99)">Danh mục sản phẩm: </span><span class='info'><%= @product.category.name %></span></p>
-				<p><span style ="color:rgb(100, 99, 99)">Hãng sản xuất: </span><span class='info'><%= @product.trademak.name %></span></p>
-        <p><span style ="color:rgb(100, 99, 99)">Bảo hành :</span><span class='info'><%= @product.gurantee %></span></p>
-        <p><span style ="color:rgb(100, 99, 99)">Tình trạng :</span><span class='info'> Còn hàng</span></p>
-				<p><span style ="color:rgb(100, 99, 99)">Giá : </span><span class='info'>Vui lòng liên hệ <%= @info.phone%></span></p>
+				<p><span style ="color:rgb(100, 99, 99)">Tên:  &nbsp;</span><span class='info'><%= @product.name %></span></p>
+				<p><span style ="color:rgb(100, 99, 99)">Danh mục sản phẩm: &nbsp;</span><span class='info'><%= @product.category.name %></span></p>
+				<p><span style ="color:rgb(100, 99, 99)">Hãng sản xuất: &nbsp;</span><span class='info'><%= @product.trademak.name %></span></p>
+        <p><span style ="color:rgb(100, 99, 99)">Bảo hành: &nbsp; </span><span class='info'><%= @product.gurantee %></span></p>
+        <p><span style ="color:rgb(100, 99, 99)">Tình trạng:  &nbsp;</span><span class='info'> Còn hàng</span></p>
+				<p><span style ="color:rgb(100, 99, 99)">Giá: &nbsp; </span><span class='info'>Vui lòng liên hệ <%= @info.phone%></span></p>
 			</div>
 			<div class="clear"></div>
 			<br />
@@ -61,7 +61,7 @@
     		<div class="clear"></div>
     	</div>
    <div class="section group">
-   			<% @category.products.each do |product|%>
+   			<% @product.category.products.each do |product|%>
 				<div class="grid_1_of_4 images_1_of_4">
 						<%= link_to image_tag("#{product.image}",size:"100x150" ), products_view_path(product),title: "#{product.name}"%>
 						<h2 style="font-size:9px;height:30px;"><%= truncate(product.name,length:30)%></h2>

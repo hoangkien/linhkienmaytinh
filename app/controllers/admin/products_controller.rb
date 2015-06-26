@@ -1,8 +1,6 @@
-class Admin::ProductsController < ApplicationController
-	layout'admin/template'
+class Admin::ProductsController < Admin::ApplicationController
 	def index
-		@product = Product.all
-		@product = Product.paginate(:page => params[:page], :per_page => 5)
+		@product = Product.all.paginate(:page => params[:page], :per_page => 5)
 		if params[:search]#kiem tra xem co gia tri get duoc truyen di
 			@product=Product.search(params[:search],params[:page])#tim kiem trong model va truyen lai view
 		end
@@ -12,13 +10,12 @@ class Admin::ProductsController < ApplicationController
 		@product = Product.new
 		@category = Category.where(parent_id: 0).pluck(:name,:id)
 		@trademak = Trademak.all.pluck(:name,:id)
-		Rails.logger.info"log :#{@trademak}"
 	end
 
 	def create
 		@product = Product.new()
 		@product.name = params[:product][:name]
-		@product.name_url = change_alias(params[:product][:name])+".html"
+		@product.name_url = change_alias(params[:product][:name])
 		if params[:product][:sub_category_id]
 			@product.category_id = params[:product][:sub_category_id]
 		else
@@ -44,11 +41,13 @@ class Admin::ProductsController < ApplicationController
 	def show
 		@product = Product.friendly.find(params[:id])
 	end
+
 	def edit
 		@product = Product.friendly.find(params[:id])
 		@category = Category.all.pluck(:name,:id)
 		@trademak = Trademak.all.pluck(:name,:id)
 	end
+
 	def update
 		@product = Product.friendly.find(params[:id])
 		@pro = params[:product]
@@ -86,4 +85,9 @@ class Admin::ProductsController < ApplicationController
 		end
 	end
 
+	private
+
+	def params_product
+		params.require(:product).permit(:name,:trademak_id,:price,:gurantee,:details)
+	end
 end

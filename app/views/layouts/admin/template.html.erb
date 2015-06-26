@@ -28,7 +28,7 @@
 				<ul class="info">
 					<li class="info">Hi, <strong><%= session[:user_data][:fullname] %></strong></li>
 					<li class="info"><%= link_to"Infomation",admin_member_path(session[:user_data][:id], method:'get')%></li>
-					<li class="info"><%= link_to"Logout",admin_login_destroy_path(session[:user_data][:id]), method: :delete, data:{confirm:'Are you logout ?'}%></li>
+					<li class="info"><%= link_to"Logout",admin_login_destroy_path, method: :delete, data:{confirm:'Are you logout ?'}%></li>
 				</ul>
 			</div>
 		</div>

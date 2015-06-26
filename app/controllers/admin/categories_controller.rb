@@ -1,5 +1,5 @@
-class Admin::CategoriesController < ApplicationController
-	layout 'admin/template'
+class Admin::CategoriesController < Admin::ApplicationController
+
 	def index
 		@categories = Category.all
 	end
@@ -11,7 +11,7 @@ class Admin::CategoriesController < ApplicationController
 	def edit
 		@category = Category.friendly.find(params[:id])
 		@list_parent = Category.where("parent_id = 0").pluck(:name,:id)
-		@list_parent << ["Thư Mục Gốc",0]
+		@list_parent.unshift(["Thư Mục Gốc",0])
 	end
 
 	def new
@@ -23,7 +23,7 @@ class Admin::CategoriesController < ApplicationController
 	def create
 		@category=  Category.new()
 		@category.name = params[:category][:name]
-		@category.name_url = change_alias(params[:category][:name]+".html")
+		@category.name_url = change_alias(params[:category][:name])
 		@category.parent_id = params[:parent_id]
 		if @category.save
 			flash[:notice] = "Tạo mới thành công !"

@@ -22,7 +22,7 @@
 			<% end -%>
 		</div>
 		<div class="action">
-			<%= form_for :check ,url:delete_admin_contacts_path do |f| %>
+			<%= form_for :check ,url:admin_contacts_delete_path do |f| %>
 			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true,data:{:confirm=>"Are you sure ?"}, class: 'btn btn-danger' %>
 		</div>
 	</div>

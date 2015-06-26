@@ -1,9 +1,13 @@
-class Admin::LoginController < ApplicationController
+class Admin::LoginController < Admin::ApplicationController
+  skip_before_filter :check_login
 	layout :false
 	require'digest/md5'
   def index
-
+    if session[:user_data]
+      redirect_to admin_home_index_path
+    end
   end
+
   def new
   end
 
@@ -14,12 +18,12 @@ class Admin::LoginController < ApplicationController
       redirect_to admin_home_index_path
     else
       flash[ :notice] = "Sai thong tin tai khoan hoac mat khau !"
-      redirect_to admin_signup_path
+      redirect_to admin_path
     end
   end
 
   def destroy
   	session[:user_data] = nil
-  	redirect_to admin_signup_path
+  	redirect_to admin_path
   end
 end

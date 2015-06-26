@@ -72,7 +72,6 @@ function get_sub_Category(id){
 			if ( data.length > 0 ){
 				var option = "";
 				for (key in data){
-					console.log(data[key]);
 					option += "<option value = "+ data[key][1]+">"+data[key][0]+"</option>";
 				}
 				$("#sub_cate").css("display","block");

@@ -1,6 +1,4 @@
-class Admin::HomeController < ApplicationController
-	layout'admin/template'
-	before_filter :login
+class Admin::HomeController < Admin::ApplicationController
 	def index
 	end
 end

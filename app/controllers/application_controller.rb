@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_action :GetInfo
-
-  def GetInfo
+  before_action :get_info
+  def get_info
   	@info = Info.first
   end
 
@@ -26,10 +25,4 @@ class ApplicationController < ActionController::Base
   def raise_not_found
     render plain: "Failed"
   end
-  private
-	def login
-		if session[:user_data].nil?
-			redirect_to admin_login_index_path
-		end
-	end
 end

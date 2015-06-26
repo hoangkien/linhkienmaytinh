@@ -1,7 +1,5 @@
-class Admin::MembersController < ApplicationController
-	layout 'admin/template'
+class Admin::MembersController < Admin::ApplicationController
 	require'digest/md5'#su dung md5
-	before_filter :login
 
 	def index
 		@member = Member.paginate(:page => params[:page], :per_page => 5).order('ID DESC')

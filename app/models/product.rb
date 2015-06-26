@@ -5,6 +5,10 @@ class Product < ActiveRecord::Base
   validates :name,:details, presence:true
   extend FriendlyId
   friendly_id :name_url , use: :slugged
+  def to_param
+    "#{name_url}".parameterize
+  end
+
   def self.upload(product)
   	  name = product['image'].original_filename
     	directory = "app/assets/images"
@@ -13,17 +17,17 @@ class Product < ActiveRecord::Base
     # write the file
     	File.open(path, "wb") { |f| f.write(product['image'].read) }
   end
+
   def self.search(query,page)
     where("id = ? or name like ?","%#{query}%","%#{query}%").paginate(per_page: 5, page:page)
   end
+
   def self.home_search(query)
-    if query
-      where("name like ?","%#{query}%")
-    else
-      Product.find(:all)
-    end
+    query ? where("name like ?","%#{query}%") : Product.find(:all)
   end
+
   def self.count(id)
     where("category_id = #{id}").count
   end
+
 end

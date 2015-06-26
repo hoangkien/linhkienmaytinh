@@ -4,10 +4,12 @@ class News < ActiveRecord::Base
    belongs_to :member
 	extend FriendlyId
 	friendly_id :title
+
 	def to_param
 		"#{id} #{title}".parameterize
 	end
-   def self.search(query,page)
+
+  def self.search(query,page)
     where("title like ? ","%#{query}%").paginate(per_page:5,page:page)
  	end
 end

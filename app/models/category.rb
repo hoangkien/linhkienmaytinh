@@ -4,12 +4,11 @@ class Category < ActiveRecord::Base
   has_many :products
   extend FriendlyId
   friendly_id :name_url , use: :slugged
-  # def to_param
-  #   "#{id} #{name_url}".parameterize
-  # end
+
   def self.subcategories(id)
   	where("parent_id = #{id}")
   end
+
   def self.count(id)
     child = Category.where("parent_id = #{id}")
     sl = 0
@@ -22,4 +21,5 @@ class Category < ActiveRecord::Base
     end
     return sl
   end
+
 end

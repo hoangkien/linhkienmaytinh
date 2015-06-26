@@ -1,10 +1,6 @@
 @font-face {
     font-family: 'ambleregular';
-    src:url(../font/Amble-Regular-webfont.ttf);
-    src: local('UTM Neo Sans Intel'),
-    url('fonts/UTM Neo Sans Intel.woff') format('woff'),
-    url('fonts/UTM Neo Sans Intel.ttf') format('truetype'),
-    url('fonts/UTM Neo Sans Intel.svg') format('svg');
+    src:url('/assets/Amble-Regular-webfont.ttf');
     font-weight: normal;
     font-style: normal;
 }
@@ -14,7 +10,7 @@ body{
 	font-size: 15px;
 	font-family: Arial, Helvetica, sans-serif;
 }
-
+a:hover{text-decoration: none !important;}
 
 #wraper{
 }
