@@ -16,34 +16,37 @@
     	<div class="section group">
 				<div class="cont-desc span_1_of_2" style="border-right: 1px solid #F6F6F6;padding:10px 0px">
 				  <div class="product-details">
-					<div class="grid images_3_of_2" style="width:140px;margin-left:12%">
-						<div id="container">
-						   <div id="products_example">
-							  <div id="products">
-  								<div class="slides_container">
-  									<a href="#" target="_blank"><%= image_tag("#{@product.image}",size:"300x220","data-zoom-image"=>"/assets/#{@product.image}",id:"#{@product.slug}")%></a>
-  								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			<div class="desc span_3_of_2" style="float: right;margin-top: 10px;">
-				<p><span style ="color:rgb(100, 99, 99)">Tên:  &nbsp;</span><span class='info'><%= @product.name %></span></p>
-				<p><span style ="color:rgb(100, 99, 99)">Danh mục sản phẩm: &nbsp;</span><span class='info'><%= @product.category.name %></span></p>
-				<p><span style ="color:rgb(100, 99, 99)">Hãng sản xuất: &nbsp;</span><span class='info'><%= @product.trademak.name %></span></p>
-        <p><span style ="color:rgb(100, 99, 99)">Bảo hành: &nbsp; </span><span class='info'><%= @product.gurantee %></span></p>
-        <p><span style ="color:rgb(100, 99, 99)">Tình trạng:  &nbsp;</span><span class='info'> Còn hàng</span></p>
-				<p><span style ="color:rgb(100, 99, 99)">Giá: &nbsp; </span><span class='info'>Vui lòng liên hệ <%= @info.phone%></span></p>
-			</div>
-			<div class="clear"></div>
-			<br />
-			<div class="details">
-				<h3 class="title">Thông tin sản phẩm</h3>
-        <div class="section group">
-          <%= raw @product.details%>
-        </div>
-			</div>
-		  </div>
+  					<div class="grid images_3_of_2" style="width:140px;margin-left:12%">
+  						<div id="container">
+    						<div id="products_example">
+    							 <div id="products">
+      							<div class="slides_container">
+      								<a href="#" target="_blank"><%= image_tag("#{@product.image}",size:"300x220","data-zoom-image"=>"/assets/#{@product.image}",id:"#{@product.slug}")%></a>
+      							</div>
+    							</div>
+    						</div>
+    					</div>
+  				  </div>
+      			<div class="desc span_3_of_2" style="float: right;margin-top: 10px;">
+      				<p><span style ="color:rgb(100, 99, 99)">Tên:  &nbsp;</span><span class='info'><%= @product.name %></span></p>
+      				<p><span style ="color:rgb(100, 99, 99)">Danh mục sản phẩm: &nbsp;</span><span class='info'><%= @product.category.name %></span></p>
+      				<p><span style ="color:rgb(100, 99, 99)">Hãng sản xuất: &nbsp;</span><span class='info'><%= @product.trademak.name %></span></p>
+              <p><span style ="color:rgb(100, 99, 99)">Bảo hành: &nbsp; </span><span class='info'><%= @product.gurantee %></span></p>
+              <p><span style ="color:rgb(100, 99, 99)">Tình trạng:  &nbsp;</span><span class='info'> Còn hàng</span></p>
+      				<p><span style ="color:rgb(100, 99, 99)">Giá: &nbsp; </span><span class='info'>Vui lòng liên hệ <%= @info.phone%></span></p>
+      			</div>
+      			<div class="clear"></div>
+      			<br />
+      			<div class="details">
+      				<h3 class="title">Thông tin sản phẩm</h3>
+              <div class="section group">
+                <%= raw @product.details%>
+              </div>
+      			</div>
+	        </div>
+          <div class="comment-fb">
+            <div class="fb-comments" data-href="https://www.facebook.com/" data-numposts="5"></div>
+          </div>
 	<script type="text/javascript">
 	    $(document).ready(function () {
 	   		 var id = "<%= @product.slug %>";
@@ -51,6 +54,17 @@
 			$("#"+id).elevateZoom({});
 	    });
    </script>
+
+   <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.3";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
    <div class="content_bottom">
     		<div class="heading">
     		<h3>Sản phẩm liên quan</h3>
