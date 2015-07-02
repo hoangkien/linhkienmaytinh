@@ -33,8 +33,7 @@ class Admin::ContactsController < Admin::ApplicationController
 	def delete
 		@member = params[:check]
 		@member.each do |member|
-		  @member = Member.find(member)
-		  @member.destroy
+		  Member.find(member).destroy
 		end
 		redirect_to admin_members_path
 	end

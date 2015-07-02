@@ -1,16 +1,16 @@
 <script>
 	$(document).ready(function(){
-    $("#checkall").change(function(){
-      check=$("#checkall").is(':checked');
-      if(check== true){
-        $("input[type=checkbox]").prop("checked","checked");
-        $("#main-content #action .action #delete").removeAttr('disabled');
-      }else{
-        $("input[type=checkbox]").removeAttr("checked");
-        $("#main-content #action .action #delete").prop('disabled','disabled');
+    // $("#checkall").change(function(){
+    //   check=$("#checkall").is(':checked');
+    //   if(check== true){
+    //     $("input[type=checkbox]").prop("checked","checked");
+    //     $("#main-content #action .action #delete").removeAttr('disabled');
+    //   }else{
+    //     $("input[type=checkbox]").removeAttr("checked");
+    //     $("#main-content #action .action #delete").prop('disabled','disabled');
 
-      }
-    });
+    //   }
+    // });
 
     $("#main-content #main table #check_").change(function(){
 
@@ -38,11 +38,11 @@
 </script>
 <div id="content-header">
 	<div id="title">
-		Danh sách thành viên
+		<%= t('admin.member.header.title_index')%>
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
-			<li class="content-menu"><%= link_to"Tất cả thành viên",admin_members_path%></li>
+			<li class="content-menu"><%= link_to t('admin.member.header.member_all'),admin_members_path%></li>
 			<!-- <li class="content-menu">Danh sách quyền</li> -->
 		</ul>
 	</div>
@@ -52,34 +52,33 @@
 		<div id="search">
 			<%= form_tag(admin_members_path, :method=>"get") do %>
 				<%= text_field_tag :search,params[:search], placeholder:'Nhập tên', class:'form-control' %>
-				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class:'btn btn-primary'%>
+				<%= submit_tag t('admin.main.search'), :disable_with => 'Search...',name: 'member[search]'  ,class:'btn btn-primary'%>
 			<% end -%>
 		</div>
 		<div class="action">
-			<%= button_to'Add New',new_admin_member_path,class:'btn btn-primary', method: :get %>
+			<%= button_to t('admin.main.addnew'),new_admin_member_path,class:'btn btn-primary', method: :get %>
 			<%= form_for :check ,url:delete_admin_members_path do |f| %>
-			<%= f.submit "Delete Many", :disable_with => 'Delete Manying...',id:'delete', disabled: true,data:{:confirm=>"Are you sure ?"}, class:'btn btn-danger' %>
+			<%= f.submit t('admin.main.del_many'), :disable_with => 'Delete Manying...',id:'delete', disabled: true,data:{:confirm=>"Are you sure ?"}, class:'btn btn-danger' %>
 		</div>
 	</div>
 	<div id="main">
 		<table class="table table-bordered">
 			<tr class="head">
-				<th><input type="checkbox" id="checkall" name="checkall" ></th>
+				<th><input type="checkbox" id="checkall" name="checkall" onchange="check_all();"></th>
 				<th>ID</th>
-				<th>UserName</th>
-				<th>FullName</th>
-				<th>Gender</th>
-				<th>Indentity Card</th>
-				<th>Email</th>
-				<th>Role</th>
-				<th>Create</th>
-				<th>Update</th>
-				<th>Action</th>
+				<th><%= t('admin.member.table.username')%></th>
+				<th><%= t('admin.member.table.fullname')%></th>
+				<th><%= t('admin.member.table.gender')%></th>
+				<th><%= t('admin.member.table.indentity_card')%></th>
+				<th><%= t('admin.member.table.email')%></th>
+				<th><%= t('admin.member.table.role')%></th>
+				<th><%= t('admin.member.table.created_at')%></th>
+				<th><%= t('admin.main.action')%></th>
 			</tr>
 			<% if @member.count > 0%>
 				<% @member.each do |member_info|%>
 					<tr>
-						<td><%= check_box_tag('check[]',member_info.id)%></td>
+						<td><%= check_box_tag('check[]',member_info.id,false, :onchange =>"check();",class: 'check_')%></td>
 						<td><%= member_info.id%></td>
 						<td><%= member_info.username %></td>
 						<td><%= member_info.fullname %></td>
@@ -88,11 +87,10 @@
 						<td><%= member_info.email %></td>
 						<td><%= member_info.role ==1?'Admin': 'Customer'%></td>
 						<td><%= member_info.created_at.strftime("%d-%m-%Y") %></td>
-						<td><%= member_info.updated_at.strftime("%d-%m-%Y") %></td>
 						<td>
-							<%= link_to'Edit',edit_admin_member_path(member_info) %> &nbsp; &nbsp;
-							<%= link_to'Delete',admin_member_path(member_info),method: :delete,data:{confirm:'Are you ok?'} %>&nbsp; &nbsp;
-							<%= link_to'View',admin_member_path(member_info) %>
+							<%= link_to t('admin.action.edit'),edit_admin_member_path(member_info) %> &nbsp; &nbsp;
+							<%= link_to t('admin.action.delete'),admin_member_path(member_info),method: :delete,data:{confirm:'Are you ok?'} %>&nbsp; &nbsp;
+							<%= link_to t('admin.action.view'),admin_member_path(member_info) %>
 						</td>
 					</tr>
 				<% end -%>

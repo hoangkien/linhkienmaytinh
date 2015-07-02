@@ -332,7 +332,7 @@ body {
 }
 .content h2 {
 	color: #383838;
-	margin-bottom: 0.5em;
+	/*margin-bottom: 0.5em;*/
 	font-size: 1.5em;
 	line-height: 1.2;
 	font-family: 'ambleregular';
@@ -386,7 +386,7 @@ body {
 	display: inline;
 	font-size: 0.8125em;
 	color: #333;
-	background: url(../list-img.png) no-repeat right 3px;
+	background: url(/assets/list-img.png) no-repeat right 3px;
     padding:0px 12px 0px 0px;
 }
 .see p a:hover{

@@ -1,0 +1,55 @@
+vi:
+  home:
+    menu:
+      home: "Trang chủ"
+      product: "Sản phẩm"
+      about: "Thông tin"
+      service: "Dịch vụ"
+      contact: "Liên hệ"
+      map: "Bản Đồ"
+  admin:
+    main:
+      search: "Tìm kiếm"
+      addnew: "Thêm mới"
+      del_many: "Xóa nhiều"
+      back: "Trở lại"
+      reset: "Làm lại"
+      action: "Thao tác"
+      update: "Cập nhật"
+
+    action:
+      delete: "Xóa"
+      edit: "Sửa"
+      view: "Xem"
+    menu:
+      member: "QL Thành Viên"
+      product: "QL Sản Phẩm"
+      news: "QL Tin Tức"
+      contact: "QL Liên Hệ"
+      setting: "Cấu Hình"
+      slide: "QL Slide"
+      info: "Thông tin"
+      logout: "Đăng xuất"
+    member:
+      header:
+        title_index: "Danh sách thành viên"
+        title_add: "Thêm mới thành viên"
+        title_info: "Thông tin thành viên"
+        title_edit: "Sửa thông tin"
+        member_all: "Tất cả thành viên"
+        title_profile: "Profile"
+      table:
+        username: "Tài khoản"
+        fullname: "Tên đầy đủ"
+        gender: "Giới tính"
+        indentity_card: "Số CMND"
+        email: "Email"
+        role: "Quyền"
+        created_at: "Ngày tạo"
+        address: "Địa chỉ"
+        birthday: "Ngày sinh"
+    product:
+      header:
+        list_all: "Danh sách sản phẩm"
+
+

@@ -1,12 +1,12 @@
 
 <div id="content-header">
 	<div id="title">
-		Profile
+		<%= t('admin.member.header.title_profile')%>
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
-			<li class="content-menu"><%= button_to"Edit",edit_admin_member_path(@member.id),:method =>:get, class: 'btn btn-primary'%></li>
-			<li class="content-menu"><%= button_to "Back", admin_members_path, class: "btn btn-primary", :method => :get %></li>
+			<li class="content-menu"><%= button_to t('admin.action.edit'),edit_admin_member_path(@member.id),:method =>:get, class: 'btn btn-primary'%></li>
+			<li class="content-menu"><%= button_to t('admin.main.back'), admin_members_path, class: "btn btn-primary", :method => :get %></li>
 		</ul>
 	</div>
 </div>
@@ -15,13 +15,13 @@
 	<div id="box">
 		<div id="action">
 			<div class="title">
-				Member Infomation
+				<%= t('admin.member.header.title_info')%>
 			</div>
 		</div>
 		<div id="main">
 			<table class="table">
 				<tr>
-					<td class="left tbl-config"><%= f.label :username, "User Name :" %></td>
+					<td class="left tbl-config"><%= f.label :username, t('admin.member.table.username') %></td>
 					<td><%= @member.username%></td>
 				</tr>
 <!-- 				<tr>
@@ -29,36 +29,36 @@
 					<td><%= @member.password%></td>
 				</tr> -->
 				<tr>
-					<td class="left tbl-config"><%= f.label :fullname, "Fullname :" %></td>
+					<td class="left tbl-config"><%= f.label :fullname, t('admin.member.table.fullname') %></td>
 					<td><%= @member.fullname%></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :gender, "Gender :" %></td>
+					<td class="left tbl-config"><%= f.label :gender, t('admin.member.table.gender') %></td>
 					<td><%= @member.gender == 1?'Nữ': 'Nam' %></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :indentity_card, "Indentity Card :" %></td>
+					<td class="left tbl-config"><%= f.label :indentity_card, t('admin.member.table.indentity_card') %>
 					<td><%= @member.indentity_card %></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :birthday, "Birthday :" %></td>
+					<td class="left tbl-config"><%= f.label :birthday, t('admin.member.table.birthday')%></td>
 					<td><%= @member.birthday %></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :Address, "Address :" %></td>
+					<td class="left tbl-config"><%= f.label :Address, t('admin.member.table.address') %></td>
 					<td><%= @member.address %></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :email, "Email :" %></td>
+					<td class="left tbl-config"><%= f.label :email, t('admin.member.table.email') %></td>
 					<td><%= @member.email %></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :create, "Created :" %></td>
-					<td><%= @member.created_at %></td>
+					<td class="left tbl-config"><%= f.label :create, "Created " %></td>
+					<td><%= @member.created_at.to_s(:long) %></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :upate, "Upate :" %></td>
-					<td><%= @member.updated_at 	%></td>
+					<td class="left tbl-config"><%= f.label :upate, "Upate " %></td>
+					<td><%= @member.updated_at.to_s(:long) 	%></td>
 				</tr>
 			</table>
 		</div>

@@ -3,9 +3,7 @@ class Admin::MembersController < Admin::ApplicationController
 
 	def index
 		@member = Member.paginate(:page => params[:page], :per_page => 5).order('ID DESC')
-		if params[:search]#kiem tra xem co gia tri get duoc truyen di
-			@member= Member.search(params[:search],params[:page])#tim kiem trong model va truyen lai view
-		end
+    @member= Member.search(params[:search],params[:page]) if params[:search]
 	end
 
 	def show
@@ -46,11 +44,8 @@ class Admin::MembersController < Admin::ApplicationController
 	end
 
 	def delete
-		@member = params[:check]
-		@member.each do |member|
-		  @member = Member.find(member)
-		  @member.destroy
-		end
+		@member = params[:check].map{|m| m.to_i}
+    Member.destroy_all(id:@member)
 		redirect_to admin_members_path
 	end
 
