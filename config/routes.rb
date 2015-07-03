@@ -49,7 +49,7 @@ RailsDemo::Application.routes.draw do
       #Directs /admin/users/* to Admin::ProductsController
       #(app/controllers/admin/products_controller.rb)
       resources :users,:news,:trademaks
-      resources :categories, only: [:new,:create,:destroy,:update]
+      resources :categories, only: [:edit,:new,:create,:destroy,:update]
       resources :home,:customers, only: [:index]
 
       resources :products do

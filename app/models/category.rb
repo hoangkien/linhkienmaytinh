@@ -10,16 +10,11 @@ class Category < ActiveRecord::Base
   end
 
   def self.count(id)
-    child = Category.where("parent_id = #{id}")
-    sl = 0
-    if  child.count == 0
-      sl += Product.where("category_id = #{id}").count
+    if Category.where(parent_id:id).empty?
+      Product.where(category_id:id).count
     else
-      child.each do |cate|
-        sl += cate.products.count
-      end
+      Product.where(id:Category.where(parent_id:id).pluck(:id)).count
     end
-    return sl
   end
 
 end

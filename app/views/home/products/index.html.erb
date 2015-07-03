@@ -4,7 +4,10 @@
 			<div class="content">
 				<div class="content_top">
 					<div class="heading">
-						<img class="home" src="/assets/icon-menu.png"/><h3><%= category.name%></h3><img class="sub" src="/assets/next_icon.gif"/><h4><%= subcate.name%></h4>
+						<div style="float:left"><img class="home" src="/assets/icon-menu.png"/></div>
+						<div style="float:left"><h3><%= category.name%></h3></div>
+						<div style="float:left"><img class="sub" src="/assets/next_icon.gif" style="margin-top: -3px" /></div>
+						<div style="float:left"><h4><%= subcate.name%></h4></div>
 					</div>
 					 <div class="see">
 		    			<p><%= link_to"Tất cả sản phẩm", category_path(subcate)%></p>
@@ -15,7 +18,7 @@
 					<% if subcate.products.count > 0 %>
 						<% subcate.products.each do |product| %>
 							<div class="grid_1_of_4 images_1_of_4">
-								<a href="preview.html"><%= image_tag("#{product.image}",size:"100x200" )%></a>
+								<a href="#"><%= image_tag("#{product.image}",size:"100x200" )%></a>
 								<h2><%= product.name%></h2>
 								<div class="price-details">
 							       <div class="price-number">
@@ -40,7 +43,8 @@
 		<div class="content">
 			<div class="content_top">
 				<div class="heading">
-					<img src="/assets/icon-menu.png" style="width:16px;float:left;margin:4px 10px 0px 0px;"/><h3><%= category.name%></h3>
+					<div style="float:left"><img src="/assets/icon-menu.png" style="width:16px;float:left;margin:0px 10px 0px 0px;"/></div>
+					<div style="float:left"><h3><%= category.name%></h3></div>
 				</div>
 				 <div class="see">
 	    			<p><%= link_to"Tất cả sản phẩm", category_path(category)%></p>
@@ -51,7 +55,7 @@
 				<% if category.products.count > 0 %>
 					<% category.products.each do |product| %>
 						<div class="grid_1_of_4 images_1_of_4">
-							<a href="preview.html"><%= image_tag("#{product.image}",size:"100x200" )%></a>
+							<a href="#"><%= image_tag("#{product.image}",size:"100x200" )%></a>
 							<h2><%= product.name%></h2>
 							<div class="price-details">
 						       <div class="price-number">

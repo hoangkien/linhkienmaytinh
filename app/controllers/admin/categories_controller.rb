@@ -27,7 +27,7 @@ class Admin::CategoriesController < Admin::ApplicationController
 		@category.parent_id = params[:parent_id]
 		if @category.save
 			flash[:notice] = "Tạo mới thành công !"
-			redirect_to admin_categories_path
+			redirect_to cate_index_path
 		else
 			render "new"
 		end
@@ -49,7 +49,7 @@ class Admin::CategoriesController < Admin::ApplicationController
 		@category = Category.friendly.find(params[:id])
 		@category.destroy
 		flash[:notice] = "Xóa thành công !"
-		redirect_to admin_categories_path
+		redirect_to cate_index_path
 	end
 
 	private

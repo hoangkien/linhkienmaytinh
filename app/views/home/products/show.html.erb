@@ -9,8 +9,12 @@
     <div class="content">
     	<div class="content_top">
     		<div class="back-links">
-    		<p><span><img src="/assets/icon-menu.png" style="width:15px"/><a href="#">Sản Phẩm</a></span><span><img src="/assets/next_icon.gif" style="width:16px"/><%= link_to"#{@product.category.name}", category_path(@product.category)%></span><span><img src="/assets/next_icon.gif" style="width:16px"/> <%= link_to"#{@product.name}",products_view_path(@product)%></span></p>
-    	    </div>
+        <div style="float:left"><img src="/assets/icon-menu.png" style="width:15px;margin-right:5px"/></div>
+        <div style="float:left"><a href="#">Sản Phẩm</a></div>
+        <div style="float:left"><img src="/assets/next_icon.gif" style="width:16px"/></div>
+        <div style="float:left"><%= link_to"#{@product.category.name}", category_path(@product.category)%></div>
+        <div style="float:left"><img src="/assets/next_icon.gif" style="width:16px"/></div>
+        <div style="float:left"><%= link_to"#{@product.name}",products_view_path(@product)%></span></div>
     		<div class="clear"></div>
     	</div>
     	<div class="section group">
@@ -45,26 +49,9 @@
       			</div>
 	        </div>
           <div class="comment-fb">
-            <div class="fb-comments" data-href="https://www.facebook.com/" data-numposts="5"></div>
+            <div class="fb-comments" data-href="https://www.facebook.com/#{@product.id}" data-numposts="5"></div>
           </div>
-	<script type="text/javascript">
-	    $(document).ready(function () {
-	   		 var id = "<%= @product.slug %>";
-			$(".header_bottom .menu ul li.product").css("background","#B81D22");
-			$("#"+id).elevateZoom({});
-	    });
-   </script>
-
    <div id="fb-root"></div>
-<script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.3";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  </script>
    <div class="content_bottom">
     		<div class="heading">
     		<h3>Sản phẩm liên quan</h3>
@@ -110,3 +97,19 @@
  	</div>
     </div>
  </div>
+
+</div>
+<script>
+  $(document).ready(function () {
+     var id = "<%= @product.slug %>";
+  $(".header_bottom .menu ul li.product").css("background","#B81D22");
+  $("#"+id).elevateZoom({});
+  });
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.3";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>

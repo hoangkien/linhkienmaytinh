@@ -41,12 +41,15 @@ img{max-width:100%;}
 body {
 	font-family: fono-compressed-webfont,Arial, Helvetica, ambleregular;
 	/*background:rgba(191, 228, 226, 0.51);*/
-	background-image: url(/assets/background.jpg);
+	background-image: url(/assets/background1.jpg);
+}
+#home{
+	background: rgba(192, 244, 184, 0.72) !important;
 }
 .wrap {
 	width:80%;
 	margin: 0 auto;
-	background: #fff;
+	background: #fff !important;
 	box-shadow: 0px 0px 5px rgba(35, 37, 32, 0.62);
 }
 .header {
@@ -359,14 +362,15 @@ body {
 .heading h3	span.catesub{display: block;font-size: 13px;color: green;margin-top: 4px;width: 700px}
 .heading h3 {
 	font-family: 'ambleregular';
-	font-size:20px;
+	font-size:15px;
 	color:#383838;
 	text-transform: uppercase;
 	float: left;
 }
 .heading h4{
 	float: left;
-  	line-height: 23px;
+  line-height: 15px;
+  color: rgb(50, 169, 70);
 }
 .heading img.home{
 	width:16px;
@@ -471,7 +475,7 @@ body {
 /*** Footer ***/
 .footer {
 	position: relative;
-	background: #FCFCFC;
+	background: rgba(209, 247, 203, 1) !important;
   border-top: 1px solid #CECECE;
 }
 .section {
@@ -489,6 +493,7 @@ body {
 .group {
 	zoom: 1;
 	padding: 0px 5px;
+	background-color: #fff;
 }
 .col_1_of_4 {
 	display: block;
@@ -564,12 +569,13 @@ body {
 .copy_right {
 	text-align: center;
 	border-top: 1px solid #EEE;
-	padding: 10px 0;
+	/*padding: 10px 0;*/
 	font-family:Verdana, Geneva, Arial, Helvetica, ambleregular;
 }
 .copy_right p {
 	font-size:0.823em;
 	color: #747474;
+	background-color: rgb(3, 26, 1);
 }
 .copy_right p a {
 	color:#DD0F0E;
@@ -1441,6 +1447,21 @@ body {
 #SkypeButton_Call_hoangkienhy91_1 img{
 	margin: 0px;
 	vertical-align: 0px;
+}
+
+.heading .cate-img {
+	/*overflow: hidden;*/
+  float: left;
+  width: 25px;
+}
+.heading .cate{
+	/*overflow: hidden;*/
+  /*width: 100px;*/
+  float: left;
+  margin-top: 3px;
+}
+.heading .sub-cate{
+	float: left;
 }
 /**** Responsive Layout ****/
 @media only screen and (max-width: 1024px) {
