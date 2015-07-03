@@ -48,7 +48,7 @@ RailsDemo::Application.routes.draw do
     namespace :admin do
       #Directs /admin/users/* to Admin::ProductsController
       #(app/controllers/admin/products_controller.rb)
-      resources :users,:news,:trademaks,:slides
+      resources :users,:news,:trademaks
       resources :categories, only: [:new,:create,:destroy,:update,:edit]
       resources :home,:customers, only: [:index]
 
@@ -70,6 +70,13 @@ RailsDemo::Application.routes.draw do
           post'delete'
         end
       end
+
+      resources :slides do
+        collection do
+          delete 'delete'
+        end
+      end
+      
       resources :config, only: [:index]
       scope controller: :config do
         post 'config/change_info' => :change_info

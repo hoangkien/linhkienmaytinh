@@ -1,1 +1,44 @@
-<h2>Slide</h2>
+<div id="main-content">
+  <div id="action">
+    <div class="action">
+      <%= button_to t('admin.main.addnew'),new_admin_slide_path,class:'btn btn-primary', method: :get %>
+      <%= form_for :check ,url:delete_admin_slides_path, method: :delete do |f| %>
+      <%= f.submit t('admin.main.del_many'), :disable_with => 'Delete Manying...',id:'delete', disabled: true,data:{:confirm=>"Are you sure ?"}, class:'btn btn-danger' %>
+    </div>
+  </div>
+  <div id="main">
+    <table class="table table-bordered">
+      <tr class="head">
+        <th><input type="checkbox" id="checkall" name="checkall" onchange="check_all();"></th>
+        <th>ID</th>
+        <th><%= t('admin.slide.table.head')%></th>
+        <th><%= t('admin.slide.table.description')%></th>
+        <th><%= t('admin.slide.table.image')%></th>
+        <th><%= t('admin.slide.table.active')%></th>
+        <th><%= t('admin.main.action')%></th>
+      </tr>
+      <% if @slides.count > 0%>
+        <% @slides.each do |slide_info|%>
+          <tr>
+            <td><%= check_box_tag('check[]',slide_info.id,false, :onchange =>"check();",class: 'check_')%></td>
+            <td><%= slide_info.id%></td>
+            <td><%= slide_info.head %></td>
+            <td><%= slide_info.description %></td>
+            <td><%= image_tag(slide_info.image,size:'150x150') %></td>
+            <td><%= check_box_tag('active[]',slide_info.id,false,:onchange =>"active();",class: 'check_') %></td>
+            <td>
+              <%= link_to t('admin.action.edit'),edit_admin_slide_path(slide_info) %> &nbsp; &nbsp;
+              <%= link_to t('admin.action.delete'),admin_slide_path(slide_info),method: :delete,data:{confirm:'Are you ok?'} %>&nbsp; &nbsp;
+              <%= link_to t('admin.action.view'),admin_slide_path(slide_info) %>
+            </td>
+          </tr>
+        <% end -%>
+      <% else %>
+        <tr>
+          <td colspan="11" style="text-align:center; font-weight:bold;height:30px">Không có dữ liệu</td>
+        </tr>
+      <% end -%>
+    </table>
+    <% end %>
+  </div>
+</div>
