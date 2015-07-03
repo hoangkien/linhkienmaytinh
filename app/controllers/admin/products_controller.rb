@@ -64,11 +64,8 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def delete
-		@product = params[:check]
-		@product.each do |product|
-		  @product = Product.find(product)
-		  @product.destroy
-		end
+		@product = params[:check].map{|p| p.to_i}
+    Product.destroy_all(id:@product)
 		redirect_to admin_products_path
 	end
 

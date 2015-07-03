@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_action :get_info
+  before_filter :set_user_language
   def get_info
   	@info = Info.first
   end
@@ -24,5 +25,9 @@ class ApplicationController < ActionController::Base
 
   def raise_not_found
     render plain: "Failed"
+  end
+
+  def set_user_language
+    I18n.locale = "vi"
   end
 end

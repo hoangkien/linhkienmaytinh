@@ -22,11 +22,11 @@
 		<div id="search">
 			<%= form_tag(admin_members_path, :method=>"get") do %>
 				<%= text_field_tag :search,params[:search], placeholder:'Search..', class: 'form-control' %>
-				<%= submit_tag "Search", :disable_with => 'Search...',name: 'member[search]'  ,class: 'btn btn-primary'%>
+				<%= submit_tag t('admin.main.search'), :disable_with => 'Search...',name: 'member[search]'  ,class: 'btn btn-primary'%>
 			<% end -%>
 		</div>
 		<div class="action">
-			<%= button_to'Add New',new_admin_category_path,class: 'btn btn-primary', method: :get %>
+			<%= button_to t('admin.main.addnew'),new_admin_category_path,class: 'btn btn-primary', method: :get %>
 		</div>
 	</div>
 	<div id="main">

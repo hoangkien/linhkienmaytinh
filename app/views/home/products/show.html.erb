@@ -49,7 +49,7 @@
       			</div>
 	        </div>
           <div class="comment-fb">
-            <div class="fb-comments" data-href="https://www.facebook.com/#{@product.id}" data-numposts="5"></div>
+            <div class="fb-comments" data-href=<%= "https://www.facebook.com/nuocsachhadung-#{@product.id}"%> data-numposts="5"></div>
           </div>
    <div id="fb-root"></div>
    <div class="content_bottom">
@@ -78,13 +78,13 @@
         </div>
 				<div class="rightsidebar span_3_of_1">
 					<h2 style="font-family: sans-serif;">DANH MỤC</h2>
-					<ul>
+					<ul style="background:rgb(43, 206, 171)">
 						<% @category_all.each do |category|%>
-							<li><%= link_to"#{category.name}",category_path(category) %>
+							<li><%= link_to"#{category.name}",category_path(category),style: 'color: #FAF2F2;' %>
 									<% if Category.subcategories(category.id).count > 0%>
 										<ul style="  margin-left: 20px;font-size: 13px;">
 											<% Category.subcategories(category.id).each do |sub|%>
-													<li><%= link_to"#{sub.name}",category_path(sub) %>
+													<li><%= link_to"#{sub.name}",category_path(sub),style: 'color: #FAF2F2;' %>
 													</li>
 											<% end -%>
 										</ul>

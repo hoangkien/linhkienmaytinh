@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616043948) do
+ActiveRecord::Schema.define(version: 20150703000000) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -93,6 +93,15 @@ ActiveRecord::Schema.define(version: 20150616043948) do
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug", unique: true, using: :btree
+
+  create_table "slides", force: :cascade do |t|
+    t.string   "head",        limit: 255
+    t.string   "description", limit: 255
+    t.string   "image",       limit: 255
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.boolean  "active",      limit: 1,   default: false
+  end
 
   create_table "trademaks", force: :cascade do |t|
     t.string "name",     limit: 255

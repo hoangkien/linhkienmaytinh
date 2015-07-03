@@ -17,6 +17,7 @@ gem 'responders'
 gem 'turbolinks'
 gem 'friendly_id'
 gem 'pry-rails', '~> 0.3.4'
+gem 'actionpack-page_caching'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

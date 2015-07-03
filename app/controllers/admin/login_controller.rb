@@ -3,9 +3,7 @@ class Admin::LoginController < Admin::ApplicationController
 	layout :false
 	require'digest/md5'
   def index
-    if session[:user_data]
-      redirect_to admin_home_index_path
-    end
+    redirect_to admin_home_index_path if session[:user_data]
   end
 
   def new

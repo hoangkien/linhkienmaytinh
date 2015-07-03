@@ -132,7 +132,7 @@
 						<% Category.where(parent_id: category).each do |subcate| %>
 							<% subcate.products.limit(5).order(id: :desc).each do |product| %>
 								<div class="grid_1_of_4 images_1_of_4">
-									<%= link_to image_tag("#{product.image}",size:"130x220" ), products_view_path(product),title:"#{product.name}", method: :get%>
+									<%= link_to image_tag("#{product.image}",size:"130x220" ), products_view_path(product),method: :get,title:"#{product.name}"%>
 									<h2 style="height:30px"><%= truncate(product.name, length:40)%></h2>
 									<div class="price-details">
 								       <div class="price-number">
@@ -149,7 +149,11 @@
 					<% else %>
 						<% category.products.each do |product| %>
 							<div class="grid_1_of_4 images_1_of_4">
+<<<<<<< HEAD
 								<%= link_to image_tag("#{product.image}" ), products_view_path(product),title:"#{product.name}", method: :get%>
+=======
+								<%= link_to image_tag("#{product.image}" ), products_view_path(product), method: :get,title:"#{product.name}"%>
+>>>>>>> 7ff5932ac8d809f1616fcf29985b882fd90cec2d
 								<h2 style="height:30px"><%= truncate(product.name, length:40)%></h2>
 								<div class="price-details">
 							       <div class="price-number">

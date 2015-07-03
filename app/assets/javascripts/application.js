@@ -17,11 +17,11 @@
 //= require_tree .
 var map;
 function initialize() {
-      var myLatlng = new google.maps.LatLng(20.89288,105.98432);
-      var myOptions = {
-       zoom: 16,
-       center: myLatlng,
-       mapTypeId: google.maps.MapTypeId.ROADMAP
+    var myLatlng = new google.maps.LatLng(20.89288,105.98432);
+    var myOptions = {
+      zoom: 16,
+      center: myLatlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     map = new google.maps.Map(document.getElementById("div_id"), myOptions);
       // Biến text chứa nội dung sẽ được hiển thị
@@ -39,4 +39,38 @@ function initialize() {
           map: map,
           title:"Công ty TNHH Thương mại và Sản xuất nước sạch Hà Dũng"
       });
+}
+
+function check_all(){
+  check=$("#checkall").is(':checked');
+  if(check== true){
+    $("input[type=checkbox]").prop("checked","checked");
+    $("#main-content #action .action #delete").removeAttr('disabled');
+  }else{
+    $("input[type=checkbox]").removeAttr("checked");
+    $("#main-content #action .action #delete").prop('disabled','disabled');
+
+  }
+}
+
+function check(){
+  var checked = false;
+  var checkedAll = true;
+  console.log($("#main-content #main table .check_"))
+   $("#main-content #main table .check_").each(function(e){
+    console.log(e);
+    if ($(e).prop('checked')) {
+      checked = true;
+    }else{
+      checkedAll = false;
+    }
+   });
+   if (checked) {
+     $("#main-content #action .action #delete").removeAttr('disabled');
+   }else{
+    $("#main-content #action .action #delete").prop('disabled','disabled');
+   }
+   if (checkedAll) {
+    $("#checkall").prop("checked","checked");
+   };
 }

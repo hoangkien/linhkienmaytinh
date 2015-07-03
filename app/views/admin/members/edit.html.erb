@@ -1,11 +1,11 @@
 
 <div id="content-header">
 	<div id="title">
-		Edit Profile
+		<%= t('admin.member.header.title_edit')%>
 	</div>
 	<div id="content-menu">
 		<ul class="content-menu">
-			<li class="content-menu"><%= button_to"Back",admin_members_path, method:'get',class: 'btn btn-primary' %></li>
+			<li class="content-menu"><%= button_to t('admin.main.back'),admin_members_path, method:'get',class: 'btn btn-primary' %></li>
 		</ul>
 	</div>
 </div>
@@ -14,12 +14,12 @@
 	<div id="box">
 		<div id="action">
 			<div class="title">
-				Member Infomation
+				<%= t('admin.member.header.title_info')%>
 			</div>
 			<div class="action">
 				<ul>
-					<li><%= f.submit "Update", :disable_with => 'Adding...' , class: 'btn btn-primary'%></li>
-					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn btn-primary', type:'reset' %></li>
+					<li><%= f.submit t('admin.main.update'), :disable_with => 'Adding...' , class: 'btn btn-primary'%></li>
+					<li><%= f.submit t('admin.main.reset'), :disable_with => 'Reseting...',class: 'btn btn-primary', type:'reset' %></li>
 				</ul>
 			</div>
 		</div>
@@ -36,31 +36,31 @@
 				    </div>
 				<% end %>
 				<tr>
-					<td class="left tbl-config"><%= f.label :username, "User Name" %></td>
+					<td class="left tbl-config"><%= f.label :username, t('admin.member.table.username') %></td>
 					<td><%= f.text_field :username , class:'text_field',:readonly=>"true"%></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :fullname, "Fullname" %></td>
+					<td class="left tbl-config"><%= f.label :fullname, t('admin.member.table.fullname') %></td>
 					<td><%= f.text_field :fullname ,class:'text_field'%></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :gender, "Gender" %></td>
+					<td class="left tbl-config"><%= f.label :gender, t('admin.member.table.gender') %></td>
 					<td><%= select_tag'member[gender]',options_for_select({"Male" => 0, "FeMale" =>1},"#{@member.gender}"),class:'text_field' %></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :indentity_card, "Indentity Card" %></td>
+					<td class="left tbl-config"><%= f.label :indentity_card, t('admin.member.table.indentity_card') %></td>
 					<td><%= f.text_field :indentity_card, class:'text_field' %></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :birthday, "Birthday" %></td>
+					<td class="left tbl-config"><%= f.label :birthday, t('admin.member.table.birthday')%></td>
 					<td><%= f.text_field :birthday ,class:'text_field'%></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :Address, "Address" %></td>
+					<td class="left tbl-config"><%= f.label :Address, t('admin.member.table.address') %></td>
 					<td><%= f.text_field :address ,class:'text_field'%></td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :email, "Email" %></td>
+					<td class="left tbl-config"><%= f.label :email, t('admin.member.table.email') %></td>
 					<td><%= f.email_field :email ,class:'text_field'%></td>
 				</tr>
 			</table>

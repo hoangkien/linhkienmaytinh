@@ -16,19 +16,20 @@
 		<div id="menu">
 			<div class="main-menu">
 				<ul class="main-menu">
-					<li class='<%= controller_name == "home" ? "main-menu active" : " main-menu " %>'><%= link_to'Home',admin_home_index_path %></li>
-					<li class='<%= controller_name == "members" ? "main-menu active" : " main-menu " %>'><%= link_to'Member',admin_members_path %></li>
-					<li class='<%= ['products','categories','trademaks'].include?(controller_name) ? "main-menu active" : " main-menu " %>'><%= link_to'Product', admin_products_path%></li>
-					<li class='<%= controller_name == "news" ? "main-menu active" : " main-menu " %>'><%= link_to'News', admin_news_index_path%></li>
-					<li class='<%= controller_name == "contacts" ? "main-menu active" : " main-menu " %>'><%= link_to'Contact',admin_contacts_path%></li>
-					<li class='<%= controller_name == "config" ? "main-menu active" : " main-menu " %>'><%= link_to'Setting', admin_config_index_path, data: {"no-turbolink" => true} %></li>
+					<li class='<%= controller_name == "home" ? "main-menu active" : " main-menu " %>'><%= link_to t('home.menu.home'),admin_home_index_path %></li>
+					<li class='<%= controller_name == "members" ? "main-menu active" : " main-menu " %>'><%= link_to t('admin.menu.member'),admin_members_path %></li>
+					<li class='<%= ['products','categories','trademaks'].include?(controller_name) ? "main-menu active" : " main-menu " %>'><%= link_to t('admin.menu.product'), admin_products_path%></li>
+					<li class='<%= controller_name == "news" ? "main-menu active" : " main-menu " %>'><%= link_to t('admin.menu.news'), admin_news_index_path%></li>
+					<li class='<%= controller_name == "contacts" ? "main-menu active" : " main-menu " %>'><%= link_to t('admin.menu.contact'),admin_contacts_path%></li>
+					<li class='<%= controller_name == "config" ? "main-menu active" : " main-menu " %>'><%= link_to t('admin.menu.setting'), admin_config_index_path, data: {"no-turbolink" => true} %></li>
+          <li class='<%= controller_name == "slides" ? "main-menu active" : " main-menu " %>'><%= link_to t('admin.menu.slide'), admin_slides_path%></li>
 				</ul>
 			</div>
 			<div id="info">
 				<ul class="info">
 					<li class="info">Hi, <strong><%= session[:user_data][:fullname] %></strong></li>
-					<li class="info"><%= link_to"Infomation",admin_member_path(session[:user_data][:id], method:'get')%></li>
-					<li class="info"><%= link_to"Logout",admin_login_destroy_path, method: :delete, data:{confirm:'Are you logout ?'}%></li>
+					<li class="info"><%= link_to t('admin.menu.info'),admin_member_path(session[:user_data][:id], method:'get')%></li>
+					<li class="info"><%= link_to t('admin.menu.logout'),admin_login_destroy_path, method: :delete, data:{confirm:'Are you logout ?'}%></li>
 				</ul>
 			</div>
 		</div>

@@ -1,0 +1,40 @@
+<div id="content-header">
+  <div id="title">
+    Thêm Slide
+  </div>
+  <div id="content-menu">
+    <ul class="content-menu">
+      <li class="content-menu"><%= button_to t('admin.main.back'),admin_slides_path,method:'get',class: 'btn btn-primary' %></li>
+    </ul>
+  </div>
+</div>
+<%= form_for :slide , url: admin_slides_path, :html =>{ :multipart =>true} do |f| %>
+<div id="main-content">
+  <div id="box">
+    <div id="action">
+      <div class="action">
+        <ul>
+          <li><%= f.submit "Add", :disable_with => 'Adding...' , class: 'btn btn-primary'%></li>
+          <li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn btn-info', type:'reset' %></li>
+        </ul>
+      </div>
+    </div>
+    <div id="main">
+      <table class="table">
+        <tr>
+          <td class="left tbl-config"><%= f.label :head, "Tiêu đề" %></td>
+          <td><%= f.text_field :head, class: 'form-control', required:true %></td>
+        </tr>        
+        <tr>
+          <td class="left tbl-config"><%= f.label :description, "Mô tả" %></td>
+          <td><%= f.text_field :description, class: 'form-control', required:true %></td>
+        </tr>
+        <tr>
+          <td class="left tbl-config"><%= f.label :image, "Hình ảnh" %></td>
+          <td><%= f.file_field :image %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<% end -%>
