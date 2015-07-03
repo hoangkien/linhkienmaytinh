@@ -18,17 +18,26 @@ gem 'turbolinks'
 gem 'friendly_id'
 gem 'pry-rails', '~> 0.3.4'
 gem 'actionpack-page_caching'
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'sass-rails', '~> 4.0.2'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails'
+  # gem "compass-rails", github: "Compass/compass-rails", branch: "master"
+  gem 'compass-rails'
+  gem 'compass-colors'
+  gem 'sassy-buttons'
   gem 'coffee-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
 end
+
 group :production do
   gem 'pg'
+  gem 'compass-rails'
+  gem 'compass-colors'
   # gem 'rails_12factor'
 end
 gem 'jquery-rails'
@@ -46,5 +55,6 @@ gem 'byebug'
 
 
 
-gem 'bootstrap-sass', '~> 2.3.2'
+# gem 'bootstrap-sass', '~> 2.3.2'
 gem 'bcrypt-ruby','~>3.1.2'
+gem 'dalli'

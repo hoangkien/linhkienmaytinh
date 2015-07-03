@@ -118,7 +118,8 @@
 			<div class="content">
 				<div class="content_top">
 					<div class="heading">
-						<img src="/assets/icon-menu.png" style="width:16px;float:left;margin:0px 10px 0px 0px;"/><h3><%= category.name%></h3>
+						<%= image_tag("/assets/icon-menu.png", style:"width:16px;float:left;margin:0px 10px 0px 0px;")%>
+						<h3 style="margin-top:0px"><%= category.name%></h3>
 						<span class="sl"><%= "- có " +Category.count(category.id).to_s + " Sản phẩm" %> </span>
 					</div>
 					 <div class="see">
@@ -149,11 +150,7 @@
 					<% else %>
 						<% category.products.each do |product| %>
 							<div class="grid_1_of_4 images_1_of_4">
-<<<<<<< HEAD
-								<%= link_to image_tag("#{product.image}" ), products_view_path(product),title:"#{product.name}", method: :get%>
-=======
 								<%= link_to image_tag("#{product.image}" ), products_view_path(product), method: :get,title:"#{product.name}"%>
->>>>>>> 7ff5932ac8d809f1616fcf29985b882fd90cec2d
 								<h2 style="height:30px"><%= truncate(product.name, length:40)%></h2>
 								<div class="price-details">
 							       <div class="price-number">

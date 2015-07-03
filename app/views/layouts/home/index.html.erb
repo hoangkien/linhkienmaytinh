@@ -36,11 +36,11 @@
 			</div> -->
 			<div class="logo">
 				<div class="left" style="float:left;padding-left:5px;width:18%">
-					<a href="index.html"><%= link_to image_tag("/assets/logo1.png",style: 'height:130px;padding-left:20px'),home_path %></a>
+					<a href="index.html"><%= link_to image_tag("slide/logo1.png",style: 'height:130px;padding-left:20px'),home_path %></a>
 				</div>
 				<div class="right" style="float:left;margin-left:20px;width:79%">
 					<div class="img">
-					<img src="/assets/imgo.jpg" style="width: 100%;" />
+					<%= image_tag("slide/imgo.jpg", style:"width: 100%;") %>
 					</div>
 					<div class="add">
 					<!-- <span>Dia chi: </span> -->
@@ -79,7 +79,7 @@
   <div class="clear"></div>
 	<div class="header_bottom">
  	     	<div class="menu">
-	     		<ul class="list-group">
+	     		<ul class="list-group" style="margin:0px">
 			    	<li class= <%= "active" if (controller_name == "home" && action_name == "index")%>><%= link_to t('home.menu.home'), home_path, method: :get%></li>
 			    	<li class= <%= "active" if ((controller_name == "products" && action_name == "index") or (controller_name == "products"))%>><%= link_to t('home.menu.product'),products_path %></li>
 			    	<li class= <%= "active" if (controller_name == "home" && action_name == "about")%>><%= link_to t('home.menu.about'), about_path%></li>

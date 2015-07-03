@@ -81,15 +81,15 @@ ActiveRecord::Schema.define(version: 20150703000000) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string  "name",        limit: 255
-    t.integer "trademak_id", limit: 4
-    t.integer "category_id", limit: 4
-    t.string  "image",       limit: 255
-    t.integer "price",       limit: 4
-    t.text    "details",     limit: 65535
-    t.string  "name_url",    limit: 255
-    t.string  "slug",        limit: 255
-    t.string  "gurantee",    limit: 255
+    t.string  "name",         limit: 255
+    t.integer "trademark_id", limit: 4
+    t.integer "category_id",  limit: 4
+    t.string  "image",        limit: 255
+    t.integer "price",        limit: 4
+    t.text    "details",      limit: 65535
+    t.string  "name_url",     limit: 255
+    t.string  "slug",         limit: 255
+    t.string  "gurantee",     limit: 255
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug", unique: true, using: :btree

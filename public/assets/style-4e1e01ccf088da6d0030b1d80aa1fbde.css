@@ -1,0 +1,16 @@
+/* line 1, /home/kienhv/ROR/nuocsachhadung/app/assets/stylesheets/style.css.scss */
+#footer {
+  background: #000;
+  color: #fff;
+  height: 50px;
+}
+
+/* line 6, /home/kienhv/ROR/nuocsachhadung/app/assets/stylesheets/style.css.scss */
+.notice {
+  color: #77b266;
+  border: 1px solid;
+  height: 25px;
+  line-height: 25px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}

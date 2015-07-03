@@ -18,6 +18,16 @@ development:
   socket: /var/run/mysqld/mysqld.sock
   host: localhost
 
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: nuocsachhadung
+  pool: 5
+  username: root
+  password: 1
+  socket: /var/run/mysqld/mysqld.sock
+  host: localhost
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -34,21 +44,21 @@ development:
 #   <<: *mysql2
 #   database: RailsSqltest_production
 
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5432
-production:
-  host: ec2-23-21-76-246.compute-1.amazonaws.com
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5432
-  database: d1r2qnfsgfdb51
-  username: zxovdeszmczacj
-  password: mv_g6Vx-8Da25TrXixoPPvcpH5
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   # For details on connection pooling, see rails configuration guide
+#   # http://guides.rubyonrails.org/configuring.html#database-pooling
+#   pool: 5432
+# production:
+#   host: ec2-23-21-76-246.compute-1.amazonaws.com
+#   adapter: postgresql
+#   encoding: unicode
+#   # For details on connection pooling, see rails configuration guide
+#   # http://guides.rubyonrails.org/configuring.html#database-pooling
+#   pool: 5432
+#   database: d1r2qnfsgfdb51
+#   username: zxovdeszmczacj
+#   password: mv_g6Vx-8Da25TrXixoPPvcpH5
 #  username: testapp
 #  password: <%= ENV['TESTAPP_DATABASE_PASSWORD'] %>

@@ -78,8 +78,18 @@ module RailsDemo
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor #{config.root}/lib/test)
-    config.assets.precompile += [
-      '*.css','*.js','*.png','*.jpg','*.json','*.tff'
-    ]
+    # Bower asset paths
+    root.join('vendor', 'assets', 'bower_components').to_s.tap do |bower_path|
+      config.sass.load_paths << bower_path
+      config.assets.paths << bower_path
+    end
+    # Precompile Bootstrap fonts
+    config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
+    # Minimum Sass number precision required by bootstrap-sass
+    # ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
+    # config.assets.precompile += [
+    #   '*.css','*.js','*.png','*.jpg','*.json','*.tff'
+    # ]
+    # config.assets.precompile += %w( *.css *.js )
   end
 end

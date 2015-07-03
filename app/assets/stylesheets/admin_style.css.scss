@@ -38,12 +38,15 @@ ul,h1{
 	background:#ccc;
 	border-bottom: 1px solid #A39898;
 	.main-menu{
-		ul li{
+		ul
+			{ margin-bottom: 0px;
+				li{
 				&:hover{
 					background: blue;
 				}
 				&:hover a {color: white}
 				a:hover{background: none !important;}
+			}
 		}
 	}
 }
@@ -187,7 +190,7 @@ ul,h1{
 	#search {
 		float: left;
 		width: auto;
-		height: 15px;
+		height: 26px;
 		.btn{
 			min-width: 100px;
 		}

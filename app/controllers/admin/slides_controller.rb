@@ -9,9 +9,7 @@ class Admin::SlidesController < Admin::ApplicationController
   end
 
   def create
-    @slide = Slide.new()
-    @slide.head = slide_params['head']
-    @slide.description = slide_params['description']
+    @slide = Slide.new(slide_params)
     @slide.image = params[:slide]['image'].original_filename
     upload = Slide.upload(params[:slide])
 
@@ -24,6 +22,10 @@ class Admin::SlidesController < Admin::ApplicationController
   end
 
   def update
+    slide = Slide.find(params[:id].to_i)
+    slide.active = params[:active]
+    slide.save
+    render nothing: true
   end
 
   def destroy
@@ -34,7 +36,7 @@ class Admin::SlidesController < Admin::ApplicationController
 
   def delete
   end
-  
+
   private
   def slide_params
     params.require(:slide).permit(:head,:description)

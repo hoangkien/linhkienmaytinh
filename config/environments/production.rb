@@ -16,7 +16,7 @@ RailsDemo::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -41,13 +41,17 @@ RailsDemo::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production
-  config.cache_store = :mem_cache_store
+  config.cache_store = :dalli_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
+  # config.assets.precompile += %w( *.css *.js )
+  # config.assets.precompile << /(^[^_]|\/[^_])[^\/]*/
+  config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico *.jpg)
+  config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

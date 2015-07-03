@@ -1,5 +1,5 @@
 class Home::HomeController < Home::ApplicationController
-  caches_page :index
+  caches_page :contact,:map
 	def index
 		@category = Category.where("parent_id = 0")
 	end

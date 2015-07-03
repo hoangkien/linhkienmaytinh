@@ -1,0 +1,57 @@
+/* line 4, /home/kienhv/ROR/nuocsachhadung/app/assets/stylesheets/admin/login.css.scss */
+#login {
+  background: url("/assets/bg_login.png")-1px 14px no-repeat;
+  height: 200px;
+  width: 400px;
+  margin: auto;
+  margin-top: 150px;
+}
+
+/* line 11, /home/kienhv/ROR/nuocsachhadung/app/assets/stylesheets/admin/login.css.scss */
+#login form fieldset {
+  height: 100%;
+}
+
+/* line 14, /home/kienhv/ROR/nuocsachhadung/app/assets/stylesheets/admin/login.css.scss */
+#login form p {
+  float: right;
+  margin: 6px 1px;
+  padding: 0px;
+}
+
+/* line 19, /home/kienhv/ROR/nuocsachhadung/app/assets/stylesheets/admin/login.css.scss */
+#login form p label {
+  display: block;
+  float: left;
+  width: 75px;
+}
+
+/* line 24, /home/kienhv/ROR/nuocsachhadung/app/assets/stylesheets/admin/login.css.scss */
+#login .err {
+  color: red;
+}
+
+/* line 27, /home/kienhv/ROR/nuocsachhadung/app/assets/stylesheets/admin/login.css.scss */
+#login form p input[type=text], input[type=password] {
+  width: 160px;
+  height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 0px 0px 0px 10px;
+}
+
+/* line 34, /home/kienhv/ROR/nuocsachhadung/app/assets/stylesheets/admin/login.css.scss */
+#login form p input[type=submit] {
+  height: 30px;
+  width: 80px;
+  border: 1px solid green;
+  background: green;
+  color: #fff;
+  border-radius: 10px;
+}
+
+/* line 42, /home/kienhv/ROR/nuocsachhadung/app/assets/stylesheets/admin/login.css.scss */
+#login form .login {
+  overflow: hidden;
+  margin-top: 50px;
+}
