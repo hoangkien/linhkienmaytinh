@@ -1,55 +1,34 @@
-# config valid only for current version of Capistrano
-lock '3.3.5'
+require "bundler/capistrano"
+require "rvm/capistrano"
 
-set :application, 'linhkienmaytinh'
-set :repo_url, 'git@github.com:hoangkien/linhkienmaytinh.git'
-set :deploy_to, '/opt/www/linhkienmaytinh'
-set :user, 'deploy'
-set :linked_dirs ,%w{log tmp/pids tmp/cache tmp/sockets}
+server "52.10.170.115", :web, :app, :db, primary: true
 
-# Default branch is :master
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+set :application, "nuocsachhadung.vn"
+set :user, "root"
+set :port, 22
+set :deploy_to, "/home/#{user}/apps/#{application}"
+set :deploy_via, :remote_cache
+set :use_sudo, false
 
-# Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
+set :scm, "git"
+set :repository, "git@github.com:hoangkien/#{application}.git"
+set :branch, "nuocsach"
 
-# Default value for :scm is :git
-# set :scm, :git
 
-# Default value for :format is :pretty
-# set :format, :pretty
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
 
-# Default value for :log_level is :debug
-# set :log_level, :debug
+after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
-# Default value for :pty is false
-# set :pty, true
-
-# Default value for :linked_files is []
-# set :linked_files, fetch(:linked_files, []).push('config/database.yml')
-
-# Default value for linked_dirs is []
-# set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
-
-# Default value for keep_releases is 5
-# set :keep_releases, 5
 namespace :deploy do
-
   %w[start stop restart].each do |command|
-    desc 'Manage Unicorn'
-    task command do
-      on roles(:app), in: :sequence, wait: 1 do
-        execute "/etc/init.d/unicorn_#{fetch(:application)} #{command}"
-      end      
+    desc "#{command} unicorn server"
+    task command, roles: :app, except: {no_release: true} do
+      run "/etc/init.d/unicorn_#{application} #{command}"
     end
   end
 
-  after :publishing, :restart
-
-  after :restart, :clear_cache do
+after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       # within release_path do
@@ -57,5 +36,69 @@ namespace :deploy do
       # end
     end
   end
-
 end
+# require "bundler/capistrano"
+# require "rvm/capistrano"
+# # config valid only for current version of Capistrano
+# lock '3.3.5'
+# server "123.123.123.123", :web, :app, :db, primary: true
+# set :user, "username"
+# set :port, 22
+# set :application, 'linhkienmaytinh'
+# set :repo_url, 'git@github.com:hoangkien/linhkienmaytinh.git'
+# set :deploy_to, '/opt/www/linhkienmaytinh'
+# set :user, 'deploy'
+# set :linked_dirs ,%w{log tmp/pids tmp/cache tmp/sockets}
+
+# # Default branch is :master
+# # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+
+# # Default deploy_to directory is /var/www/my_app_name
+# # set :deploy_to, '/var/www/my_app_name'
+
+# # Default value for :scm is :git
+# # set :scm, :git
+
+# # Default value for :format is :pretty
+# # set :format, :pretty
+
+# # Default value for :log_level is :debug
+# # set :log_level, :debug
+
+# # Default value for :pty is false
+# # set :pty, true
+
+# # Default value for :linked_files is []
+# # set :linked_files, fetch(:linked_files, []).push('config/database.yml')
+
+# # Default value for linked_dirs is []
+# # set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+
+# # Default value for default_env is {}
+# # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+# # Default value for keep_releases is 5
+# # set :keep_releases, 5
+# namespace :deploy do
+
+#   %w[start stop restart].each do |command|
+#     desc 'Manage Unicorn'
+#     task command do
+#       on roles(:app), in: :sequence, wait: 1 do
+#         execute "/etc/init.d/unicorn_#{fetch(:application)} #{command}"
+#       end
+#     end
+#   end
+
+#   after :publishing, :restart
+
+#   after :restart, :clear_cache do
+#     on roles(:web), in: :groups, limit: 3, wait: 10 do
+#       # Here we can do anything such as:
+#       # within release_path do
+#       #   execute :rake, 'cache:clear'
+#       # end
+#     end
+#   end
+
+# end

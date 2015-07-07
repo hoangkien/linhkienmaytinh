@@ -48,30 +48,30 @@ function check_all(){
     $("input[type=checkbox]").prop("checked","checked");
     $("#main-content #action .action #delete").removeAttr('disabled');
   }else{
-    $("input[type=checkbox]").removeAttr("checked");
+    $("input[type=checkbox]").prop("checked",false);
     $("#main-content #action .action #delete").prop('disabled','disabled');
 
   }
 }
 
 function check(){
-  var checked = false;
-  var checkedAll = true;
-  console.log($("#main-content #main table .check_"))
-   $("#main-content #main table .check_").each(function(e){
-    console.log(e);
-    if ($(e).prop('checked')) {
-      checked = true;
-    }else{
-      checkedAll = false;
-    }
-   });
-   if (checked) {
-     $("#main-content #action .action #delete").removeAttr('disabled');
-   }else{
-    $("#main-content #action .action #delete").prop('disabled','disabled');
-   }
-   if (checkedAll) {
-    $("#checkall").prop("checked","checked");
-   };
+      var checked = false;
+      var checkedAll = true;
+       $("#main-content #main table #check_").each(function(i,e){
+        if ($(e).prop('checked')) {
+          checked = true;
+        }else{
+          checkedAll = false;
+        }
+       });
+       if (checked) {
+         $("#main-content #action .action #delete").removeAttr('disabled');
+       }else{
+        $("#main-content #action .action #delete").prop('disabled','disabled');
+       }
+       if (checkedAll) {
+        $("#checkall").prop("checked","checked");
+       }else{
+        $("#checkall").prop("checked",false);
+       };
 }
