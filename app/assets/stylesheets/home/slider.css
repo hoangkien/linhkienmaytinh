@@ -22,19 +22,19 @@
  .slider-text{
  	float:left;
  	width:40%;
- 	padding-left:2%;
+ 	padding-left:1%;
  	padding-top:3%;
  }
  .slider-img{
  	float:left;
- 	width:9%;
+ 	width:13%;
  }
 .slide h1{
   font-size:2.5em;
   font-weight:bold;
   color:#CD1F25;
   text-transform:uppercase;
-  width: 350px;
+  width: 34%;
   margin-top: -21px;
   text-align: center;
   margin-left: -22px;
