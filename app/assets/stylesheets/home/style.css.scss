@@ -38,6 +38,7 @@ img{max-width:100%;}
   		url('/assets/fono-compressed-webfont.woff') format('woff')
 
 }
+h1,h2,h3,h4,h5,h6{margin-top: 0px !important;}
 body {
 	font-family: fono-compressed-webfont,Arial, Helvetica, ambleregular;
 	/*background:rgba(191, 228, 226, 0.51);*/
@@ -439,7 +440,7 @@ body {
 	margin-left: 0;
 }
 .images_1_of_4 {
-	width: 15.8%;
+	width: 18%;
 	margin-right: 1%;
 	padding: 0.5%;
 	text-align: center;
