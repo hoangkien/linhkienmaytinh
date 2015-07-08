@@ -12,7 +12,7 @@
 	span.sl{
 		font-size: 13px;
   	color: rgba(79, 72, 72, 0.74);
-  	line-height: 17px;
+  	line-height: 40px;
   	margin-left: 10px;
 	}
 </style>
@@ -63,49 +63,10 @@
 					 	 <div class="slider">
 							 <div id="slider">
                   <div id="mover">
-                  	<div id="slide-1" class="slide">
-									 		<div class="slider-img">
-									     <a href="preview.html"><%= image_tag("slide/may-loc-nuoc-ro.jpg", style: "height: 265px;")%></a>
-									  	</div>
-			             		<div class="slider-text">
-	                      <h1> May loc nuoc RO</h1>
-	                      <h2>UPTo 20% OFF</h2>
-										    <div class="features_list">
-										   		<h4>Get to Know More About Our Memorable Services Lorem Ipsum is simply dummy text</h4>
-						            </div>
-					             	<!-- <a href="preview.html" class="button">Shop Now</a> -->
-		                   </div>
-								  		<div class="clear"></div>
-	                  </div>
-			             	<div class="slide">
-			             		<div class="slider-text">
-                          <h1>Clearance SALE</h1>
-                          <h2>UPTo 40% OFF</h2>
-											    <div class="features_list">
-											   		<h4>Get to Know More About Our Memorable Services</h4>
-							            </div>
-							            <!-- <a href="preview.html" class="button">Shop Now</a> -->
-		                  </div>
-				             	<div class="slider-img">
-								     		<a href="preview.html"><%= image_tag("slide/he-thong-loc-nuoc.jpg", style: "height: 265px;")%></a>
-										  </div>
-										  <div class="clear"></div>
-	                  </div>
-	                  <div class="slide">
-		                  <div class="slider-img">
-									    	<a href="preview.html"><%= image_tag("slide/loc-nuoc-moi.jpg" , style:"height: 265px;")%></a>
-									  	</div>
-										  <div class="slider-text">
-	                      <h1>Clearance SALE</h1>
-	                      <h2>UPTo 10% OFF</h2>
-										   	<div class="features_list">
-										   		<h4>Get to Know More About Our Memorable Services Lorem Ipsum is simply dummy text</h4>
-								        </div>
-					             	<!-- <a href="preview.html" class="button">Shop Now</a> -->
-						          </div>
-										  <div class="clear"></div>
-	                  </div>
-			            </div>
+                    <div id="slide-1">
+                      <%= render Slide.where(active:true)%>
+			              </div>
+                  </div>
 		            </div>
 					 <div class="clear"></div>
 		         </div>
@@ -118,8 +79,8 @@
 			<div class="content">
 				<div class="content_top">
 					<div class="heading">
-						<%= image_tag("/assets/icon-menu.png", style:"width:16px;float:left;margin:0px 10px 0px 0px;")%>
-						<h3 style="margin-top:0px"><%= category.name%></h3>
+						<div class="icon-menu"><%= image_tag("/assets/icon-menu.png", class: "icon-menu")%></div> 
+						<div class="cate-name"><h3><%= category.name%></h3></div>
 						<span class="sl"><%= "- có " +Category.count(category.id).to_s + " Sản phẩm" %> </span>
 					</div>
 					 <div class="see">

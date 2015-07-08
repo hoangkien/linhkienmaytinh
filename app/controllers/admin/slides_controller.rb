@@ -29,6 +29,9 @@ class Admin::SlidesController < Admin::ApplicationController
   end
 
   def destroy
+    slide = Slide.find(params[:id])
+    slide.destroy
+    redirect_to admin_slides_path
   end
 
   def show

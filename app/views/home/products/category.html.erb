@@ -8,9 +8,12 @@
 		<% Category.where("parent_id = #{@category.id}").each do |category|%>
 			<div class="content_top">
 				<div class="heading">
-				<div class = "cate"><h3><span>Sản Phẩm<span></h3></div>
-				<div class = "cate-img"><img src="/assets/next_icon.gif" class="sub"/></div>
-				<div class="sub-cate"><h3><span class="catesub"><%=@category.name%></span></h3></div>
+        <div class="icon-menu"><img class="icon-menu" src="/assets/icon-menu.png"/></div>
+				<div class = "cate-name"><h3><span>Sản Phẩm<span></h3></div>
+				<div class = "icon-next"><img src="/assets/next_icon.gif" class="sub"/></div>
+				<div class="cate-sub"><h3 style="margin-top:0px;line-height:40px"><span><%=@category.name%></span></h3></div>
+        <div class = "icon-next"><img src="/assets/next_icon.gif" class="sub"/></div>
+        <div class="cate-sub"><h4 style="margin-top:0px;line-height:40px"><span><%=category.name%></span></h4></div>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -43,10 +46,10 @@
 	<% else %>
 		<div class="content_top">
 			<div class="heading">
-				<div style="float:left; margin-top:3px"><img class="home" src="/assets/icon-menu.png"/></div>
-				<div class = "cate"><h3><span>Sản Phẩm<span></h3></div>
-				<div class = "cate-img"><img src="/assets/next_icon.gif" class="sub"/></div>
-				<div class="sub-cate"><h3><span class="catesub"><%=@category.name%></span></h3></div>
+				<div class="icon-menu"><img class="icon-menu" src="/assets/icon-menu.png"/></div>
+				<div class = "cate-name"><h3><span>Sản Phẩm<span></h3></div>
+				<div class = "icon-next"><img src="/assets/next_icon.gif" class="sub"/></div>
+				<div class= "cate-sub"><h3 style="margin-top:0px;line-height:40px"><span><%=@category.name%></span></h3></div>
 			</div>
 			<div class="clear"></div>
 		</div>

@@ -345,9 +345,38 @@ body {
 	border-bottom: 1px solid #ccc;
 }
 .content_top{
-	padding: 15px 5px;
+	// padding: 15px 5px;
 	border: 1px solid #EBE8E8;
-	border-radius: 3px;
+  height:40px;	
+  border-radius: 3px;
+  .icon-menu{
+    float:left;
+    img{width:16px;float:left;margin:10px 10px 0px 0px};
+  }
+  .cate-name{
+    float:left;
+    h3{
+        line-height: 40px;
+        margin-top: 0px !important;
+      };
+    .sl{
+      line-height: 40px;
+    }
+
+  };
+  .icon-next{float:left;margin-top: 8px};
+  .cate-sub{
+    float:left;
+    h4{
+      line-height: 40px;
+      font-size: 15px !important;
+    }
+    h3 {font-size: 15px;}
+  }
+  .see{
+    p{line-height: 40px}
+  }
+
 }
 .content_bottom {
 	padding: 15px 20px;
