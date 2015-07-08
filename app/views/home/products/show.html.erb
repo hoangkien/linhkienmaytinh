@@ -8,14 +8,17 @@
 <div class="main">
     <div class="content">
     	<div class="content_top">
-    		<div class="back-links">
-        <div style="float:left"><img src="/assets/icon-menu.png" style="width:15px;margin-right:5px"/></div>
-        <div style="float:left"><a href="#">Sản Phẩm</a></div>
-        <div style="float:left"><img src="/assets/next_icon.gif" style="width:16px"/></div>
-        <div style="float:left"><%= link_to"#{@product.category.name}", category_path(@product.category)%></div>
-        <div style="float:left"><img src="/assets/next_icon.gif" style="width:16px"/></div>
-        <div style="float:left"><%= link_to"#{@product.name}",products_view_path(@product)%></span></div>
-    		<div class="clear"></div>
+        <div class="heading">
+      		<div class="back-links">
+            <div class="icon-menu"><img src="/assets/icon-menu.png" style="width:15px;margin-right:5px"/></div>
+            <div class="cate-name"><h3>Sản Phẩm</h3></div>
+            <div class="icon-next"><img src="/assets/next_icon.gif" style="width:16px"/></div>
+            <div class="cate-name"><h3><%= link_to"#{@product.category.name}", category_path(@product.category)%></h3></div>
+            <div class="icon-next"><img src="/assets/next_icon.gif" style="width:16px"/></div>
+            <div class="cate-sub"><h4 style="line-height:17px"><%= link_to"#{@product.name}",products_view_path(@product)%></h4></div>
+      		  <div class="clear"></div>
+          </div>
+        </div>  
     	</div>
     	<div class="section group">
 				<div class="cont-desc span_1_of_2" style="border-right: 1px solid #F6F6F6;padding:10px 0px">
@@ -52,10 +55,12 @@
             <div class="fb-comments" data-href=<%= "https://www.facebook.com/nuocsachhadung-#{@product.id}"%> data-numposts="5"></div>
           </div>
    <div id="fb-root"></div>
-   <div class="content_bottom">
+   <div class="content_top">
     		<div class="heading">
-    		<h3>Sản phẩm liên quan</h3>
-    		</div>
+          <div class="cate-name">
+    		    <h3>Sản phẩm liên quan</h3>
+    		  </div>
+        </div>
     		<div class="see">
     			<p><a href="#">Tất cả sản phẩm</a></p>
     		</div>
@@ -65,7 +70,7 @@
    			<% @product.category.products.each do |product|%>
 				<div class="grid_1_of_4 images_1_of_4">
 						<%= link_to image_tag("#{product.image}",size:"100x150" ), products_view_path(product),title: "#{product.name}"%>
-						<h2 style="font-size:9px;height:30px;"><%= truncate(product.name,length:30)%></h2>
+						<h2 style="font-size:9px;height:30px;line-height:30px"><%= truncate(product.name,length:30)%></h2>
 						<div class="price-details">
 				       		<div class="add-cart">
 								<h4><%= link_to"Chi tiết",products_view_path(product), method: :get%></h4>
@@ -78,7 +83,7 @@
         </div>
 				<div class="rightsidebar span_3_of_1">
 					<h2 style="font-family: sans-serif;">DANH MỤC</h2>
-					<ul style="background:rgb(43, 206, 171)">
+					<ul style="background:rgb(7, 129, 59)">
 						<% @category_all.each do |category|%>
 							<li><%= link_to"#{category.name}",category_path(category),style: 'color: #FAF2F2;' %>
 									<% if Category.subcategories(category.id).count > 0%>
@@ -98,6 +103,7 @@
     </div>
  </div>
 
+</div>
 </div>
 <script>
   $(document).ready(function () {
