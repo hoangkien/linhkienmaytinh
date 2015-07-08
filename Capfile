@@ -4,6 +4,10 @@ require 'capistrano/setup'
 # Include default deployment tasks
 require 'capistrano/deploy'
 require 'capistrano/rails'
+require 'rvm1/capistrano3'
+require 'capistrano3/unicorn'
+
+Dir.glob('lib/capistrano/tasks/*.rake').eachmport r }
 
 # Include tasks from other gems included in your Gemfile
 #

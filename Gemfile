@@ -38,6 +38,10 @@ group :production do
   gem 'pg'
   gem 'compass-rails'
   gem 'compass-colors'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm', github: "capistrano/rvm"
   # gem 'rails_12factor'
 end
 gem 'jquery-rails'
@@ -49,6 +53,8 @@ gem 'jquery-rails'
  gem 'unicorn'
 # Deploy with Capistrano
  gem 'capistrano'
+ gem 'capistrano-bundler' # for capistrano/bundler
+ gem 'capistrano-rails' # for capistrano/rails/*
 # To use debugger
 # gem 'debugger'
 gem 'byebug'

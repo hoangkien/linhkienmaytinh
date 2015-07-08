@@ -1,41 +1,3 @@
-<script>
-	$(document).ready(function(){
-    $("#checkall").change(function(){
-      check=$("#checkall").is(':checked');
-      if(check== true){
-        $("input[type=checkbox]").prop("checked","checked");
-        $("#main-content #action .action #delete").removeAttr('disabled');
-      }else{
-        $("input[type=checkbox]").removeAttr("checked");
-        $("#main-content #action .action #delete").prop('disabled','disabled');
-
-      }
-    });
-
-    $("#main-content #main table #check_").change(function(){
-
-    	var checked = false;
-    	var checkedAll = true;
-    	 $("#main-content #main table #check_").each(function(i,e){
-    	 	if ($(e).prop('checked')) {
-    	 		checked = true;
-    	 	}else{
-    	 		checkedAll = false;
-    	 	}
-    	 });
-    	 if (checked) {
-    	 	 $("#main-content #action .action #delete").removeAttr('disabled');
-    	 }else{
-    	 	$("#main-content #action .action #delete").prop('disabled','disabled');
-    	 }
-    	 if (checkedAll) {
-    	 	$("#checkall").prop("checked","checked");
-    	 };
-
-    });
-
- });
-</script>
 <div id="content-header">
 	<div id="title">
 		<%= t('admin.product.header.list_all')%>
@@ -71,7 +33,7 @@
 	<div id="main">
 		<table class="table">
 			<tr class="head">
-				<th style="width:10px"><input type="checkbox" id="checkall" name="checkall" ></th>
+				<th style="width:10px"><input type="checkbox" id="checkall" name="checkall" onchange="check_all()" ></th>
 				<th>Tên SP</th>
 				<th>Loại SP</th>
 				<th>Thương hiệu</th>
@@ -82,7 +44,7 @@
 			<% if @product.count > 0 %>
 				<% @product.each  do |product_info|%>
 					<tr>
-						<td><%= check_box_tag('check[]',product_info.id)%></td>
+						<td><%= check_box_tag('check[]',product_info.id,false,:onchange =>"check();", class: 'check_')%></td>
 						<td><%= product_info.name%></td>
 						<td><%= product_info.category.name%></td>
 						<td><%= product_info.trademak.name%></td>
