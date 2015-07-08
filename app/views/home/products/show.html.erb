@@ -70,7 +70,7 @@
    			<% @product.category.products.each do |product|%>
 				<div class="grid_1_of_4 images_1_of_4">
 						<%= link_to image_tag("#{product.image}",size:"100x150" ), products_view_path(product),title: "#{product.name}"%>
-						<h2 style="font-size:9px;height:30px;line-height:30px"><%= truncate(product.name,length:30)%></h2>
+						<h2 style="font-size:9px;height:30px;margin-top:10px;"><%= truncate(product.name,length:30)%></h2>
 						<div class="price-details">
 				       		<div class="add-cart">
 								<h4><%= link_to"Chi tiết",products_view_path(product), method: :get%></h4>
