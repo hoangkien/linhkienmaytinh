@@ -10,15 +10,14 @@
     	<div class="content_top">
         <div class="heading">
       		<div class="back-links">
-            <div class="icon-menu"><img src="/assets/icon-menu.png" style="width:15px;margin-right:5px"/></div>
             <div class="cate-name"><h3>Sản Phẩm</h3></div>
             <div class="icon-next"><img src="/assets/next_icon.gif" style="width:16px"/></div>
-            <div class="cate-name"><h3><%= link_to"#{@product.category.name}", category_path(@product.category)%></h3></div>
+            <div class="cate-name-sub"><h3><%= link_to"#{@product.category.name}", category_path(@product.category)%></h3></div>
             <div class="icon-next"><img src="/assets/next_icon.gif" style="width:16px"/></div>
             <div class="cate-sub"><h4 style="line-height:17px"><%= link_to"#{@product.name}",products_view_path(@product)%></h4></div>
       		  <div class="clear"></div>
           </div>
-        </div>  
+        </div>
     	</div>
     	<div class="section group">
 				<div class="cont-desc span_1_of_2" style="border-right: 1px solid #F6F6F6;padding:10px 0px">

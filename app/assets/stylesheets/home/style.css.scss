@@ -375,12 +375,16 @@ body {
     }
 
   };
+  .cate-name-sub{
+    float: left;
+    h3{line-height: 40px;font-size: 13px;}
+  }
   .icon-next{float:left;margin-top: 8px};
   .cate-sub{
     float:left;
     h4{
       line-height: 34px;
-      font-size: 15px !important;
+      font-size: 14px !important;
     }
     h3 {font-size: 15px;}
   }
