@@ -37,6 +37,10 @@ img{max-width:100%;}
   src: url(/assets/ShinMGoPro-Regular.otf);
 }
 @font-face {
+  font-family: ShinFontBold;
+  src: url(/assets/ShinMGoPro-DeBold.otf);
+}
+@font-face {
 	font-family: 'fono-compressed-webfont';
   src:url('/assets/fono-compressed-webfont.ttf') format('truetype'),
   		url('/assets/fono-compressed-webfont.woff') format('woff')
@@ -466,9 +470,9 @@ body {
 	width: 100%;
 }
 .images_1_of_4  h2 {
-	color:#6A82A4;
-	font-family: 'ambleregular';
-	font-size:11px;
+	color:#5B5D5F;
+	font-family: 'ShinFontBold';
+	font-size:10px;
 	font-weight: normal;
   height:30px;
   margin-top: 15px !important;
