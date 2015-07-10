@@ -59,7 +59,18 @@
 		   <div class="clear"></div>
 		</div>
  <div class="main">
-    <div class="content">
+  <div class="content">
+  		<div class="new">
+	  		<div class="content_top">
+				<div class="heading">
+					<div class="cate-name" ><h3 style="margin-top:0px">Sản Phẩm Mới</h3></div>
+				</div>
+					<div class="clear"></div>
+				</div>
+				<div class="section group">
+					<%= render @products_new %>
+				</div>
+			</div>
     	<% @category.each do |category|%>
 			<div class="content">
 				<div class="content_top">
@@ -87,6 +98,6 @@
 				</div>
 			</div>
 		<% end -%>
-    </div>
+  </div>
  </div>
 </div>

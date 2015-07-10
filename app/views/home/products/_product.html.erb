@@ -1,4 +1,7 @@
 <div class="grid_1_of_4 images_1_of_4">
+  <% if Product.limit(5).order(id: :desc).pluck(:id).include?product.id %>
+    <%= image_tag"/assets/n.gif", style:"position: absolute;width: 40px;height: 30px;" %>
+  <% end -%>
   <a href="#"><%= image_tag("#{product.image}",size:"100x200" )%></a>
   <h2><%= product.name%></h2>
   <div class="price-details">

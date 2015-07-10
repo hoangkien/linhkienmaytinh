@@ -2,6 +2,7 @@ class Home::HomeController < Home::ApplicationController
   caches_page :contact,:map
 	def index
 		@category = Category.where("parent_id = 0")
+		@products_new = Product.limit(5).order(id: :desc)
 	end
 
 	def about
