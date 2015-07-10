@@ -354,15 +354,21 @@ body {
 	border: 1px solid #EBE8E8;
   height:40px;
   border-radius: 3px;
+  border: 1px solid #ccc;
+  border-bottom: 5px solid #5F890A;
   .icon-menu{
     float:left;
     img{width:16px;float:left;margin:10px 10px 0px 0px};
   }
   .cate-name{
     float:left;
+    background-color: rgb(95, 137, 10);
+    height: 38px;
     h3{
         line-height: 40px;
         margin-top: 0px !important;
+        color: wheat;
+        padding: 0px 7px;
       };
     .sl{
       line-height: 40px;
