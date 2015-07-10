@@ -14,10 +14,10 @@
 	position: relative;
 }
 .slide {
-	    padding:58px 0.5%;
-	    width:33%;
-	    float: left;
-	    position: relative;
+  padding:10px 0.5%;
+  width:33%;
+  float: left;
+  position: relative;
  }
  .slider-text{
  	float:left;
