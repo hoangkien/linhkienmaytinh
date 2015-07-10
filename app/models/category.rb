@@ -10,10 +10,6 @@ class Category < ActiveRecord::Base
   end
 
   def self.count(id)
-    if Category.where(parent_id:id).empty?
-      Product.where(category_id:id).size
-    else
-      Product.where(category_id:Category.where(parent_id:id).pluck(:id)).size
-    end
+    Category.where(parent_id:id).empty? ? Product.where(category_id:id).size : Product.where(category_id:Category.where(parent_id:id).pluck(:id)).size
   end
 end

@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   validates :name,:details, presence:true
   extend FriendlyId
   friendly_id :name_url , use: :slugged
+
   def to_param
     "#{name_url}".parameterize
   end

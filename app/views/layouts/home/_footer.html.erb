@@ -1,0 +1,26 @@
+<!-- menu -->
+<div class="wrap">
+ <div class="section group">
+  <div class="col_1_of_4 span_1_of_4">
+      <h4>Thông tin công ty</h4>
+      <ul>
+        <li><%= @info.company_name if !@info.nil?%></li>
+        <li>VPGD : <%= @info.address if !@info.nil? %></li>
+        <li>Hotline :<%= @info.phone if !@info.nil? %>/<%= @info.hotline if !@info.nil?%></li>
+        <li>Email :<%= @info.email if !@info.nil?%></li>
+        <li>Giờ làm việc: 8h30 - 17h30 từ thứ 2 đến thứ 7.</li>
+      </ul>
+    </div>
+  <div class="col_1_of_4 span_1_of_4">
+    <h4> Đơn vị thiết kế web</h4>
+      <ul>
+        <li>Công ty cổ phần Hiworld</li>
+        <li>Mail :info＠hiworld.com.vn</li>
+        <li>Website :http://hiworld.com.vn</li>
+      </ul>
+  </div>
+</div>
+</div>
+  <div class="copy_right">
+  <p>Company Name © All rights Reseverd | Design by  <%= link_to"http://hiworld.com.vn","http://hiworld.com.vn" %> </p>
+ </div>

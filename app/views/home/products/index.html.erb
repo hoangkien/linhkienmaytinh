@@ -15,27 +15,7 @@
 					<div class="clear"></div>
 				</div>
 				<div class="section group">
-					<% if subcate.products.count > 0 %>
-						<% subcate.products.each do |product| %>
-							<div class="grid_1_of_4 images_1_of_4">
-								<a href="#"><%= image_tag("#{product.image}",size:"100x200" )%></a>
-								<h2><%= product.name%></h2>
-								<div class="price-details">
-							       <div class="price-number">
-										<p><span class="rupees">Giá : Liên Hệ</span></p>
-								    </div>
-								       		<div class="add-cart">
-												<h4><%= link_to"Chi tiết",products_view_path(product), method: :get %></h4>
-										     </div>
-										 <div class="clear"></div>
-								</div>
-							</div>
-						<% end -%>
-					<% else %>
-						<div class="grid_1_of_4 images_1_of_4">
-							Không có sản phẩm nào
-						</div>
-					<% end -%>
+					<%= render subcate.products.count > 0 ? subcate.products : "not" %>
 				</div>
 			</div>
 		<% end -%>
@@ -52,27 +32,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="section group">
-				<% if category.products.count > 0 %>
-					<% category.products.each do |product| %>
-						<div class="grid_1_of_4 images_1_of_4">
-							<a href="#"><%= image_tag("#{product.image}",size:"100x200" )%></a>
-							<h2><%= product.name%></h2>
-							<div class="price-details">
-						       <div class="price-number">
-									<p><span class="rupees">Giá : Liên Hệ</span></p>
-							    </div>
-							       		<div class="add-cart">
-											<h4><%= link_to"Chi tiết",products_view_path(product), method: :get%></h4>
-									     </div>
-									 <div class="clear"></div>
-							</div>
-						</div>
-					<% end -%>
-				<% else %>
-					<div class="grid_1_of_4 images_1_of_4">
-						Không có sản phẩm nào
-					</div>
-				<% end -%>
+				<%= render category.products.count > 0 ? category.products : "not" %>
 			</div>
 		</div>
 	<% end -%>
