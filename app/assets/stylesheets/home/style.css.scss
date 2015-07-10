@@ -33,6 +33,10 @@ img{max-width:100%;}
     src:url('/assets/Amble-Regular-webfont.ttf') format('truetype');
 }
 @font-face {
+  font-family: ShinFontRegular;
+  src: url(/assets/ShinMGoPro-Regular.otf);
+}
+@font-face {
 	font-family: 'fono-compressed-webfont';
   src:url('/assets/fono-compressed-webfont.ttf') format('truetype'),
   		url('/assets/fono-compressed-webfont.woff') format('woff')
@@ -197,7 +201,7 @@ body {
   border-top-left-radius: 7px;
 }
 .menu li a {
-	font-family: 'ambleregular';
+	font-family: 'ShinFontRegular';
 	font-size:14px;
 	/*text-transform:uppercase;*/
 	color: #fff;
