@@ -4,20 +4,20 @@
 	});
 </script>
 	<div class="content">
-	<%if size(@category.id)? %>
-		<% Category.where("parent_id = #{@category.id}").each do |category|%>
+	<% if size?(@category.id) %>
+		<% Category.where("parent_id = #{@category.id}").each do |category| %>
 			<div class="content_top">
 				<div class="heading">
 					<div class = "cate-name"><h3><span>Sản Phẩm<span></h3></div>
 					<div class = "icon-next"><img src="/assets/next_icon.gif" class="sub"/></div>
-					<div class="cate-sub"><h3 style="margin-top:0px;line-height:40px"><span><%=@category.name%></span></h3></div>
+					<div class="cate-sub"><h3 style="margin-top:0px;line-height:40px"><span><%= @category.name%></span></h3></div>
 	        <div class = "icon-next"><img src="/assets/next_icon.gif" class="sub"/></div>
-	        <div class="cate-sub"><h4 style="margin-top:0px;line-height:40px"><span><%=category.name%></span></h4></div>
+	        <div class="cate-sub"><h4 style="margin-top:0px;line-height:40px"><span><%= category.name%></span></h4></div>
 				</div>
 				<div class="clear"></div>
 			</div>
 			<div class="section group">
-				<%= render category.products.size > 0 category.products : "not" %>
+				<%= render category.products.size > 0 ? category.products : "not" %>
 			</div>
 		<% end -%>
 	<% else %>
@@ -25,7 +25,7 @@
 			<div class="heading">
 				<div class = "cate-name"><h3><span>Sản Phẩm<span></h3></div>
 				<div class = "icon-next"><img src="/assets/next_icon.gif" class="sub"/></div>
-				<div class= "cate-sub"><h3 style="margin-top:0px;line-height:40px"><span><%=@category.name%></span></h3></div>
+				<div class= "cate-sub"><h3 style="margin-top:0px;line-height:40px"><span><%= @category.name %></span></h3></div>
 			</div>
 			<div class="clear"></div>
 		</div>
