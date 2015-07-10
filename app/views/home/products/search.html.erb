@@ -4,7 +4,7 @@
 	});
 </script>
 	<div class="content">
-		<div class="content_top">
+		<div>
 			<div class="heading">
 				<% if @search %>
 					<h3>Kết qua tìm kiếm cho : " <%= @search %> "</h3>
@@ -24,11 +24,11 @@
 					       <div class="price-number">
 								<p><span class="rupees">Giá : Liên Hệ</span></p>
 						    </div>
-						       		<div class="add-cart">								
+						       		<div class="add-cart">
 										<h4><%= link_to"Chi tiết",products_view_path(product)%></h4>
 								     </div>
 								 <div class="clear"></div>
-						</div>				     
+						</div>
 					</div>
 				<% end -%>
 			</div>
