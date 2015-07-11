@@ -1,0 +1,11 @@
+<tr>
+  <td><%= trademak.id%></td>
+  <td><%= trademak.name %></td>
+  <td>
+    <%= link_to'Edit',edit_admin_trademak_path(trademak) %> &nbsp; &nbsp;
+    <%= link_to'Delete',admin_trademak_path(trademak),
+      method: :delete,
+      data: { confirm:'Are you ok?'} %>&nbsp; &nbsp;
+    <%= link_to'View',cate_show_path(trademak) %>
+  </td>
+</tr>

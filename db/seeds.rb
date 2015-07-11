@@ -10,3 +10,4 @@
 Trademak.create()
 Member.create(username:"admin", password:"admin123",fullname:"Hoang van Kien",email:"hoangkien.hy91@gmail.com",address:"Hưng Yên", gender:"1",role:1)
 
+

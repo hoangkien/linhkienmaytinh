@@ -17,7 +17,6 @@
 	</div>
 </div>
 <div id="main-content">
-
 	<div id="action">
 		<div id="search">
 			<%= form_tag(admin_trademaks_path, :method=>"get") do %>
@@ -39,25 +38,7 @@
 				<th>Tên thương hiệu</th>
 				<th>Action</th>
 			</tr>
-			<% if @trademaks.count > 0 %>
-				<% @trademaks.each do |trademak|%>
-					<tr>
-						<td><%= trademak.id%></td>
-						<td><%= trademak.name %></td>
-						<td>
-							<%= link_to'Edit',edit_admin_trademak_path(trademak) %> &nbsp; &nbsp;
-							<%= link_to'Delete',admin_trademak_path(trademak),
-								method: :delete,
-								data: { confirm:'Are you ok?'} %>&nbsp; &nbsp;
-							<%= link_to'View',cate_show_path(trademak) %>
-						</td>
-					</tr>
-				<% end %>
-			<% else %>
-				<tr>
-					<td colspan="4", style="text-align:center; font-weight:bold;height:30px"> Không có dữ liệu </td>
-				</tr>
-			<% end -%>
+			<%= render @trademaks.count >0 ? @trademaks : "not" %>
 		</table>
 	</div>
 </div>

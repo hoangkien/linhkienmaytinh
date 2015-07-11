@@ -1,0 +1,16 @@
+<tr>
+  <td><%= check_box_tag('check[]',member.id,false, :onchange =>"check();",class: 'check_')%></td>
+  <td><%= member.id%></td>
+  <td><%= member.username %></td>
+  <td><%= member.fullname %></td>
+  <td><%= member.gender== '1' ? 'Nữ': 'Nam' %></td>
+  <td><%= member.indentity_card %></td>
+  <td><%= member.email %></td>
+  <td><%= member.role ==1?'Admin': 'Customer'%></td>
+  <td><%= member.created_at.strftime("%d-%m-%Y") %></td>
+  <td>
+    <%= link_to t('admin.action.edit'),edit_admin_member_path(member) %> &nbsp; &nbsp;
+    <%= link_to t('admin.action.delete'),admin_member_path(member),method: :delete,data:{confirm:'Are you ok?'} %>&nbsp; &nbsp;
+    <%= link_to t('admin.action.view'),admin_member_path(member) %>
+  </td>
+</tr>

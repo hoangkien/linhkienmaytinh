@@ -7,7 +7,7 @@ RailsDemo::Application.routes.draw do
     scope controller: :home do
       get "gioi-thieu.html" => :about, :as => :about
       get "tin-tuc.html" => :news,:as => :news
-      get "trang-chu.html" => :index,:as => :home
+      get "trang-chu.html/" => :index,:as => :home
       get "lien-he.html" => :contact ,:as => :contact
       post"lien-he" => :contact
       get "dich-vu.html" =>:service, :as => :service

@@ -3,7 +3,7 @@ class Admin::LoginController < Admin::ApplicationController
 	layout :false
 	require'digest/md5'
   def index
-    redirect_to admin_home_index_path if session[:user_data]
+    redirect_to admin_home_index_path if session[:user_id]
   end
 
   def new
@@ -12,7 +12,7 @@ class Admin::LoginController < Admin::ApplicationController
   def create
     @member = Member.find_by_username(params[:member][:username])
     if @member && @member.authenticate(params[:member][:password]) && @member.role == 1
-      session[:user_data]= @member
+      login @member
       redirect_to admin_home_index_path
     else
       flash[ :notice] = "Sai thong tin tai khoan hoac mat khau !"
@@ -21,7 +21,7 @@ class Admin::LoginController < Admin::ApplicationController
   end
 
   def destroy
-  	session[:user_data] = nil
+  	logout
   	redirect_to admin_path
   end
 end

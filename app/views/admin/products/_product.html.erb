@@ -1,0 +1,13 @@
+<tr>
+  <td><%= check_box_tag('check[]',product.id,false,:onchange =>"check();", class: 'check_')%></td>
+  <td><%= product.name%></td>
+  <td><%= product.category.name%></td>
+  <td><%= product.trademak.name%></td>
+  <td><%= product.price%></td>
+  <td style="width:150px"><%= product.image ? image_tag("#{product.image}",size:"60x50") : image_tag("no_image.png",size:"60x50")%></td>
+  <td style="text-align:center">
+    <%= link_to"Show",admin_product_path(product)%> &nbsp;&nbsp;
+    <%= link_to"Edit",edit_admin_product_path(product)%>&nbsp;&nbsp;
+    <%= link_to"Delete",admin_product_path(product.id), method: :delete, data:{:confirm=>"Are you Ok?"}%>
+  </td>
+</tr>

@@ -30,4 +30,5 @@ class ApplicationController < ActionController::Base
   def set_user_language
     I18n.locale = "vi"
   end
+
 end

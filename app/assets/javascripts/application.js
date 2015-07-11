@@ -41,19 +41,6 @@ function initialize() {
           title:"Công ty TNHH Thương mại và Sản xuất nước sạch Hà Dũng"
       });
 }
-
-function check_all(){
-  check=$("#checkall").is(':checked');
-  if(check== true){
-    $("input[type=checkbox]").prop("checked","checked");
-    $("#main-content #action .action #delete").removeAttr('disabled');
-  }else{
-    $("input[type=checkbox]").prop("checked",false);
-    $("#main-content #action .action #delete").prop('disabled','disabled');
-
-  }
-}
-
 function check(){
       var checked = false;
       var checkedAll = true;
@@ -74,4 +61,17 @@ function check(){
        }else{
         $("#checkall").prop("checked",false);
        };
+}
+
+
+function check_all(){
+  check_=$("#checkall").is(':checked');
+  if(check_){
+    $("input[type=checkbox]#check_").prop("checked","checked");
+    $("#main-content #action .action #delete").removeAttr('disabled');
+  }else{
+    $("input[type=checkbox]#check_").prop("checked",false);
+    $("#main-content #action .action #delete").prop('disabled','disabled');
+
+  }
 }

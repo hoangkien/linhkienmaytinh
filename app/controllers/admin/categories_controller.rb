@@ -10,14 +10,12 @@ class Admin::CategoriesController < Admin::ApplicationController
 
 	def edit
 		@category = Category.friendly.find(params[:id])
-		@list_parent = Category.where("parent_id = 0").pluck(:name,:id)
-		@list_parent.unshift(["Thư Mục Gốc",0])
+		list_parent_cate(0)
 	end
 
 	def new
 		@category = Category.new
-		@list_parent = Category.where("parent_id = 0").pluck(:name,:id)
-		@list_parent.unshift(["Thư Mục Gốc",0])
+		list_parent_cate(0)
 	end
 
 	def create

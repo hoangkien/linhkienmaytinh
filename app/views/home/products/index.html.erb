@@ -1,7 +1,7 @@
+<div class="content">
 <% @category.each do |category|%>
 	<% if Category.subcategories(category.id).count > 0 %>
 		<% Category.subcategories(category.id).each do |subcate|%>
-			<div class="content">
 				<div class="content_top">
 					<div class="heading">
 						<div class="cate-name" ><h3 style="margin-top:0px"><%= category.name%></h3></div>
@@ -16,10 +16,8 @@
 				<div class="section group">
 					<%= render subcate.products.count > 0 ? subcate.products : "not" %>
 				</div>
-			</div>
 		<% end -%>
 	<% else %>
-		<div class="content">
 			<div class="content_top">
 				<div class="heading">
 					<div class="cate-name"><h3><%= category.name%></h3></div>
@@ -32,7 +30,7 @@
 			<div class="section group">
 				<%= render category.products.count > 0 ? category.products : "not" %>
 			</div>
-		</div>
 	<% end -%>
 <% end -%>
+</div>
 </div>

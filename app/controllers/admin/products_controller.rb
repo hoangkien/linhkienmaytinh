@@ -16,15 +16,12 @@ class Admin::ProductsController < Admin::ApplicationController
 		@product = Product.new()
 		@product.name = params[:product][:name]
 		@product.name_url = change_alias(params[:product][:name])
-		if params[:product][:sub_category_id]
-			@product.category_id = params[:product][:sub_category_id]
-		else
-			@product.category_id = params[:product][:category_id]
-		end
+		@product.category_id = params[:product][:sub_category_id] ? params[:product][:sub_category_id] : params[:product][:category_id]
 		@product.trademak_id = params[:product][:trademak_id]
 		@product.price = params[:product][:price]
 		@product.gurantee = params[:product][:gurantee]
 		@product.details = params[:product][:details]
+
 		if params[:product]['image']
 			@product.image = params[:product]['image'].original_filename
 			upload = Product.upload(params[:product])
