@@ -58,6 +58,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem 'byebug'
+gem 'jquery-turbolinks'
 
 
 

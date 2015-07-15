@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require turbolinks
+//= require jquery.turbolinks
 //= require ckeditor/init
 //= require_tree .
 var map;

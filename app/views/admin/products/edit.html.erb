@@ -30,11 +30,14 @@
 				</tr>
 				<tr>
 					<td class="left tbl-config"><%= f.label :category, "Danh mục SP " %></td>
-					<td><%= select_tag"product[category_id]",options_for_select(@category),selected:@product.category_id%></td>
+					<td><%= select_tag"product[category_id]",options_for_select(@category,@product.category.parent_id),style:"float:left"%>
+							<input id="cate-hidden" style="display:none" value=<%= @product.category.id%>>
+							<div id="sub_cate" style="display:none; float:left"></div>
+					</td>
 				</tr>
 				<tr>
-					<td class="left tbl-config"><%= f.label :category, "Thương hiệu " %></td>
-					<td><%= select_tag"product[trademak_id]",options_for_select(@trademak),selected: @product.trademak_id%></td>
+					<td class="left tbl-config"><%= f.label :trademak, "Thương hiệu " %></td>
+					<td><%= select_tag"product[trademak_id]",options_for_select(@trademak,@product.trademak_id)%></td>
 				</tr>
 				<tr>
 					<td class="left tbl-config"><%= f.label :image, "Hình ảnh " %></td>
@@ -49,10 +52,15 @@
 				</tr>
 				<tr>
 					<td class="left tbl-config"> <%= f.label :details, "Thông tin" %> </td>
-					<td><%= f.cktext_area :details %></td>
+					<td><%= f.cktext_area :details%></td>
 				</tr>
 			</table>
 		</div>
 	</div>
 </div>
 <% end -%>
+<script type="text/javascript">
+	$(document).ready(function(){
+		// $("#product_details").ckeditor();
+	});
+</script>

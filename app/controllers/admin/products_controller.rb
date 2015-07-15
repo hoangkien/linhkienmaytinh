@@ -41,21 +41,22 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def edit
 		@product = Product.friendly.find(params[:id])
-		@category = Category.all.pluck(:name,:id)
+		@category = Category.where(parent_id: 0).pluck(:name,:id)
 		@trademak = Trademak.all.pluck(:name,:id)
 	end
 
 	def update
 		@product = Product.friendly.find(params[:id])
-		@pro = params[:product]
+		_product = params[:product]
+		_product[:category_id] = params[:product][:sub_category_id] ? params[:product][:sub_category_id] : params[:product][:category_id]
 		if params[:product][:image].blank?
-			@pro["image"]= @product.image
+			_product["image"]= @product.image
 		else
 			#upload
-			upload = Product.upload(@pro)
+			upload = Product.upload(_product)
 			@pro["image"] = params[:product][:image].original_filename
 		end
-		@product.update_attributes(@pro)
+		@product.update_attributes(_product)
 		redirect_to admin_products_path
 
 	end

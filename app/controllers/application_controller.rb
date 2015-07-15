@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def raise_not_found
-    render plain: "Failed"
+    render(file:"#{Rails.root}/public/404.html")
   end
 
   def set_user_language
