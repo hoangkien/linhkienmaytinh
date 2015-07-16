@@ -767,15 +767,15 @@ body {
   .product-info{
     // overflow:hidden;
     display:block;
-    height:25px;
+    line-height: 25px;
     .label{
       padding:0px;
       color:rgb(100, 99, 99);
-      line-height: 20px;
+      line-height: 25px;
       font-size: 13px;
     }
-    h1{font-size: 15px;color:#aa3535}
-    h2{font-size: 15px;border:none;color:#aa3535}
+    h1{font-size: 15px;color:#aa3535;margin:0px}
+    h2{font-size: 15px;border:none;color:#aa3535;margin:0px}
     h3{font-size: 15px;color:#aa3535}
   }
 }

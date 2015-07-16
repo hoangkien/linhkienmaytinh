@@ -1,5 +1,6 @@
 class Home::ProductsController < Home::ApplicationController
   # caches_page :index,:show,:category
+  caches_page :show
 	def index
 		@category = Category.where("parent_id = 0")
 	end
