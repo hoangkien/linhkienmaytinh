@@ -9,7 +9,7 @@
 						<div class="cate-sub" ><h4 style="margin-top:0px"><%= subcate.name%></h4></div>
 					</div>
 					 <div class="see">
-		    			<p><%= link_to"Tất cả sản phẩm", category_path(subcate)%></p>
+		    			<p><%= link_to"Tất cả sản phẩm", products_view_path(subcate)%></p>
 		    		</div>
 					<div class="clear"></div>
 				</div>
@@ -23,7 +23,7 @@
 					<div class="cate-name"><h3><%= category.name%></h3></div>
 				</div>
 				 <div class="see">
-	    			<p style="line-height:40px"><%= link_to"Tất cả sản phẩm", category_path(category)%></p>
+	    			<p style="line-height:40px"><%= link_to"Tất cả sản phẩm", products_view_path(category)%></p>
 	    		</div>
 				<div class="clear"></div>
 			</div>

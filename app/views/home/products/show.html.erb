@@ -11,9 +11,9 @@
       		<div class="back-links">
             <div class="cate-name"><h3>Sản Phẩm</h3></div>
             <div class="icon-next"><img src="/assets/next_icon.gif" style="width:16px"/></div>
-            <div class="cate-name-sub"><h3><%= link_to"#{@product.category.name}", category_path(@product.category)%></h3></div>
+            <div class="cate-name-sub"><h3><%= link_to"#{@product.category.name}", products_view_path(@product.category)%></h3></div>
             <div class="icon-next"><img src="/assets/next_icon.gif" style="width:16px"/></div>
-            <div class="cate-sub"><h4 style="line-height:17px"><%= link_to"#{@product.name}",products_view_path(@product)%></h4></div>
+            <div class="cate-sub"><h4><%= link_to"#{@product.name}",products_view_path(@product)%></h4></div>
       		  <div class="clear"></div>
           </div>
         </div>
@@ -83,11 +83,11 @@
 					<h2 style="font-family: sans-serif;">DANH MỤC</h2>
 					<ul style="background:rgb(7, 129, 59)">
 						<% @category_all.each do |category|%>
-							<li><%= link_to"#{category.name}",category_path(category),style: 'color: #FAF2F2;' %>
+							<li><%= link_to"#{category.name}",products_view_path(category),style: 'color: #FAF2F2;' %>
 									<% if Category.subcategories(category.id).count > 0%>
 										<ul style="  margin-left: 20px;font-size: 13px;">
 											<% Category.subcategories(category.id).each do |sub|%>
-													<li><%= link_to"#{sub.name}",category_path(sub),style: 'color: #FAF2F2;' %>
+													<li><%= link_to"#{sub.name}",products_view_path(sub),style: 'color: #FAF2F2;' %>
 													</li>
 											<% end -%>
 										</ul>

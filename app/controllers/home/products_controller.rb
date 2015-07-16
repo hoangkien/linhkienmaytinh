@@ -10,7 +10,15 @@ class Home::ProductsController < Home::ApplicationController
 
 	def show
 		@category_all = Category.where("parent_id = 0")
-		@product = Product.friendly.find(params[:id])
+		begin
+			@product = Product.friendly.find(params[:id])
+		rescue ActiveRecord::RecordNotFound
+			@category = Category.friendly.find(params[:id])
+			@controler_name = "Sản Phẩm"
+			render "category"
+		else
+			@product = Product.friendly.find(params[:id])
+		end
 
 	end
 
@@ -21,8 +29,14 @@ class Home::ProductsController < Home::ApplicationController
 		end
 	end
 
-	def category
-		@category = Category.friendly.find(params[:id])
-		@controler_name = "Sản Phẩm"
-	end
+	# def category
+	# 	begin
+	# 		@category = Category.friendly.find(params[:id])
+	# 	rescue ActiveRecord::RecordNotFound
+	# 		render action: "show"
+	# 	else
+	# 		@category = Category.friendly.find(params[:id])
+	# 		@controler_name = "Sản Phẩm"
+	# 	end
+	# end
 end
