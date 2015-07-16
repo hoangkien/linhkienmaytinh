@@ -13,9 +13,13 @@ class Home::ProductsController < Home::ApplicationController
 		begin
 			@product = Product.friendly.find(params[:id])
 		rescue ActiveRecord::RecordNotFound
-			@category = Category.friendly.find(params[:id])
-			@controler_name = "Sản Phẩm"
-			render "category"
+			@category = Category.friendly.find(params[:id]) rescue nil
+			if @category.nil?
+				raise_not_found
+			else
+				@controler_name = "Sản Phẩm"
+				render "category"
+			end
 		else
 			@product = Product.friendly.find(params[:id])
 		end
