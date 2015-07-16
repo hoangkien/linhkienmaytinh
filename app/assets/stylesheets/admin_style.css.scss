@@ -391,7 +391,6 @@ h1.header{
 }
 /*==============Pagination==============*/
 .pagination{
-	float:right;
 	margin-top:5px;
 }
 .pagination a , span , em{
@@ -399,22 +398,24 @@ h1.header{
 	float:left;
 }
 .pagination a{
-	width :20px;
-	margin:0px 3px;
+	width: 20px;
+	margin: 0px 3px;
 }
 .pagination .next_page{
-	width:55px;
+	width: 87px;
 }
 .pagination .previous_page{
-	width:87px;
+	width: 87px;
 }
 .pagination em{
-	width: 20px;
-	font-weight: bold;
-}
-.pagination span{
-	width:28px;
-}
+  width: 20px;
+  font-weight: bold;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  margin: 0px 5px;
+ }
+.pagination span{width: 28px;}
 /*===============Login=================*/
 
 /*==========Footer============*/

@@ -21,11 +21,20 @@ class Admin::SlidesController < Admin::ApplicationController
     end
   end
 
+  def edit
+    @slide = Slide.find(params[:id].to_i)
+  end
+
   def update
     slide = Slide.find(params[:id].to_i)
-    slide.active = params[:active]
+    slide.active = params[:active] if params[:active]
+    if params[:slide]['image']
+      slide.image = params[:slide]['image'].original_filename
+      upload = Slide.upload(params[:slide])
+    end
+    slide.update(slide_params)
     slide.save
-    render nothing: true
+    redirect_to admin_slides_path
   end
 
   def destroy

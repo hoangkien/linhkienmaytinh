@@ -44,6 +44,6 @@
 			<%= render @product.count > 0 ? @product : "not"%>
 		</table>
 		<% end -%>
-		<%= will_paginate @product %>
+		<%= will_paginate(@product,option_paginate) %>
 	</div>
 </div>

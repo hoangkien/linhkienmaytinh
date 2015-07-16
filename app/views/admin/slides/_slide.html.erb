@@ -7,7 +7,6 @@
   <td><%= check_box_tag('active[]',slide.id,slide.active,:onClick =>"active(this);",id: "active_#{slide.id}") %></td>
   <td>
     <%= link_to t('admin.action.edit'),edit_admin_slide_path(slide) %> &nbsp; &nbsp;
-    <%= link_to t('admin.action.delete'),admin_slide_path(slide),method: :delete,data:{confirm:'Are you ok?'} %>&nbsp; &nbsp;
-    <%= link_to t('admin.action.view'),admin_slide_path(slide) %>
+    <%= link_to t('admin.action.delete'),admin_slide_path(slide),method: :delete,data:{confirm:'Are you ok?'} %>
   </td>
 </tr>
