@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def raise_not_found
-    render(file:"#{Rails.root}/public/404.html")
+    render(file:"#{Rails.root}/public/404.html", layout: false, status: 404)
   end
 
   def set_user_language

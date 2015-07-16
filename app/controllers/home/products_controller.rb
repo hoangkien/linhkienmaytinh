@@ -28,15 +28,4 @@ class Home::ProductsController < Home::ApplicationController
 			@product = Product.home_search(params[:search])
 		end
 	end
-
-	# def category
-	# 	begin
-	# 		@category = Category.friendly.find(params[:id])
-	# 	rescue ActiveRecord::RecordNotFound
-	# 		render action: "show"
-	# 	else
-	# 		@category = Category.friendly.find(params[:id])
-	# 		@controler_name = "Sản Phẩm"
-	# 	end
-	# end
 end
