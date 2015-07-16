@@ -15,7 +15,7 @@ RailsDemo::Application.routes.draw do
     end
 
     scope controller: :products do
-      get "/:id.html" => :category ,:as =>:category
+      get "san-pham/:id.html" => :category ,:as =>:category
       get "/search/(.:format)" => :search, :as => :products_search
       get "/:id.html" =>:show,:as => :products_view
       get "/preview" => :preview, :as => :preview
