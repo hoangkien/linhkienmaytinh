@@ -28,11 +28,11 @@ class Admin::SlidesController < Admin::ApplicationController
   def update
     slide = Slide.find(params[:id].to_i)
     slide.active = params[:active] if params[:active]
-    if params[:slide]['image']
+    if !params[:slide].nil?
       slide.image = params[:slide]['image'].original_filename
       upload = Slide.upload(params[:slide])
+      slide.update(slide_params)
     end
-    slide.update(slide_params)
     slide.save
     redirect_to admin_slides_path
   end
