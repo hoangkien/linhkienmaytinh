@@ -9,11 +9,11 @@
     	<div class="content_top">
         <div class="heading">
       		<div class="back-links">
-            <div class="cate-name"><h3>Sản Phẩm</h3></div>
+            <div class="cate-name"><h1>Sản Phẩm</h1></div>
             <div class="icon-next"><img src="/assets/next_icon.gif" style="width:16px"/></div>
-            <div class="cate-name-sub"><h3><%= link_to"#{@product.category.name}", products_view_path(@product.category)%></h3></div>
+            <div class="cate-name-sub"><h2><%= link_to"#{@product.category.name}", products_view_path(@product.category)%></h2></div>
             <div class="icon-next"><img src="/assets/next_icon.gif" style="width:16px"/></div>
-            <div class="cate-sub"><h4><%= link_to"#{@product.name}",products_view_path(@product)%></h4></div>
+            <div class="cate-sub"><h3><%= link_to"#{@product.name}",products_view_path(@product)%></h3></div>
       		  <div class="clear"></div>
           </div>
         </div>
@@ -26,19 +26,37 @@
     						<div id="products_example">
     							 <div id="products">
       							<div class="slides_container">
-      								<a href="#" target="_blank"><%= image_tag("#{@product.image}",size:"300x220","data-zoom-image"=>"/assets/#{@product.image}",id:"#{@product.slug}")%></a>
+      								<a href="#" target="_blank"><%= image_tag("#{@product.image}",size:"300x220","data-zoom-image"=>"/assets/#{@product.image}",id:"#{@product.slug}",title:"@product.name")%></a>
       							</div>
     							</div>
     						</div>
     					</div>
   				  </div>
       			<div class="desc span_3_of_2" style="float: right;margin-top: 10px;">
-      				<p><span style ="color:rgb(100, 99, 99)">Tên:  &nbsp;</span><span class='info'><%= @product.name %></span></p>
-      				<p><span style ="color:rgb(100, 99, 99)">Danh mục sản phẩm: &nbsp;</span><span class='info'><%= @product.category.name %></span></p>
-      				<p><span style ="color:rgb(100, 99, 99)">Hãng sản xuất: &nbsp;</span><span class='info'><%= @product.trademak.name %></span></p>
-              <p><span style ="color:rgb(100, 99, 99)">Bảo hành: &nbsp; </span><span class='info'><%= @product.gurantee %></span></p>
-              <p><span style ="color:rgb(100, 99, 99)">Tình trạng:  &nbsp;</span><span class='info'> Còn hàng</span></p>
-      				<p><span style ="color:rgb(100, 99, 99)">Giá: &nbsp; </span><span class='info'>Vui lòng liên hệ <%= @info.phone%></span></p>
+      				<div class="product-info">
+                <span  class="label">Tên:  &nbsp;</span>
+                <h1 class='info'><%= @product.name %></h1>
+              </div>
+      				<div class="product-info">
+                <span class="label">Danh mục sản phẩm: &nbsp;</span>
+                <h2 class='info'><%= @product.category.name %></h2>
+              </div>
+      				<div class="product-info">
+                <span class="label">Hãng sản xuất: &nbsp;</span>
+                <h3 class='info'><%= @product.trademak.name %></h3>
+              </div>
+              <div class="product-info" style="overflow:hidden">
+                <span class="label">Bảo hành: &nbsp; </span>
+                <span class='info'><%= @product.gurantee %></span>
+              </div>
+              <div class="product-info" style="overflow:hidden">
+                <span class="label">Tình trạng:  &nbsp;</span>
+                <span class='info'> Còn hàng</span>
+              </div>
+      				<div class="product-info" style="overflow:hidden">
+                <span class="label">Giá: &nbsp; </span>
+                <span class='info'>Vui lòng liên hệ <%= @info.phone%></span>
+              </div>
       			</div>
       			<div class="clear"></div>
       			<br />
@@ -83,11 +101,11 @@
 					<h2 style="font-family: sans-serif;">DANH MỤC</h2>
 					<ul style="background:rgb(7, 129, 59)">
 						<% @category_all.each do |category|%>
-							<li><%= link_to"#{category.name}",products_view_path(category),style: 'color: #FAF2F2;' %>
+							<li><%= link_to"#{category.name}",products_view_path(category),style: 'color: #FAF2F2;' ,title:"#{category.name}"%>
 									<% if Category.subcategories(category.id).count > 0%>
 										<ul style="  margin-left: 20px;font-size: 13px;">
 											<% Category.subcategories(category.id).each do |sub|%>
-													<li><%= link_to"#{sub.name}",products_view_path(sub),style: 'color: #FAF2F2;' %>
+													<li><%= link_to"#{sub.name}",products_view_path(sub),style: 'color: #FAF2F2;' ,title: "#{sub.name}"%>
 													</li>
 											<% end -%>
 										</ul>
