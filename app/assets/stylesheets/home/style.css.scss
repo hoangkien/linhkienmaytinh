@@ -766,14 +766,17 @@ body {
 	font-size: 15px;
   .product-info{
     // overflow:hidden;
+    display:block;
+    height:25px;
     .label{
+      padding:0px;
       color:rgb(100, 99, 99);
       line-height: 20px;
       font-size: 13px;
     }
-    h1{font-size: 18px;color:#aa3535}
-    h2{border:none;color:#aa3535}
-    h3{font-size: 18px;color:#aa3535}
+    h1{font-size: 15px;color:#aa3535}
+    h2{font-size: 15px;border:none;color:#aa3535}
+    h3{font-size: 15px;color:#aa3535}
   }
 }
 .span_3_of_1 {
