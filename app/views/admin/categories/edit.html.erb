@@ -8,37 +8,4 @@
 		</ul>
 	</div>
 </div>
-<%= form_for :category , url: admin_category_path, method: :put do |f| %>
-<div id="main-content">
-	<div id="box">
-		<div id="action">
-			<div class="title">
-				Category Information
-			</div>
-			<div class="action">
-				<ul>
-					<li><%= f.submit "Update", :disable_with => 'Adding...' , class:'btn'%></li>
-					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn', type:'reset' %></li>
-				</ul>
-			</div>
-		</div>
-		<div id="main">
-			<table>
-				<tr>
-					<td class="left"><%= f.label :name, "Tên danh mục" %></td>
-					<td><%= f.text_field :name, class:'text_field' %></td>
-				</tr>
-				<tr>
-					<td class="left">
-						<%= f.label :parent_id, "Danh mục cha" %>
-
-					</td>
-					<td>
-						<%= select_tag(:parent_id, options_for_select(@list_parent,:selected => @category.parent_id)) %>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-</div>
-<% end -%>
+<%= render 'form'%>

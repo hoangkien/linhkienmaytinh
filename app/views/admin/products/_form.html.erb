@@ -1,0 +1,74 @@
+<%= form_for [:admin,@product], :html =>{ :multipart =>true} do |f| %>
+<div id="main-content">
+  <div id="box">
+    <div id="action">
+      <div class="title">
+        Product Infomation
+      </div>
+      <div class="action">
+        <ul>
+          <li><%= f.submit "Add", :disable_with => 'Adding...' , class: 'btn btn-primary'%></li>
+          <li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn btn-info', type:'reset' %></li>
+        </ul>
+      </div>
+    </div>
+    <div id="main">
+      <table class="table">
+        <tr>
+          <td class="left tbl-config"><%= f.label :trademak_id, "Thương hiệu" %></td>
+          <td><%= select_tag"product[trademak_id]",options_for_select(@trademak), class: 'form-control'%></td>
+        </tr>
+        <% if action_name == 'new'%>
+          <tr>
+            <td class="left tbl-config"><%= f.label :category_id, "Danh mục" %></td>
+            <td id="category">
+              <%= select_tag"product[category_id]",options_for_select(@category), class: "form-control",style: "float:left"%>
+              <div id="sub_cate" style="display:none; float:left"></div>
+            </td>
+          </tr>
+        <% else %>
+          <tr>
+            <td class="left tbl-config"><%= f.label :category, "Danh mục SP " %></td>
+            <td><%= select_tag"product[category_id]",options_for_select(@category,@product.category.parent_id),style:"float:left"%>
+                <input id="cate-hidden" style="display:none" value=<%= @product.category.id%>>
+                <div id="sub_cate" style="display:none; float:left"></div>
+            </td>
+          </tr>
+        <% end -%>
+        <tr>
+          <td class="left tbl-config"><%= f.label :name, "Tên" %></td>
+          <td><%= f.text_field :name, class: 'form-control', required:true %></td>
+        </tr>
+        <% if action_name == 'new'%>
+          <tr>
+            <td class="left tbl-config"><%= f.label :image, "Hình ảnh" %></td>
+            <td><%= f.file_field :image %></td>
+          </tr>
+        <% else %>
+          <tr>
+            <td class="left tbl-config"><%= f.label :image, "Hình ảnh " %></td>
+            <td>
+              <%= image_tag("#{@product.image}", size:"150x100",name:'product[old_img]') %>
+              <div><%= f.file_field :image %></div>
+            </td>
+          </tr>
+        <% end -%>
+        <tr>
+          <td class="left tbl-config"><%= f.label :Price, "Gia" %></td>
+          <td><%= f.text_field :price , class: 'form-control'%> VNĐ</td>
+        </tr>
+        <tr>
+          <td class="left tbl-config"><%= f.label :gurantee, "Bảo hành" %></td>
+          <td><%= select_tag"product[gurantee]",options_for_select(["1 Tháng","6 Tháng","12 Tháng"],@product.gurantee) ,class: 'form-control'%></td>
+        </tr>
+        <tr>
+          <td class="lef tbl-config">
+            <%= f.label :details, "Thông tin" %>
+          </td>
+          <td> <%= f.cktext_area :details ,:ckeditor => {:width => 1000}%>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<% end -%>

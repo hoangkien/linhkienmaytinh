@@ -8,58 +8,5 @@
 		</ul>
 	</div>
 </div>
-<%= form_for :product , url: admin_products_path, :html =>{ :multipart =>true} do |f| %>
-<div id="main-content">
-	<div id="box">
-		<div id="action">
-			<div class="title">
-				Product Infomation
-			</div>
-			<div class="action">
-				<ul>
-					<li><%= f.submit "Add", :disable_with => 'Adding...' , class: 'btn btn-primary'%></li>
-					<li><%= f.submit "Reset", :disable_with => 'Reseting...',class: 'btn btn-info', type:'reset' %></li>
-				</ul>
-			</div>
-		</div>
-		<div id="main">
-			<table class="table">
-				<tr>
-					<td class="left tbl-config"><%= f.label :trademak_id, "Thương hiệu" %></td>
-					<td><%= select_tag"product[trademak_id]",options_for_select(@trademak), class: 'form-control'%></td>
-				</tr>
-				<tr>
-					<td class="left tbl-config"><%= f.label :category_id, "Danh mục" %></td>
-					<td id="category">
-						<%= select_tag"product[category_id]",options_for_select(@category), class: "form-control",style: "float:left"%>
-						<div id="sub_cate" style="display:none; float:left"></div>
-					</td>
-				</tr>
-				<tr>
-					<td class="left tbl-config"><%= f.label :name, "Tên" %></td>
-					<td><%= f.text_field :name, class: 'form-control', required:true %></td>
-				</tr>
-				<tr>
-					<td class="left tbl-config"><%= f.label :image, "Hình ảnh" %></td>
-					<td><%= f.file_field :image %></td>
-				</tr>
-				<tr>
-					<td class="left tbl-config"><%= f.label :Price, "Gia" %></td>
-					<td><%= f.text_field :price , class: 'form-control'%></td>
-				</tr>
-				<tr>
-					<td class="left tbl-config"><%= f.label :Gurantee, "Bảo hành" %></td>
-					<td><%= select_tag"product[gurantee]",options_for_select(["1 Tháng","6 Tháng","12 Tháng"]) ,class: 'form-control'%></td>
-				</tr>
-				<tr>
-					<td class="lef tbl-config">
-						<%= f.label :details, "Thông tin" %>
-					</td>
-					<td> <%= f.cktext_area :details ,:ckeditor => {:width => 1000}%>
-				</tr>
-			</table>
-		</div>
-	</div>
-</div>
-<% end -%>
+<%= render 'form'%>
 <select name='product[sub_catagory_id]' id="sub_category" style="display:none"></select>
