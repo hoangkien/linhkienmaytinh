@@ -8,11 +8,25 @@
 		<% Category.where("parent_id = #{@category.id}").each do |category| %>
 			<div class="content_top">
 				<div class="heading">
-					<div class = "cate-name"><h3><span>Sản Phẩm<span></h3></div>
-					<div class = "icon-next"><img src="/assets/next_icon.gif" class="sub"/></div>
-					<div class="cate-sub"><h3 style="margin-top:0px;line-height:40px"><span><%= @category.name%></span></h3></div>
-	        <div class = "icon-next"><img src="/assets/next_icon.gif" class="sub"/></div>
-	        <div class="cate-sub"><h4 style="margin-top:0px;line-height:40px"><span><%= category.name%></span></h4></div>
+					<div class = "cate-name">
+            <h3><span>Sản Phẩm<span></h3>
+          </div>
+					<div class = "icon-next">
+            <img src="/assets/next_icon.gif" class="sub"/>
+          </div>
+					<div class="cate-sub">
+            <h3 style="margin-top:0px;line-height:40px">
+              <span><%= link_to"#{@category.name}",products_view_path(@category)%></span>
+            </h3>
+          </div>
+	        <div class = "icon-next">
+            <img src="/assets/next_icon.gif" class="sub"/>
+          </div>
+	        <div class="cate-sub">
+            <h4 style="margin-top:0px;line-height:40px">
+              <span><%= link_to"#{category.name}",products_view_path(category)%></span>
+            </h4>
+          </div>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -23,9 +37,17 @@
 	<% else %>
 		<div class="content_top">
 			<div class="heading">
-				<div class = "cate-name"><h3><span>Sản Phẩm<span></h3></div>
-				<div class = "icon-next"><img src="/assets/next_icon.gif" class="sub"/></div>
-				<div class= "cate-sub"><h3 style="margin-top:0px;line-height:40px"><span><%= @category.name %></span></h3></div>
+				<div class = "cate-name">
+          <h3><span>Sản Phẩm<span></h3>
+        </div>
+				<div class = "icon-next">
+          <img src="/assets/next_icon.gif" class="sub"/>
+        </div>
+				<div class= "cate-sub">
+          <h3 style="margin-top:0px;line-height:40px">
+            <span><%= link_to"#{@category.name}",products_view_path(@category) %></span>
+          </h3>
+        </div>
 			</div>
 			<div class="clear"></div>
 		</div>
