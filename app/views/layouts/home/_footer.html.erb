@@ -4,11 +4,11 @@
   <div class="col_1_of_4 span_1_of_4">
       <h4>Thông tin công ty</h4>
       <ul>
-        <li><%= @info.company_name if !@info.nil?%></li>
+        <li><%= content_tag(:h1,@info.company_name,style:"font-size:19px") if !@info.nil?%></li>
         <li>VPGD : <%= @info.address if !@info.nil? %></li>
         <li>Hotline :<%= @info.phone if !@info.nil? %>/<%= @info.hotline if !@info.nil?%></li>
         <li>Email :<%= @info.email if !@info.nil?%></li>
-        <li>Giờ làm việc: 8h30 - 17h30 từ thứ 2 đến thứ 7.</li>
+        <li>Giờ làm việc: Tất cả các ngày trong tuần</li>
       </ul>
     </div>
   <div class="col_1_of_4 span_1_of_4">
