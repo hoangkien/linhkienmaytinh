@@ -126,7 +126,7 @@
     text-transform: uppercase;
     z-index: 1000;
  }
- @media only screen and (max-width: 1024px) {
+/* @media only screen and (max-width: 1024px) {
 	.slide h1 {
 		font-size:2em;
 	}
@@ -151,3 +151,4 @@
 		width:30%;
 	}
 }
+*/
