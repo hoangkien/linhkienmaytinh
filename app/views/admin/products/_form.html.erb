@@ -55,11 +55,11 @@
         <% end -%>
         <tr>
           <td class="left tbl-config"><%= f.label :Price, "Gia" %></td>
-          <td><%= f.text_field :price , class: 'form-control'%> VNĐ</td>
+          <td><%= f.text_field :price , class: 'form-control',style: 'float:left'%> VNĐ</td>
         </tr>
         <tr>
           <td class="left tbl-config"><%= f.label :gurantee, "Bảo hành" %></td>
-          <td><%= select_tag"product[gurantee]",options_for_select(["1 Tháng","6 Tháng","12 Tháng"],@product.gurantee) ,class: 'form-control'%></td>
+          <td><%= select_tag"product[gurantee]",options_for_select(["Đảm bảo chất lượng","1 Tháng","6 Tháng","12 Tháng","24 tháng"],@product.gurantee) ,class: 'form-control'%></td>
         </tr>
         <tr>
           <td class="lef tbl-config">
