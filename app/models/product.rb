@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name,:name_url, :product_id,:size,:light,:guarantee,:price, :category_id,:image,:details,:trademak_id
+  attr_accessible :name,:name_url, :product_id,:size,:light,:gurantee,:price, :category_id,:image,:details,:trademak_id
   belongs_to :category
   belongs_to :trademak
   validates :name,:details, presence:true
