@@ -10,16 +10,13 @@
 <%= csrf_meta_tag %>
 </head>
 <body id= "home" style="position:relative">
-	<%= image_tag"/assets/banner_.jpg",style: "   height: 350px;width: 10%;position: fixed;top: 0;left: 0;"%>
-	<%= image_tag"/assets/banner_2.jpg",style: "   height: 350px;width: 10%;position: fixed;top: 0;right: 0;"%>
+	<%= image_tag"/assets/banner_.jpg", class: "banner-left"%>
+	<%= image_tag"/assets/banner_2.jpg" ,class: "banner-right"%>
   <div class="wrap">
 		<div class="header">
 			<div class="header_top">
 				<div class="logo">
-					<div class="left" style="float:left;padding-left:5px;width:18%">
-						<a href="index.html"><%= link_to image_tag("slide/logo1.png",style: 'height:130px;padding-left:20px'),home_path %></a>
-					</div>
-					<div class="right" style="float:left;margin-left:20px;width:79%">
+					<div class="right" style="width:100%">
 						<div class="img">
 						<%= image_tag("slide/imgo.jpg", style:"width: 100%;") %>
 						</div>
