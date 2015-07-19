@@ -1,5 +1,5 @@
 class Home::HomeController < Home::ApplicationController
-  caches_page :contact,:map,:about,:service
+  # caches_page :contact,:map,:about,:service
 	def index
 		@category = Category.where("parent_id = 0")
 		@products_new = Product.limit(5).order(id: :desc)
