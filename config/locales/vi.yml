@@ -1,4 +1,9 @@
 vi:
+  ckeditor:
+    buttons:
+      delete: "Xóa"
+      upload: "Thêm"
+    confirm_delete: "Are you sure"
   will_paginate:
     page_entries_info:
       single_page:
