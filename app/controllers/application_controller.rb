@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_action :get_info
   before_filter :set_user_language
-  require 'unicode'
+  # require 'unicode'
   def get_info
   	@info = Info.first
   end
