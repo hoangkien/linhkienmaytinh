@@ -10,18 +10,24 @@ class Home::ProductsController < Home::ApplicationController
 
 	def show
 		@category_all = Category.where("parent_id = 0")
-		begin
-			@product = Product.friendly.find(params[:id])
-		rescue ActiveRecord::RecordNotFound
-			@category = Category.friendly.find(params[:id]) rescue nil
-			if @category.nil?
-				raise_not_found
-			else
-				@controler_name = "Sản Phẩm"
-				render "category"
-			end
+		if params[:tag]
+			@tag = params[:tag]
+			@products = Product.tagged_with(params[:tag])
+			render "tags"
 		else
-			@product = Product.friendly.find(params[:id])
+			begin
+				@product = Product.friendly.find(params[:id])
+			rescue ActiveRecord::RecordNotFound
+				@category = Category.friendly.find(params[:id]) rescue nil
+				if @category.nil?
+					raise_not_found
+				else
+					@controler_name = "Sản Phẩm"
+					render "category"
+				end
+			else
+				@product = Product.friendly.find(params[:id])
+			end
 		end
 
 	end

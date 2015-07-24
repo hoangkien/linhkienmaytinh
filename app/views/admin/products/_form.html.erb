@@ -65,7 +65,13 @@
           <td class="lef tbl-config">
             <%= f.label :details, "Thông tin" %>
           </td>
-          <td> <%= f.cktext_area :details ,:ckeditor => {:width => 1000}%>
+          <td> <%= f.cktext_area :details ,:ckeditor => {:width => 1000}%></td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+          </td>
+          <td><%= f.text_field :tag_list %></td>
         </tr>
       </table>
     </div>

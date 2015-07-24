@@ -71,6 +71,12 @@
             <div class="fb-comments" data-href=<%= "https://www.facebook.com/nuocsachhadung-#{@product.id}"%> data-numposts="5"></div>
           </div>
    <div id="fb-root"></div>
+   <div id="tag_cloud">
+   Tags:
+    <% tag_cloud Product.tag_counts, %w[s m l] do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+  </div>
    <div class="content_top">
     		<div class="heading">
           <div class="cate-name">

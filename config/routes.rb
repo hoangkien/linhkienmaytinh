@@ -20,6 +20,7 @@ RailsDemo::Application.routes.draw do
       get "/:id.html" =>:show,:as => :products_view
       get "/preview" => :preview, :as => :preview
       get "san-pham" => :index ,:as => :products
+      get 'tags/:tag' => :show, as: :tag
     end
 
   end
