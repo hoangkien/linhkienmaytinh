@@ -89,7 +89,7 @@
     		<div class="clear"></div>
     	</div>
    <div class="section group">
-   			<% @product.category.products.each do |product|%>
+   			<% @product.category.products.order(id: :desc).limit(5).each do |product|%>
 				<div class="grid_1_of_4 images_1_of_4">
 						<%= link_to image_tag("#{product.image}",size:"100x150" ), products_view_path(product),title: "#{product.name}"%>
 						<h2 style="font-size:9px;height:30px;margin-top:10px;"><%= truncate(product.name,length:30)%></h2>
