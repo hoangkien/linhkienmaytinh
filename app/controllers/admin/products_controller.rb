@@ -54,7 +54,7 @@ class Admin::ProductsController < Admin::ApplicationController
 		else
 			#upload
 			upload = Product.upload(_product)
-			@pro["image"] = params[:product][:image].original_filename
+			_product["image"] = params[:product][:image].original_filename
 		end
 		@product.update_attributes(_product)
 		redirect_to admin_products_path
