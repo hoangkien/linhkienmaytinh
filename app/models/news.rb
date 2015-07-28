@@ -1,8 +1,11 @@
 class News < ActiveRecord::Base
-   attr_accessible :title, :content,:view,:member_id
-   belongs_to :catenews
-   belongs_to :member
-	extend FriendlyId
+  extend FriendlyId
+
+  belongs_to :catenews
+  belongs_to :member
+
+  attr_accessible :title, :content,:view,:member_id
+
 	friendly_id :title
 
 	def to_param
@@ -12,4 +15,5 @@ class News < ActiveRecord::Base
   def self.search(query,page)
     where("title like ? ","%#{query}%").paginate(per_page:5,page:page)
  	end
+
 end

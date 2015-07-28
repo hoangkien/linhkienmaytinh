@@ -1,15 +1,15 @@
 class Member < ActiveRecord::Base
   # include ActiveModel::ForbiddenAttributesProtection
-  require'digest/md5'#su dung md5
+  extend FriendlyId
   has_secure_password
-  # before_save :md5 # set md5 cho password truoc khi thuc hien method save
-  # after_validation :md5 #set md5 cho password sau khi validate xong
   attr_accessible :username,:password, :fullname ,:gender ,:birthday ,:email,:indentity_card, :address,:search,:role
+
   has_many :news
+
   validates :username, uniqueness:true,format:{with:/\A[a-zA-Z]+\z/}, length:{in: 5..20},on: :create
   validates :fullname,length:{ in:5..20},on: :create
   validates :email, uniqueness:true,presence:true,on: :create
-  extend FriendlyId
+
   friendly_id :fullname
 
   def to_param

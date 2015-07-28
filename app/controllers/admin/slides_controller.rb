@@ -43,14 +43,12 @@ class Admin::SlidesController < Admin::ApplicationController
     redirect_to admin_slides_path
   end
 
-  def show
-  end
+  def show; end
 
-  def delete
-  end
+  def delete; end
 
   private
   def slide_params
-    params.require(:slide).permit(:head,:description)
+    params.require(:slide).permit(:head, :description)
   end
 end

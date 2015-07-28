@@ -1,4 +1,5 @@
 class Admin::CategoriesController < Admin::ApplicationController
+	before_action :list_parent_cate, only:[:show,:edit]
 
 	def index
 		@categories = Category.all.includes(:products)
@@ -10,12 +11,10 @@ class Admin::CategoriesController < Admin::ApplicationController
 
 	def edit
 		@category = Category.friendly.find(params[:id])
-		list_parent_cate
 	end
 
 	def new
 		@category = Category.new
-		list_parent_cate
 	end
 
 	def create
@@ -29,6 +28,7 @@ class Admin::CategoriesController < Admin::ApplicationController
 		else
 			render "new"
 		end
+
 	end
 
 	def update
@@ -46,7 +46,7 @@ class Admin::CategoriesController < Admin::ApplicationController
 	def destroy
 		@category = Category.friendly.find(params[:id])
 		@category.destroy
-		flash[:notice] = "Xóa thành công !"
+		flash[:notice] = "Xóa thành công!"
 		redirect_to cate_index_path
 	end
 
@@ -54,4 +54,5 @@ class Admin::CategoriesController < Admin::ApplicationController
 	def category_params
 		params.require(:category).permit(:id, :name)
 	end
+
 end

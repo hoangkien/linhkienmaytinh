@@ -1,9 +1,6 @@
 class Admin::ProductsController < Admin::ApplicationController
 	def index
-		@product = Product.all.paginate(:page => params[:page], :per_page => 5)
-		if params[:search]#kiem tra xem co gia tri get duoc truyen di
-			@product=Product.search(params[:search],params[:page])#tim kiem trong model va truyen lai view
-		end
+		@product = params[:search] ? Product.search(params[:search],params[:page]) : Product.all.paginate(:page => params[:page], :per_page => 5).includes(:category)
 	end
 
 	def new
@@ -14,6 +11,7 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def create
 		@product = Product.new()
+
 		@product.name = params[:product][:name]
 		@product.name_url = change_alias(params[:product][:name])
 		@product.category_id = params[:product][:sub_category_id] ? params[:product][:sub_category_id] : params[:product][:category_id]
@@ -26,13 +24,15 @@ class Admin::ProductsController < Admin::ApplicationController
 			@product.image = params[:product]['image'].original_filename
 			upload = Product.upload(params[:product])
 		end
+
 		respond_to do |format|
-	      if @product.save
-	        format.html { redirect_to admin_products_path, notice: 'User was successfully created.' }
-	      else
-	        format.html { render :new }
-	      end
-	    end
+      if @product.save
+        format.html { redirect_to admin_products_path, notice: 'User was successfully created.' }
+      else
+        format.html { render :new }
+      end
+	  end
+
 	end
 
 	def show

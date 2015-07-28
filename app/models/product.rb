@@ -1,12 +1,16 @@
 class Product < ActiveRecord::Base
+  extend FriendlyId
+
   attr_accessible :name,:name_url, :product_id,:size,:light,:gurantee,:price, :category_id,:image,:details,:trademak_id,:tag_list
   acts_as_taggable
+
   belongs_to :category
   belongs_to :trademak
   has_many :taggings
   has_many :tags, through: :taggings
+
   validates :name,:details, presence:true
-  extend FriendlyId
+
   friendly_id :name_url , use: :slugged
 
   def to_param

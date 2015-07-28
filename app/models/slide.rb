@@ -1,5 +1,6 @@
 class Slide < ActiveRecord::Base
   attr_accessible :head,:description
+
   def self.upload(slide)
     name = slide['image'].original_filename
     directory = "app/assets/images"
@@ -8,4 +9,5 @@ class Slide < ActiveRecord::Base
   # write the file
     File.open(path, "wb") { |f| f.write(slide['image'].read) }
   end
+
 end

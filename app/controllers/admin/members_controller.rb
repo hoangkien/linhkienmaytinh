@@ -2,8 +2,7 @@ class Admin::MembersController < Admin::ApplicationController
 	require'digest/md5'#su dung md5
 
 	def index
-		@member = Member.paginate(:page => params[:page], :per_page => 5).order('ID DESC')
-    @member= Member.search(params[:search],params[:page]) if params[:search]
+    @member= params[:search] ? Member.search(params[:search],params[:page]) : Member.paginate(:page => params[:page], :per_page => 5).order('ID DESC')
 	end
 
 	def show

@@ -1,20 +1,19 @@
 class Admin::NewsController < Admin::ApplicationController
 	layout'admin/template'
+
 	def index
-		@news = News.all.paginate(:page => params[:page], :per_page => 5).order('ID DESC')
-		if params[:search]#kiem tra xem co gia tri get duoc truyen di
-			@news= News.search(params[:search],params[:page])#tim kiem trong model va truyen lai view
-		end
+		@news = params[:search] News.search(params[:search],params[:page]) ? News.all.paginate(:page => params[:page], :per_page => 5).order('ID DESC')
 	end
 
-	def new
-
-	end
+	def new; end
 
 	def create
-		@news= News.new(news_params)
-		@news.save
-		redirect_to admin_news_index_path
+		news= News.new(news_params)
+		if news.save
+			redirect_to admin_news_index_path
+		else
+			render "new"
+		end
 	end
 
 	def show
@@ -41,4 +40,5 @@ class Admin::NewsController < Admin::ApplicationController
 	def news_params
 		params.require(:news).permit(:title,:content)
 	end
+
 end
