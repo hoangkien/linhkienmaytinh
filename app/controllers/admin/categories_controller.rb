@@ -1,7 +1,7 @@
 class Admin::CategoriesController < Admin::ApplicationController
 
 	def index
-		@categories = Category.all
+		@categories = Category.all.includes(:products)
 	end
 
 	def show
@@ -10,12 +10,12 @@ class Admin::CategoriesController < Admin::ApplicationController
 
 	def edit
 		@category = Category.friendly.find(params[:id])
-		list_parent_cate(0)
+		list_parent_cate
 	end
 
 	def new
 		@category = Category.new
-		list_parent_cate(0)
+		list_parent_cate
 	end
 
 	def create
