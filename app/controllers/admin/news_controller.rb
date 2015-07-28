@@ -2,7 +2,7 @@ class Admin::NewsController < Admin::ApplicationController
 	layout'admin/template'
 
 	def index
-		@news = params[:search] News.search(params[:search],params[:page]) ? News.all.paginate(:page => params[:page], :per_page => 5).order('ID DESC')
+		@news = params[:search] ? News.search(params[:search],params[:page]) : News.all.paginate(:page => params[:page], :per_page => 5).order('ID DESC')
 	end
 
 	def new; end
