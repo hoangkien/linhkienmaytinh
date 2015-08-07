@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def option_paginate
     options = {
       previous_label: 'Trang trước',

@@ -1,4 +1,5 @@
 class Admin::TrademaksController < Admin::ApplicationController
+
 	def index
 		@trademaks = Trademak.all
 	end

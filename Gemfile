@@ -12,7 +12,6 @@ gem 'simple_captcha', :git => 'git://github.com/Azdaroth/simple-captcha.git', :b
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'activerecord', :require => "active_record"
 gem 'protected_attributes'
-gem 'paperclip'
 gem 'responders'
 gem 'turbolinks'
 gem 'friendly_id'
@@ -20,7 +19,8 @@ gem 'pry-rails', '~> 0.3.4'
 gem 'actionpack-page_caching'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 4.0.2'
-
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git", :branch => 'master'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

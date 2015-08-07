@@ -30,4 +30,6 @@ class Admin::ConfigController < Admin::ApplicationController
 	def params_info
 		params.permit(:phone,:hotline,:skype,:company_name,:address,:email)
 	end
+
+
 end

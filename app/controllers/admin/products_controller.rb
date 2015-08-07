@@ -10,20 +10,8 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def create
-		@product = Product.new()
-
-		@product.name = params[:product][:name]
-		@product.name_url = change_alias(params[:product][:name])
+		@product = Product.create(params_product)
 		@product.category_id = params[:product][:sub_category_id] ? params[:product][:sub_category_id] : params[:product][:category_id]
-		@product.trademak_id = params[:product][:trademak_id]
-		@product.price = params[:product][:price]
-		@product.gurantee = params[:product][:gurantee]
-		@product.details = params[:product][:details]
-
-		if params[:product]['image']
-			@product.image = params[:product]['image'].original_filename
-			upload = Product.upload(params[:product])
-		end
 
 		respond_to do |format|
       if @product.save
@@ -36,26 +24,19 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def show
-		@product = Product.friendly.find(params[:id])
+		@product = Product.where(name_url: params[:id]).first
 	end
 
 	def edit
-		@product = Product.friendly.find(params[:id])
+		@product = Product.where(name_url: params[:id]).first
 		@category = Category.where(parent_id: 0).pluck(:name,:id)
 		@trademak = Trademak.all.pluck(:name,:id)
 	end
 
 	def update
-		@product = Product.friendly.find(params[:id])
+		@product = Product.where(name_url: params[:id]).first
 		_product = params[:product]
 		_product[:category_id] = params[:product][:sub_category_id] ? params[:product][:sub_category_id] : params[:product][:category_id]
-		if params[:product][:image].blank?
-			_product["image"]= @product.image
-		else
-			#upload
-			upload = Product.upload(_product)
-			_product["image"] = params[:product][:image].original_filename
-		end
 		@product.update_attributes(_product)
 		redirect_to admin_products_path
 
@@ -68,7 +49,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def destroy
-		@product = Product.friendly.find(params[:id])
+		@product = Product.where(name_url: params[:id]).first
 		@product.destroy
 		redirect_to admin_products_path
 	end
@@ -83,6 +64,6 @@ class Admin::ProductsController < Admin::ApplicationController
 	private
 
 	def params_product
-		params.require(:product).permit(:name,:trademak_id,:price,:gurantee,:details,:tag_list)
+		params.require(:product).permit(:name,:trademak_id,:price,:gurantee,:details,:tag_list, :image)
 	end
 end
