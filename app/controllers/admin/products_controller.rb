@@ -5,7 +5,7 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def new
 		@product = Product.new
-		@category = Category.where(parent_id: 0).pluck(:name,:id)
+		@category = Category.cate_parent
 		@trademak = Trademak.all.pluck(:name,:id)
 	end
 
@@ -29,7 +29,7 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def edit
 		@product = Product.where(name_url: params[:id]).first
-		@category = Category.where(parent_id: 0).pluck(:name,:id)
+		@category = Category.cate_parent
 		@trademak = Trademak.all.pluck(:name,:id)
 	end
 

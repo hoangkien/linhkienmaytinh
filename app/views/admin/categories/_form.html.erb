@@ -23,7 +23,7 @@
             <%= f.label :parent_id, "Danh mục cha" %>
           </td>
           <td>
-            <%= select_tag(:parent_id, options_for_select(@list_parent,@category.parent_id), class: "form-control") %>
+            <%= f.select(:parent_id, options_for_select(@list_parent,@category.parent_id),:include_blank => "Thư mục gốc", class: "form-control") %>
           </td>
         </tr>
       </table>

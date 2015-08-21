@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150724033235) do
+ActiveRecord::Schema.define(version: 20150821030223) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "name_url",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "parent_id",  limit: 4
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "parent_id",  limit: 4,   default: 0
     t.string   "slug",       limit: 255
   end
 
@@ -81,15 +81,19 @@ ActiveRecord::Schema.define(version: 20150724033235) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string  "name",        limit: 255
-    t.integer "trademak_id", limit: 4
-    t.integer "category_id", limit: 4
-    t.string  "image",       limit: 255
-    t.integer "price",       limit: 4
-    t.text    "details",     limit: 65535
-    t.string  "name_url",    limit: 255
-    t.string  "slug",        limit: 255
-    t.string  "gurantee",    limit: 255
+    t.string   "name",               limit: 255
+    t.integer  "trademak_id",        limit: 4
+    t.integer  "category_id",        limit: 4
+    t.string   "image",              limit: 255
+    t.integer  "price",              limit: 4
+    t.text     "details",            limit: 65535
+    t.string   "name_url",           limit: 255
+    t.string   "slug",               limit: 255
+    t.string   "gurantee",           limit: 255
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug", unique: true, using: :btree
@@ -104,17 +108,17 @@ ActiveRecord::Schema.define(version: 20150724033235) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.integer  "tag_id",        limit: 4
-    t.integer  "taggable_id",   limit: 4
-    t.string   "taggable_type", limit: 255
-    t.integer  "tagger_id",     limit: 4
-    t.string   "tagger_type",   limit: 255
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
+    t.integer "tag_id",        limit: 4
+    t.integer "taggable_id",   limit: 4
+    t.string  "taggable_type", limit: 255
+    t.integer "tagger_id",     limit: 4
+    t.string  "tagger_type",   limit: 255
+    t.integer "product_id",    limit: 4
+    t.string  "context",       limit: 255
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "product_id", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "product_id"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string  "name",           limit: 255

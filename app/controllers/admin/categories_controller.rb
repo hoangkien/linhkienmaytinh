@@ -1,5 +1,4 @@
 class Admin::CategoriesController < Admin::ApplicationController
-	before_action :list_parent_cate, only:[:show,:edit]
 
 	def index
 		@categories = Category.all.includes(:products)
@@ -11,17 +10,16 @@ class Admin::CategoriesController < Admin::ApplicationController
 
 	def edit
 		@category = Category.friendly.find(params[:id])
+		@list_parent = Category.cate_parent
 	end
 
 	def new
 		@category = Category.new
+		@list_parent = Category.cate_parent
 	end
 
 	def create
-		@category=  Category.new()
-		@category.name = params[:category][:name]
-		@category.name_url = change_alias(params[:category][:name])
-		@category.parent_id = params[:parent_id]
+		@category=  Category.new(category_params)
 		if @category.save
 			flash[:notice] = "Tạo mới thành công !"
 			redirect_to cate_index_path
@@ -33,11 +31,10 @@ class Admin::CategoriesController < Admin::ApplicationController
 
 	def update
 		@category = Category.friendly.find(params[:id])
-		@category.name = params[:category][:name]
-		@category.parent_id = params[:parent_id].to_i
+		@category.update_attributes(category_params)
 		if @category.save
 			flash[:notice] = "Update thành công !"
-			redirect_to admin_categories_path
+			redirect_to cate_index_path
 		else
 			render "edit"
 		end
@@ -52,7 +49,7 @@ class Admin::CategoriesController < Admin::ApplicationController
 
 	private
 	def category_params
-		params.require(:category).permit(:id, :name)
+		params.require(:category).permit(:id, :name, :parent_id)
 	end
 
 end

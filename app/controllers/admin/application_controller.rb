@@ -9,9 +9,4 @@ class Admin::ApplicationController < ApplicationController
     end
   end
 
-  def list_parent_cate
-    @list_parent = Category.where("parent_id = 0").pluck(:name, :id)
-    @list_parent.unshift(["Thư Mục Gốc", 0])
-  end
-
 end
