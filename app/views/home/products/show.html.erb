@@ -26,7 +26,8 @@
     						<div id="products_example">
     							 <div id="products">
       							<div class="slides_container">
-      								<a href="#" target="_blank"><%= image_tag("#{@product.image}",size:"300x220","data-zoom-image"=>"/assets/#{@product.image}",id:"#{@product.slug}",title:"@product.name")%></a>
+                    <%= @product.slug%>
+      								<a href="#" target="_blank"><%= image_tag("#{@product.image}",size:"300x220","data-zoom-image"=>"#{@product.image}",id:"#{@product.slug}",title:"#{@product.name}")%></a>
       							</div>
     							</div>
     						</div>
@@ -130,6 +131,7 @@
 <script>
   $(document).ready(function () {
     var id = "<%= @product.slug %>";
+    console.log(id);
     $(".header_bottom .menu ul li.product").css("background","#B81D22");
     $("#"+id).elevateZoom({});
   });
