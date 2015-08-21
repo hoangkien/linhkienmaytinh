@@ -49,7 +49,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 
 	def destroy
-		@product = Product.where(name_url: params[:id]).first
+		@product = Product.find(params[:id])
 		@product.destroy
 		redirect_to admin_products_path
 	end
