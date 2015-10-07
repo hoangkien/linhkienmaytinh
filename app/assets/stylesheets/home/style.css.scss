@@ -459,6 +459,7 @@ body {
 .grid_1_of_4:first-child {
 	margin-left: 0;
 }
+.grid_1_of_4:nth-child(5n+1) { margin-left: 0% }
 .images_1_of_4 {
 	width: 17.5%;
 	margin-right: 1%;
