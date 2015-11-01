@@ -55,7 +55,7 @@
               </div>
       				<div class="product-info" style="overflow:hidden">
                 <span class="label">Giá: &nbsp; </span>
-                <span class='info'>Vui lòng liên hệ <%= @info.phone%></span>
+                <span class='info'>Vui lòng liên hệ <%= @info.present? ? @info.phone : '' %></span>
               </div>
       			</div>
       			<div class="clear"></div>

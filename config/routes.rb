@@ -36,7 +36,9 @@ RailsDemo::Application.routes.draw do
 
     scope controller: :categories do
       get "admin/danh-muc-san-pham" => :index,:as => :cate_index
+      get 'admin/categories' => :index
       get "admin/danh-muc-san-pham/:id" => :show,:as =>:cate_show
+      # get "admin/categories/:id" => :show
     end
 
     scope controller: :contacts do
