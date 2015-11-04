@@ -14,20 +14,24 @@
 	position: relative;
 }
 .slide {
-  padding:10px 0.5%;
-  width:33%;
+  padding: 10px 0.5%;
+  width: 33%;
   float: left;
   position: relative;
  }
  .slider-text{
- 	float:left;
- 	width:40%;
- 	padding-left:1%;
- 	padding-top:3%;
+  float: left;
+  width: 29%;
+  padding-left: 1%;
+  padding-top: 3%;
  }
  .slider-img{
  	float:left;
  	width:13%;
+  margin-left: 2%;
+ }
+ .slide:nth-child(1) .slider-img {
+    margin-left: 0% !important;
  }
 .slide h1{
   font-size:2.5em;
