@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 gem 'rails','4.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'mysql2', '~> 0.3.20'
+gem 'mysql2'
 # gem 'strong_parameters'
 gem 'will_paginate'
 gem 'rails_serve_static_assets'
@@ -20,7 +20,6 @@ gem 'actionpack-page_caching'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 4.0.2'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git", :branch => 'master'
-gem 'twitter-bootstrap-rails'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Gems used only for assets and not required
 # in production environments by default.
@@ -68,3 +67,4 @@ gem 'bcrypt-ruby','~>3.1.2'
 gem 'dalli'
 gem 'unicode'
 gem 'acts-as-taggable-on'
+gem "twitter-bootstrap-rails"

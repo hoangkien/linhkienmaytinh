@@ -265,7 +265,7 @@ DEPENDENCIES
   galetahub-simple_captcha
   jquery-rails
   jquery-turbolinks
-  mysql2 (~> 0.3.20)
+  mysql2
   paperclip!
   pg
   protected_attributes
@@ -284,6 +284,3 @@ DEPENDENCIES
   unicode
   unicorn
   will_paginate
-
-BUNDLED WITH
-   1.10.6
