@@ -1,0 +1,441 @@
+Started GET "/" for 113.160.58.242 at 2015-11-04 07:58:57 +0000
+Processing by Home::HomeController#index as HTML
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (8.7ms)
+  Rendered layouts/home/_menu.html.erb (1.8ms)
+  Rendered layouts/home/_footer.html.erb (0.6ms)
+Completed 200 OK in 62ms (Views: 20.0ms | ActiveRecord: 2.8ms)
+Started GET "/assets/application-36c766238d1c15e7ae01e35822055144.css" for 113.160.58.242 at 2015-11-04 07:58:57 +0000
+Started GET "/assets/application-0346de6feb11cd9c8677aca78fff74cc.js" for 113.160.58.242 at 2015-11-04 07:58:57 +0000
+Started GET "/assets/banner_2.jpg" for 113.160.58.242 at 2015-11-04 07:59:00 +0000
+Started GET "/assets/banner_.jpg" for 113.160.58.242 at 2015-11-04 07:59:00 +0000
+Started GET "/" for 113.160.58.242 at 2015-11-04 07:59:37 +0000
+Processing by Home::HomeController#index as HTML
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (1.5ms)
+  Rendered layouts/home/_menu.html.erb (0.9ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+Started GET "/assets/application-36c766238d1c15e7ae01e35822055144.css" for 113.160.58.242 at 2015-11-04 07:59:37 +0000
+Started GET "/assets/application-0346de6feb11cd9c8677aca78fff74cc.js" for 113.160.58.242 at 2015-11-04 07:59:37 +0000
+Started GET "/" for 113.160.58.242 at 2015-11-04 08:06:09 +0000
+Processing by Home::HomeController#index as HTML
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (1.2ms)
+  Rendered layouts/home/_menu.html.erb (1.0ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.3ms)
+Started GET "/assets/application-36c766238d1c15e7ae01e35822055144.css" for 113.160.58.242 at 2015-11-04 08:06:10 +0000
+Started GET "/assets/application-0346de6feb11cd9c8677aca78fff74cc.js" for 113.160.58.242 at 2015-11-04 08:06:10 +0000
+Started GET "/" for 113.160.58.242 at 2015-11-04 08:06:32 +0000
+Processing by Home::HomeController#index as HTML
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (6.5ms)
+  Rendered layouts/home/_menu.html.erb (1.4ms)
+  Rendered layouts/home/_footer.html.erb (0.5ms)
+Completed 200 OK in 28ms (Views: 11.3ms | ActiveRecord: 2.3ms)
+Started GET "/assets/application-36c766238d1c15e7ae01e35822055144.css" for 113.160.58.242 at 2015-11-04 08:06:32 +0000
+Started GET "/assets/application-0346de6feb11cd9c8677aca78fff74cc.js" for 113.160.58.242 at 2015-11-04 08:06:32 +0000
+Started GET "/" for 113.160.58.242 at 2015-11-04 08:08:54 +0000
+Processing by Home::HomeController#index as HTML
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (1.2ms)
+  Rendered layouts/home/_menu.html.erb (0.6ms)
+  Rendered layouts/home/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+Started GET "/assets/application-36c766238d1c15e7ae01e35822055144.css" for 113.160.58.242 at 2015-11-04 08:08:54 +0000
+Started GET "/assets/application-0346de6feb11cd9c8677aca78fff74cc.js" for 113.160.58.242 at 2015-11-04 08:08:54 +0000
+Started GET "/" for 113.160.58.242 at 2015-11-04 09:00:29 +0000
+Processing by Home::HomeController#index as HTML
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (8.4ms)
+  Rendered layouts/home/_menu.html.erb (2.3ms)
+  Rendered layouts/home/_footer.html.erb (0.6ms)
+Completed 200 OK in 40ms (Views: 16.2ms | ActiveRecord: 2.3ms)
+Started GET "/assets/banner_.jpg" for 113.160.58.242 at 2015-11-04 09:00:30 +0000
+Started GET "/assets/banner_2.jpg" for 113.160.58.242 at 2015-11-04 09:00:30 +0000
+Started GET "/assets/arrow_up.png" for 113.160.58.242 at 2015-11-04 09:00:32 +0000
+Started GET "/assets/Amble-Regular-webfont.ttf" for 113.160.58.242 at 2015-11-04 09:00:32 +0000
+Started GET "/assets/fono-compressed-webfont.ttf" for 113.160.58.242 at 2015-11-04 09:00:32 +0000
+Started GET "/admin/products/get_sub_cate/1" for 113.160.58.242 at 2015-11-04 09:00:32 +0000
+Started GET "/drop_arrow.png" for 113.160.58.242 at 2015-11-04 09:00:32 +0000
+Processing by Admin::ProductsController#get_sub_cate as */*
+  Parameters: {"id"=>"1"}
+Processing by ApplicationController#raise_not_found as PNG
+  Parameters: {"unmatched_route"=>"drop_arrow"}
+Redirected to http://52.32.154.101/admin
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 2.4ms)
+  Rendered public/404.html (0.7ms)
+Completed 404 Not Found in 30ms (Views: 4.8ms | ActiveRecord: 2.3ms)
+Started GET "/admin" for 113.160.58.242 at 2015-11-04 09:00:32 +0000
+Processing by Admin::LoginController#index as */*
+  Rendered admin/login/index.html.erb (77.5ms)
+Completed 200 OK in 82ms (Views: 80.9ms | ActiveRecord: 0.1ms)
+Started GET "/san-pham" for 113.160.58.242 at 2015-11-04 09:00:37 +0000
+Processing by Home::ProductsController#index as HTML
+  Rendered home/products/index.html.erb within layouts/home/index (2.7ms)
+  Rendered layouts/home/_menu.html.erb (2.0ms)
+  Rendered layouts/home/_footer.html.erb (0.6ms)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.7ms)
+Started GET "/gioi-thieu.html" for 113.160.58.242 at 2015-11-04 09:00:38 +0000
+Processing by Home::HomeController#about as HTML
+  Rendered home/home/about.html.erb within layouts/home/index (0.5ms)
+  Rendered layouts/home/_menu.html.erb (1.3ms)
+  Rendered layouts/home/_footer.html.erb (0.6ms)
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 1.0ms)
+Started GET "/admin" for 113.160.58.242 at 2015-11-04 09:00:42 +0000
+Processing by Admin::LoginController#index as HTML
+  Rendered admin/login/index.html.erb (4.9ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.1ms)
+Started GET "/assets/admin/login-f9861139be392b8fbd03e9b9e37bbdd7.css" for 113.160.58.242 at 2015-11-04 09:00:43 +0000
+Started GET "/assets/bg_login-36cd45e06a044afdec08c2b8b7e72d3b.png" for 113.160.58.242 at 2015-11-04 09:00:43 +0000
+Started POST "/admin/login/create" for 113.160.58.242 at 2015-11-04 09:00:49 +0000
+Processing by Admin::LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZTFPyoeJTMbQTwTicfN84BBTxNSEK4te6fNGtgA/T/MqEaR7nMWuweBs0mXanReKRHywjgiqr4fc0neDO4QeUA==", "member"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+Redirected to http://52.32.154.101/admin
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+Started GET "/admin" for 113.160.58.242 at 2015-11-04 09:00:50 +0000
+Processing by Admin::LoginController#index as HTML
+  Rendered admin/login/index.html.erb (1.0ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+Started POST "/admin/login/create" for 113.160.58.242 at 2015-11-04 09:01:12 +0000
+Processing by Admin::LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XNXSig1SMXf1IuzRqwJ+tcMeFIe7NKYtedA5zO/Duq8T9Tk7Fh7TcMUBOlYAbBXflzFg3Te1gvRM8Qj51HjrDA==", "member"=>{"username"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+Redirected to http://52.32.154.101/admin/home
+Completed 302 Found in 84ms (ActiveRecord: 0.5ms)
+Started GET "/admin/home" for 113.160.58.242 at 2015-11-04 09:01:12 +0000
+Processing by Admin::HomeController#index as HTML
+  Rendered admin/home/index.html.erb within layouts/admin/template (0.4ms)
+Completed 200 OK in 71ms (Views: 68.8ms | ActiveRecord: 1.0ms)
+Started GET "/admin/products/get_sub_cate/1" for 113.160.58.242 at 2015-11-04 09:01:13 +0000
+Processing by Admin::ProductsController#get_sub_cate as */*
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+Started GET "/admin/members" for 113.160.58.242 at 2015-11-04 09:01:16 +0000
+Processing by Admin::MembersController#index as HTML
+  Rendered admin/members/_member.html.erb (85.1ms)
+  Rendered admin/members/index.html.erb within layouts/admin/template (91.0ms)
+Completed 200 OK in 96ms (Views: 94.1ms | ActiveRecord: 0.6ms)
+Started GET "/admin/products" for 113.160.58.242 at 2015-11-04 09:01:18 +0000
+Processing by Admin::ProductsController#index as HTML
+  Rendered admin/products/_not.html.erb (0.3ms)
+  Rendered admin/products/index.html.erb within layouts/admin/template (5.4ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.4ms)
+Started GET "/admin/news" for 113.160.58.242 at 2015-11-04 09:01:19 +0000
+Processing by Admin::NewsController#index as HTML
+  Rendered admin/news/index.html.erb within layouts/admin/template (4.4ms)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.9ms)
+Started GET "/admin/contacts" for 113.160.58.242 at 2015-11-04 09:01:19 +0000
+Processing by Admin::ContactsController#index as HTML
+  Rendered admin/contacts/index.html.erb within layouts/admin/template (3.7ms)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.8ms)
+Started GET "/admin/config" for 113.160.58.242 at 2015-11-04 09:01:20 +0000
+Processing by Admin::ConfigController#index as HTML
+  Rendered admin/config/index.html.erb within layouts/admin/template (2.7ms)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.9ms)
+Started GET "/admin/products/get_sub_cate/1" for 113.160.58.242 at 2015-11-04 09:01:21 +0000
+Processing by Admin::ProductsController#get_sub_cate as */*
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+Started GET "/admin/products" for 113.160.58.242 at 2015-11-04 09:01:25 +0000
+Processing by Admin::ProductsController#index as HTML
+  Rendered admin/products/_not.html.erb (0.3ms)
+  Rendered admin/products/index.html.erb within layouts/admin/template (4.6ms)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.8ms)
+Started GET "/admin/news" for 113.160.58.242 at 2015-11-04 09:01:26 +0000
+Processing by Admin::NewsController#index as HTML
+  Rendered admin/news/index.html.erb within layouts/admin/template (4.3ms)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.8ms)
+Started GET "/admin/contacts" for 113.160.58.242 at 2015-11-04 09:01:27 +0000
+Processing by Admin::ContactsController#index as HTML
+  Rendered admin/contacts/index.html.erb within layouts/admin/template (3.7ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.8ms)
+Started GET "/admin/members" for 113.160.58.242 at 2015-11-04 09:01:28 +0000
+Processing by Admin::MembersController#index as HTML
+  Rendered admin/members/_member.html.erb (74.6ms)
+  Rendered admin/members/index.html.erb within layouts/admin/template (79.6ms)
+Completed 200 OK in 84ms (Views: 82.4ms | ActiveRecord: 0.4ms)
+Started GET "/" for 113.160.58.242 at 2015-11-04 09:09:00 +0000
+Processing by Home::HomeController#index as HTML
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (3.6ms)
+  Rendered layouts/home/_menu.html.erb (1.1ms)
+  Rendered layouts/home/_footer.html.erb (0.5ms)
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.8ms)
+Started GET "/assets/banner_.jpg" for 113.160.58.242 at 2015-11-04 09:09:03 +0000
+Started GET "/assets/Amble-Regular-webfont.ttf" for 113.160.58.242 at 2015-11-04 09:09:03 +0000
+Started GET "/assets/fono-compressed-webfont.ttf" for 113.160.58.242 at 2015-11-04 09:09:03 +0000
+Started GET "/admin/products/get_sub_cate/1" for 113.160.58.242 at 2015-11-04 09:09:03 +0000
+Processing by Admin::ProductsController#get_sub_cate as */*
+  Parameters: {"id"=>"1"}
+Redirected to http://nuocsachhadung.vn/admin
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/drop_arrow.png" for 113.160.58.242 at 2015-11-04 09:09:04 +0000
+Processing by ApplicationController#raise_not_found as PNG
+  Parameters: {"unmatched_route"=>"drop_arrow"}
+  Rendered public/404.html (0.0ms)
+Completed 404 Not Found in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+Started GET "/admin" for 113.160.58.242 at 2015-11-04 09:09:04 +0000
+Processing by Admin::LoginController#index as */*
+  Rendered admin/login/index.html.erb (0.9ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms)
+Started GET "/assets/banner_2.jpg" for 113.160.58.242 at 2015-11-04 09:09:04 +0000
+Started GET "/assets/arrow_up.png" for 113.160.58.242 at 2015-11-04 09:09:05 +0000
+Started GET "/" for 113.160.58.242 at 2015-11-04 09:10:01 +0000
+Processing by Home::HomeController#index as HTML
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (1.4ms)
+  Rendered layouts/home/_menu.html.erb (0.7ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+Started GET "/assets/banner_2.jpg" for 113.160.58.242 at 2015-11-04 09:10:03 +0000
+Started GET "/assets/banner_.jpg" for 113.160.58.242 at 2015-11-04 09:10:03 +0000
+Started GET "/drop_arrow.png" for 113.160.58.242 at 2015-11-04 09:10:03 +0000
+Processing by ApplicationController#raise_not_found as PNG
+  Parameters: {"unmatched_route"=>"drop_arrow"}
+  Rendered public/404.html (0.0ms)
+Completed 404 Not Found in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+Started GET "/assets/fono-compressed-webfont.ttf" for 113.160.58.242 at 2015-11-04 09:10:03 +0000
+Started GET "/assets/Amble-Regular-webfont.ttf" for 113.160.58.242 at 2015-11-04 09:10:03 +0000
+Started GET "/admin/products/get_sub_cate/1" for 113.160.58.242 at 2015-11-04 09:10:03 +0000
+Processing by Admin::ProductsController#get_sub_cate as */*
+  Parameters: {"id"=>"1"}
+Redirected to http://nuocsachhadung.vn/admin
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/admin" for 113.160.58.242 at 2015-11-04 09:10:03 +0000
+Processing by Admin::LoginController#index as */*
+  Rendered admin/login/index.html.erb (0.9ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+Started GET "/san-pham" for 113.160.58.242 at 2015-11-04 09:10:07 +0000
+Processing by Home::ProductsController#index as HTML
+  Rendered home/products/index.html.erb within layouts/home/index (0.3ms)
+  Rendered layouts/home/_menu.html.erb (0.7ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.2ms)
+Started GET "/gioi-thieu.html" for 113.160.58.242 at 2015-11-04 09:10:11 +0000
+Processing by Home::HomeController#about as HTML
+  Rendered home/home/about.html.erb within layouts/home/index (0.0ms)
+  Rendered layouts/home/_menu.html.erb (0.7ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+Started GET "/dich-vu.html" for 113.160.58.242 at 2015-11-04 09:10:16 +0000
+Processing by Home::HomeController#service as HTML
+  Rendered home/home/service.html.erb within layouts/home/index (0.5ms)
+  Rendered layouts/home/_menu.html.erb (0.6ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.2ms)
+Started GET "/lien-he.html" for 113.160.58.242 at 2015-11-04 09:10:17 +0000
+Processing by Home::HomeController#contact as HTML
+  Rendered home/home/contact.html.erb within layouts/home/index (2.7ms)
+  Rendered layouts/home/_menu.html.erb (0.8ms)
+  Rendered layouts/home/_footer.html.erb (0.2ms)
+Completed 200 OK in 12ms (Views: 6.8ms | ActiveRecord: 0.3ms)
+Started GET "/ban-do.html" for 113.160.58.242 at 2015-11-04 09:10:18 +0000
+Processing by Home::HomeController#map as HTML
+  Rendered home/home/map.html.erb within layouts/home/index (0.4ms)
+  Rendered layouts/home/_menu.html.erb (0.6ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.1ms)
+Started GET "/trang-chu.html" for 113.160.58.242 at 2015-11-04 09:10:21 +0000
+Processing by Home::HomeController#index as HTML
+  Parameters: {"authenticity_token"=>"aEGzdMOPp6YPzeo6tAF1XqPkn4jQchrRQv8EQjObFMYAKFsndurYwpSa8qQISkhlH/hpAEttax5skx5q2nIeHA=="}
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (1.3ms)
+  Rendered layouts/home/_menu.html.erb (0.7ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+Started GET "/drop_arrow.png" for 113.160.58.242 at 2015-11-04 09:10:21 +0000
+Processing by ApplicationController#raise_not_found as PNG
+  Parameters: {"unmatched_route"=>"drop_arrow"}
+  Rendered public/404.html (0.0ms)
+Completed 404 Not Found in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+Started GET "/admin/products/get_sub_cate/1" for 113.160.58.242 at 2015-11-04 09:10:21 +0000
+Processing by Admin::ProductsController#get_sub_cate as */*
+  Parameters: {"id"=>"1"}
+Redirected to http://nuocsachhadung.vn/admin
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/admin" for 113.160.58.242 at 2015-11-04 09:10:21 +0000
+Processing by Admin::LoginController#index as */*
+  Rendered admin/login/index.html.erb (1.7ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.1ms)
+Started GET "/trang-chu.html" for 113.160.58.242 at 2015-11-04 09:10:29 +0000
+Processing by Home::HomeController#index as HTML
+  Parameters: {"authenticity_token"=>"ODR6VYMyEYeGy5dR9Cln/77CjormgPNJ4VQvlziHn55QXZIGNldu4x2cj89IYlrEAt54An2fgobPODW/0W6VRA=="}
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (1.2ms)
+  Rendered layouts/home/_menu.html.erb (0.6ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+Started GET "/drop_arrow.png" for 113.160.58.242 at 2015-11-04 09:10:30 +0000
+Processing by ApplicationController#raise_not_found as PNG
+  Parameters: {"unmatched_route"=>"drop_arrow"}
+  Rendered public/404.html (0.1ms)
+Completed 404 Not Found in 1ms (Views: 0.5ms | ActiveRecord: 0.1ms)
+Started GET "/admin/products/get_sub_cate/1" for 113.160.58.242 at 2015-11-04 09:10:30 +0000
+Processing by Admin::ProductsController#get_sub_cate as */*
+  Parameters: {"id"=>"1"}
+Redirected to http://nuocsachhadung.vn/admin
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/admin" for 113.160.58.242 at 2015-11-04 09:10:30 +0000
+Processing by Admin::LoginController#index as */*
+  Rendered admin/login/index.html.erb (0.8ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+Started GET "/san-pham" for 113.160.58.242 at 2015-11-04 09:10:30 +0000
+Processing by Home::ProductsController#index as HTML
+  Rendered home/products/index.html.erb within layouts/home/index (1.0ms)
+  Rendered layouts/home/_menu.html.erb (0.7ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.2ms)
+Started GET "/gioi-thieu.html" for 113.160.58.242 at 2015-11-04 09:10:31 +0000
+Processing by Home::HomeController#about as HTML
+  Rendered home/home/about.html.erb within layouts/home/index (0.5ms)
+  Rendered layouts/home/_menu.html.erb (0.7ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.2ms)
+Started GET "/trang-chu.html" for 113.160.58.242 at 2015-11-04 09:10:32 +0000
+Processing by Home::HomeController#index as HTML
+  Parameters: {"authenticity_token"=>"+tLCImpAvOvUcM15uPUWy841t/VlbVNPsn2fPfFV8rmSuypx3yXDj08n1ecEvivwcilBff5yIoCcEYUVGLz4Yw=="}
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (1.2ms)
+  Rendered layouts/home/_menu.html.erb (0.7ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.4ms)
+Started GET "/drop_arrow.png" for 113.160.58.242 at 2015-11-04 09:10:33 +0000
+Processing by ApplicationController#raise_not_found as PNG
+  Parameters: {"unmatched_route"=>"drop_arrow"}
+  Rendered public/404.html (0.0ms)
+Completed 404 Not Found in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+Started GET "/admin/products/get_sub_cate/1" for 113.160.58.242 at 2015-11-04 09:10:33 +0000
+Processing by Admin::ProductsController#get_sub_cate as */*
+  Parameters: {"id"=>"1"}
+Redirected to http://nuocsachhadung.vn/admin
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/admin" for 113.160.58.242 at 2015-11-04 09:10:33 +0000
+Processing by Admin::LoginController#index as */*
+  Rendered admin/login/index.html.erb (1.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+Started GET "/san-pham" for 113.160.58.242 at 2015-11-04 09:10:33 +0000
+Processing by Home::ProductsController#index as HTML
+  Rendered home/products/index.html.erb within layouts/home/index (0.3ms)
+  Rendered layouts/home/_menu.html.erb (0.8ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.2ms)
+Started GET "/" for 113.160.58.242 at 2015-11-04 09:10:52 +0000
+Processing by Home::HomeController#index as HTML
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (1.4ms)
+  Rendered layouts/home/_menu.html.erb (0.6ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+Started GET "/assets/banner_.jpg" for 113.160.58.242 at 2015-11-04 09:10:53 +0000
+Started GET "/assets/banner_2.jpg" for 113.160.58.242 at 2015-11-04 09:10:53 +0000
+Started GET "/trang-chu.html" for 113.160.58.242 at 2015-11-04 09:10:53 +0000
+Processing by Home::HomeController#index as HTML
+  Parameters: {"authenticity_token"=>"JfKonpDguRRpIE70O9MQZNMf/BeLiPg7Kl4pv8hg6z1Nm0DNJYXGcPJ3VmqHmC1fbwMKnxCXifQEMjOXIYnh5w=="}
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (1.2ms)
+  Rendered layouts/home/_menu.html.erb (0.6ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+Started GET "/drop_arrow.png" for 113.160.58.242 at 2015-11-04 09:10:54 +0000
+Processing by ApplicationController#raise_not_found as PNG
+  Parameters: {"unmatched_route"=>"drop_arrow"}
+  Rendered public/404.html (0.0ms)
+Completed 404 Not Found in 3ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+Started GET "/admin/products/get_sub_cate/1" for 113.160.58.242 at 2015-11-04 09:10:54 +0000
+Processing by Admin::ProductsController#get_sub_cate as */*
+  Parameters: {"id"=>"1"}
+Redirected to http://nuocsachhadung.vn/admin
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/admin" for 113.160.58.242 at 2015-11-04 09:10:54 +0000
+Processing by Admin::LoginController#index as */*
+  Rendered admin/login/index.html.erb (0.8ms)
+Completed 200 OK in 12ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+Started GET "/assets/arrow_up.png" for 113.160.58.242 at 2015-11-04 09:10:57 +0000
+Started GET "/assets/Amble-Regular-webfont.ttf" for 113.160.58.242 at 2015-11-04 09:10:57 +0000
+Started GET "/assets/fono-compressed-webfont.ttf" for 113.160.58.242 at 2015-11-04 09:10:57 +0000
+Started GET "/admin/products/get_sub_cate/1" for 113.160.58.242 at 2015-11-04 09:10:57 +0000
+Processing by Admin::ProductsController#get_sub_cate as */*
+  Parameters: {"id"=>"1"}
+Redirected to http://nuocsachhadung.vn/admin
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/drop_arrow.png" for 113.160.58.242 at 2015-11-04 09:10:57 +0000
+Processing by ApplicationController#raise_not_found as PNG
+  Parameters: {"unmatched_route"=>"drop_arrow"}
+  Rendered public/404.html (0.0ms)
+Completed 404 Not Found in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+Started GET "/admin" for 113.160.58.242 at 2015-11-04 09:10:57 +0000
+Processing by Admin::LoginController#index as */*
+  Rendered admin/login/index.html.erb (0.9ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+Started GET "/" for 104.45.18.178 at 2015-11-04 09:10:58 +0000
+Processing by Home::HomeController#index as HTML
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (1.2ms)
+  Rendered layouts/home/_menu.html.erb (0.6ms)
+  Rendered layouts/home/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+Started GET "/san-pham" for 113.160.58.242 at 2015-11-04 09:11:19 +0000
+Processing by Home::ProductsController#index as HTML
+  Rendered home/products/index.html.erb within layouts/home/index (0.3ms)
+  Rendered layouts/home/_menu.html.erb (0.6ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+Started GET "/trang-chu.html" for 113.160.58.242 at 2015-11-04 09:11:20 +0000
+Processing by Home::HomeController#index as HTML
+  Parameters: {"authenticity_token"=>"75G414FSvfVBb1qp1C3GtUUwUb3S+CjVPhyFhiIGpbyH+FCENDfCkdo4QjdoZvuO+SynNUnnWRoQcJ+uy++vZg=="}
+  Rendered collection (0.0ms)
+  Rendered collection (0.0ms)
+  Rendered home/home/index.html.erb within layouts/home/index (1.2ms)
+  Rendered layouts/home/_menu.html.erb (0.7ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+Started GET "/drop_arrow.png" for 113.160.58.242 at 2015-11-04 09:11:20 +0000
+Processing by ApplicationController#raise_not_found as PNG
+  Parameters: {"unmatched_route"=>"drop_arrow"}
+  Rendered public/404.html (0.4ms)
+Completed 404 Not Found in 4ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+Started GET "/admin/products/get_sub_cate/1" for 113.160.58.242 at 2015-11-04 09:11:20 +0000
+Processing by Admin::ProductsController#get_sub_cate as */*
+  Parameters: {"id"=>"1"}
+Redirected to http://nuocsachhadung.vn/admin
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/admin" for 113.160.58.242 at 2015-11-04 09:11:21 +0000
+Processing by Admin::LoginController#index as */*
+  Rendered admin/login/index.html.erb (0.9ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+Started GET "/san-pham" for 113.160.58.242 at 2015-11-04 09:11:21 +0000
+Processing by Home::ProductsController#index as HTML
+  Rendered home/products/index.html.erb within layouts/home/index (0.3ms)
+  Rendered layouts/home/_menu.html.erb (0.7ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.2ms)
+Started GET "/gioi-thieu.html" for 113.160.58.242 at 2015-11-04 09:11:22 +0000
+Processing by Home::HomeController#about as HTML
+  Rendered home/home/about.html.erb within layouts/home/index (0.1ms)
+  Rendered layouts/home/_menu.html.erb (0.6ms)
+  Rendered layouts/home/_footer.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
