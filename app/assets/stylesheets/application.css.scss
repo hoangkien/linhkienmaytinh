@@ -17,3 +17,18 @@
 $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@font-face {
+  font-family: linotte-light;
+  src:url('/assets/linotte-light.ttf');
+}
+@font-face {
+  font-family: linotte-regular;
+  src:url('/assets/linotte-regular.ttf');
+}
+
+body {
+  font-family: linotte-light;
+  font-size: 13px;
+}
+
