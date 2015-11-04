@@ -1,0 +1,64 @@
+I, [2015-11-04T06:29:18.309821 #8043]  INFO -- : Refreshing Gem list
+I, [2015-11-04T06:29:20.013277 #8043]  INFO -- : listening on addr=/home/ubuntu/app/nuocsachhadung/shared/sockets/unicorn.sock fd=10
+I, [2015-11-04T06:29:20.013417 #8043]  INFO -- : worker=0 spawning...
+I, [2015-11-04T06:29:20.014876 #8043]  INFO -- : worker=1 spawning...
+I, [2015-11-04T06:29:20.016408 #8043]  INFO -- : master process ready
+I, [2015-11-04T06:29:20.023790 #8047]  INFO -- : worker=0 spawned pid=8047
+I, [2015-11-04T06:29:20.025913 #8047]  INFO -- : worker=0 ready
+I, [2015-11-04T06:29:20.026643 #8050]  INFO -- : worker=1 spawned pid=8050
+I, [2015-11-04T06:29:20.029551 #8050]  INFO -- : worker=1 ready
+I, [2015-11-04T07:37:37.837005 #8043]  INFO -- : reaped #<Process::Status: pid 8047 exit 0> worker=0
+I, [2015-11-04T07:37:37.837107 #8043]  INFO -- : reaped #<Process::Status: pid 8050 exit 0> worker=1
+I, [2015-11-04T07:37:37.837166 #8043]  INFO -- : master complete
+I, [2015-11-04T07:38:40.628479 #1210]  INFO -- : Refreshing Gem list
+I, [2015-11-04T07:38:43.637360 #1210]  INFO -- : unlinking existing socket=/home/ubuntu/app/nuocsachhadung/shared/sockets/unicorn.sock
+I, [2015-11-04T07:38:43.638020 #1210]  INFO -- : listening on addr=/home/ubuntu/app/nuocsachhadung/shared/sockets/unicorn.sock fd=10
+I, [2015-11-04T07:38:43.638125 #1210]  INFO -- : worker=0 spawning...
+I, [2015-11-04T07:38:43.639310 #1210]  INFO -- : worker=1 spawning...
+I, [2015-11-04T07:38:43.640253 #1210]  INFO -- : master process ready
+I, [2015-11-04T07:38:43.648044 #1307]  INFO -- : worker=0 spawned pid=1307
+I, [2015-11-04T07:38:43.649208 #1309]  INFO -- : worker=1 spawned pid=1309
+I, [2015-11-04T07:38:43.653332 #1307]  INFO -- : worker=0 ready
+I, [2015-11-04T07:38:43.653532 #1309]  INFO -- : worker=1 ready
+I, [2015-11-04T07:39:22.876036 #1568]  INFO -- : executing ["/home/ubuntu/.rvm/gems/ruby-2.1.4/bin/unicorn", "-c", "config/unicorn.rb", "-E", "production", "-D", {10=>#<Kgio::UNIXServer:/home/ubuntu/app/nuocsachhadung/shared/sockets/unicorn.sock>}] (in /home/ubuntu/app/nuocsachhadung)
+I, [2015-11-04T07:39:22.876171 #1568]  INFO -- : forked child re-executing...
+I, [2015-11-04T07:39:23.154111 #1568]  INFO -- : inherited addr=/home/ubuntu/app/nuocsachhadung/shared/sockets/unicorn.sock fd=10
+I, [2015-11-04T07:39:23.154335 #1568]  INFO -- : Refreshing Gem list
+I, [2015-11-04T07:39:24.749775 #1568]  INFO -- : worker=0 spawning...
+I, [2015-11-04T07:39:24.750884 #1568]  INFO -- : worker=1 spawning...
+I, [2015-11-04T07:39:24.751898 #1568]  INFO -- : master process ready
+I, [2015-11-04T07:39:24.752783 #1573]  INFO -- : worker=0 spawned pid=1573
+I, [2015-11-04T07:39:24.754650 #1573]  INFO -- : worker=0 ready
+I, [2015-11-04T07:39:24.755376 #1575]  INFO -- : worker=1 spawned pid=1575
+I, [2015-11-04T07:39:24.757123 #1575]  INFO -- : worker=1 ready
+E, [2015-11-04T07:52:57.628124 #1568] ERROR -- : old PID:1210 running with existing pid=/home/ubuntu/app/nuocsachhadung/shared/pids/unicorn.pid.oldbin, refusing rexec
+E, [2015-11-04T07:57:05.940975 #1568] ERROR -- : old PID:1210 running with existing pid=/home/ubuntu/app/nuocsachhadung/shared/pids/unicorn.pid.oldbin, refusing rexec
+I, [2015-11-04T07:58:22.189843 #1568]  INFO -- : reaped #<Process::Status: pid 1573 exit 0> worker=0
+I, [2015-11-04T07:58:22.189938 #1568]  INFO -- : reaped #<Process::Status: pid 1575 exit 0> worker=1
+I, [2015-11-04T07:58:22.189996 #1568]  INFO -- : master complete
+E, [2015-11-04T07:58:22.252260 #1210] ERROR -- : reaped #<Process::Status: pid 1568 exit 0> exec()-ed
+I, [2015-11-04T07:58:40.976707 #1210]  INFO -- : reaped #<Process::Status: pid 1307 exit 0> worker=0
+I, [2015-11-04T07:58:40.976802 #1210]  INFO -- : reaped #<Process::Status: pid 1309 exit 0> worker=1
+I, [2015-11-04T07:58:40.976864 #1210]  INFO -- : master complete
+I, [2015-11-04T07:58:48.760955 #2525]  INFO -- : Refreshing Gem list
+I, [2015-11-04T07:58:50.433409 #2525]  INFO -- : listening on addr=/tmp/unicorn.nuocsachhadung.sock fd=10
+I, [2015-11-04T07:58:50.433558 #2525]  INFO -- : worker=0 spawning...
+I, [2015-11-04T07:58:50.434778 #2525]  INFO -- : worker=1 spawning...
+I, [2015-11-04T07:58:50.435806 #2525]  INFO -- : master process ready
+I, [2015-11-04T07:58:50.440096 #2529]  INFO -- : worker=0 spawned pid=2529
+I, [2015-11-04T07:58:50.442123 #2529]  INFO -- : worker=0 ready
+I, [2015-11-04T07:58:50.447623 #2531]  INFO -- : worker=1 spawned pid=2531
+I, [2015-11-04T07:58:50.449627 #2531]  INFO -- : worker=1 ready
+I, [2015-11-04T08:59:47.917680 #2525]  INFO -- : reaped #<Process::Status: pid 2529 exit 0> worker=0
+I, [2015-11-04T08:59:47.917778 #2525]  INFO -- : reaped #<Process::Status: pid 2531 exit 0> worker=1
+I, [2015-11-04T08:59:47.917845 #2525]  INFO -- : master complete
+I, [2015-11-04T08:59:52.617488 #6981]  INFO -- : Refreshing Gem list
+I, [2015-11-04T08:59:54.276249 #6981]  INFO -- : unlinking existing socket=/tmp/unicorn.nuocsachhadung.sock
+I, [2015-11-04T08:59:54.276386 #6981]  INFO -- : listening on addr=/tmp/unicorn.nuocsachhadung.sock fd=8
+I, [2015-11-04T08:59:54.276473 #6981]  INFO -- : worker=0 spawning...
+I, [2015-11-04T08:59:54.277821 #6981]  INFO -- : worker=1 spawning...
+I, [2015-11-04T08:59:54.278534 #6985]  INFO -- : worker=0 spawned pid=6985
+I, [2015-11-04T08:59:54.278961 #6985]  INFO -- : worker=0 ready
+I, [2015-11-04T08:59:54.279971 #6981]  INFO -- : master process ready
+I, [2015-11-04T08:59:54.287721 #6988]  INFO -- : worker=1 spawned pid=6988
+I, [2015-11-04T08:59:54.288116 #6988]  INFO -- : worker=1 ready
