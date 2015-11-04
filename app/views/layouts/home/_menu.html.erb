@@ -1,7 +1,10 @@
 <div class="menu">
   <ul class="list-group" style="margin:0px">
     <li class= <%= "active" if (controller_name == "home" && action_name == "index")%>>
-      <%= link_to t('home.menu.home'), home_path, method: :get%>
+      <%= link_to home_path, method: :get do %>
+        <i class="fa fa-home"></i>
+        <%= t('home.menu.home') %>
+      <% end -%>
     </li>
     <li class= <%= "active" if ((controller_name == "products" && action_name == "index") or (controller_name == "products"))%>><%= link_to t('home.menu.product'),products_path %></li>
     <li class= <%= "active" if (controller_name == "home" && action_name == "about")%>><%= link_to t('home.menu.about'), about_path%></li>

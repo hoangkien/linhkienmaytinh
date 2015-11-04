@@ -395,10 +395,45 @@ body {
     h3 {font-size: 15px;}
   }
   .see{
-    p{line-height: 40px}
+    p{
+      line-height: 40px;
+      a {
+          color: #333;
+          font-size: 0.8125em;
+          -webkit-transition: all .5s linear;
+          -o-transition: all .5s linear;
+          -moz-transition: all .5s linear;
+      }
+    }
+  }
+  span.sl{
+    font-size: 13px;
+    color: rgba(79, 72, 72, 0.74);
+    line-height: 40px;
+    margin-left: 10px;
+    label {
+      font-size: 12px;
+      -webkit-transition: all 0.5s linear;
+      -o-transition: all 0.5s linear;
+      -moz-transition: all 0.5s linear;
+
+    }
   }
 
 }
+
+.content_top:hover {
+  cursor: pointer;
+  .see p a {
+    color: red;
+    font-size:  1.5em;
+  }
+  span.sl label {
+    font-size: 17px;
+    color: red;
+  }
+}
+
 .content_bottom {
 	padding: 15px 20px;
 	border: 1px solid #EBE8E8;
@@ -440,7 +475,6 @@ body {
 	display: inline;
 	font-size: 0.8125em;
 	color: #333;
-	background: url(/assets/list-img.png) no-repeat right 3px;
     padding:0px 12px 0px 0px;
 }
 .see p a:hover{
@@ -455,6 +489,10 @@ body {
 	-webkit-box-shadow: 0px 0px 3px rgb(150, 150, 150);
 	-moz-box-shadow: 0px 0px 3px rgb(150, 150, 150);
 	-o-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+  span {
+    float: right;
+    margin-top: 3px;
+  }
 }
 .grid_1_of_4:first-child {
 	margin-left: 0;
@@ -466,10 +504,30 @@ body {
 	padding: 0.5%;
 	text-align: center;
 	position: relative;
+  overflow: hidden;
+}
+.images_1_of_4 .details-product {
+  position: absolute;
+  left: -290px;
+  display: block;
+  width: 200px;
+  top: 40px;
+  font-size: 15px;
+  color: white;
+  -webkit-transition: left .5s linear;
+  -o-transition: left .5s linear;
+  -moz-transition: left .5s linear;
+}
+.images_1_of_4:hover{
+  .details-product{
+    top: 40px;
+    left: 0;
+    padding: 10px;
+  }
 }
 .images_1_of_4  img {
 	max-width: 100%;
-	height: 185px;
+	height: 250px;
 	width: 100%;
 }
 .images_1_of_4  h2 {
@@ -1550,6 +1608,44 @@ body {
 .heading .sub-cate{
 	float: left;
 }
+.categories ul.product li {
+  a {
+    overflow: hidden;
+    position: relative;
+    height: 35px;
+
+  }
+  span {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    -webkit-transition: left .3s ease-out;
+    -o-transition: left .3s ease-out;
+    -moz-transition: left .3s ease-out;
+
+  }
+  i {
+    float: left;
+    margin-top: 3px;
+    position: absolute;
+    top: 9px;
+    left: -100px;
+    margin-right: 10px;
+    -webkit-transition: left .3s ease-out;
+    -o-transition: left .3s ease-out;
+    -moz-transition: left .3s ease-out;
+  }
+}
+.categories ul li:hover {
+  cursor: pointer;
+}
+.categories ul li:hover i {
+  left: 0px;
+}
+.categories ul li:hover span {
+  left: 15px;
+}
+
 @media only screen and (max-width: 1024px){
   .wrap{width:1040px}
   .banner-left{display:none}

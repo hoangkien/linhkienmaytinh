@@ -67,3 +67,5 @@ gem 'bcrypt-ruby','~>3.1.2'
 gem 'dalli'
 gem 'unicode'
 gem 'acts-as-taggable-on'
+
+gem "twitter-bootstrap-rails"

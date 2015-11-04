@@ -8,21 +8,16 @@
 		});
 	});
 </script>
-<style type="text/css">
-	span.sl{
-		font-size: 13px;
-  	color: rgba(79, 72, 72, 0.74);
-  	line-height: 40px;
-  	margin-left: 10px;
-	}
-</style>
  <div class="header_slide">
 			<div class="header_bottom_left">
 				<div class="categories">
-				  <ul>
-				  	<h3>Danh mục</h3>
+				  <ul class="product">
+				  	<h3><i class="fa fa-list" style='margin-right:10px'></i>Danh mục</h3>
 						<% @category.each do |cate|%>
-							<li><%= link_to "#{cate.name}", products_view_path(cate)%>
+							<li><%= link_to products_view_path(cate) do %>
+                    <i class="fa fa-hand-o-right" style="float:left"></i>
+                    <span><%= cate.name%></span>
+                  <% end -%>
 								<% if Category.subcategories(cate.id).count > 0 %>
 									<ul class="subcate">
 										<% Category.subcategories(cate.id).each do |subcate| %>
@@ -38,9 +33,13 @@
 				<br/>
 				<div class="categories">
 					<ul>
-						<h3>Hỗ trợ</h3>
-						<li><a>Phone: <font color="red"><%= @info.phone if !@info.nil?%></font></a></li>
-						<li><a>Hotline: <font color="red"><%= @info.hotline if !@info.nil?%></font></a></li>
+						<h3><i class="fa fa-phone-square" style="margin-right:10px"></i>Hỗ trợ</h3>
+						<li><a>
+              <i class="fa fa-mobile"></i>
+              Phone: <font color="red"><%= @info.phone if !@info.nil?%></font></a></li>
+						<li><a>
+              <i class="fa fa-h-square"></i>
+              Hotline: <font color="red"><%= @info.hotline if !@info.nil?%></font></a></li>
 					</ul>
 				</div>
 	  	     </div>
@@ -76,11 +75,16 @@
 				<div class="content_top">
 					<div class="heading">
 						<div class="cate-name"><h3><%= category.name%></h3></div>
-						<span class="sl"><%= "- có " +Category.count(category.id).to_s + " Sản phẩm" %> </span>
+						<span class="sl"> có <label class='count'><%= Category.count(category.id) %></label> Sản phẩm</span>
 					</div>
-					 <div class="see">
-		    			<p><%= link_to"Tất cả sản phẩm", products_view_path(category)%></p>
-		    		</div>
+				  <div class="see">
+	    			<p>
+              <%= link_to products_view_path(category) do %>
+                Tất cả sản phẩm
+                <i class="fa fa-arrow-circle-right"></i>
+              <% end -%>
+            </p>
+	    		</div>
 					<div class="clear"></div>
 				</div>
 				<div class="section group">
