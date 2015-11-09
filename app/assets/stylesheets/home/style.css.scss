@@ -46,20 +46,21 @@ img{max-width:100%;}
   		url('/assets/fono-compressed-webfont.woff') format('woff')
 
 }
-h1,h2,h3,h4,h5,h6{margin-top: 0px !important;}
+h1,h2,h3,h4,h5,h6{margin-top: 0px !important; font-family: helveticaneuemedium;}
+
 body {
 	font-family: fono-compressed-webfont,Arial, Helvetica, linotte-regular;
 	/*background:rgba(191, 228, 226, 0.51);*/
 	background-image: url(/assets/background1.jpg);
 }
 #home{
-	background: rgba(192, 244, 184, 0.72) !important;
+	background: url('http://bncvn.net/uploads/web/qc_bg_0.80551500_1378131270.jpg') !important;
 }
 .wrap {
-	width:80%;
+	width: 1300px;
 	margin: 0 auto;
 	background: #fff !important;
-	box-shadow: 0px 0px 5px rgba(35, 37, 32, 0.62);
+	border: 1px solid #eee;
 }
 .banner-left{height: 350px;width: 10%;position: fixed;top: 0;left: 0;}
 .banner-right{ height: 350px;width: 10%;position: fixed;top: 0;right: 0;}
@@ -279,7 +280,7 @@ body {
   padding: 6px;
   background: #448F30;
   text-transform: uppercase;
-  font-family: 'linotte-regular';
+  font-family: 'helveticaneuemedium';
   border-radius: 4px;
   box-shadow: 0px 0px 10px rgb(41, 105, 15);
 }
@@ -375,6 +376,8 @@ body {
         margin-top: 0px !important;
         color: wheat;
         padding: 0px 7px;
+        font-size: 16px;
+        font-weight: bold;
       };
     .sl{
       line-height: 40px;
@@ -493,11 +496,52 @@ body {
     float: right;
     margin-top: 3px;
   }
+  .show-details {
+    position: absolute;
+    opacity: 0;
+    top: 0px;
+    left: 54px;
+    button {
+      color: white;
+      background-color: #d9534f;
+      border-color: #d43f3a;
+      height: 36px;
+      line-height: 36px;
+      font-size: 18px;
+      width: 105px;
+    }
+    -webkit-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+  }
+  .price-details{
+    margin-top: 10px;
+    border-top: 1px solid #168C46;
+    padding: 0px 0px;
+    padding-top: 6px;
+    h4{
+      line-height: 25px;
+      color: #0072BD;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 0px;
+      text-align: center;
+      font-family: helveticaneuelight;
+
+      &.full-name {
+        display: none;
+        -webkit-transition: all 0.5s ease-out;
+        -o-transition: all 0.5s ease-out;
+        -moz-transition: all 0.5s ease-out;
+      } 
+    }
+
+  }
 }
 .grid_1_of_4:first-child {
-	margin-left: 0;
+	margin-left: 0.5%;
 }
-.grid_1_of_4:nth-child(5n+1) { margin-left: 0% }
+.grid_1_of_4:nth-child(5n+1) { margin-left: 1% }
 .images_1_of_4 {
 	width: 17.5%;
 	margin-right: 1%;
@@ -505,6 +549,7 @@ body {
 	text-align: center;
 	position: relative;
   overflow: hidden;
+  border: 1px solid rgba(204, 204, 204, 0.26)
 }
 .images_1_of_4 .details-product {
   position: absolute;
@@ -518,13 +563,7 @@ body {
   -o-transition: left .5s linear;
   -moz-transition: left .5s linear;
 }
-.images_1_of_4:hover{
-  .details-product{
-    top: 40px;
-    left: 0;
-    padding: 10px;
-  }
-}
+
 .images_1_of_4  img {
 	max-width: 100%;
 	height: 250px;
@@ -548,9 +587,13 @@ body {
 	font-family: 'linotte-regular';
 	color:#CC3636;
 }
-.price-details{
-	margin-top:10px;
-	border-top:1px solid #168C46;
+#show-item .grid_1_of_4.images_1_of_4{ width: 21.5%}
+.images_1_of_4:hover{
+  border: 1px solid #A9FF00;
+  .show-details{
+    top: 120px;
+    opacity: 1;
+  }
 }
 .price-number{
 	float: left;
@@ -587,8 +630,6 @@ body {
 /*** Footer ***/
 .footer {
 	position: relative;
-	background: rgba(209, 247, 203, 1) !important;
-  border-top: 1px solid #CECECE;
 }
 .section {
 	clear: both;
@@ -815,7 +856,7 @@ body {
   .details span{float: none;display: inline;}
 }
 .span_1_of_2 {
-	width: 67.1%;
+	width: 73%;
 	padding: 1.5%;
 }
 .images_3_of_2 {
@@ -1619,6 +1660,8 @@ body {
     position: absolute;
     top: 10px;
     left: 0px;
+    color: white;
+    font-size: 12px;
     -webkit-transition: left .3s ease-out;
     -o-transition: left .3s ease-out;
     -moz-transition: left .3s ease-out;
@@ -1644,6 +1687,7 @@ body {
 }
 .categories ul li:hover span {
   left: 15px;
+  color: red;
 }
 
 @media only screen and (max-width: 1024px){

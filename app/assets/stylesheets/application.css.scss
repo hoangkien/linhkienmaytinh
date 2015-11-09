@@ -26,9 +26,16 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
   font-family: linotte-regular;
   src:url('/assets/linotte-regular.ttf');
 }
-
+@font-face {
+  font-family: helveticaneuemedium;
+  src: url('/assets/helveticaneuemedium.ttf');
+}
+@font-face {
+  font-family: helveticaneuelight;
+  src: url('/assets/helveticaneuelight.ttf')
+}
 body {
   font-family: linotte-light;
-  font-size: 13px;
+  font-size: 15px;
 }
 

@@ -1,7 +1,8 @@
 <style type="text/css">
 	.details h3.title{
-		font-size: 20px;
+		font-size: 25px;
     border-bottom: 3px solid rgb(105, 160, 99);
+    font-family: helveticaneuemedium;
 	}
 </style>
 <div class="main">
@@ -88,17 +89,18 @@
     		</div>
     		<div class="clear"></div>
     	</div>
-   <div class="section group">
+   <div class="section group" id="show-item">
    			<% @product.category.products.order(id: :desc).limit(5).each do |product|%>
 				<div class="grid_1_of_4 images_1_of_4">
 						<%= link_to image_tag("#{product.image}",size:"100x150" ), products_view_path(product),title: "#{product.name}"%>
-						<h2 style="font-size:9px;height:30px;margin-top:10px;"><%= truncate(product.name,length:30)%></h2>
 						<div class="price-details">
-				       		<div class="add-cart">
-								<h4><%= link_to"Chi tiết",products_view_path(product), method: :get%></h4>
-						    </div>
-						 <div class="clear"></div>
+              <h4 class="truncate"><%= truncate(product.name, length: 30, separator: ' ') %></h4>
 						</div>
+            <div class="show-details">
+              <%= link_to products_view_path(product) do %>
+                <button class="btn btn-danger">Xem chi tiết</button>
+              <% end -%>
+            </div>
 					</div>
 			<% end -%>
 			</div>
@@ -118,8 +120,8 @@
 									<% end -%>
 							</li>
 						<% end -%>
-    				</ul>
-    			</div>
+  				</ul>
+  			</div>
  		</div>
  	</div>
     </div>

@@ -10506,6 +10506,8 @@ body {
 .content_top .cate-name h3 {
   line-height: 40px;
   margin-top: 0px !important;
+  font-weight: bold;
+  font-size: 20px;
 }
 /* line 363, /home/hoangkien/Rails/linhkienmaytinh/app/assets/stylesheets/home/style.css.scss */
 .content_top .cate-name .sl {

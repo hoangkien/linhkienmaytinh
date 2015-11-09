@@ -5,17 +5,12 @@
   <%= link_to image_tag("#{product.image}",size:"100x200",title: "#{product.name}",class: "product_image"),products_view_path(product) %>
   <div class="details-product"><%= product.name%></div>
   <div class="price-details">
-      <div class="price-number">
-      <p><span class="rupees">Giá : Liên Hệ</span></p>
-      </div>
-            <div class="add-cart">
-              <h4>
-                <%= link_to(products_view_path(product), method: :get) do %>
-                  <i class="fa fa-eye" style=" margin-right: 6px;"></i>
-                  <span>Chi tiết</span>
-                <% end -%>
-              </h4>
-           </div>
-      <div class="clear"></div>
+    <h4 class="truncate"><%= truncate(product.name, length: 30, separator: ' ') %></h4>
+    <!-- <h4 class="full-name"><%= "may loc nuoc may loc nuoc may loc nuoc" %></h4> -->
   </div>
+  <div class="show-details">
+    <%= link_to products_view_path(product) do %>
+      <button class="btn btn-danger">Xem chi tiết</button>
+    <% end -%>
+    </div>
 </div>

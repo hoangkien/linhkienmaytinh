@@ -38,10 +38,11 @@
   font-weight:bold;
   color:#CD1F25;
   text-transform:uppercase;
-  width: 34%;
+  width: 62%;
   margin-top: -60px !important;
   text-align: center;
   margin-left: -22px;
+  font-family: helveticaneuemedium;
  }
  .slide h1 span{
  	font-size:3em;
