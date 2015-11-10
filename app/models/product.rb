@@ -1,12 +1,12 @@
 class Product < ActiveRecord::Base
   extend FriendlyId
   include ApplicationHelper
-
+  mount_uploader :image, ImageUploader
   before_save :set_name_url
 
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-  attr_accessor :sub_category_id,:image_file_name 
+  # has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  # validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  attr_accessor :sub_category_id
   attr_accessible :name,:name_url, :product_id,:size,:light,:gurantee,:price, :category_id,:image,:details,:trademak_id,:tag_list, :sub_category_id
   acts_as_taggable
 

@@ -10,9 +10,6 @@ class Admin::SlidesController < Admin::ApplicationController
 
   def create
     @slide = Slide.new(slide_params)
-    @slide.image = params[:slide]['image'].original_filename
-    upload = Slide.upload(params[:slide])
-
     if @slide.save
       flash[:notice] = "Success"
       redirect_to admin_slides_path
@@ -49,6 +46,6 @@ class Admin::SlidesController < Admin::ApplicationController
 
   private
   def slide_params
-    params.require(:slide).permit(:head, :description)
+    params.require(:slide).permit(:head, :description, :image)
   end
 end

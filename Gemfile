@@ -68,3 +68,4 @@ gem 'dalli'
 gem 'unicode'
 gem 'acts-as-taggable-on'
 gem "twitter-bootstrap-rails"
+gem 'carrierwave'

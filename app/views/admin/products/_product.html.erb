@@ -4,7 +4,7 @@
   <td><%= product.category.name%></td>
   <td><%= product.trademak.name%></td>
   <td><%= number_to_currency(product.price,unit:"VNĐ", format: "%n %u") %></td>
-  <td style="width:150px"><%= product.image ? image_tag("#{product.image}",size:"60x50") : image_tag("no_image.png",size:"60x50")%></td>
+  <td style="width:150px"><%= product.image ? image_tag("#{product.image.url}",size:"60x50") : image_tag("no_image.png",size:"60x50")%></td>
   <td style="text-align:center">
     <%= link_to"Show",admin_product_path(product)%> &nbsp;&nbsp;
     <%= link_to"Edit",edit_admin_product_path(product), method: :get %>&nbsp;&nbsp;
