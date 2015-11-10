@@ -34,11 +34,13 @@
     margin-left: 0% !important;
  }
 .slide h1{
-  font-size:2.5em;
+  font-size: 25px;
   font-weight:bold;
   color:#CD1F25;
   text-transform:uppercase;
-  width: 62%;
+  width: 53%;
+  line-height: 35px;
+
   margin-top: -60px !important;
   text-align: center;
   margin-left: -22px;
