@@ -11,9 +11,9 @@
         <div class="heading">
       		<div class="back-links">
             <div class="cate-name"><h1>Sản Phẩm</h1></div>
-            <div class="icon-next"><img src="/assets/next_icon.gif" style="width:16px"/></div>
+            <div class="icon-next"><i class="fa fa-angle-right"></i></div>
             <div class="cate-name-sub"><h2><%= link_to"#{@product.category.name}", products_view_path(@product.category)%></h2></div>
-            <div class="icon-next"><img src="/assets/next_icon.gif" style="width:16px"/></div>
+            <div class="icon-next"><i class="fa fa-angle-right"></i></div>
             <div class="cate-sub"><h3><%= link_to"#{@product.name}",products_view_path(@product)%></h3></div>
       		  <div class="clear"></div>
           </div>
@@ -75,7 +75,9 @@
    <div id="tag_cloud">
    Tags:
     <% tag_cloud Product.tag_counts, %w[s m l] do |tag, css_class| %>
-      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+      <%= link_to  tag_path(tag.name), class: css_class  do %>
+        <i class="fa fa-tag"><%= tag.name %></i>
+      <% end -%>
     <% end %>
   </div>
    <div class="content_top">

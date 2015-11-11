@@ -14,14 +14,19 @@
 				  <ul class="product">
 				  	<h3><i class="fa fa-list" style='margin-right:10px'></i>Danh mục</h3>
 						<% @category.each do |cate|%>
-							<li><%= link_to products_view_path(cate) do %>
+							<li class="top-level"><%= link_to products_view_path(cate) do %>
                     <i class="fa fa-hand-o-right" style="float:left"></i>
                     <span><%= cate.name%></span>
                   <% end -%>
 								<% if Category.subcategories(cate.id).count > 0 %>
 									<ul class="subcate">
 										<% Category.subcategories(cate.id).each do |subcate| %>
-											<li><%= link_to "#{subcate.name}",products_view_path(subcate)%></li>
+											<li>
+                        <%= link_to products_view_path(subcate) do %>
+                          <i class="fa fa-hand-o-right" style="float:left"></i>
+                          <span><%= subcate.name%></span>
+                        <% end -%>
+                      </li>
 										<% end -%>
 									</ul>
 								<% end -%>

@@ -29,7 +29,7 @@ get_sub_Category = ( id = 1, sub = 'null' ) ->
             else
               option += "<option value = "+ key[1]+">"+key[0]+"</option>"
           $("#sub_cate").css("display","block")
-          $("#sub_cate").html("<select name='product[sub_category_id]' id='sub_category'>#{option}</select>")
+          $("#sub_cate").html("<select name='product[sub_category_id]' id='sub_category' class='form-control'>#{option}</select>")
         else
           $("#sub_cate").html("")
           $("#sub_cate").css("display","none")

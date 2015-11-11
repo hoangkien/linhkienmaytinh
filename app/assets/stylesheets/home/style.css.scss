@@ -604,7 +604,11 @@ body {
 	font-family: 'linotte-regular';
 	color:#CC3636;
 }
-#show-item .grid_1_of_4.images_1_of_4{ width: 21.5%}
+#show-item .grid_1_of_4.images_1_of_4{ 
+  width: 21.5%;
+  img { height:225px}
+  .show-details { left:38px;}
+}
 .images_1_of_4:hover{
   border: 1px solid #A9FF00;
   .show-details{
@@ -801,6 +805,11 @@ body {
     h3{
       a{font-size: 14px;line-height: 40px;}
     }
+  }
+  i {
+    font-size: 18px;
+    padding: 2px 5px;
+    color: blue;
   }
 }
 .back-links p {
@@ -1165,7 +1174,7 @@ body {
     background: #292929;
 }
 .span_3_of_1 li a {
-	font-size:1em;
+	font-size:17px;
 	padding:8px 0 8px 20px;
 	color: #666;
 	display: block;
