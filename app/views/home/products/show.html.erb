@@ -96,7 +96,7 @@
 				<div class="grid_1_of_4 images_1_of_4">
 						<%= link_to image_tag("#{product.image}",size:"100x150" ), products_view_path(product),title: "#{product.name}"%>
 						<div class="price-details">
-              <h4 class="truncate"><%= truncate(product.name, length: 30, separator: ' ') %></h4>
+              <h4 class="truncate"><%= truncate(product.name, length: 22, separator: ' ') %></h4>
 						</div>
             <div class="show-details">
               <%= link_to products_view_path(product) do %>
