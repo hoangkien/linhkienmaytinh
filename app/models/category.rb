@@ -4,13 +4,17 @@ class Category < ActiveRecord::Base
   include ApplicationHelper
 
   attr_accessible :id, :name, :name_url, :parent_id
-  friendly_id :name_url , use: :slugged
 
   has_many :products
 
   before_save :set_name_url, :set_parent_id
 
   scope :cate_parent, ->{ where(parent_id:0).pluck(:name, :id) }
+  friendly_id :name_url , use: :slugged
+  
+  def to_param
+    "#{name_url}".parameterize
+  end
 
   def self.subcategories(id)
   	where("parent_id = #{id}")

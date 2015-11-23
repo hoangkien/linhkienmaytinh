@@ -22,8 +22,7 @@ class Home::ProductsController < Home::ApplicationController
 				@product = Product.friendly.find(params[:id])
 
 			rescue ActiveRecord::RecordNotFound
-
-				@category = Category.friendly.find(params[:id]) rescue nil
+				@category = Category.friendly.where(name_url: params[:id]).first rescue nil
 
 				if @category.nil?
 					raise_not_found
