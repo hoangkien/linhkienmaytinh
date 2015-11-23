@@ -7,7 +7,7 @@ class Admin::ConfigController < Admin::ApplicationController
 	end
 
 	def change_info
-		@info = Info.first || new
+		@info = Info.first || Info.new
 		@info.update(params_info)
 		if @info.save
 			flash[:notice] = "Update thành công !"
@@ -16,7 +16,7 @@ class Admin::ConfigController < Admin::ApplicationController
 	end
 
 	def change_intro
-		@intro = Intro.first || new
+		@intro = Intro.first || Intro.new
 		@intro.intro = params[:intro] if params[:intro]
 		@intro.service = params[:service] if params[:service]
 		if @intro.save
